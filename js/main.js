@@ -4,5 +4,5 @@ import './app-core/index';
 import './app-layout/index';
 
 angular
-  .module('app', ['app.core', 'app-layout'])
+  .module('app', ['app.core', 'app.layout'])
 ;

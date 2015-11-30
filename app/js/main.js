@@ -40,7 +40,20 @@ var _config2 = _interopRequireDefault(_config);
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']);
 
-},{"./config":1,"angular":7,"angular-ui-router":5}],3:[function(require,module,exports){
+},{"./config":1,"angular":8,"angular-ui-router":6}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var HomeController = function HomeController() {};
+
+HomeController.$inject = [];
+
+exports["default"] = HomeController;
+module.exports = exports["default"];
+
+},{}],4:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -49,9 +62,15 @@ var _angular = require('angular');
 
 var _angular2 = _interopRequireDefault(_angular);
 
-_angular2['default'].module('app.layout', []);
+//Controllers
 
-},{"angular":7}],4:[function(require,module,exports){
+var _controllersHomeController = require('./controllers/home.controller');
+
+var _controllersHomeController2 = _interopRequireDefault(_controllersHomeController);
+
+_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']);
+
+},{"./controllers/home.controller":3,"angular":8}],5:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -64,9 +83,9 @@ require('./app-core/index');
 
 require('./app-layout/index');
 
-_angular2['default'].module('app', ['app.core', 'app-layout']);
+_angular2['default'].module('app', ['app.core', 'app.layout']);
 
-},{"./app-core/index":2,"./app-layout/index":3,"angular":7}],5:[function(require,module,exports){
+},{"./app-core/index":2,"./app-layout/index":4,"angular":8}],6:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4437,7 +4456,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33456,11 +33475,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":6}]},{},[4])
+},{"./angular":7}]},{},[5])
 
 
 //# sourceMappingURL=main.js.map
