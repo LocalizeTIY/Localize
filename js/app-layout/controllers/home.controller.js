@@ -1,5 +1,6 @@
 let HomeController = function() {
   
+  let vm = this;
   
 
 };

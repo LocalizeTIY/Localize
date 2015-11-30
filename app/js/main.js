@@ -15,6 +15,14 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/',
     controller: 'HomeController as vm',
     templateUrl: 'templates/app-layout/home.tpl.html'
+  }).state('root.login', {
+    url: '/login',
+    controller: 'LoginController as vm',
+    templateUrl: 'templates/app-layout/login.tpl.html'
+  }).state('root.add', {
+    url: '/add',
+    controller: 'AddController as vm',
+    templateUrl: 'templates/app-layout/add.tpl.html'
   });
 };
 
@@ -40,20 +48,52 @@ var _config2 = _interopRequireDefault(_config);
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']);
 
-},{"./config":1,"angular":8,"angular-ui-router":6}],3:[function(require,module,exports){
+},{"./config":1,"angular":10,"angular-ui-router":8}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var HomeController = function HomeController() {};
+var AddController = function AddController() {
+
+  var vm = this;
+};
+
+AddController.$inject = [];
+
+exports["default"] = AddController;
+module.exports = exports["default"];
+
+},{}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var HomeController = function HomeController() {
+
+  var vm = this;
+};
 
 HomeController.$inject = [];
 
 exports["default"] = HomeController;
 module.exports = exports["default"];
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var LoginController = function LoginController() {};
+
+LoginController.$inject = [];
+
+exports["default"] = LoginController;
+module.exports = exports["default"];
+
+},{}],6:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -68,9 +108,17 @@ var _controllersHomeController = require('./controllers/home.controller');
 
 var _controllersHomeController2 = _interopRequireDefault(_controllersHomeController);
 
-_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']);
+var _controllersLoginController = require('./controllers/login.controller');
 
-},{"./controllers/home.controller":3,"angular":8}],5:[function(require,module,exports){
+var _controllersLoginController2 = _interopRequireDefault(_controllersLoginController);
+
+var _controllersAddController = require('./controllers/add.controller');
+
+var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
+
+_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('LoginController', _controllersLoginController2['default']).controller('AddController', _controllersAddController2['default']);
+
+},{"./controllers/add.controller":3,"./controllers/home.controller":4,"./controllers/login.controller":5,"angular":10}],7:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -85,7 +133,7 @@ require('./app-layout/index');
 
 _angular2['default'].module('app', ['app.core', 'app.layout']);
 
-},{"./app-core/index":2,"./app-layout/index":4,"angular":8}],6:[function(require,module,exports){
+},{"./app-core/index":2,"./app-layout/index":6,"angular":10}],8:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4456,7 +4504,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33475,11 +33523,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":7}]},{},[5])
+},{"./angular":9}]},{},[7])
 
 
 //# sourceMappingURL=main.js.map
