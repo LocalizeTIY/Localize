@@ -1,0 +1,18 @@
+// Put any @imports here
+// See Readme for a list of supported ones
+@import 'foundation';
+@import 'font-awesome';
+@import 'bourbon';
+@import 'neat';
+
+
+////// Localize Colors //////
+$greyDark: #262425;
+$greyMedium: #3E3E3E;
+$greyBrown: #878676;
+$greyLight: #E6E6E6;
+$redBright: #F1091F;
+
+body {
+  background: #fff;
+}
