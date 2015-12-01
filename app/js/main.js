@@ -21,7 +21,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
   }).state('root.login', {
     url: '/login',
     controller: 'LoginController as vm',
-    templateUrl: 'templates/app-layout/login.tpl.html'
+    templateUrl: 'templates/app-user/login.tpl.html'
   }).state('root.add', {
     url: '/add',
     controller: 'AddController as vm',
@@ -51,7 +51,11 @@ var _config2 = _interopRequireDefault(_config);
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']);
 
+
 },{"./config":1,"angular":11,"angular-ui-router":9}],3:[function(require,module,exports){
+
+},{"./config":1,"angular":12,"angular-ui-router":10}],3:[function(require,module,exports){
+
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -84,6 +88,31 @@ exports["default"] = HomeController;
 module.exports = exports["default"];
 
 },{}],5:[function(require,module,exports){
+'use strict';
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+//Controllers
+
+var _controllersHomeController = require('./controllers/home.controller');
+
+var _controllersHomeController2 = _interopRequireDefault(_controllersHomeController);
+
+// import LoginController from './controllers/login.controller';
+
+var _controllersAddController = require('./controllers/add.controller');
+
+var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
+
+_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default'])
+// .controller('LoginController', LoginController)
+.controller('AddController', _controllersAddController2['default']);
+
+},{"./controllers/add.controller":3,"./controllers/home.controller":4,"angular":12}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -96,7 +125,7 @@ LoginController.$inject = [];
 exports["default"] = LoginController;
 module.exports = exports["default"];
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -129,19 +158,23 @@ var _angular = require('angular');
 
 var _angular2 = _interopRequireDefault(_angular);
 
-//Controllers
-
-var _controllersHomeController = require('./controllers/home.controller');
-
-var _controllersHomeController2 = _interopRequireDefault(_controllersHomeController);
-
 var _controllersLoginController = require('./controllers/login.controller');
 
 var _controllersLoginController2 = _interopRequireDefault(_controllersLoginController);
 
-var _controllersAddController = require('./controllers/add.controller');
+//import SignupController from './controllers/signup.controller';
 
-var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
+var _servicesUserService = require('./services/user.service');
+
+var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
+
+_angular2['default'].module('app.user', ['app.core'])
+// .controller('SignupController', SignupController)
+.controller('LoginController', _controllersLoginController2['default']).service('UserService', _servicesUserService2['default']);
+
+},{"./controllers/login.controller":6,"./services/user.service":8,"angular":12}],8:[function(require,module,exports){
+'use strict';
+
 
 var _controllersRegisterController = require('./controllers/register.controller');
 
@@ -150,6 +183,19 @@ var _controllersRegisterController2 = _interopRequireDefault(_controllersRegiste
 _angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('LoginController', _controllersLoginController2['default']).controller('AddController', _controllersAddController2['default']).controller('RegisterController', _controllersRegisterController2['default']);
 
 },{"./controllers/add.controller":3,"./controllers/home.controller":4,"./controllers/login.controller":5,"./controllers/register.controller":6,"angular":11}],8:[function(require,module,exports){
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var UserService = function UserService() {};
+
+UserService.$inject = [''];
+
+exports['default'] = UserService;
+module.exports = exports['default'];
+
+},{}],9:[function(require,module,exports){
+
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -168,20 +214,28 @@ require('foundation');
 
 //Starting up foundation
 
+//IMPORTING OUR SUB-MODULES
+
 require('./app-core/index');
 
 require('./app-layout/index');
 
+require('./app-user/index');
+
 (0, _jquery2['default'])(document).foundation();
 
-_angular2['default'].module('app', ['app.core', 'app.layout']).run(function ($rootScope) {
+_angular2['default'].module('app', ['app.core', 'app.layout', 'app.user']).run(function ($rootScope) {
   // $viewContentLoaded comes from Ui Router
   $rootScope.$on('$viewContentLoaded', function (event, data) {
     (0, _jquery2['default'])(document).foundation();
   });
 });
 
+
 },{"./app-core/index":2,"./app-layout/index":7,"angular":11,"foundation":12,"jquery":13}],9:[function(require,module,exports){
+
+},{"./app-core/index":2,"./app-layout/index":5,"./app-user/index":7,"angular":12,"foundation":13,"jquery":14}],10:[function(require,module,exports){
+
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4552,7 +4606,11 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
+<<<<<<< HEAD
 },{}],10:[function(require,module,exports){
+=======
+},{}],11:[function(require,module,exports){
+>>>>>>> master
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33571,11 +33629,19 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
+<<<<<<< HEAD
 },{}],11:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
 },{"./angular":10}],12:[function(require,module,exports){
+=======
+},{}],12:[function(require,module,exports){
+require('./angular');
+module.exports = angular;
+
+},{"./angular":11}],13:[function(require,module,exports){
+>>>>>>> master
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
@@ -41016,7 +41082,11 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
+<<<<<<< HEAD
 },{}],13:[function(require,module,exports){
+=======
+},{}],14:[function(require,module,exports){
+>>>>>>> master
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -50236,7 +50306,11 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
+
 },{}]},{},[8])
+
+},{}]},{},[9])
+
 
 
 //# sourceMappingURL=main.js.map
