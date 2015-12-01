@@ -5,7 +5,7 @@
 The following students participated in this project:
 
 Hyona Kim - hyonakim
-Maryam Ali - itawtitawapuddytat
+Maryam Ali - MaryamAli
 Shalmali Padgoakar - Shalmalidp
 
 This project is fictional. There is no real client. Any similarity is purely a coincidence.
