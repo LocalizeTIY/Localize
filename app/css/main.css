@@ -5094,4 +5094,26 @@ html {
 body {
   background: #fff; }
 
+.title-area {
+  width: 50%;
+  list-style: none; }
+
+.right {
+  list-style: none;
+  box-sizing: border-box;
+  height: 20px; }
+
+.right li {
+  font-size: 0.9em;
+  padding: 2%;
+  display: inline-block;
+  text-align: top; }
+
+.position-right {
+  display: inline-block;
+  width: 20%;
+  position: absolute;
+  top: 8%;
+  right: 2%; }
+
 /*# sourceMappingURL=main.css.map */
