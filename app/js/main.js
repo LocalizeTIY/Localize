@@ -107,6 +107,42 @@ module.exports = exports["default"];
 },{}],6:[function(require,module,exports){
 'use strict';
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+//Controllers
+
+var _controllersHomeController = require('./controllers/home.controller');
+
+var _controllersHomeController2 = _interopRequireDefault(_controllersHomeController);
+
+// import LoginController from './controllers/login.controller';
+
+var _controllersAddController = require('./controllers/add.controller');
+
+var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
+
+_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']);
+
+},{"./controllers/add.controller":4,"./controllers/home.controller":5,"angular":14}],7:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var LoginController = function LoginController() {};
+
+LoginController.$inject = [];
+
+exports["default"] = LoginController;
+module.exports = exports["default"];
+
+},{}],8:[function(require,module,exports){
+'use strict';
+
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
@@ -128,48 +164,6 @@ RegisterController.$inject = ['UserService'];
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],7:[function(require,module,exports){
-'use strict';
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _angular = require('angular');
-
-var _angular2 = _interopRequireDefault(_angular);
-
-//Controllers
-
-var _controllersHomeController = require('./controllers/home.controller');
-
-var _controllersHomeController2 = _interopRequireDefault(_controllersHomeController);
-
-// import LoginController from './controllers/login.controller';
-
-var _controllersAddController = require('./controllers/add.controller');
-
-var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
-
-var _controllersRegisterController = require('./controllers/register.controller');
-
-var _controllersRegisterController2 = _interopRequireDefault(_controllersRegisterController);
-
-_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default'])
-// .controller('LoginController', LoginController)
-.controller('AddController', _controllersAddController2['default']).controller('RegisterController', _controllersRegisterController2['default']);
-
-},{"./controllers/add.controller":4,"./controllers/home.controller":5,"./controllers/register.controller":6,"angular":14}],8:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var LoginController = function LoginController() {};
-
-LoginController.$inject = [];
-
-exports["default"] = LoginController;
-module.exports = exports["default"];
-
 },{}],9:[function(require,module,exports){
 'use strict';
 
@@ -183,17 +177,17 @@ var _controllersLoginController = require('./controllers/login.controller');
 
 var _controllersLoginController2 = _interopRequireDefault(_controllersLoginController);
 
-//import SignupController from './controllers/signup.controller';
+var _controllersRegisterController = require('./controllers/register.controller');
+
+var _controllersRegisterController2 = _interopRequireDefault(_controllersRegisterController);
 
 var _servicesUserService = require('./services/user.service');
 
 var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
 
-_angular2['default'].module('app.user', ['app.core'])
-// .controller('SignupController', SignupController)
-.controller('LoginController', _controllersLoginController2['default']).service('UserService', _servicesUserService2['default']);
+_angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLoginController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('UserService', _servicesUserService2['default']);
 
-},{"./controllers/login.controller":8,"./services/user.service":10,"angular":14}],10:[function(require,module,exports){
+},{"./controllers/login.controller":7,"./controllers/register.controller":8,"./services/user.service":10,"angular":14}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -249,7 +243,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout', 'app.user']).run(f
   });
 });
 
-},{"./app-core/index":3,"./app-layout/index":7,"./app-user/index":9,"angular":14,"foundation":15,"jquery":16}],12:[function(require,module,exports){
+},{"./app-core/index":3,"./app-layout/index":6,"./app-user/index":9,"angular":14,"foundation":15,"jquery":16}],12:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
