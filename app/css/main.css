@@ -5113,7 +5113,13 @@ body {
   display: inline-block;
   width: 20%;
   position: absolute;
-  top: 8%;
-  right: 2%; }
+  top: 11%;
+  right: 0%; }
+
+.login {
+  padding: 5%;
+  margin: 5% auto;
+  width: 50%;
+  border: 1px solid black; }
 
 /*# sourceMappingURL=main.css.map */

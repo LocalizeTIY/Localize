@@ -17,7 +17,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     .state('root.login',{
       url:'/login',
       controller:'LoginController as vm',
-      templateUrl:'templates/app-layout/login.tpl.html'
+      templateUrl:'templates/app-user/login.tpl.html'
     })
 
     .state('root.add',{
