@@ -5092,7 +5092,8 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #fff; }
+  background: #3E3E3E;
+  opacity: 0.7; }
 
 .title-area {
   width: 50%;
@@ -5119,7 +5120,14 @@ body {
 .login {
   padding: 5%;
   margin: 5% auto;
-  width: 50%;
-  border: 1px solid black; }
+  width: 50%; }
+
+.button:hover {
+  background-color: #E6E6E6 !important; }
+
+.success, .alert {
+  color: #F1091F !important;
+  background-color: #878676 !important;
+  font-weight: bold !important; }
 
 /*# sourceMappingURL=main.css.map */
