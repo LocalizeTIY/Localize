@@ -51,7 +51,7 @@ var _config2 = _interopRequireDefault(_config);
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']);
 
-},{"./config":1,"angular":10,"angular-ui-router":8}],3:[function(require,module,exports){
+},{"./config":1,"angular":11,"angular-ui-router":9}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -99,6 +99,30 @@ module.exports = exports["default"];
 },{}],6:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var RegisterController = function RegisterController(UserService) {
+
+  var vm = this;
+
+  vm.signUp = signUp;
+
+  function signUp(user) {
+    UserService.signUp(user).then(function (res) {
+      UserService.storeAuth(res.data);
+    });
+  }
+};
+
+RegisterController.$inject = ['UserService'];
+
+exports['default'] = RegisterController;
+module.exports = exports['default'];
+
+},{}],7:[function(require,module,exports){
+'use strict';
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _angular = require('angular');
@@ -119,9 +143,13 @@ var _controllersAddController = require('./controllers/add.controller');
 
 var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
 
-_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('LoginController', _controllersLoginController2['default']).controller('AddController', _controllersAddController2['default']);
+var _controllersRegisterController = require('./controllers/register.controller');
 
-},{"./controllers/add.controller":3,"./controllers/home.controller":4,"./controllers/login.controller":5,"angular":10}],7:[function(require,module,exports){
+var _controllersRegisterController2 = _interopRequireDefault(_controllersRegisterController);
+
+_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('LoginController', _controllersLoginController2['default']).controller('AddController', _controllersAddController2['default']).controller('RegisterController', _controllersRegisterController2['default']);
+
+},{"./controllers/add.controller":3,"./controllers/home.controller":4,"./controllers/login.controller":5,"./controllers/register.controller":6,"angular":11}],8:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -153,7 +181,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout']).run(function ($ro
   });
 });
 
-},{"./app-core/index":2,"./app-layout/index":6,"angular":10,"foundation":11,"jquery":12}],8:[function(require,module,exports){
+},{"./app-core/index":2,"./app-layout/index":7,"angular":11,"foundation":12,"jquery":13}],9:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4524,7 +4552,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33543,11 +33571,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":9}],11:[function(require,module,exports){
+},{"./angular":10}],12:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
@@ -40988,7 +41016,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -50208,7 +50236,7 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}]},{},[7])
+},{}]},{},[8])
 
 
 //# sourceMappingURL=main.js.map
