@@ -17,7 +17,8 @@ $greyLight: #E6E6E6;
 $redBright: #F1091F;
 
 body {
-  background: #fff;
+  background:$greyMedium;
+  opacity :0.7;
 }
 .title-area{
   width :50%;
@@ -43,9 +44,28 @@ body {
   //border:1px solid black;
   width :20%;
   position :absolute;
-  top :8%;
-  right:2%;
+  top :11%;
+  right:0%;
 }
 
+//LOGIN TEMPLATE
+
+.login{
+  padding :5%;
+  margin:5% auto;
+  width : 50%;
+  //height:200px;
+  //border:1px solid black;
+}
+
+.button:hover{
+  background-color: $greyLight !important ;
+}
+.success,.alert{
+  color:$redBright !important;
+  background-color: $greyBrown !important;
+  font-weight:bold !important;
+//   opacity : 0.4;
+}
 
 
