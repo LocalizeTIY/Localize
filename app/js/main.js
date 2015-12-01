@@ -15,6 +15,9 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/',
     controller: 'HomeController as vm',
     templateUrl: 'templates/app-layout/home.tpl.html'
+  }).state('root.register', {
+    url: '/register',
+    templateUrl: 'templates/app-layout/register.tpl.html'
   }).state('root.login', {
     url: '/login',
     controller: 'LoginController as vm',
@@ -48,7 +51,7 @@ var _config2 = _interopRequireDefault(_config);
 
 _angular2['default'].module('app.core', ['ui.router']).config(_config2['default']);
 
-},{"./config":1,"angular":12,"angular-ui-router":10}],3:[function(require,module,exports){
+},{"./config":1,"angular":13,"angular-ui-router":11}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -83,6 +86,30 @@ module.exports = exports["default"];
 },{}],5:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var RegisterController = function RegisterController(UserService) {
+
+  var vm = this;
+
+  vm.signUp = signUp;
+
+  function signUp(user) {
+    UserService.signup(user).then(function (res) {
+      UserService.storeAuth(res.data);
+    });
+  }
+};
+
+RegisterController.$inject = ['UserService'];
+
+exports['default'] = RegisterController;
+module.exports = exports['default'];
+
+},{}],6:[function(require,module,exports){
+'use strict';
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _angular = require('angular');
@@ -101,11 +128,15 @@ var _controllersAddController = require('./controllers/add.controller');
 
 var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
 
+var _controllersRegisterController = require('./controllers/register.controller');
+
+var _controllersRegisterController2 = _interopRequireDefault(_controllersRegisterController);
+
 _angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default'])
 // .controller('LoginController', LoginController)
-.controller('AddController', _controllersAddController2['default']);
+.controller('AddController', _controllersAddController2['default']).controller('RegisterController', _controllersRegisterController2['default']);
 
-},{"./controllers/add.controller":3,"./controllers/home.controller":4,"angular":12}],6:[function(require,module,exports){
+},{"./controllers/add.controller":3,"./controllers/home.controller":4,"./controllers/register.controller":5,"angular":13}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118,7 +149,7 @@ LoginController.$inject = [];
 exports["default"] = LoginController;
 module.exports = exports["default"];
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -141,20 +172,27 @@ _angular2['default'].module('app.user', ['app.core'])
 // .controller('SignupController', SignupController)
 .controller('LoginController', _controllersLoginController2['default']).service('UserService', _servicesUserService2['default']);
 
-},{"./controllers/login.controller":6,"./services/user.service":8,"angular":12}],8:[function(require,module,exports){
+},{"./controllers/login.controller":7,"./services/user.service":9,"angular":13}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var UserService = function UserService() {};
+var UserService = function UserService(PARSE, $http, $cookies, $state) {
 
-UserService.$inject = [''];
+  this.signup = signup;
+
+  function signup(userObj) {
+    return $http.post(PARSE.URL + 'users', userObj, PARSE.CONFIG);
+  }
+};
+
+UserService.$inject = ['PARSE', '$http', '$cookies', '$state'];
 
 exports['default'] = UserService;
 module.exports = exports['default'];
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -190,7 +228,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout', 'app.user']).run(f
   });
 });
 
-},{"./app-core/index":2,"./app-layout/index":5,"./app-user/index":7,"angular":12,"foundation":13,"jquery":14}],10:[function(require,module,exports){
+},{"./app-core/index":2,"./app-layout/index":6,"./app-user/index":8,"angular":13,"foundation":14,"jquery":15}],11:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4561,7 +4599,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33580,11 +33618,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":11}],13:[function(require,module,exports){
+},{"./angular":12}],14:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
@@ -41025,7 +41063,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -50245,7 +50283,7 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}]},{},[9])
+},{}]},{},[10])
 
 
 //# sourceMappingURL=main.js.map
