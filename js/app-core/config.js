@@ -24,6 +24,12 @@ let config = function($stateProvider, $urlRouterProvider) {
       url:'/add',
       controller:'AddController as vm',
       templateUrl : 'templates/app-layout/add.tpl.html'
+    })
+
+    .state('root.dashboard', {
+      url: '/dashboard',
+      controller: 'DashboardController as vm',
+      templateUrl: 'templates/app-dashboard/dashboard.tpl.html'
     });
   
 
