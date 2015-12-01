@@ -5,7 +5,7 @@ let RegisterController = function(UserService) {
   vm.signUp = signUp;
 
   function signUp (user) {
-    UserService.signUp(user).then( (res) => {
+    UserService.signup(user).then( (res) => {
       UserService.storeAuth(res.data);
     });
   }

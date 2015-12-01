@@ -1,9 +1,9 @@
 <h3>Sign up with Localize</h3>
 
 <form ng-submit='vm.signUp(user)'>
-  <input placeholder='Your Name'>
-  <input placeholder='Your Email'>
-  <input placeholder='Create Username'>
-  <input placeholder='Create Password'>
+  <input ng-model='user.fullname' placeholder='Your Name'>
+  <input ng-model='user.email' placeholder='Your Email'>
+  <input ng-model='user.username' placeholder='Create Username'>
+  <input ng-model='user.password' placeholder='Create Password'>
   <button>Register</button>
 </form>
