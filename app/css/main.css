@@ -5092,6 +5092,42 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #fff; }
+  background: #3E3E3E;
+  opacity: 0.7; }
+
+.title-area {
+  width: 50%;
+  list-style: none; }
+
+.right {
+  list-style: none;
+  box-sizing: border-box;
+  height: 20px; }
+
+.right li {
+  font-size: 0.9em;
+  padding: 2%;
+  display: inline-block;
+  text-align: top; }
+
+.position-right {
+  display: inline-block;
+  width: 20%;
+  position: absolute;
+  top: 11%;
+  right: 0%; }
+
+.login {
+  padding: 5%;
+  margin: 5% auto;
+  width: 50%; }
+
+.button:hover {
+  background-color: #E6E6E6 !important; }
+
+.success, .alert {
+  color: #F1091F !important;
+  background-color: #878676 !important;
+  font-weight: bold !important; }
 
 /*# sourceMappingURL=main.css.map */
