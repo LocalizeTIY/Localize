@@ -129,11 +129,11 @@ var _angular2 = _interopRequireDefault(_angular);
 
 //Import jQuery & Foundation
 
-require('foundation');
-
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
+
+require('foundation');
 
 //Starting up foundation
 
@@ -144,8 +144,8 @@ require('./app-layout/index');
 (0, _jquery2['default'])(document).foundation();
 
 _angular2['default'].module('app', ['app.core', 'app.layout']).run(function ($rootScope) {
-  //$viewContentLoaded comes from Ui Router
-  $rootScope.on('$viewContentLoaded', function (event, data) {
+  // $viewContentLoaded comes from Ui Router
+  $rootScope.$on('$viewContentLoaded', function (event, data) {
     (0, _jquery2['default'])(document).foundation();
   });
 });
