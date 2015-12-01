@@ -1,6 +1,30 @@
 let UserService = function(PARSE, $http, $cookies, $state) {
   
-  this.signup = signup;
+  this.signup     = signup;
+  this.login      = login;
+  this.storeAuth  = storeAuth;
+  this.checkAuth  = checkAuth;
+  this.setHeaders = setHeaders;
+
+  function login(userObj){
+    return $http.get(PARSE.URL +'login',{
+      headers  : PARSE.CONFIG.headers,
+      params   : userObj 
+    });
+  }
+
+  function storeAuth(user){
+      $cookies.put('', user.authData);
+      $cookies.put('', user.objectId);
+      setHeaders(user.sessionToken);
+      $state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
+  }
+
+  function checkAuth(){}
+
+  function setHeaders (token) {
+    PARSE.CONFIG.headers['X-Parse-Session-Token'] = token;
+  }
 
   function signup (userObj) {
     return $http.post(PARSE.URL + 'users', userObj, PARSE.CONFIG);

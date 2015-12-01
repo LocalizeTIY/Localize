@@ -1,9 +1,16 @@
-let LoginController = function() {
+let LoginController = function(UserService) {
   
+  let vm = this;
+
+  function login(userObj){
+    UserService.login(userObj).then((res)=>{
+      UserService.storeAuth(res.data);
+    });
+  }
   
 
 };
 
-LoginController.$inject = [];
+LoginController.$inject = ['UserService'];
 
 export default LoginController;
