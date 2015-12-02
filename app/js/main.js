@@ -162,7 +162,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var RegisterController = function RegisterController(UserService) {
+var RegisterController = function RegisterController(UserService, $state) {
 
   var vm = this;
 
@@ -172,11 +172,12 @@ var RegisterController = function RegisterController(UserService) {
     console.log(user);
     UserService.signup(user).then(function (res) {
       console.log(res.data);
+      $state.go('root.home');
     });
   }
 };
 
-RegisterController.$inject = ['UserService'];
+RegisterController.$inject = ['UserService', '$state'];
 
 exports['default'] = RegisterController;
 module.exports = exports['default'];
@@ -228,15 +229,6 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
       params: userObj
     });
   }
-
-  // function storeAuth(user){
-  //   $cookies.put('', user.authData);
-  //   $cookies.put('', user.objectId);
-  //   setHeaders(user.sessionToken);
-  //   $state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
-  // }
-
-  function checkAuth() {}
 
   function setHeaders(token) {
     PARSE.CONFIG.headers['X-Parse-Session-Token'] = token;

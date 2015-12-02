@@ -18,15 +18,6 @@ let UserService = function(PARSE, $http, $cookies, $state) {
     });
   }
 
-  // function storeAuth(user){
-  //   $cookies.put('', user.authData);
-  //   $cookies.put('', user.objectId);
-  //   setHeaders(user.sessionToken);
-  //   $state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
-  // }
-
-  function checkAuth(){}
-
   function setHeaders (token) {
     PARSE.CONFIG.headers['X-Parse-Session-Token'] = token;
   }
