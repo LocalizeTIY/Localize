@@ -79,7 +79,60 @@ var _constantsParseConstant2 = _interopRequireDefault(_constantsParseConstant);
 
 _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_config2['default']).constant('PARSE', _constantsParseConstant2['default']);
 
-},{"./config":1,"./constants/parse.constant":2,"angular":16,"angular-cookies":13,"angular-ui-router":14}],4:[function(require,module,exports){
+},{"./config":1,"./constants/parse.constant":2,"angular":19,"angular-cookies":16,"angular-ui-router":17}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var DashboardController = function DashboardController() {
+
+  var vm = this;
+};
+
+DashboardController.$inject = [];
+
+exports["default"] = DashboardController;
+module.exports = exports["default"];
+
+},{}],5:[function(require,module,exports){
+'use strict';
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+//Controllers
+
+var _controllersDashboardController = require('./controllers/dashboard.controller');
+
+var _controllersDashboardController2 = _interopRequireDefault(_controllersDashboardController);
+
+var _servicesDashboardService = require('./services/dashboard.service');
+
+var _servicesDashboardService2 = _interopRequireDefault(_servicesDashboardService);
+
+_angular2['default'].module('app.dashboard', ['app.core']).controller('DashboardController', _controllersDashboardController2['default']).service('DashboardService', _servicesDashboardService2['default']);
+
+},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":19}],6:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var DashboardService = function DashboardService() {
+
+  var vm = this;
+};
+
+DashboardService.$inject = [];
+
+exports["default"] = DashboardService;
+module.exports = exports["default"];
+
+},{}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -95,7 +148,7 @@ AddController.$inject = [];
 exports["default"] = AddController;
 module.exports = exports["default"];
 
-},{}],5:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -111,7 +164,7 @@ HomeController.$inject = [];
 exports["default"] = HomeController;
 module.exports = exports["default"];
 
-},{}],6:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -134,7 +187,7 @@ var _controllersAddController2 = _interopRequireDefault(_controllersAddControlle
 
 _angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']);
 
-},{"./controllers/add.controller":4,"./controllers/home.controller":5,"angular":16}],7:[function(require,module,exports){
+},{"./controllers/add.controller":7,"./controllers/home.controller":8,"angular":19}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -161,7 +214,7 @@ LoginController.$inject = ['UserService', '$state'];
 exports['default'] = LoginController;
 module.exports = exports['default'];
 
-},{}],8:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -186,7 +239,7 @@ RegisterController.$inject = ['UserService'];
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],9:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -209,7 +262,7 @@ var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
 
 _angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLoginController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('UserService', _servicesUserService2['default']);
 
-},{"./controllers/login.controller":7,"./controllers/register.controller":8,"./services/user.service":10,"angular":16}],10:[function(require,module,exports){
+},{"./controllers/login.controller":10,"./controllers/register.controller":11,"./services/user.service":13,"angular":19}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -269,7 +322,7 @@ UserService.$inject = ['PARSE', '$http', '$cookies', '$state'];
 exports['default'] = UserService;
 module.exports = exports['default'];
 
-},{}],11:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -296,16 +349,18 @@ require('./app-layout/index');
 
 require('./app-user/index');
 
+require('./app-dashboard/index');
+
 (0, _jquery2['default'])(document).foundation();
 
-_angular2['default'].module('app', ['app.core', 'app.layout', 'app.user']).run(function ($rootScope) {
+_angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.dashboard']).run(function ($rootScope) {
   // $viewContentLoaded comes from Ui Router
   $rootScope.$on('$viewContentLoaded', function (event, data) {
     (0, _jquery2['default'])(document).foundation();
   });
 });
 
-},{"./app-core/index":3,"./app-layout/index":6,"./app-user/index":9,"angular":16,"foundation":17,"jquery":18}],12:[function(require,module,exports){
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":9,"./app-user/index":12,"angular":19,"foundation":20,"jquery":21}],15:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -628,11 +683,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],13:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":12}],14:[function(require,module,exports){
+},{"./angular-cookies":15}],17:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -5003,7 +5058,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],15:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -34022,11 +34077,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],16:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":15}],17:[function(require,module,exports){
+},{"./angular":18}],20:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
@@ -41467,7 +41522,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],18:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -50687,7 +50742,7 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}]},{},[11])
+},{}]},{},[14])
 
 
 //# sourceMappingURL=main.js.map

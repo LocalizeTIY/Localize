@@ -1,1 +1,27 @@
-<h4>User Dashboard tpl</h4>
+<div class="dashboard">
+  
+  <p class="welcome"> Welcome to Localize, {{ username }}</p>
+
+  <table class="eventTable">
+    <tr>
+      <td class=eventName>Your Events</td>
+    </tr>
+    <tr ng-repeat="event in events">
+      <td class="eventTitles">{{ events.eventname }}</td>
+      <td class="centered">{{ events.location }}</td>
+      <td class="centered">{{ events.date }}</td>
+      <td class="centered">{{ events.time }}</td>
+      <td class="centered">{{ events.tags }}</td>
+
+    </tr>
+    <tr>
+      <a href="#/add"><button><i class="fa fa-plus-circle"></i></button> Add Event</a>
+    </tr>
+  </table>
+
+  <div class="fixedButtons">
+    <a href="#/"><button><i class="fa fa-home"></i> Home</button></a>   
+    <a href="#/logout"><button><i class="fa fa-sign-out"></i> Log Out</button></a>
+  </div>  
+
+</div>
