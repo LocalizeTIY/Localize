@@ -2,6 +2,9 @@ let UserService = function(PARSE, $http, $cookies, $state) {
 
   let regURL = PARSE.URL + 'users';
   
+  let loginUrl = PARSE.URL +'login';
+
+
   this.signup     = signup;
   this.login      = login;
   this.storeAuth  = storeAuth;
@@ -15,12 +18,12 @@ let UserService = function(PARSE, $http, $cookies, $state) {
     });
   }
 
-  function storeAuth(user){
-    $cookies.put('', user.authData);
-    $cookies.put('', user.objectId);
-    setHeaders(user.sessionToken);
-    $state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
-  }
+  // function storeAuth(user){
+  //   $cookies.put('', user.authData);
+  //   $cookies.put('', user.objectId);
+  //   setHeaders(user.sessionToken);
+  //   $state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
+  // }
 
   function checkAuth(){}
 
