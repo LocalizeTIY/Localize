@@ -5130,4 +5130,10 @@ body {
   background-color: #878676 !important;
   font-weight: bold !important; }
 
+.add-event {
+  border: 0.1em solid black;
+  width: 60%;
+  padding: 5%;
+  margin: 2% auto; }
+
 /*# sourceMappingURL=main.css.map */
