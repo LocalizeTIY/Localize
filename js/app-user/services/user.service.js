@@ -1,9 +1,17 @@
 let UserService = function(PARSE, $http, $cookies, $state) {
+
+  let regURL = PARSE.URL + 'users';
   
   this.signup = signup;
 
+  function User (userObj) {
+    this.username = userObj.username;
+    this.password = userObj.password;
+  }
+
   function signup (userObj) {
-    return $http.post(PARSE.URL + 'users', userObj, PARSE.CONFIG);
+    let person = new User (userObj);
+    return $http.post(regURL, userObj, PARSE.CONFIG);
   }
 
 };
