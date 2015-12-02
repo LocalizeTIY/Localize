@@ -114,6 +114,51 @@ module.exports = exports["default"];
 },{}],6:[function(require,module,exports){
 'use strict';
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+//Controllers
+
+var _controllersHomeController = require('./controllers/home.controller');
+
+var _controllersHomeController2 = _interopRequireDefault(_controllersHomeController);
+
+// import LoginController from './controllers/login.controller';
+
+var _controllersAddController = require('./controllers/add.controller');
+
+var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
+
+_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']);
+
+},{"./controllers/add.controller":4,"./controllers/home.controller":5,"angular":16}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var LoginController = function LoginController(UserService) {
+
+  var vm = this;
+
+  function login(userObj) {
+    UserService.login(userObj).then(function (res) {
+      UserService.storeAuth(res.data);
+    });
+  }
+};
+
+LoginController.$inject = ['UserService'];
+
+exports['default'] = LoginController;
+module.exports = exports['default'];
+
+},{}],8:[function(require,module,exports){
+'use strict';
+
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
@@ -136,48 +181,6 @@ RegisterController.$inject = ['UserService'];
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],7:[function(require,module,exports){
-'use strict';
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _angular = require('angular');
-
-var _angular2 = _interopRequireDefault(_angular);
-
-//Controllers
-
-var _controllersHomeController = require('./controllers/home.controller');
-
-var _controllersHomeController2 = _interopRequireDefault(_controllersHomeController);
-
-// import LoginController from './controllers/login.controller';
-
-var _controllersAddController = require('./controllers/add.controller');
-
-var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
-
-var _controllersRegisterController = require('./controllers/register.controller');
-
-var _controllersRegisterController2 = _interopRequireDefault(_controllersRegisterController);
-
-_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default'])
-// .controller('LoginController', LoginController)
-.controller('AddController', _controllersAddController2['default']).controller('RegisterController', _controllersRegisterController2['default']);
-
-},{"./controllers/add.controller":4,"./controllers/home.controller":5,"./controllers/register.controller":6,"angular":16}],8:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var LoginController = function LoginController() {};
-
-LoginController.$inject = [];
-
-exports["default"] = LoginController;
-module.exports = exports["default"];
-
 },{}],9:[function(require,module,exports){
 'use strict';
 
@@ -191,17 +194,17 @@ var _controllersLoginController = require('./controllers/login.controller');
 
 var _controllersLoginController2 = _interopRequireDefault(_controllersLoginController);
 
-//import SignupController from './controllers/signup.controller';
+var _controllersRegisterController = require('./controllers/register.controller');
+
+var _controllersRegisterController2 = _interopRequireDefault(_controllersRegisterController);
 
 var _servicesUserService = require('./services/user.service');
 
 var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
 
-_angular2['default'].module('app.user', ['app.core'])
-// .controller('SignupController', SignupController)
-.controller('LoginController', _controllersLoginController2['default']).service('UserService', _servicesUserService2['default']);
+_angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLoginController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('UserService', _servicesUserService2['default']);
 
-},{"./controllers/login.controller":8,"./services/user.service":10,"angular":16}],10:[function(require,module,exports){
+},{"./controllers/login.controller":7,"./controllers/register.controller":8,"./services/user.service":10,"angular":16}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -212,6 +215,30 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
   var regURL = PARSE.URL + 'users';
 
   this.signup = signup;
+  this.login = login;
+  this.storeAuth = storeAuth;
+  this.checkAuth = checkAuth;
+  this.setHeaders = setHeaders;
+
+  function login(userObj) {
+    return $http.get(PARSE.URL + 'login', {
+      headers: PARSE.CONFIG.headers,
+      params: userObj
+    });
+  }
+
+  function storeAuth(user) {
+    $cookies.put('', user.authData);
+    $cookies.put('', user.objectId);
+    setHeaders(user.sessionToken);
+    $state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
+  }
+
+  function checkAuth() {}
+
+  function setHeaders(token) {
+    PARSE.CONFIG.headers['X-Parse-Session-Token'] = token;
+  }
 
   function User(userObj) {
     this.username = userObj.username;
@@ -265,7 +292,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout', 'app.user']).run(f
   });
 });
 
-},{"./app-core/index":3,"./app-layout/index":7,"./app-user/index":9,"angular":16,"foundation":17,"jquery":18}],12:[function(require,module,exports){
+},{"./app-core/index":3,"./app-layout/index":6,"./app-user/index":9,"angular":16,"foundation":17,"jquery":18}],12:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
