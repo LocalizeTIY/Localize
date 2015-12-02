@@ -5,6 +5,6 @@ import angular from 'angular';
 import DashboardController from './controllers/dashboard.controller';
 
 angular 
-  .module('app.dashboardLayout', [])
+  .module('app.dashboard', [])
   .controller('DashboardController', DashboardController)
 ;
