@@ -5130,4 +5130,22 @@ body {
   background-color: #878676 !important;
   font-weight: bold !important; }
 
+.left {
+  list-style: none;
+  box-sizing: border-box;
+  height: 20px; }
+
+.left li {
+  font-size: 0.9em;
+  padding: 2%;
+  display: inline-block;
+  text-align: top; }
+
+.position-left {
+  display: inline-block;
+  width: 30%;
+  position: absolute;
+  top: 25%;
+  left: 0%; }
+
 /*# sourceMappingURL=main.css.map */

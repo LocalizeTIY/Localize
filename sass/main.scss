@@ -69,3 +69,30 @@ body {
 }
 
 
+// LEFT NAV BAR
+
+
+.left{
+  list-style :none;
+  box-sizing : border-box;
+  height :20px;
+}
+
+.left li{
+  font-size:0.9em;
+  // width : 7%;
+  padding:2%;
+  display:inline-block;
+  text-align :top;
+
+}
+
+.position-left{
+  display:inline-block;
+  //border:1px solid black;
+  width :30%;
+  position :absolute;
+  top :25%;
+  left:0%;
+}
+
