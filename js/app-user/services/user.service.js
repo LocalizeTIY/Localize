@@ -7,9 +7,10 @@ let UserService = function(PARSE, $http, $cookies, $state) {
 
   this.signup     = signup;
   this.login      = login;
-  this.storeAuth  = storeAuth;
-  this.checkAuth  = checkAuth;
-  this.setHeaders = setHeaders;
+  this.loginFail  = loginFail;
+  //this.storeAuth  = storeAuth;
+  //this.checkAuth  = checkAuth;
+  //this.setHeaders = setHeaders;
 
   function login(userObj){
     return $http.get(PARSE.URL +'login',{
@@ -18,6 +19,8 @@ let UserService = function(PARSE, $http, $cookies, $state) {
     });
   }
 
+  function loginFail(userObj){}
+
   // function storeAuth(user){
   //   $cookies.put('', user.authData);
   //   $cookies.put('', user.objectId);
@@ -25,11 +28,14 @@ let UserService = function(PARSE, $http, $cookies, $state) {
   //   $state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
   // }
 
-  function checkAuth(){}
+  // function checkAuth(){
+  //   let token = $cookies.get('sessionToken');
+  //   PARSE.CONFIG.headers['X-Parse-Session-Token'] =token;
+  // }
 
-  function setHeaders (token) {
-    PARSE.CONFIG.headers['X-Parse-Session-Token'] = token;
-  }
+  // function setHeaders (token) {
+  //   PARSE.CONFIG.headers['X-Parse-Session-Token'] = token;
+  // }
 
   function User (userObj) {
     this.username = userObj.username;

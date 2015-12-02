@@ -1,16 +1,20 @@
-let LoginController = function(UserService) {
+let LoginController = function(UserService, $state) {
   
   let vm = this;
 
-  function login(userObj){
-    UserService.login(userObj).then((res)=>{
-      UserService.storeAuth(res.data);
-    });
-  }
-  
+  vm.login =login;
 
+  function login(userObj){
+    if(userObj){
+      UserService.login(userObj).then((res)=>{
+        console.log(res.data.sessionToken);
+        $state.go('root.dashboard'); //HAS TO GO TO DASHBOARD
+      });
+    }  
+    
+  }
 };
 
-LoginController.$inject = ['UserService'];
+LoginController.$inject = ['UserService','$state'];
 
 export default LoginController;

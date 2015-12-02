@@ -140,18 +140,23 @@ _angular2['default'].module('app.layout', []).controller('HomeController', _cont
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var LoginController = function LoginController(UserService) {
+var LoginController = function LoginController(UserService, $state) {
 
   var vm = this;
 
+  vm.login = login;
+
   function login(userObj) {
-    UserService.login(userObj).then(function (res) {
-      UserService.storeAuth(res.data);
-    });
+    if (userObj) {
+      UserService.login(userObj).then(function (res) {
+        console.log(res.data.sessionToken);
+        $state.go('root.dashboard'); //HAS TO GO TO DASHBOARD
+      });
+    }
   }
 };
 
-LoginController.$inject = ['UserService'];
+LoginController.$inject = ['UserService', '$state'];
 
 exports['default'] = LoginController;
 module.exports = exports['default'];
@@ -218,9 +223,10 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
 
   this.signup = signup;
   this.login = login;
-  this.storeAuth = storeAuth;
-  this.checkAuth = checkAuth;
-  this.setHeaders = setHeaders;
+  this.loginFail = loginFail;
+  //this.storeAuth  = storeAuth;
+  //this.checkAuth  = checkAuth;
+  //this.setHeaders = setHeaders;
 
   function login(userObj) {
     return $http.get(PARSE.URL + 'login', {
@@ -229,6 +235,8 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
     });
   }
 
+  function loginFail(userObj) {}
+
   // function storeAuth(user){
   //   $cookies.put('', user.authData);
   //   $cookies.put('', user.objectId);
@@ -236,11 +244,14 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
   //   $state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
   // }
 
-  function checkAuth() {}
+  // function checkAuth(){
+  //   let token = $cookies.get('sessionToken');
+  //   PARSE.CONFIG.headers['X-Parse-Session-Token'] =token;
+  // }
 
-  function setHeaders(token) {
-    PARSE.CONFIG.headers['X-Parse-Session-Token'] = token;
-  }
+  // function setHeaders (token) {
+  //   PARSE.CONFIG.headers['X-Parse-Session-Token'] = token;
+  // }
 
   function User(userObj) {
     this.username = userObj.username;
