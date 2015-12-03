@@ -7,15 +7,15 @@ let LoginController = function(UserService, $state) {
   function login(userObj){
     if(userObj){
       UserService.login(userObj).then((res)=>{
-        console.log(res.data.sessionToken);
+        console.log('after login',res.data);
+        UserService.storeAuth(res.data);
         $state.go('root.dashboard'); //HAS TO GO TO DASHBOARD
       }).catch(()=>{
         alert('Invalid User Name or Password');
       });
     } else{
       alert('Cannot be blank!');
-    }
-    
+    }  
   }
 };
 

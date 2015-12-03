@@ -69,11 +69,25 @@ body {
 }
 
 //ADD FORM
+.pageHeading{
+  margin :3% auto;
+  padding-left:15%;
+}
+
 .add-event{
-  border :0.1em solid black;
+  //border :0.1em solid black;
   width : 50%;
   padding:5%;
-  margin : 5% auto;
+  margin : 2% auto;
+}
+
+.rating-stars{
+  color : yellow !important;
+
+}
+
+.button{
+  margin : 5% 30% ;
 }
 
 .addfields{

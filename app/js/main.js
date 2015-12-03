@@ -79,7 +79,7 @@ var _constantsParseConstant2 = _interopRequireDefault(_constantsParseConstant);
 
 _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_config2['default']).constant('PARSE', _constantsParseConstant2['default']);
 
-},{"./config":1,"./constants/parse.constant":2,"angular":20,"angular-cookies":16,"angular-ui-router":18}],4:[function(require,module,exports){
+},{"./config":1,"./constants/parse.constant":2,"angular":21,"angular-cookies":17,"angular-ui-router":19}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -116,7 +116,7 @@ var _servicesDashboardService2 = _interopRequireDefault(_servicesDashboardServic
 
 _angular2['default'].module('app.dashboard', ['app.core']).controller('DashboardController', _controllersDashboardController2['default']).service('DashboardService', _servicesDashboardService2['default']);
 
-},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":20}],6:[function(require,module,exports){
+},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":21}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -138,24 +138,40 @@ module.exports = exports["default"];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var AddController = function AddController($scope) {
+var AddController = function AddController($scope, LocalizeService, UserService, $cookies) {
 
   var vm = this;
-  $scope.rate = 5;
-  $scope.max = 10;
-  $scope.isReadonly = false;
+  vm.addEvent = addEvent;
+  $scope.user = UserService.getUserInfo();
 
-  $scope.hoveringOver = function (value) {
-    $scope.overStar = value;
-    $scope.percent = 100 * (value / $scope.max);
-  };
-
-  $scope.ratingStates = [{ stateOn: 'fa-check-circle', stateOff: 'fa-check-circle-o' }, { stateOn: 'fa-star', stateOff: 'fa-start-o' }, { stateOn: 'fa-heart', stateOff: 'fa-ban' }, { stateOn: 'fa-heart' }, { stateOff: 'fa-power-off' }];
+  function addEvent(eventObj) {
+    //let user = UserService.getUserInfo();
+    LocalizeService.addEvent(eventObj, user).then(function (res) {
+      console.log(res);
+    });
+  }
 };
 
-AddController.$inject = ['$scope'];
+AddController.$inject = ['$scope', 'LocalizeService', 'UserService', '$cookies'];
 
 exports['default'] = AddController;
+
+// $scope.rate = 5;
+// $scope.max = 10;
+// $scope.isReadonly = false;
+
+// $scope.hoveringOver = function(value) {
+//   $scope.overStar = value;
+//   $scope.percent = 100 * (value / $scope.max);
+// };
+
+// $scope.ratingStates = [
+//   {stateOn: 'fa-check-circle', stateOff: 'fa-check-circle-o'},
+//   {stateOn: 'fa-star', stateOff: 'fa-start-o'},
+//   {stateOn: 'fa-heart', stateOff: 'fa-ban'},
+//   {stateOn: 'fa-heart'},
+//   {stateOff: 'fa-power-off'}
+// ];
 module.exports = exports['default'];
 
 },{}],8:[function(require,module,exports){
@@ -195,9 +211,60 @@ var _controllersAddController = require('./controllers/add.controller');
 
 var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
 
-_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']);
+//service
 
-},{"./controllers/add.controller":7,"./controllers/home.controller":8,"angular":20}],10:[function(require,module,exports){
+var _servicesLocalizeService = require('./services/localize.service');
+
+var _servicesLocalizeService2 = _interopRequireDefault(_servicesLocalizeService);
+
+_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).service('LocalizeService', _servicesLocalizeService2['default']);
+
+},{"./controllers/add.controller":7,"./controllers/home.controller":8,"./services/localize.service":10,"angular":21}],10:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var LocalizeService = function LocalizeService(PARSE, $http, $state, $cookies, UserService) {
+
+  var url = PARSE.URL + 'classes/events';
+
+  this.addEvent = addEvent;
+
+  // function Event(eventObj){
+  //   this.location = eventObj.location; 
+  //   this.name     = eventObj.name;
+  //   this.date     = eventObj.date;
+  //   this.time     = eventObj.time;
+  //   this.permanent= eventObj.permanent;
+  //   this.comment  = eventObj.comment;
+  //   this.tags     = eventObj.tags;
+  //   this.rating   = (!eventObj.rating)? 'No Rating' : eventObj.rating ;
+  // }
+
+  function addEvent(eventObj, user) {
+    // let newEvent = new Event(eventObj);
+
+    var newEventObject = Object.assign({}, {
+      ratings: 'No Rating',
+      createdby: user.userName,
+      user: {
+        __type: 'Pointer',
+        className: '_User',
+        objectId: user.userObjID
+      }
+    }, eventObj);
+
+    return $http.post(url, newEventObject, PARSE.CONFIG);
+  }
+};
+
+LocalizeService.$inject = ['PARSE', '$http', '$state', '$cookies', 'UserService'];
+
+exports['default'] = LocalizeService;
+module.exports = exports['default'];
+
+},{}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -212,7 +279,8 @@ var LoginController = function LoginController(UserService, $state) {
   function login(userObj) {
     if (userObj) {
       UserService.login(userObj).then(function (res) {
-        console.log(res.data.sessionToken);
+        console.log('after login', res.data);
+        UserService.storeAuth(res.data);
         $state.go('root.dashboard'); //HAS TO GO TO DASHBOARD
       })['catch'](function () {
         alert('Invalid User Name or Password');
@@ -228,7 +296,7 @@ LoginController.$inject = ['UserService', '$state'];
 exports['default'] = LoginController;
 module.exports = exports['default'];
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -253,7 +321,7 @@ RegisterController.$inject = ['UserService'];
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -276,7 +344,7 @@ var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
 
 _angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLoginController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('UserService', _servicesUserService2['default']);
 
-},{"./controllers/login.controller":10,"./controllers/register.controller":11,"./services/user.service":13,"angular":20}],13:[function(require,module,exports){
+},{"./controllers/login.controller":11,"./controllers/register.controller":12,"./services/user.service":14,"angular":21}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -290,10 +358,18 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
 
   this.signup = signup;
   this.login = login;
-  this.loginFail = loginFail;
-  //this.storeAuth  = storeAuth;
+  this.storeAuth = storeAuth;
+  this.getUserInfo = getUserInfo;
   //this.checkAuth  = checkAuth;
   //this.setHeaders = setHeaders;
+
+  function getUserInfo() {
+    return {
+      sessionToken: $cookies.get('userSessionToken'),
+      userObjID: $cookies.get('userObjID'),
+      userName: $cookies.get('userName')
+    };
+  }
 
   function login(userObj) {
     return $http.get(PARSE.URL + 'login', {
@@ -302,14 +378,15 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
     });
   }
 
-  function loginFail(userObj) {}
+  function storeAuth(user) {
+    $cookies.put('userSessionToken', user.sessionToken);
+    $cookies.put('userObjID', user.objectId);
+    $cookies.put('userName', user.username);
+    console.log(user.username);
 
-  // function storeAuth(user){
-  //   $cookies.put('', user.authData);
-  //   $cookies.put('', user.objectId);
-  //   setHeaders(user.sessionToken);
-  //   $state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
-  // }
+    //setHeaders(user.sessionToken);
+    //$state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
+  }
 
   // function checkAuth(){
   //   let token = $cookies.get('sessionToken');
@@ -336,7 +413,7 @@ UserService.$inject = ['PARSE', '$http', '$cookies', '$state'];
 exports['default'] = UserService;
 module.exports = exports['default'];
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -376,7 +453,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.d
   });
 });
 
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":9,"./app-user/index":12,"angular":20,"angular-foundation":17,"foundation":21,"jquery":22}],15:[function(require,module,exports){
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":9,"./app-user/index":13,"angular":21,"angular-foundation":18,"foundation":22,"jquery":23}],16:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -699,11 +776,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":15}],17:[function(require,module,exports){
+},{"./angular-cookies":16}],18:[function(require,module,exports){
 /*
  * angular-mm-foundation
  * http://pineconellc.github.io/angular-foundation/
@@ -4319,7 +4396,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -8690,7 +8767,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -37709,11 +37786,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":19}],21:[function(require,module,exports){
+},{"./angular":20}],22:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
@@ -45154,7 +45231,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -54374,7 +54451,7 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}]},{},[14])
+},{}]},{},[15])
 
 
 //# sourceMappingURL=main.js.map

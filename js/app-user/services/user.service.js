@@ -7,10 +7,20 @@ let UserService = function(PARSE, $http, $cookies, $state) {
 
   this.signup     = signup;
   this.login      = login;
-  this.loginFail  = loginFail;
-  //this.storeAuth  = storeAuth;
+  this.storeAuth  = storeAuth;
+  this.getUserInfo = getUserInfo;
   //this.checkAuth  = checkAuth;
   //this.setHeaders = setHeaders;
+
+
+
+  function getUserInfo(){
+    return {
+      sessionToken: $cookies.get('userSessionToken'),
+      userObjID: $cookies.get('userObjID'),
+      userName: $cookies.get('userName')
+    };
+  }
 
   function login(userObj){
     return $http.get(PARSE.URL +'login',{
@@ -19,14 +29,15 @@ let UserService = function(PARSE, $http, $cookies, $state) {
     });
   }
 
-  function loginFail(userObj){}
+  function storeAuth(user){
+    $cookies.put('userSessionToken', user.sessionToken);
+    $cookies.put('userObjID', user.objectId);
+    $cookies.put('userName', user.username);
+    console.log(user.username);
 
-  // function storeAuth(user){
-  //   $cookies.put('', user.authData);
-  //   $cookies.put('', user.objectId);
-  //   setHeaders(user.sessionToken);
-  //   $state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
-  // }
+    //setHeaders(user.sessionToken);
+    //$state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
+  }
 
   // function checkAuth(){
   //   let token = $cookies.get('sessionToken');
