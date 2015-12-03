@@ -14,6 +14,7 @@ let UserService = function(PARSE, $http, $cookies, $state) {
 
 
 
+
   function getUserInfo(){
     return {
       sessionToken: $cookies.get('userSessionToken'),
@@ -34,7 +35,6 @@ let UserService = function(PARSE, $http, $cookies, $state) {
     $cookies.put('userObjID', user.objectId);
     $cookies.put('userName', user.username);
     console.log(user.username);
-
     //setHeaders(user.sessionToken);
     //$state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
   }
@@ -47,6 +47,7 @@ let UserService = function(PARSE, $http, $cookies, $state) {
   // function setHeaders (token) {
   //   PARSE.CONFIG.headers['X-Parse-Session-Token'] = token;
   // }
+
 
   function User (userObj) {
     this.username = userObj.username;

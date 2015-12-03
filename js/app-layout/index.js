@@ -9,7 +9,7 @@ import AddController from './controllers/add.controller';
 import LocalizeService from './services/localize.service';
 
 angular 
-  .module('app.layout', [])
+  .module('app.layout', ['app.social'])
   .controller('HomeController', HomeController)
   .controller('AddController', AddController)
   .service('LocalizeService',LocalizeService)

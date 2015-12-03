@@ -79,7 +79,11 @@ var _constantsParseConstant2 = _interopRequireDefault(_constantsParseConstant);
 
 _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_config2['default']).constant('PARSE', _constantsParseConstant2['default']);
 
+<<<<<<< HEAD
 },{"./config":1,"./constants/parse.constant":2,"angular":21,"angular-cookies":17,"angular-ui-router":19}],4:[function(require,module,exports){
+=======
+},{"./config":1,"./constants/parse.constant":2,"angular":23,"angular-cookies":19,"angular-ui-router":21}],4:[function(require,module,exports){
+>>>>>>> master
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -116,7 +120,11 @@ var _servicesDashboardService2 = _interopRequireDefault(_servicesDashboardServic
 
 _angular2['default'].module('app.dashboard', ['app.core']).controller('DashboardController', _controllersDashboardController2['default']).service('DashboardService', _servicesDashboardService2['default']);
 
+<<<<<<< HEAD
 },{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":21}],6:[function(require,module,exports){
+=======
+},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":23}],6:[function(require,module,exports){
+>>>>>>> master
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -175,20 +183,29 @@ exports['default'] = AddController;
 module.exports = exports['default'];
 
 },{}],8:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var HomeController = function HomeController() {
+var HomeController = function HomeController(SearchService) {
 
   var vm = this;
+
+  vm.search = search;
+  vm.results = [];
+
+  function search(data) {
+    SearchService.search(data).then(function (res) {
+      vm.results = res.data.results;
+    });
+  }
 };
 
-HomeController.$inject = [];
+HomeController.$inject = ['SearchService'];
 
-exports["default"] = HomeController;
-module.exports = exports["default"];
+exports['default'] = HomeController;
+module.exports = exports['default'];
 
 },{}],9:[function(require,module,exports){
 'use strict';
@@ -211,6 +228,7 @@ var _controllersAddController = require('./controllers/add.controller');
 
 var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
 
+<<<<<<< HEAD
 //service
 
 var _servicesLocalizeService = require('./services/localize.service');
@@ -220,11 +238,17 @@ var _servicesLocalizeService2 = _interopRequireDefault(_servicesLocalizeService)
 _angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).service('LocalizeService', _servicesLocalizeService2['default']);
 
 },{"./controllers/add.controller":7,"./controllers/home.controller":8,"./services/localize.service":10,"angular":21}],10:[function(require,module,exports){
+=======
+_angular2['default'].module('app.layout', ['app.social']).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']);
+
+},{"./controllers/add.controller":7,"./controllers/home.controller":8,"angular":23}],10:[function(require,module,exports){
+>>>>>>> master
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
+<<<<<<< HEAD
 var LocalizeService = function LocalizeService(PARSE, $http, $state, $cookies, UserService) {
 
   var url = PARSE.URL + 'classes/events';
@@ -265,6 +289,78 @@ exports['default'] = LocalizeService;
 module.exports = exports['default'];
 
 },{}],11:[function(require,module,exports){
+=======
+var SearchController = function SearchController(SearchService) {
+
+  var vm = this;
+
+  vm.search = search;
+  vm.results = [];
+
+  function search(data) {
+    console.log('here');
+    SearchService.search(data).then(function (res) {
+      console.log(res);
+    });
+  }
+};
+
+SearchController.$inject = ['SearchService'];
+
+exports['default'] = SearchController;
+module.exports = exports['default'];
+
+},{}],11:[function(require,module,exports){
+'use strict';
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+//Controllers
+
+var _controllersSearchController = require('./controllers/search.controller');
+
+var _controllersSearchController2 = _interopRequireDefault(_controllersSearchController);
+
+//Services
+
+var _servicesSearchService = require('./services/search.service');
+
+var _servicesSearchService2 = _interopRequireDefault(_servicesSearchService);
+
+_angular2['default'].module('app.social', ['app.core']).controller('SearchController', _controllersSearchController2['default']).service('SearchService', _servicesSearchService2['default']);
+
+// .directive('SearchResult', SearchResult)
+
+},{"./controllers/search.controller":10,"./services/search.service":12,"angular":23}],12:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var SearchService = function SearchService(PARSE, $http) {
+
+  var eventURL = PARSE.URL + 'classes/events';
+
+  this.search = search;
+
+  function search(objectId) {
+    return $http.get(eventURL, PARSE.CONFIG);
+  }
+};
+
+SearchService.$inject = ['PARSE', '$http'];
+
+exports['default'] = SearchService;
+
+// 'where={"location":{"$regex":".*tiy.*", "$options":"i"}}' \
+module.exports = exports['default'];
+
+},{}],13:[function(require,module,exports){
+>>>>>>> master
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -296,13 +392,17 @@ LoginController.$inject = ['UserService', '$state'];
 exports['default'] = LoginController;
 module.exports = exports['default'];
 
+<<<<<<< HEAD
 },{}],12:[function(require,module,exports){
+=======
+},{}],14:[function(require,module,exports){
+>>>>>>> master
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var RegisterController = function RegisterController(UserService) {
+var RegisterController = function RegisterController(UserService, $state) {
 
   var vm = this;
 
@@ -312,16 +412,21 @@ var RegisterController = function RegisterController(UserService) {
     console.log(user);
     UserService.signup(user).then(function (res) {
       console.log(res.data);
+      $state.go('root.home');
     });
   }
 };
 
-RegisterController.$inject = ['UserService'];
+RegisterController.$inject = ['UserService', '$state'];
 
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
+<<<<<<< HEAD
 },{}],13:[function(require,module,exports){
+=======
+},{}],15:[function(require,module,exports){
+>>>>>>> master
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -344,7 +449,11 @@ var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
 
 _angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLoginController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('UserService', _servicesUserService2['default']);
 
+<<<<<<< HEAD
 },{"./controllers/login.controller":11,"./controllers/register.controller":12,"./services/user.service":14,"angular":21}],14:[function(require,module,exports){
+=======
+},{"./controllers/login.controller":13,"./controllers/register.controller":14,"./services/user.service":16,"angular":23}],16:[function(require,module,exports){
+>>>>>>> master
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -358,10 +467,13 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
 
   this.signup = signup;
   this.login = login;
+<<<<<<< HEAD
   this.storeAuth = storeAuth;
   this.getUserInfo = getUserInfo;
   //this.checkAuth  = checkAuth;
   //this.setHeaders = setHeaders;
+=======
+>>>>>>> master
 
   function getUserInfo() {
     return {
@@ -378,6 +490,7 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
     });
   }
 
+<<<<<<< HEAD
   function storeAuth(user) {
     $cookies.put('userSessionToken', user.sessionToken);
     $cookies.put('userObjID', user.objectId);
@@ -397,6 +510,8 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
   //   PARSE.CONFIG.headers['X-Parse-Session-Token'] = token;
   // }
 
+=======
+>>>>>>> master
   function User(userObj) {
     this.username = userObj.username;
     this.password = userObj.password;
@@ -413,7 +528,11 @@ UserService.$inject = ['PARSE', '$http', '$cookies', '$state'];
 exports['default'] = UserService;
 module.exports = exports['default'];
 
+<<<<<<< HEAD
 },{}],15:[function(require,module,exports){
+=======
+},{}],17:[function(require,module,exports){
+>>>>>>> master
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -442,18 +561,24 @@ require('./app-layout/index');
 
 require('./app-user/index');
 
+require('./app-social/index');
+
 require('./app-dashboard/index');
 
 (0, _jquery2['default'])(document).foundation();
 
-_angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.dashboard', 'mm.foundation']).run(function ($rootScope) {
+_angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.social', 'app.dashboard', 'mm.foundation']).run(function ($rootScope) {
   // $viewContentLoaded comes from Ui Router
   $rootScope.$on('$viewContentLoaded', function (event, data) {
     (0, _jquery2['default'])(document).foundation();
   });
 });
 
+<<<<<<< HEAD
 },{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":9,"./app-user/index":13,"angular":21,"angular-foundation":18,"foundation":22,"jquery":23}],16:[function(require,module,exports){
+=======
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":9,"./app-social/index":11,"./app-user/index":15,"angular":23,"angular-foundation":20,"foundation":24,"jquery":25}],18:[function(require,module,exports){
+>>>>>>> master
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -776,11 +901,19 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
+<<<<<<< HEAD
 },{}],17:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
 },{"./angular-cookies":16}],18:[function(require,module,exports){
+=======
+},{}],19:[function(require,module,exports){
+require('./angular-cookies');
+module.exports = 'ngCookies';
+
+},{"./angular-cookies":18}],20:[function(require,module,exports){
+>>>>>>> master
 /*
  * angular-mm-foundation
  * http://pineconellc.github.io/angular-foundation/
@@ -4396,7 +4529,11 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 
+<<<<<<< HEAD
 },{}],19:[function(require,module,exports){
+=======
+},{}],21:[function(require,module,exports){
+>>>>>>> master
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -8767,7 +8904,11 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
+<<<<<<< HEAD
 },{}],20:[function(require,module,exports){
+=======
+},{}],22:[function(require,module,exports){
+>>>>>>> master
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -37786,11 +37927,19 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
+<<<<<<< HEAD
 },{}],21:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
 },{"./angular":20}],22:[function(require,module,exports){
+=======
+},{}],23:[function(require,module,exports){
+require('./angular');
+module.exports = angular;
+
+},{"./angular":22}],24:[function(require,module,exports){
+>>>>>>> master
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
@@ -45231,7 +45380,11 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
+<<<<<<< HEAD
 },{}],23:[function(require,module,exports){
+=======
+},{}],25:[function(require,module,exports){
+>>>>>>> master
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -54451,7 +54604,11 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
+<<<<<<< HEAD
 },{}]},{},[15])
+=======
+},{}]},{},[17])
+>>>>>>> master
 
 
 //# sourceMappingURL=main.js.map
