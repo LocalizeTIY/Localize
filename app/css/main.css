@@ -5133,10 +5133,20 @@ body {
 #secondNavLink {
   list-style: none; }
 
-.textarea {
-  background: url(http://lorempixel.com/300/300) center center no-repeat;
-  /* This ruins default border */
-  border: 1px solid #888; }
+.textarea1 {
+  background: url(http://lorempixel.com/600/600) center center no-repeat; }
+
+.textarea2 {
+  background: url(http://lorempixel.com/700/700) center center no-repeat; }
+
+.textarea3 {
+  background: url(http://lorempixel.com/800/800) center center no-repeat; }
+
+.textarea1, .textarea2, .textarea3 {
+  border: 1px solid #888;
+  height: 30%;
+  font-weight: bold;
+  text-align: center; }
 
 .list {
   margin: auto;
@@ -5147,11 +5157,6 @@ body {
   display: inline-block;
   width: 25%;
   margin: 2%;
-  text-align: center; }
-
-.textarea {
-  height: 30%;
-  font-weight: bold;
   text-align: center; }
 
 h3 {
