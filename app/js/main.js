@@ -79,7 +79,7 @@ var _constantsParseConstant2 = _interopRequireDefault(_constantsParseConstant);
 
 _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_config2['default']).constant('PARSE', _constantsParseConstant2['default']);
 
-},{"./config":1,"./constants/parse.constant":2,"angular":20,"angular-cookies":16,"angular-ui-router":18}],4:[function(require,module,exports){
+},{"./config":1,"./constants/parse.constant":2,"angular":23,"angular-cookies":19,"angular-ui-router":21}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -116,7 +116,7 @@ var _servicesDashboardService2 = _interopRequireDefault(_servicesDashboardServic
 
 _angular2['default'].module('app.dashboard', ['app.core']).controller('DashboardController', _controllersDashboardController2['default']).service('DashboardService', _servicesDashboardService2['default']);
 
-},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":20}],6:[function(require,module,exports){
+},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":23}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -159,20 +159,29 @@ exports['default'] = AddController;
 module.exports = exports['default'];
 
 },{}],8:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var HomeController = function HomeController() {
+var HomeController = function HomeController(SearchService) {
 
   var vm = this;
+
+  vm.search = search;
+  vm.results = [];
+
+  function search(data) {
+    SearchService.search(data).then(function (res) {
+      vm.results = res.data.results;
+    });
+  }
 };
 
-HomeController.$inject = [];
+HomeController.$inject = ['SearchService'];
 
-exports["default"] = HomeController;
-module.exports = exports["default"];
+exports['default'] = HomeController;
+module.exports = exports['default'];
 
 },{}],9:[function(require,module,exports){
 'use strict';
@@ -195,9 +204,84 @@ var _controllersAddController = require('./controllers/add.controller');
 
 var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
 
-_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']);
+_angular2['default'].module('app.layout', ['app.social']).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']);
 
-},{"./controllers/add.controller":7,"./controllers/home.controller":8,"angular":20}],10:[function(require,module,exports){
+},{"./controllers/add.controller":7,"./controllers/home.controller":8,"angular":23}],10:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var SearchController = function SearchController(SearchService) {
+
+  var vm = this;
+
+  vm.search = search;
+  vm.results = [];
+
+  function search(data) {
+    console.log('here');
+    SearchService.search(data).then(function (res) {
+      console.log(res);
+    });
+  }
+};
+
+SearchController.$inject = ['SearchService'];
+
+exports['default'] = SearchController;
+module.exports = exports['default'];
+
+},{}],11:[function(require,module,exports){
+'use strict';
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+//Controllers
+
+var _controllersSearchController = require('./controllers/search.controller');
+
+var _controllersSearchController2 = _interopRequireDefault(_controllersSearchController);
+
+//Services
+
+var _servicesSearchService = require('./services/search.service');
+
+var _servicesSearchService2 = _interopRequireDefault(_servicesSearchService);
+
+_angular2['default'].module('app.social', ['app.core']).controller('SearchController', _controllersSearchController2['default']).service('SearchService', _servicesSearchService2['default']);
+
+// .directive('SearchResult', SearchResult)
+
+},{"./controllers/search.controller":10,"./services/search.service":12,"angular":23}],12:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var SearchService = function SearchService(PARSE, $http) {
+
+  var eventURL = PARSE.URL + 'classes/events';
+
+  this.search = search;
+
+  function search(objectId) {
+    return $http.get(eventURL, PARSE.CONFIG);
+  }
+};
+
+SearchService.$inject = ['PARSE', '$http'];
+
+exports['default'] = SearchService;
+
+// 'where={"location":{"$regex":".*tiy.*", "$options":"i"}}' \
+module.exports = exports['default'];
+
+},{}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -228,7 +312,7 @@ LoginController.$inject = ['UserService', '$state'];
 exports['default'] = LoginController;
 module.exports = exports['default'];
 
-},{}],11:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -254,7 +338,7 @@ RegisterController.$inject = ['UserService', '$state'];
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],12:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -277,7 +361,7 @@ var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
 
 _angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLoginController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('UserService', _servicesUserService2['default']);
 
-},{"./controllers/login.controller":10,"./controllers/register.controller":11,"./services/user.service":13,"angular":20}],13:[function(require,module,exports){
+},{"./controllers/login.controller":13,"./controllers/register.controller":14,"./services/user.service":16,"angular":23}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -315,7 +399,7 @@ UserService.$inject = ['PARSE', '$http', '$cookies', '$state'];
 exports['default'] = UserService;
 module.exports = exports['default'];
 
-},{}],14:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -344,18 +428,20 @@ require('./app-layout/index');
 
 require('./app-user/index');
 
+require('./app-social/index');
+
 require('./app-dashboard/index');
 
 (0, _jquery2['default'])(document).foundation();
 
-_angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.dashboard', 'mm.foundation']).run(function ($rootScope) {
+_angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.social', 'app.dashboard', 'mm.foundation']).run(function ($rootScope) {
   // $viewContentLoaded comes from Ui Router
   $rootScope.$on('$viewContentLoaded', function (event, data) {
     (0, _jquery2['default'])(document).foundation();
   });
 });
 
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":9,"./app-user/index":12,"angular":20,"angular-foundation":17,"foundation":21,"jquery":22}],15:[function(require,module,exports){
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":9,"./app-social/index":11,"./app-user/index":15,"angular":23,"angular-foundation":20,"foundation":24,"jquery":25}],18:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -678,11 +764,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],16:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":15}],17:[function(require,module,exports){
+},{"./angular-cookies":18}],20:[function(require,module,exports){
 /*
  * angular-mm-foundation
  * http://pineconellc.github.io/angular-foundation/
@@ -4298,7 +4384,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 
-},{}],18:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -8669,7 +8755,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],19:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -37688,11 +37774,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],20:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":19}],21:[function(require,module,exports){
+},{"./angular":22}],24:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
@@ -45133,7 +45219,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],22:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -54353,7 +54439,7 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}]},{},[14])
+},{}]},{},[17])
 
 
 //# sourceMappingURL=main.js.map

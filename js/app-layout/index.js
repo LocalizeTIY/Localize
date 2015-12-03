@@ -7,7 +7,7 @@ import AddController from './controllers/add.controller';
 
 
 angular 
-  .module('app.layout', [])
+  .module('app.layout', ['app.social'])
   .controller('HomeController', HomeController)
   .controller('AddController', AddController)
   
