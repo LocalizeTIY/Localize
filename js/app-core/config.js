@@ -36,7 +36,20 @@ let config = function($stateProvider, $urlRouterProvider) {
       url: '/dashboard',
       controller: 'DashboardController as vm',
       templateUrl: 'templates/app-dashboard/dashboard.tpl.html'
+    })
+    
+    .state('root.options',{
+      url:'/options',
+      controller:'OptionsController as vm',
+      templateUrl : 'templates/app-layout/options.tpl.html'
+    })
+
+    .state('root.featured',{
+      url:'/featured',
+      controller:'FeaturedController as vm',
+      templateUrl : 'templates/app-layout/featured.tpl.html'
     });
+
   
 
 };

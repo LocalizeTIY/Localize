@@ -5130,22 +5130,35 @@ body {
   background-color: #878676 !important;
   font-weight: bold !important; }
 
-.left {
+#secondNavLink {
+  list-style: none; }
+
+.textarea {
+  background: url(http://lorempixel.com/300/300) center center no-repeat;
+  /* This ruins default border */
+  border: 1px solid #888; }
+
+.list {
+  margin: auto;
+  padding-left: 10%; }
+
+.featuredList {
   list-style: none;
-  box-sizing: border-box;
-  height: 20px; }
-
-.left li {
-  font-size: 0.9em;
-  padding: 2%;
   display: inline-block;
-  text-align: top; }
+  width: 25%;
+  margin: 2%;
+  text-align: center; }
 
-.position-left {
-  display: inline-block;
-  width: 30%;
-  position: absolute;
-  top: 25%;
-  left: 0%; }
+.textarea {
+  height: 30%;
+  font-weight: bold;
+  text-align: center; }
+
+h3 {
+  text-align: center;
+  margin: 2%; }
+
+nav.top-bar.ng-scope {
+  max-height: 5%; }
 
 /*# sourceMappingURL=main.css.map */
