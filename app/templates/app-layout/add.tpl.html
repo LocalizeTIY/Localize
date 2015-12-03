@@ -2,16 +2,43 @@
 
 <div class='add-event'>
   <form ng-submit="vm.addEvent(event)">
-    <input placeholder="Name " ng-model="event.name" >
-    <input placeholder="Date" ng-model="event.date">
-    <input placeholder="Time" ng-model="event.time">
-    <input placeholder="Location" ng-model="event.location" >
-    <textarea placeholder="Details" ng-model="event.comment"></textarea>  
-    <input placeholder="Tags" ng-model="event.tags" >
-    <input placeholder="Rating" ng-model="event.rating" >
-    <input placeholder="Event Picture" ng-model="event.picture" >
+    <hr>
+<rating ng-model="event.rating" value="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="rateMe(singleWhiskey)"></rating>
+<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+
+<hr>
+    <input class="addfields"placeholder="Event Name " ng-model="event.name" >
+    <input class="addfields"placeholder="Date" ng-model="event.date">
+    <input class="addfields"placeholder="Time" ng-model="event.time">
+    <input class="addfields"placeholder="Location" ng-model="event.location" >
+    <textarea class="addfields detail"placeholder="Details" ng-model="event.comment"></textarea>  
+    <!-- <input class="addfields"placeholder="Tags" ng-model="event.tags" > -->
+    <!-- <input class="addfields"placeholder="Rating" ng-model="event.rating" > -->
+    <input class="addfields"placeholder="Event Picture link" ng-model="event.picture" >
     <!-- <input placeholder="" ng-model="event." > -->
     <!-- <input placeholder="" ng-model="event." > -->
     <button>Add Event</button>
   </form>
 </div>
+<!-- <h2>Ratings</h2>
+<div>
+    <h4>Default</h4>
+    <rating value="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+    <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+
+    <pre style="margin:15px 0;">Rate: <b>{{rate}}</b> - Readonly is: <i>{{isReadonly}}</i> - Hovering over: <b>{{overStar || "none"}}</b></pre>
+
+    <button class="button small alert" ng-click="rate = 0" ng-disabled="isReadonly">Clear</button>
+    <button class="button small" ng-click="isReadonly = ! isReadonly">Toggle Readonly</button>
+    <hr />
+
+    <h4>Custom icons</h4>
+    <div ng-init="x = 5">
+      <rating value="x" max="15" state-on="'fa-check-circle'" state-off="'fa-check-circle-o'"></rating>
+      <b>(<i>Rate:</i> {{x}})</b>
+    </div>
+    <div ng-init="y = 2">
+      <rating value="y" rating-states="ratingStates"></rating>
+      <b>(<i>Rate:</i> {{y}})</b>
+    </div>
+</div> -->
