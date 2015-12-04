@@ -101,3 +101,83 @@ body {
   margin-left: 0;
 }
 
+// OTHER TWO CONTAINERS
+
+// .secondNav{
+  
+// }
+
+// .left{
+//   list-style :none;
+//   box-sizing : border-box;
+//   height :20px;
+// }
+
+// .left li{
+//   font-size:0.9em;
+//   // width : 7%;
+//   padding:2%;
+//   display:inline-block;
+//   text-align :top;
+
+// }
+
+// .position-left{
+//   display:inline-block;
+//   //border:1px solid black;
+//   width :30%;
+//   position :absolute;
+//   top :25%;
+//   left:0%;
+// }
+
+#secondNavLink {
+  list-style: none;
+}
+
+.textarea1 {
+  background: url(http://lorempixel.com/600/600) center center no-repeat; 
+}
+
+.textarea2 {
+  background: url(http://lorempixel.com/700/700) center center no-repeat; 
+}
+
+.textarea3 {
+  background: url(http://lorempixel.com/800/800) center center no-repeat;  
+}
+
+.textarea1, .textarea2, .textarea3 {
+  border: 1px solid #888; 
+  height: 30%;
+  font-weight: bold;
+  text-align: center;
+  text-color: $greyMedium;
+}
+
+
+.list{
+  margin : auto;
+  padding-left:10%;
+}
+
+.featuredList {
+  list-style: none;
+  display: inline-block;
+  width: 25%;
+  margin: 2%;
+  text-align: center; 
+}
+
+h3 {
+  text-align: center;
+  margin: 2%;
+
+}
+
+nav.top-bar.ng-scope {
+  max-height: 5%;
+}
+
+
+

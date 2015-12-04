@@ -31,6 +31,14 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/dashboard',
     controller: 'DashboardController as vm',
     templateUrl: 'templates/app-dashboard/dashboard.tpl.html'
+  }).state('root.options', {
+    url: '/options',
+    controller: 'OptionsController as vm',
+    templateUrl: 'templates/app-layout/options.tpl.html'
+  }).state('root.featured', {
+    url: '/featured',
+    controller: 'FeaturedController as vm',
+    templateUrl: 'templates/app-layout/featured.tpl.html'
   });
 };
 
@@ -80,9 +88,13 @@ var _constantsParseConstant2 = _interopRequireDefault(_constantsParseConstant);
 _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_config2['default']).constant('PARSE', _constantsParseConstant2['default']);
 
 <<<<<<< HEAD
+},{"./config":1,"./constants/parse.constant":2,"angular":21,"angular-cookies":18,"angular-ui-router":19}],4:[function(require,module,exports){
+=======
+<<<<<<< HEAD
 },{"./config":1,"./constants/parse.constant":2,"angular":21,"angular-cookies":17,"angular-ui-router":19}],4:[function(require,module,exports){
 =======
 },{"./config":1,"./constants/parse.constant":2,"angular":23,"angular-cookies":19,"angular-ui-router":21}],4:[function(require,module,exports){
+>>>>>>> master
 >>>>>>> master
 "use strict";
 
@@ -123,7 +135,11 @@ _angular2['default'].module('app.dashboard', ['app.core']).controller('Dashboard
 <<<<<<< HEAD
 },{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":21}],6:[function(require,module,exports){
 =======
+<<<<<<< HEAD
+},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":21}],6:[function(require,module,exports){
+=======
 },{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":23}],6:[function(require,module,exports){
+>>>>>>> master
 >>>>>>> master
 "use strict";
 
@@ -3979,8 +3995,31 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
  */
   .factory('typeaheadParser', ['$parse', function ($parse) {
 
+<<<<<<< HEAD
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var FeaturedController = function FeaturedController() {
+
+  var vm = this;
+};
+
+FeaturedController.$inject = [];
+
+exports["default"] = FeaturedController;
+module.exports = exports["default"];
+
+},{}],9:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var HomeController = function HomeController() {
+=======
   //                      00000111000000000000022200000000000000003333333333333330000000000044000
   var TYPEAHEAD_REGEXP = /^\s*(.*?)(?:\s+as\s+(.*?))?\s+for\s+(?:([\$\w][\$\w\d]*))\s+in\s+(.*)$/;
+>>>>>>> master
 
   return {
     parse:function (input) {
@@ -4002,8 +4041,29 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
   };
 }])
 
+<<<<<<< HEAD
+},{}],10:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var OptionsController = function OptionsController() {
+
+  var vm = this;
+};
+
+OptionsController.$inject = [];
+
+exports["default"] = OptionsController;
+module.exports = exports["default"];
+
+},{}],11:[function(require,module,exports){
+'use strict';
+=======
   .directive('typeahead', ['$compile', '$parse', '$q', '$timeout', '$document', '$position', 'typeaheadParser',
     function ($compile, $parse, $q, $timeout, $document, $position, typeaheadParser) {
+>>>>>>> master
 
   var HOT_KEYS = [9, 13, 27, 38, 40];
 
@@ -4030,9 +4090,24 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
 
       var inputFormatter = attrs.typeaheadInputFormatter ? $parse(attrs.typeaheadInputFormatter) : undefined;
 
+<<<<<<< HEAD
+var _controllersOptionsController = require('./controllers/options.controller');
+
+var _controllersOptionsController2 = _interopRequireDefault(_controllersOptionsController);
+
+var _controllersFeaturedController = require('./controllers/featured.controller');
+
+var _controllersFeaturedController2 = _interopRequireDefault(_controllersFeaturedController);
+
+_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).controller('OptionsController', _controllersOptionsController2['default']).controller('FeaturedController', _controllersFeaturedController2['default']);
+
+},{"./controllers/add.controller":7,"./controllers/featured.controller":8,"./controllers/home.controller":9,"./controllers/options.controller":10,"angular":21}],12:[function(require,module,exports){
+'use strict';
+=======
       var appendToBody =  attrs.typeaheadAppendToBody ? $parse(attrs.typeaheadAppendToBody) : false;
 
       //INTERNAL VARIABLES
+>>>>>>> master
 
       //model setter executed upon match selection
       var $setModelValue = $parse(attrs.ngModel).assign;
@@ -4063,10 +4138,15 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
         scope.$destroy();
       });
 
+<<<<<<< HEAD
+},{}],13:[function(require,module,exports){
+'use strict';
+=======
       var resetMatches = function() {
         scope.matches = [];
         scope.activeIdx = -1;
       };
+>>>>>>> master
 
       var getMatchesAsync = function(inputValue) {
 
@@ -4098,6 +4178,10 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
               scope.position = appendToBody ? $position.offset(element) : $position.position(element);
               scope.position.top = scope.position.top + element.prop('offsetHeight');
 
+<<<<<<< HEAD
+},{}],14:[function(require,module,exports){
+'use strict';
+=======
             } else {
               resetMatches();
             }
@@ -4108,6 +4192,7 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
           isLoadingSetter(originalScope, false);
         });
       };
+>>>>>>> master
 
       resetMatches();
 
@@ -4161,7 +4246,12 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
           locals['$model'] = modelValue;
           return inputFormatter(originalScope, locals);
 
+<<<<<<< HEAD
+},{"./controllers/login.controller":12,"./controllers/register.controller":13,"./services/user.service":15,"angular":21}],15:[function(require,module,exports){
+'use strict';
+=======
         } else {
+>>>>>>> master
 
           //it might happen that we don't have enough info to properly render input value
           //we need to check for this situation and simply return model value if we can't apply custom formatting
@@ -4214,10 +4304,15 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
           scope.activeIdx = (scope.activeIdx ? scope.activeIdx : scope.matches.length) - 1;
           scope.$digest();
 
+<<<<<<< HEAD
+},{}],16:[function(require,module,exports){
+'use strict';
+=======
         } else if (evt.which === 13 || evt.which === 9) {
           scope.$apply(function () {
             scope.select(scope.activeIdx);
           });
+>>>>>>> master
 
         } else if (evt.which === 27) {
           evt.stopPropagation();
@@ -4295,6 +4390,15 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
     };
   })
 
+<<<<<<< HEAD
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-user/index":14,"angular":21,"foundation":22,"jquery":23}],17:[function(require,module,exports){
+/**
+ * @license AngularJS v1.4.8
+ * (c) 2010-2015 Google, Inc. http://angularjs.org
+ * License: MIT
+ */
+(function(window, angular, undefined) {'use strict';
+=======
   .directive('typeaheadMatch', ['$http', '$templateCache', '$compile', '$parse', function ($http, $templateCache, $compile, $parse) {
     return {
       restrict:'EA',
@@ -4311,6 +4415,7 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
       }
     };
   }])
+>>>>>>> master
 
   .filter('typeaheadHighlight', function() {
 
@@ -4514,6 +4619,13 @@ angular.module("template/tour/tour.html", []).run(["$templateCache", function($t
     "");
 }]);
 
+<<<<<<< HEAD
+},{}],18:[function(require,module,exports){
+require('./angular-cookies');
+module.exports = 'ngCookies';
+
+},{"./angular-cookies":17}],19:[function(require,module,exports){
+=======
 angular.module("template/typeahead/typeahead-match.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/typeahead/typeahead-match.html",
     "<a tabindex=\"-1\" bind-html-unsafe=\"match.label | typeaheadHighlight:query\"></a>");
@@ -4533,6 +4645,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
 },{}],19:[function(require,module,exports){
 =======
 },{}],21:[function(require,module,exports){
+>>>>>>> master
 >>>>>>> master
 /**
  * State-based routing for AngularJS
@@ -8907,7 +9020,11 @@ angular.module('ui.router.state')
 <<<<<<< HEAD
 },{}],20:[function(require,module,exports){
 =======
+<<<<<<< HEAD
+},{}],20:[function(require,module,exports){
+=======
 },{}],22:[function(require,module,exports){
+>>>>>>> master
 >>>>>>> master
 /**
  * @license AngularJS v1.4.8
@@ -37928,17 +38045,23 @@ $provide.value("$locale", {
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 },{}],21:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
 },{"./angular":20}],22:[function(require,module,exports){
+<<<<<<< HEAD
+=======
 =======
 },{}],23:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
 },{"./angular":22}],24:[function(require,module,exports){
+>>>>>>> master
 >>>>>>> master
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
@@ -45383,7 +45506,11 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 <<<<<<< HEAD
 },{}],23:[function(require,module,exports){
 =======
+<<<<<<< HEAD
+},{}],23:[function(require,module,exports){
+=======
 },{}],25:[function(require,module,exports){
+>>>>>>> master
 >>>>>>> master
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
@@ -54605,9 +54732,13 @@ return jQuery;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
 <<<<<<< HEAD
+},{}]},{},[16])
+=======
+<<<<<<< HEAD
 },{}]},{},[15])
 =======
 },{}]},{},[17])
+>>>>>>> master
 >>>>>>> master
 
 
