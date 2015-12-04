@@ -5130,7 +5130,30 @@ body {
   background-color: #878676 !important;
   font-weight: bold !important; }
 
-<<<<<<< HEAD
+.pageHeading {
+  margin: 3% auto;
+  padding-left: 15%; }
+
+.add-event {
+  width: 50%;
+  padding: 5%;
+  margin: 2% auto; }
+
+.rating-stars {
+  color: yellow !important; }
+
+.button {
+  margin: 5% 30%; }
+
+.addfields {
+  width: 80%;
+  height: 50px;
+  margin: 1% auto; }
+
+.detail {
+  height: 100px;
+  margin-left: 0; }
+
 #secondNavLink {
   list-style: none; }
 
@@ -5167,30 +5190,5 @@ h3 {
 
 nav.top-bar.ng-scope {
   max-height: 5%; }
-=======
-.pageHeading {
-  margin: 3% auto;
-  padding-left: 15%; }
-
-.add-event {
-  width: 50%;
-  padding: 5%;
-  margin: 2% auto; }
-
-.rating-stars {
-  color: yellow !important; }
-
-.button {
-  margin: 5% 30%; }
-
-.addfields {
-  width: 80%;
-  height: 50px;
-  margin: 1% auto; }
-
-.detail {
-  height: 100px;
-  margin-left: 0; }
->>>>>>> master
 
 /*# sourceMappingURL=main.css.map */

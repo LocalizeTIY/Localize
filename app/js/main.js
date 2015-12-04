@@ -87,29 +87,22 @@ var _constantsParseConstant2 = _interopRequireDefault(_constantsParseConstant);
 
 _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_config2['default']).constant('PARSE', _constantsParseConstant2['default']);
 
-<<<<<<< HEAD
-},{"./config":1,"./constants/parse.constant":2,"angular":21,"angular-cookies":18,"angular-ui-router":19}],4:[function(require,module,exports){
-=======
-<<<<<<< HEAD
-},{"./config":1,"./constants/parse.constant":2,"angular":21,"angular-cookies":17,"angular-ui-router":19}],4:[function(require,module,exports){
-=======
-},{"./config":1,"./constants/parse.constant":2,"angular":23,"angular-cookies":19,"angular-ui-router":21}],4:[function(require,module,exports){
->>>>>>> master
->>>>>>> master
-"use strict";
+},{"./config":1,"./constants/parse.constant":2,"angular":26,"angular-cookies":22,"angular-ui-router":24}],4:[function(require,module,exports){
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var DashboardController = function DashboardController() {
+var DashboardController = function DashboardController($scope, $cookies, UserService) {
 
   var vm = this;
+  $scope.user = UserService.getUserInfo();
 };
 
-DashboardController.$inject = [];
+DashboardController.$inject = ['$scope', '$cookies', 'UserService'];
 
-exports["default"] = DashboardController;
-module.exports = exports["default"];
+exports['default'] = DashboardController;
+module.exports = exports['default'];
 
 },{}],5:[function(require,module,exports){
 'use strict';
@@ -132,15 +125,7 @@ var _servicesDashboardService2 = _interopRequireDefault(_servicesDashboardServic
 
 _angular2['default'].module('app.dashboard', ['app.core']).controller('DashboardController', _controllersDashboardController2['default']).service('DashboardService', _servicesDashboardService2['default']);
 
-<<<<<<< HEAD
-},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":21}],6:[function(require,module,exports){
-=======
-<<<<<<< HEAD
-},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":21}],6:[function(require,module,exports){
-=======
-},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":23}],6:[function(require,module,exports){
->>>>>>> master
->>>>>>> master
+},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":26}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -199,6 +184,22 @@ exports['default'] = AddController;
 module.exports = exports['default'];
 
 },{}],8:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var FeaturedController = function FeaturedController() {
+
+  var vm = this;
+};
+
+FeaturedController.$inject = [];
+
+exports["default"] = FeaturedController;
+module.exports = exports["default"];
+
+},{}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -223,7 +224,23 @@ HomeController.$inject = ['SearchService'];
 exports['default'] = HomeController;
 module.exports = exports['default'];
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var OptionsController = function OptionsController() {
+
+  var vm = this;
+};
+
+OptionsController.$inject = [];
+
+exports["default"] = OptionsController;
+module.exports = exports["default"];
+
+},{}],11:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -244,27 +261,28 @@ var _controllersAddController = require('./controllers/add.controller');
 
 var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
 
-<<<<<<< HEAD
+var _controllersOptionsController = require('./controllers/options.controller');
+
+var _controllersOptionsController2 = _interopRequireDefault(_controllersOptionsController);
+
+var _controllersFeaturedController = require('./controllers/featured.controller');
+
+var _controllersFeaturedController2 = _interopRequireDefault(_controllersFeaturedController);
+
 //service
 
 var _servicesLocalizeService = require('./services/localize.service');
 
 var _servicesLocalizeService2 = _interopRequireDefault(_servicesLocalizeService);
 
-_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).service('LocalizeService', _servicesLocalizeService2['default']);
+_angular2['default'].module('app.layout', ['app.social']).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).controller('OptionsController', _controllersOptionsController2['default']).controller('FeaturedController', _controllersFeaturedController2['default']).service('LocalizeService', _servicesLocalizeService2['default']);
 
-},{"./controllers/add.controller":7,"./controllers/home.controller":8,"./services/localize.service":10,"angular":21}],10:[function(require,module,exports){
-=======
-_angular2['default'].module('app.layout', ['app.social']).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']);
-
-},{"./controllers/add.controller":7,"./controllers/home.controller":8,"angular":23}],10:[function(require,module,exports){
->>>>>>> master
+},{"./controllers/add.controller":7,"./controllers/featured.controller":8,"./controllers/home.controller":9,"./controllers/options.controller":10,"./services/localize.service":12,"angular":26}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-<<<<<<< HEAD
 var LocalizeService = function LocalizeService(PARSE, $http, $state, $cookies, UserService) {
 
   var url = PARSE.URL + 'classes/events';
@@ -304,8 +322,12 @@ LocalizeService.$inject = ['PARSE', '$http', '$state', '$cookies', 'UserService'
 exports['default'] = LocalizeService;
 module.exports = exports['default'];
 
-},{}],11:[function(require,module,exports){
-=======
+},{}],13:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 var SearchController = function SearchController(SearchService) {
 
   var vm = this;
@@ -326,7 +348,7 @@ SearchController.$inject = ['SearchService'];
 exports['default'] = SearchController;
 module.exports = exports['default'];
 
-},{}],11:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -351,7 +373,7 @@ _angular2['default'].module('app.social', ['app.core']).controller('SearchContro
 
 // .directive('SearchResult', SearchResult)
 
-},{"./controllers/search.controller":10,"./services/search.service":12,"angular":23}],12:[function(require,module,exports){
+},{"./controllers/search.controller":13,"./services/search.service":15,"angular":26}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -375,8 +397,7 @@ exports['default'] = SearchService;
 // 'where={"location":{"$regex":".*tiy.*", "$options":"i"}}' \
 module.exports = exports['default'];
 
-},{}],13:[function(require,module,exports){
->>>>>>> master
+},{}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -408,11 +429,7 @@ LoginController.$inject = ['UserService', '$state'];
 exports['default'] = LoginController;
 module.exports = exports['default'];
 
-<<<<<<< HEAD
-},{}],12:[function(require,module,exports){
-=======
-},{}],14:[function(require,module,exports){
->>>>>>> master
+},{}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -438,11 +455,7 @@ RegisterController.$inject = ['UserService', '$state'];
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-<<<<<<< HEAD
-},{}],13:[function(require,module,exports){
-=======
-},{}],15:[function(require,module,exports){
->>>>>>> master
+},{}],18:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -465,11 +478,7 @@ var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
 
 _angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLoginController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('UserService', _servicesUserService2['default']);
 
-<<<<<<< HEAD
-},{"./controllers/login.controller":11,"./controllers/register.controller":12,"./services/user.service":14,"angular":21}],14:[function(require,module,exports){
-=======
-},{"./controllers/login.controller":13,"./controllers/register.controller":14,"./services/user.service":16,"angular":23}],16:[function(require,module,exports){
->>>>>>> master
+},{"./controllers/login.controller":16,"./controllers/register.controller":17,"./services/user.service":19,"angular":26}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -483,13 +492,10 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
 
   this.signup = signup;
   this.login = login;
-<<<<<<< HEAD
   this.storeAuth = storeAuth;
   this.getUserInfo = getUserInfo;
   //this.checkAuth  = checkAuth;
   //this.setHeaders = setHeaders;
-=======
->>>>>>> master
 
   function getUserInfo() {
     return {
@@ -506,13 +512,11 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
     });
   }
 
-<<<<<<< HEAD
   function storeAuth(user) {
     $cookies.put('userSessionToken', user.sessionToken);
     $cookies.put('userObjID', user.objectId);
     $cookies.put('userName', user.username);
     console.log(user.username);
-
     //setHeaders(user.sessionToken);
     //$state.go('root.home'); // THIS HAS TO GO TO DASHBOARD.
   }
@@ -526,8 +530,6 @@ var UserService = function UserService(PARSE, $http, $cookies, $state) {
   //   PARSE.CONFIG.headers['X-Parse-Session-Token'] = token;
   // }
 
-=======
->>>>>>> master
   function User(userObj) {
     this.username = userObj.username;
     this.password = userObj.password;
@@ -544,11 +546,7 @@ UserService.$inject = ['PARSE', '$http', '$cookies', '$state'];
 exports['default'] = UserService;
 module.exports = exports['default'];
 
-<<<<<<< HEAD
-},{}],15:[function(require,module,exports){
-=======
-},{}],17:[function(require,module,exports){
->>>>>>> master
+},{}],20:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -590,11 +588,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.s
   });
 });
 
-<<<<<<< HEAD
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":9,"./app-user/index":13,"angular":21,"angular-foundation":18,"foundation":22,"jquery":23}],16:[function(require,module,exports){
-=======
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":9,"./app-social/index":11,"./app-user/index":15,"angular":23,"angular-foundation":20,"foundation":24,"jquery":25}],18:[function(require,module,exports){
->>>>>>> master
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-social/index":14,"./app-user/index":18,"angular":26,"angular-foundation":23,"foundation":27,"jquery":28}],21:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -917,19 +911,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-<<<<<<< HEAD
-},{}],17:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":16}],18:[function(require,module,exports){
-=======
-},{}],19:[function(require,module,exports){
-require('./angular-cookies');
-module.exports = 'ngCookies';
-
-},{"./angular-cookies":18}],20:[function(require,module,exports){
->>>>>>> master
+},{"./angular-cookies":21}],23:[function(require,module,exports){
 /*
  * angular-mm-foundation
  * http://pineconellc.github.io/angular-foundation/
@@ -3995,31 +3981,8 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
  */
   .factory('typeaheadParser', ['$parse', function ($parse) {
 
-<<<<<<< HEAD
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var FeaturedController = function FeaturedController() {
-
-  var vm = this;
-};
-
-FeaturedController.$inject = [];
-
-exports["default"] = FeaturedController;
-module.exports = exports["default"];
-
-},{}],9:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var HomeController = function HomeController() {
-=======
   //                      00000111000000000000022200000000000000003333333333333330000000000044000
   var TYPEAHEAD_REGEXP = /^\s*(.*?)(?:\s+as\s+(.*?))?\s+for\s+(?:([\$\w][\$\w\d]*))\s+in\s+(.*)$/;
->>>>>>> master
 
   return {
     parse:function (input) {
@@ -4041,29 +4004,8 @@ var HomeController = function HomeController() {
   };
 }])
 
-<<<<<<< HEAD
-},{}],10:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var OptionsController = function OptionsController() {
-
-  var vm = this;
-};
-
-OptionsController.$inject = [];
-
-exports["default"] = OptionsController;
-module.exports = exports["default"];
-
-},{}],11:[function(require,module,exports){
-'use strict';
-=======
   .directive('typeahead', ['$compile', '$parse', '$q', '$timeout', '$document', '$position', 'typeaheadParser',
     function ($compile, $parse, $q, $timeout, $document, $position, typeaheadParser) {
->>>>>>> master
 
   var HOT_KEYS = [9, 13, 27, 38, 40];
 
@@ -4090,24 +4032,9 @@ module.exports = exports["default"];
 
       var inputFormatter = attrs.typeaheadInputFormatter ? $parse(attrs.typeaheadInputFormatter) : undefined;
 
-<<<<<<< HEAD
-var _controllersOptionsController = require('./controllers/options.controller');
-
-var _controllersOptionsController2 = _interopRequireDefault(_controllersOptionsController);
-
-var _controllersFeaturedController = require('./controllers/featured.controller');
-
-var _controllersFeaturedController2 = _interopRequireDefault(_controllersFeaturedController);
-
-_angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).controller('OptionsController', _controllersOptionsController2['default']).controller('FeaturedController', _controllersFeaturedController2['default']);
-
-},{"./controllers/add.controller":7,"./controllers/featured.controller":8,"./controllers/home.controller":9,"./controllers/options.controller":10,"angular":21}],12:[function(require,module,exports){
-'use strict';
-=======
       var appendToBody =  attrs.typeaheadAppendToBody ? $parse(attrs.typeaheadAppendToBody) : false;
 
       //INTERNAL VARIABLES
->>>>>>> master
 
       //model setter executed upon match selection
       var $setModelValue = $parse(attrs.ngModel).assign;
@@ -4138,15 +4065,10 @@ _angular2['default'].module('app.layout', []).controller('HomeController', _cont
         scope.$destroy();
       });
 
-<<<<<<< HEAD
-},{}],13:[function(require,module,exports){
-'use strict';
-=======
       var resetMatches = function() {
         scope.matches = [];
         scope.activeIdx = -1;
       };
->>>>>>> master
 
       var getMatchesAsync = function(inputValue) {
 
@@ -4178,10 +4100,6 @@ _angular2['default'].module('app.layout', []).controller('HomeController', _cont
               scope.position = appendToBody ? $position.offset(element) : $position.position(element);
               scope.position.top = scope.position.top + element.prop('offsetHeight');
 
-<<<<<<< HEAD
-},{}],14:[function(require,module,exports){
-'use strict';
-=======
             } else {
               resetMatches();
             }
@@ -4192,7 +4110,6 @@ _angular2['default'].module('app.layout', []).controller('HomeController', _cont
           isLoadingSetter(originalScope, false);
         });
       };
->>>>>>> master
 
       resetMatches();
 
@@ -4246,12 +4163,7 @@ _angular2['default'].module('app.layout', []).controller('HomeController', _cont
           locals['$model'] = modelValue;
           return inputFormatter(originalScope, locals);
 
-<<<<<<< HEAD
-},{"./controllers/login.controller":12,"./controllers/register.controller":13,"./services/user.service":15,"angular":21}],15:[function(require,module,exports){
-'use strict';
-=======
         } else {
->>>>>>> master
 
           //it might happen that we don't have enough info to properly render input value
           //we need to check for this situation and simply return model value if we can't apply custom formatting
@@ -4304,15 +4216,10 @@ _angular2['default'].module('app.layout', []).controller('HomeController', _cont
           scope.activeIdx = (scope.activeIdx ? scope.activeIdx : scope.matches.length) - 1;
           scope.$digest();
 
-<<<<<<< HEAD
-},{}],16:[function(require,module,exports){
-'use strict';
-=======
         } else if (evt.which === 13 || evt.which === 9) {
           scope.$apply(function () {
             scope.select(scope.activeIdx);
           });
->>>>>>> master
 
         } else if (evt.which === 27) {
           evt.stopPropagation();
@@ -4390,15 +4297,6 @@ _angular2['default'].module('app.layout', []).controller('HomeController', _cont
     };
   })
 
-<<<<<<< HEAD
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-user/index":14,"angular":21,"foundation":22,"jquery":23}],17:[function(require,module,exports){
-/**
- * @license AngularJS v1.4.8
- * (c) 2010-2015 Google, Inc. http://angularjs.org
- * License: MIT
- */
-(function(window, angular, undefined) {'use strict';
-=======
   .directive('typeaheadMatch', ['$http', '$templateCache', '$compile', '$parse', function ($http, $templateCache, $compile, $parse) {
     return {
       restrict:'EA',
@@ -4415,7 +4313,6 @@ _angular2['default'].module('app.layout', []).controller('HomeController', _cont
       }
     };
   }])
->>>>>>> master
 
   .filter('typeaheadHighlight', function() {
 
@@ -4619,13 +4516,6 @@ angular.module("template/tour/tour.html", []).run(["$templateCache", function($t
     "");
 }]);
 
-<<<<<<< HEAD
-},{}],18:[function(require,module,exports){
-require('./angular-cookies');
-module.exports = 'ngCookies';
-
-},{"./angular-cookies":17}],19:[function(require,module,exports){
-=======
 angular.module("template/typeahead/typeahead-match.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/typeahead/typeahead-match.html",
     "<a tabindex=\"-1\" bind-html-unsafe=\"match.label | typeaheadHighlight:query\"></a>");
@@ -4641,12 +4531,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 
-<<<<<<< HEAD
-},{}],19:[function(require,module,exports){
-=======
-},{}],21:[function(require,module,exports){
->>>>>>> master
->>>>>>> master
+},{}],24:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -9017,15 +8902,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-<<<<<<< HEAD
-},{}],20:[function(require,module,exports){
-=======
-<<<<<<< HEAD
-},{}],20:[function(require,module,exports){
-=======
-},{}],22:[function(require,module,exports){
->>>>>>> master
->>>>>>> master
+},{}],25:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -38044,25 +37921,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> master
-},{}],21:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":20}],22:[function(require,module,exports){
-<<<<<<< HEAD
-=======
-=======
-},{}],23:[function(require,module,exports){
-require('./angular');
-module.exports = angular;
-
-},{"./angular":22}],24:[function(require,module,exports){
->>>>>>> master
->>>>>>> master
+},{"./angular":25}],27:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
@@ -45503,15 +45366,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-<<<<<<< HEAD
-},{}],23:[function(require,module,exports){
-=======
-<<<<<<< HEAD
-},{}],23:[function(require,module,exports){
-=======
-},{}],25:[function(require,module,exports){
->>>>>>> master
->>>>>>> master
+},{}],28:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -54731,15 +54586,7 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-<<<<<<< HEAD
-},{}]},{},[16])
-=======
-<<<<<<< HEAD
-},{}]},{},[15])
-=======
-},{}]},{},[17])
->>>>>>> master
->>>>>>> master
+},{}]},{},[20])
 
 
 //# sourceMappingURL=main.js.map
