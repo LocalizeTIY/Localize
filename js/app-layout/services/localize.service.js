@@ -19,6 +19,8 @@ let LocalizeService = function(PARSE, $http, $state, $cookies, UserService) {
   function addEvent(eventObj, user){
     // let newEvent = new Event(eventObj);
 
+    console.log(eventObj);
+
     let newEventObject = Object.assign({}, {
       ratings: 'No Rating',
       createdby: user.userName,
