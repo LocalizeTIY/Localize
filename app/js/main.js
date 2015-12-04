@@ -88,20 +88,21 @@ var _constantsParseConstant2 = _interopRequireDefault(_constantsParseConstant);
 _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_config2['default']).constant('PARSE', _constantsParseConstant2['default']);
 
 },{"./config":1,"./constants/parse.constant":2,"angular":27,"angular-cookies":23,"angular-ui-router":25}],4:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var DashboardController = function DashboardController() {
+var DashboardController = function DashboardController($scope, $cookies, UserService) {
 
   var vm = this;
+  $scope.user = UserService.getUserInfo();
 };
 
-DashboardController.$inject = [];
+DashboardController.$inject = ['$scope', '$cookies', 'UserService'];
 
-exports["default"] = DashboardController;
-module.exports = exports["default"];
+exports['default'] = DashboardController;
+module.exports = exports['default'];
 
 },{}],5:[function(require,module,exports){
 'use strict';

@@ -1,13 +1,13 @@
 <div class="dashboard">
   
-  <p class="welcome"> Welcome to Localize, {{ username }}</p>
+  <p class="welcome"> Welcome to Localize, {{ user.userName }}</p>
 
   <table class="eventTable">
     <tr>
       <td class=eventName>Your Events</td>
     </tr>
     <tr ng-repeat="event in events">
-      <td class="eventTitles">{{ events.eventname }}</td>
+      <td class="eventTitles">{{ events.eventName }}</td>
       <td class="centered">{{ events.location }}</td>
       <td class="centered">{{ events.date }}</td>
       <td class="centered">{{ events.time }}</td>
