@@ -1,4 +1,4 @@
-let RegisterController = function(UserService) {
+let RegisterController = function(UserService, $state) {
   
   let vm = this;
 
@@ -8,11 +8,12 @@ let RegisterController = function(UserService) {
     console.log(user);
     UserService.signup(user).then( (res) => {
       console.log(res.data);
+      $state.go('root.home');
     });
   }
 
 };
 
-RegisterController.$inject = ['UserService'];
+RegisterController.$inject = ['UserService', '$state'];
 
 export default RegisterController;

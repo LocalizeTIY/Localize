@@ -1,1 +1,62 @@
-<h4>ADD EVENT TPL</h4>
+
+
+
+<h4> Welcome {{user.userName}} </h4> 
+<div class='add-event'>
+  <h4 class='pageHeading'> Add Upcoming Events</h4>
+  <p ng-model="vm.rating"></p>
+  <form ng-submit="vm.addEvent(event)">
+    <input class="addfields"
+      placeholder="Event Name " 
+      ng-model="event.name" >
+  
+    <input class="addfields"
+      placeholder="Date" 
+      ng-model="event.date">
+    
+    <input class="addfields"
+      placeholder="Time" 
+      ng-model="event.time">
+    
+    <input class="addfields"
+      placeholder="Location" 
+      ng-model="event.location" >
+    
+    <textarea class="addfields detail"
+      placeholder="Details" 
+      ng-model="event.comment">
+    </textarea>  
+    
+    <input class="addfields"
+      placeholder="Tags" 
+      ng-model="event.tags" >
+    
+    <input class="addfields"
+      placeholder="Event Venue Image" 
+      ng-model="event.picture" >
+
+    <!-- <button class="button">Add Event</button> -->
+    
+    <button class="button">Add Event</button>
+
+  </form>
+</div>
+
+
+
+<!-- ADDING STARS FOR MARYAM -->
+   <!--  <hr>
+<rating class="rating-stars"
+ ng-model="event.rating" 
+ value="rate" 
+ max="max" 
+ readonly="isReadonly" 
+ on-hover="hoveringOver(value)" 
+ on-leave="overStar = null" 
+ ng-click="vm.rateMe(rating)"></rating>
+
+<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+
+<hr> -->
+  <!--   <label  class="addfields" ng-model="event.rating">Event Not Rated</label>
+ -->

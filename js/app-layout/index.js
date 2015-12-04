@@ -8,12 +8,15 @@ import OptionsController from './controllers/options.controller';
 import FeaturedController from './controllers/featured.controller';
 
 
+//service
+import LocalizeService from './services/localize.service';
 
 angular 
-  .module('app.layout', [])
+  .module('app.layout', ['app.social'])
   .controller('HomeController', HomeController)
   .controller('AddController', AddController)
   .controller('OptionsController', OptionsController)
   .controller('FeaturedController', FeaturedController)
  
+  .service('LocalizeService',LocalizeService)
 ;

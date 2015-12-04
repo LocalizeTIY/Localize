@@ -1,1 +1,9 @@
-<h3>Localize</h3>
+
+<form ng-submit='vm.search(data)'>
+  <input placeholder='Search by Name' ng-model='data'>
+  <button>Go</button>
+</form>
+
+<ul>
+  <li ng-repeat="result in vm.results | filter: data">{{ result.name }}{{result.location}}{{result.date}}</li>
+</ul>
