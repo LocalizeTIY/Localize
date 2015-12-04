@@ -5146,7 +5146,8 @@ body {
   border: 1px solid #888;
   height: 30%;
   font-weight: bold;
-  text-align: center; }
+  text-align: center;
+  text-color: #3E3E3E; }
 
 .list {
   margin: auto;
