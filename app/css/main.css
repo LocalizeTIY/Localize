@@ -5139,6 +5139,14 @@ body {
   padding: 5%;
   margin: 2% auto; }
 
+<<<<<<< HEAD
+.add-event-display {
+  width: 50%;
+  padding: 5%;
+  margin: 2% auto; }
+
+=======
+>>>>>>> 35290e326a8839fcceb4ade7d36f3d4fc45e5317
 .rating-stars {
   color: yellow !important; }
 

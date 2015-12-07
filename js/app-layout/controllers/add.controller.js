@@ -1,18 +1,35 @@
-let AddController = function($scope,LocalizeService, UserService, $cookies) {
+let AddController = function($scope,LocalizeService, UserService, $cookies, UploadService) {
   
   let vm = this;
   vm.addEvent = addEvent;
+  vm.uploadFile = uploadFile;
+  vm.imageUploaded = false;
+  vm.image = '';
   $scope.user = UserService.getUserInfo();
 
+
+
+  vm.image = UploadService.tempImage;
+
   function addEvent(eventObj){
-    //let user = UserService.getUserInfo();
+    let user = UserService.getUserInfo();
+    eventObj.picture = vm.image;
     LocalizeService.addEvent(eventObj, user).then((res)=>{
       console.log(res);
     });
   }
+ 
+  function uploadFile () {
+    let file = document.getElementById('eventImage').files[0];
+    UploadService.upload(file).then((res)=>{
+      vm.imageUploaded = true;
+      vm.image = res.data.url;
+    });
+  }
+
 };
 
-AddController.$inject = ['$scope','LocalizeService','UserService','$cookies'];
+AddController.$inject = ['$scope','LocalizeService','UserService','$cookies', 'UploadService'];
 
 export default AddController;
  
