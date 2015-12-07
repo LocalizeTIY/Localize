@@ -4,6 +4,6 @@
   <button>Go</button>
 </form>
 
-<ul>
+<ul class="searchResults dropdown menu" data-dropdown-menu>
   <li ng-repeat="result in vm.results | filter: data">{{ result.name }}{{result.location}}{{result.date}}</li>
 </ul>
