@@ -14,4 +14,4 @@ SearchService.$inject = ['PARSE', '$http'];
 
 export default SearchService;
 
-// 'where={"location":{"$regex":".*tiy.*", "$options":"i"}}' \
+

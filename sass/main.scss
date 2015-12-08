@@ -19,7 +19,19 @@ $redBright: #F1091F;
 body {
   background:$greyMedium;
   opacity :0.7;
+  background-size: cover;
 }
+
+///// Top Bar Navigation /////
+
+.top-bar {
+  background: #000;
+}
+
+.top-bar ul {
+    background: transparent;
+}
+
 .title-area{
   width :50%;
   list-style : none;
@@ -48,6 +60,7 @@ body {
   right:0%;
 }
 
+
 //LOGIN TEMPLATE
 
 .login{
@@ -56,16 +69,6 @@ body {
   width : 50%;
   //height:200px;
   //border:1px solid black;
-}
-
-.button:hover{
-  background-color: $greyLight !important ;
-}
-.success,.alert{
-  color:$redBright !important;
-  background-color: $greyBrown !important;
-  font-weight:bold !important;
-//   opacity : 0.4;
 }
 
 //ADD FORM
@@ -185,10 +188,45 @@ nav.top-bar.ng-scope {
   max-height: 5%;
 }
 
-/////// Search Bar - Home Page ///////
+/////// Home Page ///////
+
+.bgvideo {
+  position: absolute;
+  right: 0;
+  top: 100;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -9999;
+  -webkit-filter: grayscale(70%);
+  filter: grayscale(50%);
+}
 
 .searchResults {
   background: #fff;
 }
+
+////// Registration Page //////
+
+.regSection {
+  @include outer-container;
+
+  .regForm {
+    background: #fff;
+    @include span-columns(6);
+    @include shift(3);
+    margin-top: 5%;
+
+    .regLabel {
+      padding: 5% 5% 0 5%;
+    }
+
+    .topLabel {
+      margin-top: 5%;
+    }
+  }
+}
+
 
 

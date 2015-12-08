@@ -231,6 +231,9 @@ var HomeController = function HomeController(SearchService) {
       vm.results = res.data.results;
     });
   }
+
+  var video = document.getElementById('bgvideo');
+  video.playbackRate = 0.8;
 };
 
 HomeController.$inject = ['SearchService'];
@@ -441,8 +444,6 @@ var SearchService = function SearchService(PARSE, $http) {
 SearchService.$inject = ['PARSE', '$http'];
 
 exports['default'] = SearchService;
-
-// 'where={"location":{"$regex":".*tiy.*", "$options":"i"}}' \
 module.exports = exports['default'];
 
 },{}],17:[function(require,module,exports){

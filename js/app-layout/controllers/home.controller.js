@@ -11,6 +11,9 @@ let HomeController = function(SearchService) {
     });
   } 
 
+  let video = document.getElementById('bgvideo');
+  video.playbackRate = 0.8;
+
 };
 
 HomeController.$inject = ['SearchService'];
