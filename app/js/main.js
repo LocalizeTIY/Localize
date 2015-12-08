@@ -202,20 +202,22 @@ exports['default'] = AddController;
 module.exports = exports['default'];
 
 },{}],8:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FeaturedController = function FeaturedController() {
+var FeaturedController = function FeaturedController(PARSE, $http, $state, $cookies) {
 
+  var url = PARSE.URL + 'classes/events';
   var vm = this;
+  // this.
 };
 
-FeaturedController.$inject = [];
+FeaturedController.$inject = ['PARSE', '$http', '$state', '$cookies'];
 
-exports["default"] = FeaturedController;
-module.exports = exports["default"];
+exports['default'] = FeaturedController;
+module.exports = exports['default'];
 
 },{}],9:[function(require,module,exports){
 'use strict';
