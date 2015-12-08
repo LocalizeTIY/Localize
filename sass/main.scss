@@ -26,6 +26,7 @@ body {
 }
 .right{
   list-style :none;
+  
   box-sizing : border-box;
   height :20px;
 }
@@ -119,83 +120,61 @@ body {
   margin-left: 0;
 }
 
-// OTHER TWO CONTAINERS
-
-// .secondNav{
-  
-// }
-
-// .left{
-//   list-style :none;
-//   box-sizing : border-box;
-//   height :20px;
-// }
-
-// .left li{
-//   font-size:0.9em;
-//   // width : 7%;
-//   padding:2%;
-//   display:inline-block;
-//   text-align :top;
-
-// }
-
-// .position-left{
-//   display:inline-block;
-//   //border:1px solid black;
-//   width :30%;
-//   position :absolute;
-//   top :25%;
-//   left:0%;
-// }
-
-#secondNavLink {
-  list-style: none;
-}
-
-.textarea1 {
-  background: url(http://lorempixel.com/600/600) center center no-repeat; 
-}
-
-.textarea2 {
-  background: url(http://lorempixel.com/700/700) center center no-repeat; 
-}
-
-.textarea3 {
-  background: url(http://lorempixel.com/800/800) center center no-repeat;  
-}
-
-.textarea1, .textarea2, .textarea3 {
-  border: 1px solid #888; 
-  height: 30%;
-  font-weight: bold;
-  text-align: center;
-  text-color: $greyMedium;
-}
-
-
-.list{
-  margin : auto;
-  padding-left:10%;
-}
-
-.featuredList {
-  list-style: none;
-  display: inline-block;
-  width: 25%;
-  margin: 2%;
-  text-align: center; 
-}
+// FEATURED CONTAINER
 
 h3 {
   text-align: center;
   margin: 2%;
-
 }
 
 nav.top-bar.ng-scope {
   max-height: 5%;
 }
+
+.contain {
+  list-style: none;
+}
+li.featuredList {
+  display: inline-block;
+  width: 25%;
+  margin: 4%;
+  list-style: none;
+  }
+  .featuredList .topContainer {
+    text-align: center;
+  }
+    li.featuredList .topContainer .featuredContainers {
+      border: 1px solid $greyDark;
+      border-radius: 500px;
+      box-shadow: inset 0 0 1em $greyLight, 0 0 1em $greyBrown;
+      padding: 25%;
+      width: 25%;
+      margin-left: 22%;
+      // height: 25%;
+      background: url(http://placekitten.com/g/500/500);
+     }
+    .featuredList a {
+      font-size: 2em;
+      text-align: center;
+    }
+        li.featuredList .topContainer.rating {
+          margin: 2% 0 2% 0;
+          font-size: 1.3em;
+        }
+
+    li.featuredList .textarea {
+      text-align: center;
+    }
+
+  
+
+
+
+
+
+
+
+
 
 
 
