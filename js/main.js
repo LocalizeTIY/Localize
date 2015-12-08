@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import angular from 'angular';
 
 //Import jQuery & Foundation

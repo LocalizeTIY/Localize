@@ -5130,6 +5130,13 @@ body {
   background-color: #878676 !important;
   font-weight: bold !important; }
 
+.container2 {
+  width: 50%; }
+  .container2 #eat, .container2 #eat ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+
 .pageHeading {
   margin: 3% auto;
   padding-left: 15%; }
