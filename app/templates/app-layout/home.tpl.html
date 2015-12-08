@@ -10,3 +10,31 @@
 <ul class="searchResults dropdown menu" data-dropdown-menu>
   <li ng-repeat="result in vm.results | filter: data">{{ result.name }}{{result.location}}{{result.date}}</li>
 </ul>
+
+<hr>
+<!-- EAT TAGS -->
+<div>
+<ul id='eat'>
+  <li><a href="#" title='Eats'>Eats</a>
+    <ul>
+     <li ng-repeat='t in vm.tags'>
+        <a href="#/tag/{{t}}">{{t}}</a> 
+      </li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<!-- GO  -->
+<div>
+<ul id='eat'>
+  <li><a href="#" title='Go'>Go</a>
+    <ul>
+     <li ng-repeat='g in vm.go'>
+        <a href="#/tag/{{g}}">{{g}}</a> 
+      </li>
+    </ul>
+  </li>
+</ul>
+  
+</div>

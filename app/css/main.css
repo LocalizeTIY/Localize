@@ -5129,6 +5129,24 @@ body {
   margin: 5% auto;
   width: 50%; }
 
+<<<<<<< HEAD
+=======
+.button:hover {
+  background-color: #E6E6E6 !important; }
+
+.success, .alert {
+  color: #F1091F !important;
+  background-color: #878676 !important;
+  font-weight: bold !important; }
+
+.container2 {
+  width: 50%; }
+  .container2 #eat, .container2 #eat ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+
+>>>>>>> master
 .pageHeading {
   margin: 3% auto;
   padding-left: 15%; }

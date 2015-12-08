@@ -71,6 +71,18 @@ body {
   //border:1px solid black;
 }
 
+//CONTAINER2 SPECIFIC SEARCH
+
+.container2{
+  width :50%;
+
+  #eat, #eat ul {
+   list-style : none;
+   padding : 0;
+   margin :0;
+  }
+}
+
 //ADD FORM
 .pageHeading{
   margin :3% auto;
