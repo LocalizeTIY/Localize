@@ -1,0 +1,24 @@
+<h4>SPECIFIC SEARCH TPL</h4>
+
+<div class="container2">
+  <form class="eat" ng-submit="">
+    <div>
+      <input type='text' placeholer='Enter Cuisine' ng-model=specificSearch.tags>
+      <ul>
+        <li ng-repeat='event in events | filter:specificSearch'>{{ event.name }}</li>
+      </ul>
+    </div>
+    </form>
+    
+    <form>
+      <div>
+        <input type='text' placeholer='Enter Activity' ng-model=specificSearch.tags>
+      </div>    
+    </form>
+
+    <form>  
+      <div>
+        <input type='text' placeholer='Events' ng-model=specificSearch.tags>
+      </div>
+  </form>
+</div>
