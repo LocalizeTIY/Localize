@@ -39,6 +39,10 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/featured',
     controller: 'FeaturedController as vm',
     templateUrl: 'templates/app-layout/featured.tpl.html'
+  }).state('root.tagresults', {
+    url: '/tagresults',
+    controller: 'TagResultController as vm',
+    templateUrl: 'templates/app-social/tagresults.tpl.html'
   });
 };
 
