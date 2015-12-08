@@ -5,32 +5,44 @@
 
   <section>
       <section class="secondNav">
-        <ul class="">
+        <ul>
             <div class=""> 
-              <li id ="secondNavLink"><a href="#/options"><i class="fa fa-arrow-left"></i> Options</a></li>
+              <li class = 'no-bullet' id ="secondNavLink"><a href="#/options"><i class="fa fa-arrow-left"></i> Options</a></li>
             </div>
         </ul>
       </section>
 
       <div class='list'> 
-        <ul> 
+        <ul class='no-bullet' class='contain'> 
             <li class="featuredList">
-            <div><a href="#">Eat</a></div>
-            <div>Rating: </div>
-            <textarea class="textarea1" placeholder="Comment:"></textarea>
+              <div class='topContainer'>
+                <a href="#">Eat</a>
+                <div id ='featuredContainer1'></div>
+                <div class='rating'>Rating: </div>
+                <div class='stars'>{{put stars here}}</div>
+              </div>
+              <textarea class="textarea" placeholder="Comment:"></textarea>
             </li>
 
 
             <li class="featuredList">
-            <div><a href="#">Go</a></div>
-            <div>Rating: </div>
-            <textarea class="textarea2" placeholder="Comment:"></textarea>
+              <div class='topContainer'>
+                <a href="#">Go</a>
+                <div id ='featuredContainer2'></div>
+                <div class='rating'>Rating: </div>
+                <div class='stars'>{{put stars here}}</div>
+              </div>
+              <textarea class="textarea" placeholder="Comment:"></textarea>
             </li>
 
             <li class="featuredList">
-            <div><a href="#">Connect</a></div>
-            <div>Rating: </div>
-            <textarea class="textarea3" placeholder="Comment:"></textarea>
+              <div class='topContainer'>
+                <a href="#">Connect</a>
+                <div id ='featuredContainer3'></div>
+                <div class='rating'>Rating: </div>
+                <div class='stars'>{{put stars here}}</div>
+              </div>
+              <textarea class="textarea" placeholder="Comment:"></textarea>
             </li>    
         </ul>
       </div> 

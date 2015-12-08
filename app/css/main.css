@@ -5139,14 +5139,11 @@ body {
   padding: 5%;
   margin: 2% auto; }
 
-<<<<<<< HEAD
 .add-event-display {
   width: 50%;
   padding: 5%;
   margin: 2% auto; }
 
-=======
->>>>>>> 35290e326a8839fcceb4ade7d36f3d4fc45e5317
 .rating-stars {
   color: yellow !important; }
 
@@ -5162,35 +5159,41 @@ body {
   height: 100px;
   margin-left: 0; }
 
-#secondNavLink {
-  list-style: none; }
-
-.textarea1 {
-  background: url(http://lorempixel.com/600/600) center center no-repeat; }
-
-.textarea2 {
-  background: url(http://lorempixel.com/700/700) center center no-repeat; }
-
-.textarea3 {
-  background: url(http://lorempixel.com/800/800) center center no-repeat; }
-
-.textarea1, .textarea2, .textarea3 {
-  border: 1px solid #888;
-  height: 30%;
-  font-weight: bold;
-  text-align: center;
-  text-color: #3E3E3E; }
-
-.list {
-  margin: auto;
-  padding-left: 10%; }
-
-.featuredList {
-  list-style: none;
+li.featuredList {
   display: inline-block;
   width: 25%;
-  margin: 2%;
+  margin: 4%; }
+
+.featuredList .topContainer {
   text-align: center; }
+
+.featuredList a {
+  font-size: 2em;
+  text-align: center; }
+
+#featuredContainer1, #featuredContainer2, #featuredContainer3 {
+  border: 1px solid #262425;
+  border-radius: 480px;
+  box-shadow: inset 0 0 1em #E6E6E6, 0 0 1em #878676;
+  padding: 25%;
+  width: 25%;
+  margin-left: 22%; }
+
+#featuredContainer1 {
+  background: url(http://lorempixel.com/600/600) center center no-repeat; }
+
+#featuredContainer2 {
+  background: url(http://lorempixel.com/700/700) center center no-repeat; }
+
+#featuredContainer3 {
+  background: url(http://lorempixel.com/800/800) center center no-repeat; }
+
+.textarea {
+  text-align: center; }
+
+.rating {
+  margin: 2% 0 2% 0;
+  font-size: 1.3em; }
 
 h3 {
   text-align: center;
