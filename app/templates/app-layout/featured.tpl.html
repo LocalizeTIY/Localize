@@ -13,22 +13,11 @@
       </section>
 
       <div class='list'> 
-        <ul class='no-bullet' class='contain'> 
+        <ul class='contain'> 
             <li class="featuredList">
               <div class='topContainer'>
-                <a href="#">Eat</a>
-                <div id ='featuredContainer1'></div>
-                <div class='rating'>Rating: </div>
-                <div class='stars'>{{put stars here}}</div>
-              </div>
-              <textarea class="textarea" placeholder="Comment:"></textarea>
-            </li>
-
-
-            <li class="featuredList">
-              <div class='topContainer'>
-                <a href="#">Go</a>
-                <div id ='featuredContainer2'></div>
+                <a href="#">Eat
+                <div class="featuredContainers"></div></a>
                 <div class='rating'>Rating: </div>
                 <div class='stars'>{{put stars here}}</div>
               </div>
@@ -37,15 +26,80 @@
 
             <li class="featuredList">
               <div class='topContainer'>
-                <a href="#">Connect</a>
-                <div id ='featuredContainer3'></div>
+                <a href="#">Go
+                <div class="featuredContainers" ng-repeat="picture in pictures"></div></a>
+                <div class='rating'>Rating: </div>
+                <div class='stars'>{{put stars here}}</div>
+              </div>
+              <textarea class="textarea" placeholder="Comment:"></textarea>
+            </li>
+
+            <li class="featuredList">
+              <div class='topContainer'>
+                <a href="#">Connect
+                <div class ="featuredContainers" ng-repeat="picture in pictures"></div></a>
                 <div class='rating'>Rating: </div>
                 <div class='stars'>{{put stars here}}</div>
               </div>
               <textarea class="textarea" placeholder="Comment:"></textarea>
             </li>    
         </ul>
-      </div> 
+      </div>     
   </section>
+
+
+
+<!-- TESTING OUT GRID BLOCKS -->
+
+<!-- <div class="grid-block ng-scope">
+<div class="grid-block"><div class='card' class='card-container' class='dark-card'>
+  <img src="http://placekitten.com/g/400/200">
+  <div class="card-divider" class="custom-card-divider">
+  This is content
+  </div>
+  <div class="card-section" 'custom-card-section'>
+  <h4>The Basics: Group and Block</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora expedita architecto quam, laboriosam distinctio explicabo, quae, eum magni, nihil nesciunt fuga aperiam minus deserunt eius assumenda nam similique tenetur unde!</p>
+  </div>
+</div>
+</div>
+<div class="grid-block"><div class='card' class='card-container' class='dark-card'>
+  <img src="http://placekitten.com/g/400/200">
+  <div class="card-divider" class="custom-card-divider">
+  This is content
+  </div>
+  <div class="card-section" 'custom-card-section'>
+  <h4>The Basics: Group and Block</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora expedita architecto quam, laboriosam distinctio explicabo, quae, eum magni, nihil nesciunt fuga aperiam minus deserunt eius assumenda nam similique tenetur unde!</p>
+  </div>
+</div>
+</div>
+<div class="grid-block"><div class='card' class='card-container' class='dark-card'>
+  <img src="http://placekitten.com/g/400/200">
+  <div class="card-divider" class="custom-card-divider">
+  This is content
+  </div>
+  <div class="card-section" 'custom-card-section'>
+  <h4>The Basics: Group and Block</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora expedita architecto quam, laboriosam distinctio explicabo, quae, eum magni, nihil nesciunt fuga aperiam minus deserunt eius assumenda nam similique tenetur unde!</p>
+  </div>
+</div>
+</div>
+</div>
+
+<zf-accordion>
+<zf-accordion-item title="Input your title here">
+Content goes here
+</zf-accordion-item>
+<zf-accordion-item title="Input your title here">
+Content goes here
+</zf-accordion-item>
+<zf-accordion-item title="Input your title here">
+Content goes here
+</zf-accordion-item>
+</zf-accordion> -->
+<!-- END OF TEST AREA -->
+
+
 
 </div>

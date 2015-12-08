@@ -109,50 +109,6 @@ body {
 
 // FEATURED CONTAINER
 
-li.featuredList {
-  display: inline-block;
-  width: 25%;
-  margin: 4%;
-}
-.featuredList .topContainer {
-  text-align: center;
-}
-.featuredList a {
-  font-size: 2em;
-  text-align: center;
-
-}
-
-#featuredContainer1, #featuredContainer2, #featuredContainer3 {
-  border: 1px solid $greyDark;
-  border-radius: 480px;
-  box-shadow: inset 0 0 1em $greyLight, 0 0 1em $greyBrown;
-  padding: 25%;
-  width: 25%;
-  margin-left: 22%;
-  // height: 25%;
- }
-#featuredContainer1 {
-  background: url(http://lorempixel.com/600/600) center center no-repeat; 
-}
-
-#featuredContainer2 {
-  background: url(http://lorempixel.com/700/700) center center no-repeat; 
-}
-
-#featuredContainer3 {
-  background: url(http://lorempixel.com/800/800) center center no-repeat;  
-}
-
-.textarea {
-  text-align: center;
-}
-.rating {
-  margin: 2% 0 2% 0;
-  font-size: 1.3em;
-}
-
-
 h3 {
   text-align: center;
   margin: 2%;
@@ -161,6 +117,51 @@ h3 {
 nav.top-bar.ng-scope {
   max-height: 5%;
 }
+
+.contain {
+  list-style: none;
+}
+li.featuredList {
+  display: inline-block;
+  width: 25%;
+  margin: 4%;
+  list-style: none;
+  }
+  .featuredList .topContainer {
+    text-align: center;
+  }
+    li.featuredList .topContainer .featuredContainers {
+      border: 1px solid $greyDark;
+      border-radius: 500px;
+      box-shadow: inset 0 0 1em $greyLight, 0 0 1em $greyBrown;
+      padding: 25%;
+      width: 25%;
+      margin-left: 22%;
+      // height: 25%;
+      background: url(http://placekitten.com/g/500/500);
+     }
+    .featuredList a {
+      font-size: 2em;
+      text-align: center;
+    }
+        li.featuredList .topContainer.rating {
+          margin: 2% 0 2% 0;
+          font-size: 1.3em;
+        }
+
+    li.featuredList .textarea {
+      text-align: center;
+    }
+
+  
+
+
+
+
+
+
+
+
 
 
 
