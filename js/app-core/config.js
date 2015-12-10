@@ -48,6 +48,12 @@ let config = function($stateProvider, $urlRouterProvider) {
       url:'/featured',
       controller:'FeaturedController as vm',
       templateUrl : 'templates/app-layout/featured.tpl.html'
+    })
+
+    .state('root.tagresults', {
+      url: '/tag/:type',
+      controller: 'TagResultsController as vm',
+      templateUrl: 'templates/app-social/tagresults.tpl.html'
     });
 
   

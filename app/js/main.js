@@ -39,6 +39,10 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/featured',
     controller: 'FeaturedController as vm',
     templateUrl: 'templates/app-layout/featured.tpl.html'
+  }).state('root.tagresults', {
+    url: '/tag/:type',
+    controller: 'TagResultsController as vm',
+    templateUrl: 'templates/app-social/tagresults.tpl.html'
   });
 };
 
@@ -87,7 +91,7 @@ var _constantsParseConstant2 = _interopRequireDefault(_constantsParseConstant);
 
 _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_config2['default']).constant('PARSE', _constantsParseConstant2['default']);
 
-},{"./config":1,"./constants/parse.constant":2,"angular":28,"angular-cookies":24,"angular-ui-router":26}],4:[function(require,module,exports){
+},{"./config":1,"./constants/parse.constant":2,"angular":29,"angular-cookies":25,"angular-ui-router":27}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -125,7 +129,7 @@ var _servicesDashboardService2 = _interopRequireDefault(_servicesDashboardServic
 
 _angular2['default'].module('app.dashboard', ['app.core']).controller('DashboardController', _controllersDashboardController2['default']).service('DashboardService', _servicesDashboardService2['default']);
 
-},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":28}],6:[function(require,module,exports){
+},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":29}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -198,20 +202,22 @@ exports['default'] = AddController;
 module.exports = exports['default'];
 
 },{}],8:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FeaturedController = function FeaturedController() {
+var FeaturedController = function FeaturedController(PARSE, $http, $state, $cookies) {
 
+  var url = PARSE.URL + 'classes/events';
   var vm = this;
+  // this.
 };
 
-FeaturedController.$inject = [];
+FeaturedController.$inject = ['PARSE', '$http', '$state', '$cookies'];
 
-exports["default"] = FeaturedController;
-module.exports = exports["default"];
+exports['default'] = FeaturedController;
+module.exports = exports['default'];
 
 },{}],9:[function(require,module,exports){
 'use strict';
@@ -240,6 +246,9 @@ var HomeController = function HomeController(SearchService) {
       vm.results = res.data.results;
     });
   }
+
+  var video = document.getElementById('bgvideo');
+  video.playbackRate = 0.8;
 
   // function specific(data){
   //   SearchService.specific(data).then((res)=>{
@@ -278,7 +287,7 @@ HomeController.$inject = ['SearchService'];
 exports['default'] = HomeController;
 module.exports = exports['default'];
 
-},{"underscore":31}],10:[function(require,module,exports){
+},{"underscore":33}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -333,7 +342,7 @@ var _servicesUploadService2 = _interopRequireDefault(_servicesUploadService);
 
 _angular2['default'].module('app.layout', ['app.social']).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).controller('OptionsController', _controllersOptionsController2['default']).controller('FeaturedController', _controllersFeaturedController2['default']).service('LocalizeService', _servicesLocalizeService2['default']).service('UploadService', _servicesUploadService2['default']);
 
-},{"./controllers/add.controller":7,"./controllers/featured.controller":8,"./controllers/home.controller":9,"./controllers/options.controller":10,"./services/localize.service":12,"./services/upload.service":13,"angular":28}],12:[function(require,module,exports){
+},{"./controllers/add.controller":7,"./controllers/featured.controller":8,"./controllers/home.controller":9,"./controllers/options.controller":10,"./services/localize.service":12,"./services/upload.service":13,"angular":29}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -455,6 +464,38 @@ module.exports = exports['default'];
 },{}],16:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var TagResultsController = function TagResultsController(SearchService, $stateParams, $scope) {
+
+  var vm = this;
+  vm.name = 'dsdsds';
+  vm.getspecData = getspecData;
+
+  // console.log($stateParams.type);
+  vm.spec = $stateParams.type;
+  //console.log(vm.spec);
+
+  function getspecData(spec) {
+    console.log('shalmali', spec);
+    SearchService.getspecData(spec).then(function (res) {
+      vm.info = res.data.results;
+      console.log(res);
+    });
+  }
+
+  getspecData(vm.spec);
+};
+
+TagResultsController.$inject = ['SearchService', '$stateParams', '$scope'];
+
+exports['default'] = TagResultsController;
+module.exports = exports['default'];
+
+},{}],17:[function(require,module,exports){
+'use strict';
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _angular = require('angular');
@@ -471,17 +512,21 @@ var _controllersSpecificSearchController = require('./controllers/specificSearch
 
 var _controllersSpecificSearchController2 = _interopRequireDefault(_controllersSpecificSearchController);
 
+var _controllersTagresultsController = require('./controllers/tagresults.controller');
+
+var _controllersTagresultsController2 = _interopRequireDefault(_controllersTagresultsController);
+
 //Services
 
 var _servicesSearchService = require('./services/search.service');
 
 var _servicesSearchService2 = _interopRequireDefault(_servicesSearchService);
 
-_angular2['default'].module('app.social', ['app.core']).controller('SearchController', _controllersSearchController2['default']).controller('SpecificSearchController', _controllersSpecificSearchController2['default']).service('SearchService', _servicesSearchService2['default']);
+_angular2['default'].module('app.social', ['app.core']).controller('SearchController', _controllersSearchController2['default']).controller('SpecificSearchController', _controllersSpecificSearchController2['default']).controller('TagResultsController', _controllersTagresultsController2['default']).service('SearchService', _servicesSearchService2['default']);
 
 // .directive('SearchResult', SearchResult)
 
-},{"./controllers/search.controller":14,"./controllers/specificSearch.controller":15,"./services/search.service":17,"angular":28}],17:[function(require,module,exports){
+},{"./controllers/search.controller":14,"./controllers/specificSearch.controller":15,"./controllers/tagresults.controller":16,"./services/search.service":18,"angular":29}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -495,9 +540,20 @@ var SearchService = function SearchService(PARSE, $http) {
   this.specific = specific;
   this.getTagData = getTagData;
   this.getGoData = getGoData;
+  this.getspecData = getspecData;
 
   function search(objectId) {
     return $http.get(eventURL, PARSE.CONFIG);
+  }
+
+  function getspecData(spec) {
+
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      params: { where: { tags: spec } },
+      headers: PARSE.CONFIG.headers
+    });
   }
 
   function specific(data) {
@@ -532,11 +588,9 @@ var SearchService = function SearchService(PARSE, $http) {
 SearchService.$inject = ['PARSE', '$http'];
 
 exports['default'] = SearchService;
-
-// 'where={"location":{"$regex":".*tiy.*", "$options":"i"}}' \
 module.exports = exports['default'];
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -568,7 +622,7 @@ LoginController.$inject = ['UserService', '$state'];
 exports['default'] = LoginController;
 module.exports = exports['default'];
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -594,7 +648,7 @@ RegisterController.$inject = ['UserService', '$state'];
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -617,7 +671,7 @@ var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
 
 _angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLoginController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('UserService', _servicesUserService2['default']);
 
-},{"./controllers/login.controller":18,"./controllers/register.controller":19,"./services/user.service":21,"angular":28}],21:[function(require,module,exports){
+},{"./controllers/login.controller":19,"./controllers/register.controller":20,"./services/user.service":22,"angular":29}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -685,7 +739,7 @@ UserService.$inject = ['PARSE', '$http', '$cookies', '$state'];
 exports['default'] = UserService;
 module.exports = exports['default'];
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -707,6 +761,8 @@ var _jquery2 = _interopRequireDefault(_jquery);
 require('foundation');
 
 require('angular-foundation');
+
+require('motion-ui');
 
 //Starting up foundation
 
@@ -731,7 +787,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.s
   });
 });
 
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-social/index":16,"./app-user/index":20,"angular":28,"angular-foundation":25,"foundation":29,"jquery":30,"underscore":31}],23:[function(require,module,exports){
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-social/index":17,"./app-user/index":21,"angular":29,"angular-foundation":26,"foundation":30,"jquery":31,"motion-ui":32,"underscore":33}],24:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -1054,11 +1110,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":23}],25:[function(require,module,exports){
+},{"./angular-cookies":24}],26:[function(require,module,exports){
 /*
  * angular-mm-foundation
  * http://pineconellc.github.io/angular-foundation/
@@ -4674,7 +4730,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -9045,7 +9101,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -38064,11 +38120,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":27}],29:[function(require,module,exports){
+},{"./angular":28}],30:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
@@ -45509,7 +45565,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -54729,7 +54785,126 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
+;(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require('jquery'));
+  } else {
+    root.MotionUI = factory(root.jQuery);
+  }
+}(this, function($) {
+'use strict';
+
+// Polyfill for requestAnimationFrame
+(function() {
+  if (!Date.now)
+    Date.now = function() { return new Date().getTime(); };
+
+  var vendors = ['webkit', 'moz'];
+  for (var i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
+      var vp = vendors[i];
+      window.requestAnimationFrame = window[vp+'RequestAnimationFrame'];
+      window.cancelAnimationFrame = (window[vp+'CancelAnimationFrame']
+                                 || window[vp+'CancelRequestAnimationFrame']);
+  }
+  if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent)
+    || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
+    var lastTime = 0;
+    window.requestAnimationFrame = function(callback) {
+        var now = Date.now();
+        var nextTime = Math.max(lastTime + 16, now);
+        return setTimeout(function() { callback(lastTime = nextTime); },
+                          nextTime - now);
+    };
+    window.cancelAnimationFrame = clearTimeout;
+  }
+})();
+
+var initClasses   = ['mui-enter', 'mui-leave'];
+var activeClasses = ['mui-enter-active', 'mui-leave-active'];
+
+// Find the right "transitionend" event for this browser
+var endEvent = (function() {
+  var transitions = {
+    'transition': 'transitionend',
+    'WebkitTransition': 'webkitTransitionEnd',
+    'MozTransition': 'transitionend',
+    'OTransition': 'otransitionend'
+  }
+  var elem = window.document.createElement('div');
+
+  for (var t in transitions) {
+    if (typeof elem.style[t] !== 'undefined') {
+      return transitions[t];
+    }
+  }
+
+  return null;
+})();
+
+function animate(isIn, element, animation, cb) {
+  element = $(element).eq(0);
+
+  if (!element.length) return;
+
+  if (endEvent === null) {
+    isIn ? element.show() : element.hide();
+    cb();
+    return;
+  }
+
+  var initClass = isIn ? initClasses[0] : initClasses[1];
+  var activeClass = isIn ? activeClasses[0] : activeClasses[1];
+
+  // Set up the animation
+  reset();
+  element.addClass(animation);
+  element.css('transition', 'none');
+  requestAnimationFrame(function() {
+    element.addClass(initClass);
+    if (isIn) element.show();
+  });
+
+  // Start the animation
+  requestAnimationFrame(function() {
+    element[0].offsetWidth;
+    element.css('transition', '');
+    element.addClass(activeClass);
+  });
+
+  // Clean up the animation when it finishes
+  element.one('transitionend', finish);
+
+  // Hides the element (for out animations), resets the element, and runs a callback
+  function finish() {
+    if (!isIn) element.hide();
+    reset();
+    if (cb) cb.apply(element);
+  }
+
+  // Resets transitions and removes motion-specific classes
+  function reset() {
+    element[0].style.transitionDuration = 0;
+    element.removeClass(initClass + ' ' + activeClass + ' ' + animation);
+  }
+}
+
+var MotionUI = {
+  animateIn: function(element, animation, cb) {
+    animate(true, element, animation, cb);
+  },
+
+  animateOut: function(element, animation, cb) {
+    animate(false, element, animation, cb);
+  }
+}
+
+return MotionUI;
+}));
+
+},{"jquery":31}],33:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -56279,7 +56454,7 @@ return jQuery;
   }
 }.call(this));
 
-},{}]},{},[22])
+},{}]},{},[23])
 
 
 //# sourceMappingURL=main.js.map

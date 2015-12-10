@@ -6,9 +6,21 @@ let SearchService = function(PARSE, $http) {
   this.specific = specific;
   this.getTagData = getTagData;
   this.getGoData = getGoData;
+  this.getspecData = getspecData;
+
 
   function search (objectId) {
     return $http.get(eventURL, PARSE.CONFIG);
+  }
+
+  function getspecData(spec){
+    
+    return $http({
+      url : eventURL,
+      method : 'GET',
+      params : {where : {tags : spec} },
+      headers: PARSE.CONFIG.headers
+    });
   }
 
   function specific(data){
@@ -45,4 +57,4 @@ SearchService.$inject = ['PARSE', '$http'];
 
 export default SearchService;
 
-// 'where={"location":{"$regex":".*tiy.*", "$options":"i"}}' \
+

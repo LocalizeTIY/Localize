@@ -1,10 +1,13 @@
+<video autoplay loop muted class='bgvideo' id='bgvideo'>
+  <source ng-src='../media/nightstreet.mov'>
+</video>
 
 <form ng-submit='vm.search(data)'>
   <input placeholder='Search by Name' ng-model='data'>
   <button>Go</button>
 </form>
 
-<ul>
+<ul class="searchResults dropdown menu" data-dropdown-menu>
   <li ng-repeat="result in vm.results | filter: data">{{ result.name }}{{result.location}}{{result.date}}</li>
 </ul>
 
@@ -15,7 +18,7 @@
   <li><a href="#" title='Eats'>Eats</a>
     <ul>
      <li ng-repeat='t in vm.tags'>
-        <a href="#/tag/{{t}}">{{t}}</a> 
+       <a ng-click='vm.getspecData' href="#/tag/{{t}}">{{t}}</a> 
       </li>
     </ul>
   </li>
@@ -28,10 +31,16 @@
   <li><a href="#" title='Go'>Go</a>
     <ul>
      <li ng-repeat='g in vm.go'>
-        <a href="#/tag/{{g}}">{{g}}</a> 
+        <a href="#/tagresults/{{g}}">{{g}}</a> 
       </li>
     </ul>
   </li>
 </ul>
   
+</div>
+
+<div ng-repeat='tags in vm.results' class='tagContainer'>
+  <img ng-src='#'>
+  <h3>{{tags.name}}</h3>
+  <p>Description Here</p>
 </div>

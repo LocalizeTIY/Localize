@@ -14,6 +14,10 @@ let HomeController = function(SearchService) {
     });
   } 
 
+
+  let video = document.getElementById('bgvideo');
+  video.playbackRate = 0.8;
+
   // function specific(data){
   //   SearchService.specific(data).then((res)=>{
   //     vm.results =res.data.results;
@@ -34,6 +38,7 @@ let HomeController = function(SearchService) {
     });
   }
   getTagData();
+
 };
 
 function getGoData(){

@@ -11,9 +11,9 @@
   "devDependencies": {
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
+    "browserify-shim": "^3.8.11",
     "chai": "^3.4.0",
     "foundation-sites": "^6.0.3",
-    "browserify-shim": "^3.8.11",
     "gulp": "^3.9.0",
     "gulp-htmlhint": "^0.3.0",
     "gulp-jscs": "^3.0.1",
@@ -28,6 +28,7 @@
     "jshint-jsx": "^0.4.1",
     "jshint-stylish": "^2.0.1",
     "mocha": "^2.3.3",
+    "motion-ui": "^1.1.1",
     "node-bourbon": "^4.2.3",
     "node-font-awesome": "^1.0.2",
     "node-neat": "^1.7.2",
