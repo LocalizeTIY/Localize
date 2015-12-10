@@ -237,8 +237,9 @@ var HomeController = function HomeController(SearchService) {
   var vm = this;
 
   vm.search = search;
-  vm.getGoData = getGoData;
   vm.results = [];
+  vm.getGoData = getGoData;
+  vm.getEventData = getEventData;
   vm.getTagData = getTagData;
 
   function search(data) {
@@ -262,25 +263,47 @@ var HomeController = function HomeController(SearchService) {
 
     SearchService.getTagData().then(function (res) {
       vm.tags = [];
-      console.log(res.data.results);
-      var pluckedTags = _underscore2['default'].pluck(res.data.results, 'tags');
-      console.log('plucked', pluckedTags);
-      vm.tags = _underscore2['default'].uniq(pluckedTags);
-      console.log('uniqed', vm.tags);
+      var items = res.data.results;
+      var eatList = items.filter(function (item) {
+        return item.tags === 'eat';
+      });
+      vm.tags = _underscore2['default'].pluck(eatList, 'name');
+      console.log('eat names', vm.tags);
+      // let pluckedTags = _.pluck(res.data.results, 'tags');
+      // console.log('plucked', pluckedTags);
+      // vm.tags = _.uniq(pluckedTags);
+      // console.log('uniqed', vm.tags);
+      // window.jdtemp = res.data.results;
     });
   }
   getTagData();
-};
 
-function getGoData() {
-  SearchService.getGoData().then(function (res) {
-    vm.go = [];
-    var pluckedGo = _underscore2['default'].pluck(res.data.results, 'name');
-    console.log('plucked', pluckedGo);
-    vm.go = _underscore2['default'].uniq(pluckedGo);
-    console.log('uniqed', vm.go);
-  });
-}
+  function getGoData() {
+    SearchService.getGoData().then(function (res) {
+      vm.go = [];
+      var items = res.data.results;
+      var goList = items.filter(function (item) {
+        return item.tags === 'go';
+      });
+      vm.go = _underscore2['default'].pluck(goList, 'name');
+      console.log('go names', vm.go);
+    });
+  }
+  getGoData();
+
+  function getEventData() {
+    SearchService.getEventData.then(function (res) {
+      vm.event = [];
+      var items = res.data.results;
+      var eventList = items.filter(function (item) {
+        return item.tags === 'event';
+      });
+      vm.event = _underscore2['default'].pluck(eventList, 'name');
+      console.log('event names', vm.event);
+    });
+  }
+  getEventData();
+};
 
 HomeController.$inject = ['SearchService'];
 
@@ -478,10 +501,10 @@ var TagResultsController = function TagResultsController(SearchService, $statePa
   //console.log(vm.spec);
 
   function getspecData(spec) {
-    console.log('shalmali', spec);
+    console.log('shalmali is in the controller', spec);
     SearchService.getspecData(spec).then(function (res) {
       vm.info = res.data.results;
-      console.log(res);
+      console.log('res in the controller', res);
     });
   }
 
@@ -540,6 +563,7 @@ var SearchService = function SearchService(PARSE, $http) {
   this.specific = specific;
   this.getTagData = getTagData;
   this.getGoData = getGoData;
+  this.getEventData = getEventData;
   this.getspecData = getspecData;
 
   function search(objectId) {
@@ -547,7 +571,7 @@ var SearchService = function SearchService(PARSE, $http) {
   }
 
   function getspecData(spec) {
-
+    console.log('im here in the service');
     return $http({
       url: eventURL,
       method: 'GET',
@@ -567,7 +591,7 @@ var SearchService = function SearchService(PARSE, $http) {
   }
 
   function getTagData() {
-    console.log('hello');
+    console.log('hello from tag');
     return $http({
       url: eventURL,
       method: 'GET',
@@ -576,13 +600,22 @@ var SearchService = function SearchService(PARSE, $http) {
   }
 
   function getGoData() {
-    console.log('hello');
+    console.log('hello from go');
     return $http({
       url: eventURL,
       method: 'GET',
       headers: PARSE.CONFIG.headers
     });
   }
+
+  // function getEventData(){
+  //   console.log('hello from event data');
+  //   return $http({
+  //     url : eventURL,
+  //     method : 'GET',
+  //     headers : PARSE.CONFIG.headers
+  //   });
+  // }
 };
 
 SearchService.$inject = ['PARSE', '$http'];

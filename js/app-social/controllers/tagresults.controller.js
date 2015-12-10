@@ -10,10 +10,10 @@ let TagResultsController = function(SearchService, $stateParams, $scope) {
 
 
   function getspecData(spec) {
-    console.log('shalmali', spec);
+    console.log('shalmali is in the controller', spec);
     SearchService.getspecData(spec).then((res)=>{
       vm.info = res.data.results; 
-       console.log(res);
+      console.log('res in the controller',res);
     });
   }
 
