@@ -5,6 +5,7 @@ import angular from 'angular';
 import $ from 'jquery';
 import 'foundation';
 import 'angular-foundation';
+import 'motion-ui';
 
 //Starting up foundation
 $(document).foundation();

@@ -6,15 +6,25 @@ let SearchService = function(PARSE, $http) {
   this.specific = specific;
   this.getTagData = getTagData;
   this.getGoData = getGoData;
+  this.getspecData = getspecData;
+
 
   function search (objectId) {
     return $http.get(eventURL, PARSE.CONFIG);
   }
 
+  function getspecData(spec){
+    
+    return $http({
+      url : eventURL,
+      method : 'GET',
+      params : {where : {tags : spec} },
+      headers: PARSE.CONFIG.headers
+    });
+  }
+
   function specific(data){
     console.log('from the specific function on service',data);
-
-
     return $http({
       url: eventURL, 
       method : "GET",

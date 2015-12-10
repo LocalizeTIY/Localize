@@ -51,8 +51,8 @@ let config = function($stateProvider, $urlRouterProvider) {
     })
 
     .state('root.tagresults', {
-      url: '/tagresults',
-      controller: 'TagResultController as vm',
+      url: '/tag/:type',
+      controller: 'TagResultsController as vm',
       templateUrl: 'templates/app-social/tagresults.tpl.html'
     });
 
