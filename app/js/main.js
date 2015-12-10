@@ -502,7 +502,6 @@ var SearchService = function SearchService(PARSE, $http) {
 
   function specific(data) {
     console.log('from the specific function on service', data);
-
     return $http({
       url: eventURL,
       method: "GET",
