@@ -13,7 +13,7 @@ let TagResultsController = function(SearchService, $stateParams, $scope) {
     console.log('shalmali', spec);
     SearchService.getspecData(spec).then((res)=>{
       vm.info = res.data.results; 
-       console.log(res);
+      console.log(res);
     });
   }
 
