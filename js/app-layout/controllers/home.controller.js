@@ -6,7 +6,7 @@ let HomeController = function(SearchService) {
   vm.search = search;
   vm.results = [];
   vm.getGoData = getGoData;
-  vm.getEventData = getEventData;
+  vm.geteventData = geteventData;
   vm.getTagData = getTagData;
 
   function search (data) {
@@ -32,12 +32,10 @@ let HomeController = function(SearchService) {
     SearchService.getTagData().then((res)=>{
       vm.tags=[];
       let items = res.data.results;
-      let eatList = items.filter(item => item.tags === 'eat');
-      vm.tags = _.pluck(eatList, 'name');
-      console.log('eat names', vm.tags);
+      let eatList = items.filter(item => item.category === 'eat');
+      vm.tags = _.uniq(eatList);
       // let pluckedTags = _.pluck(res.data.results, 'tags');
       // console.log('plucked', pluckedTags);
-      // vm.tags = _.uniq(pluckedTags);
       // console.log('uniqed', vm.tags);
       // window.jdtemp = res.data.results;
     });
@@ -48,24 +46,24 @@ let HomeController = function(SearchService) {
     SearchService.getGoData().then((res)=>{
       vm.go=[];
       let items = res.data.results;
-      let goList = items.filter(item => item.tags === 'go');
-      vm.go = _.pluck(goList, 'name');
+      let goList = items.filter(item => item.category === 'go');
+      // let pluckedGo = _.pluck(goList, 'tags');
+      vm.go = _.uniq(goList);
       console.log('go names', vm.go);
     });
   }
   getGoData();
 
-  function getEventData(){
-    SearchService.getEventData.then((res)=>{
-      vm.event =[];
+  function geteventData(){
+    SearchService.geteventData().then((res)=>{
+      vm.events=[];
       let items = res.data.results;
-      let eventList = items.filter(item => item.tags === 'event');
-      vm.event = _.pluck(eventList, 'name');
-      console.log('event names', vm.event);
-
+      let eventsList =items.filter(item=> item.category ==='event');
+      vm.events= _.uniq(eventsList);
+      console.log('event names', vm.events);
     });
   }
-  getEventData();
+  geteventData();
 };
 
 
