@@ -1,9 +1,9 @@
 <h3>Featured</h3>
-<div class="container" id="featured">
+<!-- <div class="container" id="featured">
   
   <a id="featured"></a>
 
-  <section>
+
       <section class="secondNav">
         <ul>
             <div class=""> 
@@ -46,7 +46,39 @@
         </ul>
       </div>     
   </section>
+</div> -->
 
+<!-- <event-item id="event-{{ $index }}" ng-repeat "e in vm.events" event="e"></event-item>
+ -->
+
+<div>
+  <table>
+    <tr>
+      <td ng-repeat='event in vm.events'>{{event.name}}</td>
+    <tr>
+      <td ng-repeat='event in vm.events'>{{event.tags}}</td>
+    </tr>
+      
+    <tr>
+      <td ng-repeat='event in vm.events'>{{event.ratings}}</td>
+    </tr>
+      
+    <tr>
+      <td ng-repeat='event in vm.events'>{{event.picture}}</td>
+    </tr>
+      
+    </tr>
+  </table>
+</div>
+<!-- <div>
+  <ul>
+    <li ng-repeat='event in vm.events'>{{event.name}}</li>
+    <li ng-repeat='event in vm.events'>{{event.tags}}</li>
+    <li ng-repeat='event in vm.events'>{{event.ratings}}</li>
+    <li ng-repeat='event in vm.events'>{{event.picture}}</li>
+
+  </ul>
+</div> -->
    
 
 
@@ -63,4 +95,3 @@
 
 
 
-</div>

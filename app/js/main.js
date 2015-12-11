@@ -215,14 +215,35 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FeaturedController = function FeaturedController(PARSE, $http, $state, $cookies) {
+var FeaturedController = function FeaturedController(FeaturedService) {
 
-  var url = PARSE.URL + 'classes/events';
   var vm = this;
-  // this.
+  vm.events = [];
+  vm.clicked = clicked;
+
+  activate();
+
+  function activate() {
+    FeaturedService.getAllEvents().then(function (res) {
+      vm.events = res.data.results;
+      console.log('featuredController?');
+      console.log(vm.events);
+    });
+  }
+
+  function clicked(event) {
+    console.log('clicked', event.name);
+  }
+
+  function events(eventObj) {
+    FeaturedService.events(data).then(function (res) {
+      // vm.events = res.data.results;
+      console.log(res);
+    });
+  }
 };
 
-FeaturedController.$inject = ['PARSE', '$http', '$state', '$cookies'];
+FeaturedController.$inject = ['FeaturedService'];
 
 exports['default'] = FeaturedController;
 module.exports = exports['default'];
@@ -382,9 +403,86 @@ _angular2['default'].module('app.layout', ['app.social']).controller('HomeContro
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FeaturedService = function FeaturedService(PARSE, $state, $http) {};
+var FeaturedService = function FeaturedService(PARSE, $http) {
 
-FeaturedService.$inject = ['PARSE', '$state', '$http'];
+  var eventURL = PARSE.URL + 'classes/events';
+
+  // this.search = search;
+  this.getAllEvents = getAllEvents;
+  this.getNameData = getNameData;
+  this.getTagData = getTagData;
+  this.getRatingsData = getRatingsData;
+  this.getEvent = getEvent;
+  // this.getDateData = getDateData;
+  // this.getCategoryData = getCategoryData;
+  // this.getNameData = getNameData;
+  // this.getTimeData = getTimeData;
+
+  function Events(eventObj) {
+    console.log('eventObjs?', eventObj);
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+
+    // this.date = eventObj.date;
+  }
+
+  function getAllEvents() {
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+  }
+
+  // function search (objectId) {
+  // 	return $http.get(eventURL, PARSE.CONFIG);
+  // }
+
+  function getEvent(id) {
+    return $http.get('url' + '/' + id, PARSE.CONFIG);
+  }
+
+  function getTagData() {
+    console.log('working?');
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+  }
+
+  function getRatingsData() {
+    console.log('ratings?');
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+  }
+
+  function getDateData() {
+    console.log('date?');
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+  }
+
+  function getNameData() {
+    console.log('name?');
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+  }
+};
+
+FeaturedService.$inject = ['PARSE', '$http'];
 exports['default'] = FeaturedService;
 module.exports = exports['default'];
 
