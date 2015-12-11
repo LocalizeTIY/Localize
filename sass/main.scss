@@ -85,6 +85,36 @@ body {
   }
 }
 
+.column {
+  position: relative;
+  background: #fff;
+  margin-right: 20px;
+  height: 400px;
+
+  .columnPic {
+    margin-top: 4%;
+
+  }
+}
+
+.eatColumn,
+.goColumn,
+.eventColumn {
+  position: absolute;
+  top: 30px;
+}
+
+
+
+.dropdown.menu 
+.is-dropdown-submenu-parent.is-down-arrow > a::after {
+  display: none;
+}
+
+.dropdown.menu .submenu {
+  background: transparent;
+}
+
 //ADD FORM
 .pageHeading{
   margin :3% auto;

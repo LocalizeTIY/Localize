@@ -5650,6 +5650,27 @@ body {
     padding: 0;
     margin: 0; }
 
+.column, .columns {
+  position: relative;
+  background: #fff;
+  margin-right: 20px;
+  height: 400px; }
+  .column .columnPic, .columns .columnPic {
+    margin-top: 4%; }
+
+.eatColumn,
+.goColumn,
+.eventColumn {
+  position: absolute;
+  top: 30px; }
+
+.dropdown.menu
+.is-dropdown-submenu-parent.is-down-arrow > a::after {
+  display: none; }
+
+.dropdown.menu .submenu {
+  background: transparent; }
+
 .pageHeading {
   margin: 3% auto;
   padding-left: 15%; }

@@ -13,40 +13,48 @@
 
 <hr>
 <!-- EAT TAGS -->
-<div>
-<ul class='eat'>
-  <li><a href="#" title='Eats'>Eats</a>
-    <ul>
-     <li ng-repeat='t in vm.tags' >
-       <a ng-click='vm.getspecData(t)' href="#/tag/{{t.tags}}">{{t.tags}}</a> 
+<div class="row small-up-1 medium-up-2 large-up-4 tresColumns">
+  <div class='column'>
+  <img ng-src='../media/blurredeat.png' class='columnPic'>
+    <ul class='eat dropdown menu eatColumn' data-dropdown-menu>
+      <li>
+        <a href="#" title='Eats'>Eats</a>
+        <ul class='menu'>
+          <li ng-repeat='t in vm.tags' >
+             <a ng-click='vm.getspecData(t)' href="#/tag/{{t.tags}}">{{t.tags}}</a> 
+          </li>
+        </ul>
       </li>
     </ul>
-  </li>
-</ul>
-</div>
+  </div>
 
-<!-- GO TAGS  -->
-<div>
-<ul class='eat'>
-  <li><a href="#" title='Go'>Go</a>
-    <ul>
-     <li ng-repeat='g in vm.go'>
-        <a ng-click = 'vm.getspecData(g)' href="#/tag/{{g.tags}}">{{g.tags}}</a> 
+  <!-- GO TAGS  -->
+  <div class='column'>
+  <img ng-src='../media/blurredpier.png' class='columnPic'>
+    <ul class='eat dropdown menu goColumn' data-dropdown-menu>
+      <li>
+        <a href="#" title='Go'>Go</a>
+        <ul class='menu'>
+          <li ng-repeat='g in vm.go'>
+            <a ng-click = 'vm.getspecData(g)' href="#/tag/{{g.tags}}">{{g.tags}}</a> 
+          </li>
+        </ul>
       </li>
-    </ul>
-  </li>
-</ul> 
-</div>
+    </ul> 
+  </div>
 
-<!--EVENTS TAGS -->
-<div>
-<ul class='eat'>
-  <li><a href="#" title='Events'>Events</a>
-    <ul>
-     <li ng-repeat='e in vm.events'>
-        <a ng-click = 'vm.getspecData(e)' href="#/tag/{{e.tags}}">{{e.tags}}</a> 
+  <!--EVENTS TAGS -->
+  <div class='column'>
+  <img ng-src='../media/blurredevent.png' class='columnPic'>
+    <ul class='eat dropdown menu eventColumn' data-dropdown-menu>
+      <li>
+        <a href="#" title='Events'>Events</a>
+        <ul class='menu'>
+          <li ng-repeat='e in vm.events'>
+            <a ng-click = 'vm.getspecData(e)' href="#/tag/{{e.tags}}">{{e.tags}}</a> 
+          </li>
+        </ul>
       </li>
-    </ul>
-  </li>
-</ul> 
+    </ul> 
+  </div>
 </div>
