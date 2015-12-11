@@ -207,14 +207,27 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FeaturedController = function FeaturedController(PARSE, $http, $state, $cookies) {
+var FeaturedController = function FeaturedController(FeaturedService) {
 
-  var url = PARSE.URL + 'classes/events';
   var vm = this;
+  vm.events = [];
+  vm.clicked = clicked;
+
+  activate();
+
+  function activate() {
+    FeaturedService.getAllEvents().then(function (res) {
+      vm.events = res.data.results;
+    });
+  }
+
+  // function clicked (event) {
+  // 	console.log.('clicked', event.category);
+  // }
   // this.
 };
 
-FeaturedController.$inject = ['PARSE', '$http', '$state', '$cookies'];
+FeaturedController.$inject = ['FeaturedService'];
 
 exports['default'] = FeaturedController;
 module.exports = exports['default'];
