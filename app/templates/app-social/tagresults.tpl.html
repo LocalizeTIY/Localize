@@ -1,10 +1,6 @@
 <div class='tagContainer'>
   <h3>Title Here</h3>
 
-  <li ng-repeat='info in vm.info'>
-    <a href='/#/singleresult/{{info.name}}'>{{info.name}}{{info.location}}</a> 
-  </li>
-
-  <!-- <p ng-repeat="info in vm.info">Description:{{info.location}}</p> -->
+  <p ng-repeat="info in vm.info"><a href="#/tags/{{info.tags}}/{{info.name}}"> {{info.name}}</a></p>
 
 </div>

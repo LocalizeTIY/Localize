@@ -48,7 +48,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
     controller: 'SingleResultController as vm',
     templateUrl: 'templates/app-social/singleResult.tpl.html'
   }).state('root.list', {
-    url: '/tag/:type/:list',
+    url: '/tag/type/:list',
     controller: 'TagsListController as vm',
     templateUrl: 'templates/app-social/tagslist.tpl.html'
   });
@@ -627,11 +627,11 @@ var SearchService = function SearchService(PARSE, $http) {
   }
 
   function getspecData(spec) {
-    console.log('im here in the service');
+    console.log('im here in the service, spec', spec);
     return $http({
       url: eventURL,
       method: 'GET',
-      params: { where: { category: spec.category } },
+      params: { where: { tags: spec } },
       headers: PARSE.CONFIG.headers
     });
   }
