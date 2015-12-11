@@ -54,6 +54,12 @@ let config = function($stateProvider, $urlRouterProvider) {
       url: '/tag/:type',
       controller: 'TagResultsController as vm',
       templateUrl: 'templates/app-social/tagresults.tpl.html'
+    })
+
+    .state('root.singleresult', {
+      url: '/singleresult/:id',
+      controller: 'SingleResultController as vm',
+      templateUrl: 'templates/app-social/singleResult.tpl.html'
     });
 
   

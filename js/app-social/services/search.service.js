@@ -7,6 +7,7 @@ let SearchService = function(PARSE, $http) {
   this.getTagData = getTagData;
   this.getGoData = getGoData;
   this.getspecData = getspecData;
+  this.singleResult = singleResult;
 
 
   function search (objectId) {
@@ -48,6 +49,14 @@ let SearchService = function(PARSE, $http) {
       url : eventURL,
       method : 'GET',
       headers : PARSE.CONFIG.headers
+    });
+  }
+
+  function singleResult(id) {
+    return $http({
+      url: eventURL + '/' + id,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
     });
   }
 

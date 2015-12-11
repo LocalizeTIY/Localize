@@ -1,4 +1,6 @@
 <div class='tagContainer'>
   <h3>Title Here</h3>
-  <p ng-repeat="info in vm.info">Description:{{info.name}}</p>
+  <li ng-repeat='info in vm.info'>
+    <a href='/#/singleresult/{{info.name}}'>{{info.name}}</a> 
+  </li>
 </div>

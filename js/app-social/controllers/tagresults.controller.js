@@ -1,7 +1,7 @@
 let TagResultsController = function(SearchService, $stateParams, $scope) {
   
   let vm = this;
-  vm.name = 'dsdsds';
+  // vm.name = 'dsdsds';
   vm.getspecData = getspecData;
 
   // console.log($stateParams.type);

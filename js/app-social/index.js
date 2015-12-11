@@ -4,6 +4,7 @@ import angular from 'angular';
 import SearchController from './controllers/search.controller';
 import SpecificSearchController from './controllers/specificSearch.controller';
 import TagResultsController from './controllers/tagresults.controller';
+import SingleResultController from './controllers/SingleResult.controller';
 
 //Services
 import SearchService from './services/search.service';
@@ -13,6 +14,7 @@ angular
   .controller('SearchController', SearchController)
   .controller('SpecificSearchController', SpecificSearchController)
   .controller('TagResultsController', TagResultsController)
+  .controller('SingleResultController', SingleResultController)
   .service('SearchService', SearchService)
   // .directive('SearchResult', SearchResult)
 ;
