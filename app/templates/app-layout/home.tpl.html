@@ -14,37 +14,37 @@
 <hr>
 <!-- EAT TAGS -->
 <div>
-<ul id='eat'>
+<ul class='eat'>
   <li><a href="#" title='Eats'>Eats</a>
     <ul>
      <li ng-repeat='t in vm.tags' >
-       <a ng-click='vm.getspecData' href="#/tag/{{t}}">{{t}}</a> 
+       <a ng-click='vm.getspecData(t)' href="#/tag/{{t}}">{{t.tags}}</a> 
       </li>
     </ul>
   </li>
 </ul>
 </div>
 
-<!-- GO  -->
+<!-- GO TAGS  -->
 <div>
-<ul id='eat'>
+<ul class='eat'>
   <li><a href="#" title='Go'>Go</a>
     <ul>
      <li ng-repeat='g in vm.go'>
-        <a ng-click = 'vm.getspecData' href="#/tag/{{g}}">{{g}}</a> 
+        <a ng-click = 'vm.getspecData(g)' href="#/tag/{{g}}">{{g.tags}}</a> 
       </li>
     </ul>
   </li>
 </ul> 
 </div>
 
-<!--EVENTS -->
+<!--EVENTS TAGS -->
 <div>
-<ul id='eat'>
+<ul class='eat'>
   <li><a href="#" title='Events'>Events</a>
     <ul>
-     <li ng-repeat='e in vm.event'>
-        <a ng-click = 'vm.getspecData' href="#/tag/{{e}}">{{e}}</a> 
+     <li ng-repeat='e in vm.events'>
+        <a ng-click = 'vm.getspecData(e)' href="#/tag/{{e}}">{{e.tags}}</a> 
       </li>
     </ul>
   </li>
