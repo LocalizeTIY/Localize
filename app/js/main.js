@@ -51,6 +51,10 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/tag/type/:list',
     controller: 'TagsListController as vm',
     templateUrl: 'templates/app-social/tagslist.tpl.html'
+  }).state('root.singlefeature', {
+    url: '/singleFeature/:id',
+    controller: 'SingleFeatureController as vm',
+    templateUrl: 'templates/app-layout/singleFeature.tpl.html'
   });
 };
 
@@ -99,7 +103,7 @@ var _constantsParseConstant2 = _interopRequireDefault(_constantsParseConstant);
 
 _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_config2['default']).constant('PARSE', _constantsParseConstant2['default']);
 
-},{"./config":1,"./constants/parse.constant":2,"angular":32,"angular-cookies":28,"angular-ui-router":30}],4:[function(require,module,exports){
+},{"./config":1,"./constants/parse.constant":2,"angular":33,"angular-cookies":29,"angular-ui-router":31}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -137,7 +141,7 @@ var _servicesDashboardService2 = _interopRequireDefault(_servicesDashboardServic
 
 _angular2['default'].module('app.dashboard', ['app.core']).controller('DashboardController', _controllersDashboardController2['default']).service('DashboardService', _servicesDashboardService2['default']);
 
-},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":32}],6:[function(require,module,exports){
+},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":33}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -338,7 +342,7 @@ HomeController.$inject = ['SearchService'];
 exports['default'] = HomeController;
 module.exports = exports['default'];
 
-},{"underscore":36}],10:[function(require,module,exports){
+},{"underscore":37}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -355,6 +359,33 @@ exports["default"] = OptionsController;
 module.exports = exports["default"];
 
 },{}],11:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+var SingleFeatureController = function SingleFeatureController($scope, $stateParams, $http, $state, FeaturedService) {
+
+	console.log($stateParams.name);
+	console.log($stateParams);
+
+	$scope.singleName = $stateParams.name;
+
+	$scope.name = $stateParams;
+
+	FeaturedService.showingSingleFeature($stateParams).then(function (response) {
+		console.log($stateParams);
+		console.log(response.data);
+		$scope.singleFeature = response.data;
+	});
+};
+
+SingleFeatureController.$inject = ['$scope', '$stateParams', '$http', '$state', 'FeaturedService'];
+
+exports['default'] = SingleFeatureController;
+module.exports = exports['default'];
+
+},{}],12:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -381,6 +412,10 @@ var _controllersFeaturedController = require('./controllers/featured.controller'
 
 var _controllersFeaturedController2 = _interopRequireDefault(_controllersFeaturedController);
 
+var _controllersSingleFeatureController = require('./controllers/singleFeature.controller');
+
+var _controllersSingleFeatureController2 = _interopRequireDefault(_controllersSingleFeatureController);
+
 //service
 
 var _servicesLocalizeService = require('./services/localize.service');
@@ -395,9 +430,9 @@ var _servicesFeaturedService = require('./services/featured.service');
 
 var _servicesFeaturedService2 = _interopRequireDefault(_servicesFeaturedService);
 
-_angular2['default'].module('app.layout', ['app.social']).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).controller('OptionsController', _controllersOptionsController2['default']).controller('FeaturedController', _controllersFeaturedController2['default']).service('LocalizeService', _servicesLocalizeService2['default']).service('UploadService', _servicesUploadService2['default']).service('FeaturedService', _servicesFeaturedService2['default']);
+_angular2['default'].module('app.layout', ['app.social']).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).controller('OptionsController', _controllersOptionsController2['default']).controller('FeaturedController', _controllersFeaturedController2['default']).controller('SingleFeatureController', _controllersSingleFeatureController2['default']).service('LocalizeService', _servicesLocalizeService2['default']).service('UploadService', _servicesUploadService2['default']).service('FeaturedService', _servicesFeaturedService2['default']);
 
-},{"./controllers/add.controller":7,"./controllers/featured.controller":8,"./controllers/home.controller":9,"./controllers/options.controller":10,"./services/featured.service":12,"./services/localize.service":13,"./services/upload.service":14,"angular":32}],12:[function(require,module,exports){
+},{"./controllers/add.controller":7,"./controllers/featured.controller":8,"./controllers/home.controller":9,"./controllers/options.controller":10,"./controllers/singleFeature.controller":11,"./services/featured.service":13,"./services/localize.service":14,"./services/upload.service":15,"angular":33}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -486,7 +521,7 @@ FeaturedService.$inject = ['PARSE', '$http'];
 exports['default'] = FeaturedService;
 module.exports = exports['default'];
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -533,7 +568,7 @@ LocalizeService.$inject = ['PARSE', '$http', '$state', '$cookies', 'UserService'
 exports['default'] = LocalizeService;
 module.exports = exports['default'];
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -563,7 +598,7 @@ UploadService.$inject = ['$http', 'PARSE'];
 exports['default'] = UploadService;
 module.exports = exports['default'];
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -587,7 +622,7 @@ SingleResultController.$inject = ['SearchService', '$stateParams'];
 exports['default'] = SingleResultController;
 module.exports = exports['default'];
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -613,7 +648,7 @@ SearchController.$inject = ['SearchService'];
 exports['default'] = SearchController;
 module.exports = exports['default'];
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -629,7 +664,7 @@ SpecificSearchController.$inject = ['SearchService'];
 exports['default'] = SpecificSearchController;
 module.exports = exports['default'];
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -664,7 +699,7 @@ TagResultsController.$inject = ['SearchService', '$stateParams', '$scope'];
 exports['default'] = TagResultsController;
 module.exports = exports['default'];
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -677,7 +712,7 @@ TagsListController.$inject = [];
 exports["default"] = TagsListController;
 module.exports = exports["default"];
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -718,7 +753,7 @@ _angular2['default'].module('app.social', ['app.core']).controller('SearchContro
 
 // .directive('SearchResult', SearchResult)
 
-},{"./controllers/SingleResult.controller":15,"./controllers/search.controller":16,"./controllers/specificSearch.controller":17,"./controllers/tagresults.controller":18,"./controllers/tagslist.controller":19,"./services/search.service":21,"angular":32}],21:[function(require,module,exports){
+},{"./controllers/SingleResult.controller":16,"./controllers/search.controller":17,"./controllers/specificSearch.controller":18,"./controllers/tagresults.controller":19,"./controllers/tagslist.controller":20,"./services/search.service":22,"angular":33}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -801,7 +836,7 @@ SearchService.$inject = ['PARSE', '$http'];
 exports['default'] = SearchService;
 module.exports = exports['default'];
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -833,7 +868,7 @@ LoginController.$inject = ['UserService', '$state'];
 exports['default'] = LoginController;
 module.exports = exports['default'];
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -859,7 +894,7 @@ RegisterController.$inject = ['UserService', '$state'];
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -882,7 +917,7 @@ var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
 
 _angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLoginController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('UserService', _servicesUserService2['default']);
 
-},{"./controllers/login.controller":22,"./controllers/register.controller":23,"./services/user.service":25,"angular":32}],25:[function(require,module,exports){
+},{"./controllers/login.controller":23,"./controllers/register.controller":24,"./services/user.service":26,"angular":33}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -950,7 +985,7 @@ UserService.$inject = ['PARSE', '$http', '$cookies', '$state'];
 exports['default'] = UserService;
 module.exports = exports['default'];
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -998,7 +1033,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.s
   });
 });
 
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-social/index":20,"./app-user/index":24,"angular":32,"angular-foundation":29,"foundation":33,"jquery":34,"motion-ui":35,"underscore":36}],27:[function(require,module,exports){
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":12,"./app-social/index":21,"./app-user/index":25,"angular":33,"angular-foundation":30,"foundation":34,"jquery":35,"motion-ui":36,"underscore":37}],28:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -1321,11 +1356,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":27}],29:[function(require,module,exports){
+},{"./angular-cookies":28}],30:[function(require,module,exports){
 /*
  * angular-mm-foundation
  * http://pineconellc.github.io/angular-foundation/
@@ -4941,7 +4976,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -9312,7 +9347,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -38331,11 +38366,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":31}],33:[function(require,module,exports){
+},{"./angular":32}],34:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
@@ -45806,7 +45841,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -55026,7 +55061,7 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],35:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 ;(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);
@@ -55145,7 +55180,7 @@ var MotionUI = {
 return MotionUI;
 }));
 
-},{"jquery":34}],36:[function(require,module,exports){
+},{"jquery":35}],37:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -56695,7 +56730,7 @@ return MotionUI;
   }
 }.call(this));
 
-},{}]},{},[26])
+},{}]},{},[27])
 
 
 //# sourceMappingURL=main.js.map

@@ -66,7 +66,14 @@ let config = function($stateProvider, $urlRouterProvider) {
       url : '/tag/type/:list',
       controller :'TagsListController as vm',
       templateUrl:'templates/app-social/tagslist.tpl.html'
+    })
+
+    .state('root.singlefeature', {
+      url : '/singleFeature/:id',
+      controller : 'SingleFeatureController as vm',
+      templateUrl : 'templates/app-layout/singleFeature.tpl.html'
     });
+
 
   
 
