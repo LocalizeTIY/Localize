@@ -15,11 +15,11 @@ let SearchService = function(PARSE, $http) {
   }
 
   function getspecData(spec){
-    console.log('im here in the service');
+    console.log('im here in the service, spec', spec);
     return $http({
       url : eventURL,
       method : 'GET',
-      params : {where : {category : spec.category}} ,
+      params : {where : {tags : spec }} ,
       headers: PARSE.CONFIG.headers
     });
   }
