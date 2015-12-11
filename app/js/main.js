@@ -464,10 +464,7 @@ var SingleResultController = function SingleResultController(SearchService, $sta
   console.log('hi');
 
   function singleResult() {
-    SearchService.singleResult($stateParams.id).then(function (res) {
-      vm.result = res.data.results;
-      console.log('here it is');
-    });
+    console.log('here it is');
   }
 };
 

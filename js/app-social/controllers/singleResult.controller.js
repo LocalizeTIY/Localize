@@ -7,10 +7,8 @@ let SingleResultController = function(SearchService, $stateParams) {
   console.log('hi');
 
   function singleResult () {
-    SearchService.singleResult($stateParams.id).then( (res) => {
-      vm.result = res.data.results;
-      console.log('here it is');
-    });
+    console.log('here it is');
+
   }
 
 
