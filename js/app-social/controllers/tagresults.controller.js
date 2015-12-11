@@ -1,7 +1,6 @@
 let TagResultsController = function(SearchService, $stateParams, $scope) {
   
   let vm = this;
-  // vm.name = 'dsdsds';
   vm.getspecData = getspecData;
 
   // console.log($stateParams.type);
@@ -10,13 +9,13 @@ let TagResultsController = function(SearchService, $stateParams, $scope) {
 
 
   function getspecData(spec) {
-    console.log('shalmali is in the controller', spec);
+    //console.log('shalmali is in the controller', spec);
     SearchService.getspecData(spec).then((res)=>{
       vm.info = res.data.results; 
 
-      console.log(res);
+      //console.log(res);
 
-      console.log('res in the controller',res);
+      //console.log('res in the controller',res);
 
     });
   }
