@@ -57,7 +57,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     })
 
     .state('root.list', {
-      url : '/tag/:type/:list',
+      url : '/tag/type/:list',
       controller :'TagsListController as vm',
       templateUrl:'templates/app-social/tagslist.tpl.html'
     });
