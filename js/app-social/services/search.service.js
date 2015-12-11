@@ -8,6 +8,7 @@ let SearchService = function(PARSE, $http) {
   this.getGoData = getGoData;
   this.geteventData = geteventData;
   this.getspecData = getspecData;
+  this.singleResult = singleResult;
 
 
   function search (objectId) {
@@ -52,6 +53,14 @@ let SearchService = function(PARSE, $http) {
     });
   }
 
+  function singleResult(id) {
+    return $http({
+      url: eventURL + '/' + id,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+  }
+
   function geteventData(){
     console.log('hello from event data');
     return $http({
@@ -60,7 +69,6 @@ let SearchService = function(PARSE, $http) {
       headers : PARSE.CONFIG.headers
     });
   }
-
 
 };
 

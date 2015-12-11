@@ -43,6 +43,10 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/tag/:type',
     controller: 'TagResultsController as vm',
     templateUrl: 'templates/app-social/tagresults.tpl.html'
+  }).state('root.singleresult', {
+    url: '/singleresult/:id',
+    controller: 'SingleResultController as vm',
+    templateUrl: 'templates/app-social/singleResult.tpl.html'
   }).state('root.list', {
     url: '/tag/type/:list',
     controller: 'TagsListController as vm',
@@ -95,7 +99,7 @@ var _constantsParseConstant2 = _interopRequireDefault(_constantsParseConstant);
 
 _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_config2['default']).constant('PARSE', _constantsParseConstant2['default']);
 
-},{"./config":1,"./constants/parse.constant":2,"angular":30,"angular-cookies":26,"angular-ui-router":28}],4:[function(require,module,exports){
+},{"./config":1,"./constants/parse.constant":2,"angular":31,"angular-cookies":27,"angular-ui-router":29}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -133,7 +137,7 @@ var _servicesDashboardService2 = _interopRequireDefault(_servicesDashboardServic
 
 _angular2['default'].module('app.dashboard', ['app.core']).controller('DashboardController', _controllersDashboardController2['default']).service('DashboardService', _servicesDashboardService2['default']);
 
-},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":30}],6:[function(require,module,exports){
+},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":31}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -326,7 +330,7 @@ HomeController.$inject = ['SearchService'];
 exports['default'] = HomeController;
 module.exports = exports['default'];
 
-},{"underscore":34}],10:[function(require,module,exports){
+},{"underscore":35}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -381,7 +385,7 @@ var _servicesUploadService2 = _interopRequireDefault(_servicesUploadService);
 
 _angular2['default'].module('app.layout', ['app.social']).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).controller('OptionsController', _controllersOptionsController2['default']).controller('FeaturedController', _controllersFeaturedController2['default']).service('LocalizeService', _servicesLocalizeService2['default']).service('UploadService', _servicesUploadService2['default']);
 
-},{"./controllers/add.controller":7,"./controllers/featured.controller":8,"./controllers/home.controller":9,"./controllers/options.controller":10,"./services/localize.service":12,"./services/upload.service":13,"angular":30}],12:[function(require,module,exports){
+},{"./controllers/add.controller":7,"./controllers/featured.controller":8,"./controllers/home.controller":9,"./controllers/options.controller":10,"./services/localize.service":12,"./services/upload.service":13,"angular":31}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -464,6 +468,30 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
+var SingleResultController = function SingleResultController(SearchService, $stateParams) {
+
+  var vm = this;
+
+  vm.singleResult = singleResult;
+
+  console.log('hi');
+
+  function singleResult() {
+    console.log('here it is');
+  }
+};
+
+SingleResultController.$inject = ['SearchService', '$stateParams'];
+
+exports['default'] = SingleResultController;
+module.exports = exports['default'];
+
+},{}],15:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 var SearchController = function SearchController(SearchService) {
 
   var vm = this;
@@ -484,7 +512,7 @@ SearchController.$inject = ['SearchService'];
 exports['default'] = SearchController;
 module.exports = exports['default'];
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -500,7 +528,7 @@ SpecificSearchController.$inject = ['SearchService'];
 exports['default'] = SpecificSearchController;
 module.exports = exports['default'];
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -509,7 +537,7 @@ Object.defineProperty(exports, '__esModule', {
 var TagResultsController = function TagResultsController(SearchService, $stateParams, $scope) {
 
   var vm = this;
-  vm.name = 'dsdsds';
+  // vm.name = 'dsdsds';
   vm.getspecData = getspecData;
 
   // console.log($stateParams.type);
@@ -535,7 +563,7 @@ TagResultsController.$inject = ['SearchService', '$stateParams', '$scope'];
 exports['default'] = TagResultsController;
 module.exports = exports['default'];
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -548,7 +576,7 @@ TagsListController.$inject = [];
 exports["default"] = TagsListController;
 module.exports = exports["default"];
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -571,6 +599,10 @@ var _controllersTagresultsController = require('./controllers/tagresults.control
 
 var _controllersTagresultsController2 = _interopRequireDefault(_controllersTagresultsController);
 
+var _controllersSingleResultController = require('./controllers/SingleResult.controller');
+
+var _controllersSingleResultController2 = _interopRequireDefault(_controllersSingleResultController);
+
 var _controllersTagslistController = require('./controllers/tagslist.controller');
 
 var _controllersTagslistController2 = _interopRequireDefault(_controllersTagslistController);
@@ -581,11 +613,11 @@ var _servicesSearchService = require('./services/search.service');
 
 var _servicesSearchService2 = _interopRequireDefault(_servicesSearchService);
 
-_angular2['default'].module('app.social', ['app.core']).controller('SearchController', _controllersSearchController2['default']).controller('SpecificSearchController', _controllersSpecificSearchController2['default']).controller('TagResultsController', _controllersTagresultsController2['default']).controller('TagsListController', _controllersTagslistController2['default']).service('SearchService', _servicesSearchService2['default']);
+_angular2['default'].module('app.social', ['app.core']).controller('SearchController', _controllersSearchController2['default']).controller('SpecificSearchController', _controllersSpecificSearchController2['default']).controller('TagResultsController', _controllersTagresultsController2['default']).controller('SingleResultController', _controllersSingleResultController2['default']).controller('TagsListController', _controllersTagslistController2['default']).service('SearchService', _servicesSearchService2['default']);
 
 // .directive('SearchResult', SearchResult)
 
-},{"./controllers/search.controller":14,"./controllers/specificSearch.controller":15,"./controllers/tagresults.controller":16,"./controllers/tagslist.controller":17,"./services/search.service":19,"angular":30}],19:[function(require,module,exports){
+},{"./controllers/SingleResult.controller":14,"./controllers/search.controller":15,"./controllers/specificSearch.controller":16,"./controllers/tagresults.controller":17,"./controllers/tagslist.controller":18,"./services/search.service":20,"angular":31}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -601,6 +633,7 @@ var SearchService = function SearchService(PARSE, $http) {
   this.getGoData = getGoData;
   this.geteventData = geteventData;
   this.getspecData = getspecData;
+  this.singleResult = singleResult;
 
   function search(objectId) {
     return $http.get(eventURL, PARSE.CONFIG);
@@ -644,6 +677,14 @@ var SearchService = function SearchService(PARSE, $http) {
     });
   }
 
+  function singleResult(id) {
+    return $http({
+      url: eventURL + '/' + id,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+  }
+
   function geteventData() {
     console.log('hello from event data');
     return $http({
@@ -659,7 +700,7 @@ SearchService.$inject = ['PARSE', '$http'];
 exports['default'] = SearchService;
 module.exports = exports['default'];
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -691,7 +732,7 @@ LoginController.$inject = ['UserService', '$state'];
 exports['default'] = LoginController;
 module.exports = exports['default'];
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -717,7 +758,7 @@ RegisterController.$inject = ['UserService', '$state'];
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -740,7 +781,7 @@ var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
 
 _angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLoginController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('UserService', _servicesUserService2['default']);
 
-},{"./controllers/login.controller":20,"./controllers/register.controller":21,"./services/user.service":23,"angular":30}],23:[function(require,module,exports){
+},{"./controllers/login.controller":21,"./controllers/register.controller":22,"./services/user.service":24,"angular":31}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -808,7 +849,7 @@ UserService.$inject = ['PARSE', '$http', '$cookies', '$state'];
 exports['default'] = UserService;
 module.exports = exports['default'];
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -856,7 +897,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.s
   });
 });
 
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-social/index":18,"./app-user/index":22,"angular":30,"angular-foundation":27,"foundation":31,"jquery":32,"motion-ui":33,"underscore":34}],25:[function(require,module,exports){
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-social/index":19,"./app-user/index":23,"angular":31,"angular-foundation":28,"foundation":32,"jquery":33,"motion-ui":34,"underscore":35}],26:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -1179,11 +1220,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":25}],27:[function(require,module,exports){
+},{"./angular-cookies":26}],28:[function(require,module,exports){
 /*
  * angular-mm-foundation
  * http://pineconellc.github.io/angular-foundation/
@@ -4799,7 +4840,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -9170,7 +9211,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -38189,11 +38230,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":29}],31:[function(require,module,exports){
+},{"./angular":30}],32:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
@@ -45634,7 +45675,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -54854,7 +54895,7 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 ;(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);
@@ -54973,7 +55014,7 @@ var MotionUI = {
 return MotionUI;
 }));
 
-},{"jquery":32}],34:[function(require,module,exports){
+},{"jquery":33}],35:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -56523,7 +56564,7 @@ return MotionUI;
   }
 }.call(this));
 
-},{}]},{},[24])
+},{}]},{},[25])
 
 
 //# sourceMappingURL=main.js.map
