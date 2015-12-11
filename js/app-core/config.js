@@ -56,17 +56,19 @@ let config = function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/app-social/tagresults.tpl.html'
     })
 
+    // .state('root.list', {
+    //   url : '/tag/type/:list',
+    //   controller :'TagsListController as vm',
+    //   templateUrl:'templates/app-social/tagslist.tpl.html'
+    // })
+
     .state('root.singleresult', {
       url: '/singleresult/:id',
       controller: 'SingleResultController as vm',
       templateUrl: 'templates/app-social/singleResult.tpl.html'
-    })
-
-    .state('root.list', {
-      url : '/tag/type/:list',
-      controller :'TagsListController as vm',
-      templateUrl:'templates/app-social/tagslist.tpl.html'
     });
+    
+
 
   
 

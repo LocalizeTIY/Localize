@@ -43,14 +43,18 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/tag/:type',
     controller: 'TagResultsController as vm',
     templateUrl: 'templates/app-social/tagresults.tpl.html'
-  }).state('root.singleresult', {
+  })
+
+  // .state('root.list', {
+  //   url : '/tag/type/:list',
+  //   controller :'TagsListController as vm',
+  //   templateUrl:'templates/app-social/tagslist.tpl.html'
+  // })
+
+  .state('root.singleresult', {
     url: '/singleresult/:id',
     controller: 'SingleResultController as vm',
     templateUrl: 'templates/app-social/singleResult.tpl.html'
-  }).state('root.list', {
-    url: '/tag/type/:list',
-    controller: 'TagsListController as vm',
-    templateUrl: 'templates/app-social/tagslist.tpl.html'
   });
 };
 
@@ -275,13 +279,15 @@ var HomeController = function HomeController(SearchService) {
       var eatList = items.filter(function (item) {
         return item.category === 'eat';
       });
-      vm.tags = _underscore2['default'].uniq(eatList);
+      vm.tags = uniqueTags(eatList);
+
       // let pluckedTags = _.pluck(res.data.results, 'tags');
       // console.log('plucked', pluckedTags);
       // console.log('uniqed', vm.tags);
       // window.jdtemp = res.data.results;
     });
   }
+
   getTagData();
 
   function getGoData() {
@@ -292,8 +298,8 @@ var HomeController = function HomeController(SearchService) {
         return item.category === 'go';
       });
       // let pluckedGo = _.pluck(goList, 'tags');
-      vm.go = _underscore2['default'].uniq(goList);
-      console.log('go names', vm.go);
+      vm.go = uniqueTags(goList);
+      //console.log('go names', vm.go);
     });
   }
   getGoData();
@@ -305,10 +311,23 @@ var HomeController = function HomeController(SearchService) {
       var eventsList = items.filter(function (item) {
         return item.category === 'event';
       });
-      vm.events = _underscore2['default'].uniq(eventsList);
-      console.log('event names', vm.events);
+      vm.events = uniqueTags(eventsList);
+      //console.log('event names', vm.events);
     });
   }
+
+  function uniqueTags(items) {
+    var itemsByCategory = _underscore2['default'].groupBy(items, 'category');
+    console.log('itemsByCategory', itemsByCategory);
+    var uniqueTags = [];
+
+    _underscore2['default'].each(itemsByCategory, function (items, category) {
+      uniqueTags = _underscore2['default'].uniq(_underscore2['default'].pluck(items, 'tags'));
+    });
+
+    return uniqueTags;
+  }
+
   geteventData();
 };
 
@@ -458,13 +477,16 @@ Object.defineProperty(exports, '__esModule', {
 var SingleResultController = function SingleResultController(SearchService, $stateParams) {
 
   var vm = this;
-
+  var single = $stateParams.id;
+  console.log(single);
   vm.singleResult = singleResult;
+  vm.singleResult(single);
 
-  console.log('hi');
-
-  function singleResult() {
-    console.log('here it is');
+  function singleResult(single) {
+    SearchService.singleResult(single).then(function (res) {
+      vm.singles = res.data.results;
+      console.log('res', res);
+    });
   }
 };
 
@@ -524,7 +546,6 @@ Object.defineProperty(exports, '__esModule', {
 var TagResultsController = function TagResultsController(SearchService, $stateParams, $scope) {
 
   var vm = this;
-  // vm.name = 'dsdsds';
   vm.getspecData = getspecData;
 
   // console.log($stateParams.type);
@@ -532,13 +553,13 @@ var TagResultsController = function TagResultsController(SearchService, $statePa
   //console.log(vm.spec);
 
   function getspecData(spec) {
-    console.log('shalmali is in the controller', spec);
+    //console.log('shalmali is in the controller', spec);
     SearchService.getspecData(spec).then(function (res) {
       vm.info = res.data.results;
 
-      console.log(res);
+      //console.log(res);
 
-      console.log('res in the controller', res);
+      //console.log('res in the controller',res);
     });
   }
 
@@ -627,7 +648,7 @@ var SearchService = function SearchService(PARSE, $http) {
   }
 
   function getspecData(spec) {
-    console.log('im here in the service, spec', spec);
+    //console.log('im here in the service, spec', spec);
     return $http({
       url: eventURL,
       method: 'GET',
@@ -637,7 +658,7 @@ var SearchService = function SearchService(PARSE, $http) {
   }
 
   function specific(data) {
-    console.log('from the specific function on service', data);
+    // console.log('from the specific function on service',data);
     return $http({
       url: eventURL,
       method: "GET",
@@ -647,7 +668,7 @@ var SearchService = function SearchService(PARSE, $http) {
   }
 
   function getTagData() {
-    console.log('hello from tag');
+    //console.log('hello from tag');
     return $http({
       url: eventURL,
       method: 'GET',
@@ -656,7 +677,7 @@ var SearchService = function SearchService(PARSE, $http) {
   }
 
   function getGoData() {
-    console.log('hello from go');
+    //console.log('hello from go');
     return $http({
       url: eventURL,
       method: 'GET',
@@ -665,15 +686,17 @@ var SearchService = function SearchService(PARSE, $http) {
   }
 
   function singleResult(id) {
+    console.log('singleResult id ', id);
     return $http({
-      url: eventURL + '/' + id,
+      url: eventURL,
       method: 'GET',
+      params: { where: { name: id } },
       headers: PARSE.CONFIG.headers
     });
   }
 
   function geteventData() {
-    console.log('hello from event data');
+    //console.log('hello from event data');
     return $http({
       url: eventURL,
       method: 'GET',

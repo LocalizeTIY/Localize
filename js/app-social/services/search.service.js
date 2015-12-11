@@ -16,7 +16,7 @@ let SearchService = function(PARSE, $http) {
   }
 
   function getspecData(spec){
-    console.log('im here in the service, spec', spec);
+    //console.log('im here in the service, spec', spec);
     return $http({
       url : eventURL,
       method : 'GET',
@@ -26,7 +26,7 @@ let SearchService = function(PARSE, $http) {
   }
 
   function specific(data){
-    console.log('from the specific function on service',data);
+    // console.log('from the specific function on service',data);
     return $http({
       url: eventURL, 
       method : "GET",
@@ -36,7 +36,7 @@ let SearchService = function(PARSE, $http) {
   }
 
   function getTagData(){
-    console.log('hello from tag');
+    //console.log('hello from tag');
     return $http({
       url : eventURL,
       method : 'GET',
@@ -45,7 +45,7 @@ let SearchService = function(PARSE, $http) {
   }
 
   function getGoData(){
-    console.log('hello from go');
+    //console.log('hello from go');
     return $http({
       url : eventURL,
       method : 'GET',
@@ -54,15 +54,17 @@ let SearchService = function(PARSE, $http) {
   }
 
   function singleResult(id) {
+    console.log('singleResult id ', id);
     return $http({
-      url: eventURL + '/' + id,
+      url: eventURL,
       method: 'GET',
+      params : {where : {name : id}},
       headers: PARSE.CONFIG.headers
     });
   }
 
   function geteventData(){
-    console.log('hello from event data');
+    //console.log('hello from event data');
     return $http({
       url : eventURL,
       method : 'GET',
