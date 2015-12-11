@@ -1,7 +1,7 @@
-let featuredService = function (PARSE, $state, $http) {
+let FeaturedService = function (PARSE, $state, $http) {
 
 };
 
 
 FeaturedService.$inject = ['PARSE', '$state', '$http'];
-export default featuredService;
+export default FeaturedService;

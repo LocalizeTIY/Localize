@@ -9,7 +9,7 @@ import FeaturedController from './controllers/featured.controller';
 //service
 import LocalizeService from './services/localize.service';
 import UploadService from './services/upload.service';
-
+import FeaturedService from './services/featured.service';
 
 angular 
   .module('app.layout', ['app.social'])
@@ -20,5 +20,6 @@ angular
  
   .service('LocalizeService',LocalizeService)
   .service('UploadService',UploadService)
+  .service('FeaturedService', FeaturedService)
 
 ;

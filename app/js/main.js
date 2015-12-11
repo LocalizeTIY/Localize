@@ -99,7 +99,7 @@ var _constantsParseConstant2 = _interopRequireDefault(_constantsParseConstant);
 
 _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_config2['default']).constant('PARSE', _constantsParseConstant2['default']);
 
-},{"./config":1,"./constants/parse.constant":2,"angular":31,"angular-cookies":27,"angular-ui-router":29}],4:[function(require,module,exports){
+},{"./config":1,"./constants/parse.constant":2,"angular":32,"angular-cookies":28,"angular-ui-router":30}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -137,7 +137,7 @@ var _servicesDashboardService2 = _interopRequireDefault(_servicesDashboardServic
 
 _angular2['default'].module('app.dashboard', ['app.core']).controller('DashboardController', _controllersDashboardController2['default']).service('DashboardService', _servicesDashboardService2['default']);
 
-},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":31}],6:[function(require,module,exports){
+},{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":32}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -317,7 +317,7 @@ HomeController.$inject = ['SearchService'];
 exports['default'] = HomeController;
 module.exports = exports['default'];
 
-},{"underscore":35}],10:[function(require,module,exports){
+},{"underscore":36}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -370,9 +370,25 @@ var _servicesUploadService = require('./services/upload.service');
 
 var _servicesUploadService2 = _interopRequireDefault(_servicesUploadService);
 
-_angular2['default'].module('app.layout', ['app.social']).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).controller('OptionsController', _controllersOptionsController2['default']).controller('FeaturedController', _controllersFeaturedController2['default']).service('LocalizeService', _servicesLocalizeService2['default']).service('UploadService', _servicesUploadService2['default']);
+var _servicesFeaturedService = require('./services/featured.service');
 
-},{"./controllers/add.controller":7,"./controllers/featured.controller":8,"./controllers/home.controller":9,"./controllers/options.controller":10,"./services/localize.service":12,"./services/upload.service":13,"angular":31}],12:[function(require,module,exports){
+var _servicesFeaturedService2 = _interopRequireDefault(_servicesFeaturedService);
+
+_angular2['default'].module('app.layout', ['app.social']).controller('HomeController', _controllersHomeController2['default']).controller('AddController', _controllersAddController2['default']).controller('OptionsController', _controllersOptionsController2['default']).controller('FeaturedController', _controllersFeaturedController2['default']).service('LocalizeService', _servicesLocalizeService2['default']).service('UploadService', _servicesUploadService2['default']).service('FeaturedService', _servicesFeaturedService2['default']);
+
+},{"./controllers/add.controller":7,"./controllers/featured.controller":8,"./controllers/home.controller":9,"./controllers/options.controller":10,"./services/featured.service":12,"./services/localize.service":13,"./services/upload.service":14,"angular":32}],12:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var FeaturedService = function FeaturedService(PARSE, $state, $http) {};
+
+FeaturedService.$inject = ['PARSE', '$state', '$http'];
+exports['default'] = FeaturedService;
+module.exports = exports['default'];
+
+},{}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -419,7 +435,7 @@ LocalizeService.$inject = ['PARSE', '$http', '$state', '$cookies', 'UserService'
 exports['default'] = LocalizeService;
 module.exports = exports['default'];
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -449,7 +465,7 @@ UploadService.$inject = ['$http', 'PARSE'];
 exports['default'] = UploadService;
 module.exports = exports['default'];
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -473,7 +489,7 @@ SingleResultController.$inject = ['SearchService', '$stateParams'];
 exports['default'] = SingleResultController;
 module.exports = exports['default'];
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -499,7 +515,7 @@ SearchController.$inject = ['SearchService'];
 exports['default'] = SearchController;
 module.exports = exports['default'];
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -515,7 +531,7 @@ SpecificSearchController.$inject = ['SearchService'];
 exports['default'] = SpecificSearchController;
 module.exports = exports['default'];
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -550,7 +566,7 @@ TagResultsController.$inject = ['SearchService', '$stateParams', '$scope'];
 exports['default'] = TagResultsController;
 module.exports = exports['default'];
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -563,7 +579,7 @@ TagsListController.$inject = [];
 exports["default"] = TagsListController;
 module.exports = exports["default"];
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -604,7 +620,7 @@ _angular2['default'].module('app.social', ['app.core']).controller('SearchContro
 
 // .directive('SearchResult', SearchResult)
 
-},{"./controllers/SingleResult.controller":14,"./controllers/search.controller":15,"./controllers/specificSearch.controller":16,"./controllers/tagresults.controller":17,"./controllers/tagslist.controller":18,"./services/search.service":20,"angular":31}],20:[function(require,module,exports){
+},{"./controllers/SingleResult.controller":15,"./controllers/search.controller":16,"./controllers/specificSearch.controller":17,"./controllers/tagresults.controller":18,"./controllers/tagslist.controller":19,"./services/search.service":21,"angular":32}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -687,7 +703,7 @@ SearchService.$inject = ['PARSE', '$http'];
 exports['default'] = SearchService;
 module.exports = exports['default'];
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -719,7 +735,7 @@ LoginController.$inject = ['UserService', '$state'];
 exports['default'] = LoginController;
 module.exports = exports['default'];
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -745,7 +761,7 @@ RegisterController.$inject = ['UserService', '$state'];
 exports['default'] = RegisterController;
 module.exports = exports['default'];
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -768,7 +784,7 @@ var _servicesUserService2 = _interopRequireDefault(_servicesUserService);
 
 _angular2['default'].module('app.user', ['app.core']).controller('LoginController', _controllersLoginController2['default']).controller('RegisterController', _controllersRegisterController2['default']).service('UserService', _servicesUserService2['default']);
 
-},{"./controllers/login.controller":21,"./controllers/register.controller":22,"./services/user.service":24,"angular":31}],24:[function(require,module,exports){
+},{"./controllers/login.controller":22,"./controllers/register.controller":23,"./services/user.service":25,"angular":32}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -836,7 +852,7 @@ UserService.$inject = ['PARSE', '$http', '$cookies', '$state'];
 exports['default'] = UserService;
 module.exports = exports['default'];
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -884,7 +900,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.s
   });
 });
 
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-social/index":19,"./app-user/index":23,"angular":31,"angular-foundation":28,"foundation":32,"jquery":33,"motion-ui":34,"underscore":35}],26:[function(require,module,exports){
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-social/index":20,"./app-user/index":24,"angular":32,"angular-foundation":29,"foundation":33,"jquery":34,"motion-ui":35,"underscore":36}],27:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -1207,11 +1223,11 @@ angular.module('ngCookies').provider('$$cookieWriter', function $$CookieWriterPr
 
 })(window, window.angular);
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 require('./angular-cookies');
 module.exports = 'ngCookies';
 
-},{"./angular-cookies":26}],28:[function(require,module,exports){
+},{"./angular-cookies":27}],29:[function(require,module,exports){
 /*
  * angular-mm-foundation
  * http://pineconellc.github.io/angular-foundation/
@@ -4827,7 +4843,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -9198,7 +9214,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -38217,18 +38233,18 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":30}],32:[function(require,module,exports){
+},{"./angular":31}],33:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 !function($) {
 
 "use strict";
 
-var FOUNDATION_VERSION = '6.0.4';
+var FOUNDATION_VERSION = '6.0.5';
 
 // Global Foundation object
 // This is attached to the window, or used as a module for AMD/Browserify
@@ -38744,7 +38760,7 @@ function hyphenate(str) {
       case 'reveal full':
         return {
           left: $eleDims.windowDims.offset.left,
-          top: $eleDims.windowDims.offset.top,
+          top: $eleDims.windowDims.offset.top
         };
         break;
       default:
@@ -40801,15 +40817,15 @@ Foundation.Motion = Motion;
   }
   Drilldown.defaults = {
     /**
-     * Markup used for JS generated back button. Prepended to submenu lists and deleted on `destroy` method.
+     * Markup used for JS generated back button. Prepended to submenu lists and deleted on `destroy` method, 'js-drilldown-back' class required. Remove the backslash (`\`) if copy and pasting.
      * @option
-     * @example '<li><a>Back</a></li>'
+     * @example '<\li><\a>Back<\/a><\/li>'
      */
-    backButton: '<li class="js-drilldown-back" tabindex="0"><a>Back</a></li>',
+    backButton: '<li class="js-drilldown-back"><a>Back</a></li>',
     /**
-     * Markup used to wrap drilldown menu. Use a class name for independent styling, or the JS applied class: `is-drilldown`.
+     * Markup used to wrap drilldown menu. Use a class name for independent styling; the JS applied class: `is-drilldown` is required. Remove the backslash (`\`) if copy and pasting.
      * @option
-     * @example '<div></div>'
+     * @example '<\div class="is-drilldown"><\/div>'
      */
     wrapper: '<div></div>',
     /**
@@ -40817,7 +40833,7 @@ Foundation.Motion = Motion;
      * @option
      * @example false
      */
-    closeOnClick: false,
+    closeOnClick: false
     // holdOpen: false
   };
   /**
@@ -40826,14 +40842,11 @@ Foundation.Motion = Motion;
    */
   Drilldown.prototype._init = function(){
     this.$submenuAnchors = this.$element.find('li.has-submenu');
-    this.$submenus = this.$submenuAnchors.children('[data-submenu]').addClass('is-drilldown-sub')/*.wrap($(this.options.wrapper).addClass('is-drilldown-sub'))*/;
-    // this.$rootElems = this.$element.children('[data-submenu]')/*.addClass('first-sub')*/;
-    this.$menuItems = this.$element.find('li').not('.js-drilldown-back').attr('role', 'menuitem');
-    // this.$submenus;
-
+    this.$submenus = this.$submenuAnchors.children('[data-submenu]');
+    this.$menuItems = this.$element.find('li:visible').not('.js-drilldown-back').attr('role', 'menuitem');
 
     this._prepareMenu();
-    // this._getMaxDims();
+
     this._keyboardEvents();
   };
   /**
@@ -40850,7 +40863,8 @@ Foundation.Motion = Motion;
     // }
     this.$submenuAnchors.each(function(){
       var $sub = $(this);
-      $sub.find('a')[0].removeAttribute('href');
+      var $link = $sub.find('a:first');
+      $link.data('savedHref', $link.attr('href')).removeAttr('href');
       $sub.children('[data-submenu]')
           .attr({
             'aria-hidden': true,
@@ -40884,12 +40898,14 @@ Foundation.Motion = Motion;
 
     $elem.off('click.zf.drilldown')
     .on('click.zf.drilldown', function(e){
-      e.stopImmediatePropagation();
-      e.preventDefault();
-
-      if(e.target !== e.currentTarget.firstElementChild){
-        return false;
+      if($(e.target).parentsUntil('ul', 'li').hasClass('is-drilldown-submenu-parent')){
+        e.stopImmediatePropagation();
+        e.preventDefault();
       }
+
+      // if(e.target !== e.currentTarget.firstElementChild){
+      //   return false;
+      // }
       _this._show($elem);
 
       if(_this.options.closeOnClick){
@@ -41073,7 +41089,12 @@ Foundation.Motion = Motion;
                  .end().find('.is-active, .is-closing, .is-drilldown-sub').removeClass('is-active is-closing is-drilldown-sub')
                  .end().find('[data-submenu]').removeAttr('aria-hidden tabindex role')
                  .off('.zf.drilldown').end().off('zf.drilldown');
-
+    this.$element.find('a').each(function(){
+      var $link = $(this);
+      if($link.data('savedHref')){
+        $link.attr('href', $link.data('savedHref')).removeData('savedHref');
+      }else{ return; }
+    });
     Foundation.unregisterPlugin(this);
   };
   Foundation.plugin(Drilldown, 'Drilldown');
@@ -41249,7 +41270,7 @@ Foundation.Motion = Motion;
     if(($eleDims.width >= $eleDims.windowDims.width) || (!this.counter && !Foundation.Box.ImNotTouchingYou(this.$element))){
       this.$element.offset(Foundation.Box.GetOffsets(this.$element, this.$anchor, 'center bottom', this.options.vOffset, this.options.hOffset, true)).css({
         'width': $eleDims.windowDims.width - (this.options.hOffset * 2),
-        'height': 'auto',
+        'height': 'auto'
       });
       this.classChanged = true;
       return false;
@@ -41468,7 +41489,7 @@ Foundation.Motion = Motion;
      */
     disableHover: false,
     /**
-     * Allow a submenu to automatically close on a mouseleave event.
+     * Allow a submenu to automatically close on a mouseleave event, if not clicked open.
      * @option
      * @example true
      */
@@ -41500,10 +41521,10 @@ Foundation.Motion = Motion;
     alignment: 'left',
     /**
      * Allow clicks on the body to close any open submenus.
-     *
-     *
+     * @option
+     * @example true
      */
-    // closeOnClick: true,
+    closeOnClick: true,
     /**
      * Class applied to vertical oriented menus, Foundation default is `vertical`. Update this if using your own class.
      * @option
@@ -41515,7 +41536,13 @@ Foundation.Motion = Motion;
      * @option
      * @example 'align-right'
      */
-    rightClass: 'align-right'
+    rightClass: 'align-right',
+    /**
+     * Boolean to force overide the clicking of links to perform default action, on second touch event for mobile.
+     * @option
+     * @example false
+     */
+    forceFollow: true
   };
   /**
    * Initializes the plugin, and calls _prepareMenu
@@ -41551,13 +41578,12 @@ Foundation.Motion = Motion;
    */
   DropdownMenu.prototype._events = function(){
     var _this = this,
-        hasTouch = 'ontouchstart' in window || window.ontouchstart !== undefined,
+        hasTouch = 'ontouchstart' in window || (typeof window.ontouchstart !== 'undefined'),
         parClass = 'is-dropdown-submenu-parent',
         delay;
-        
-    if(this.options.clickOpen || hasTouch){
-      this.$menuItems.on('click.zf.dropdownmenu', function(e){
 
+    if(this.options.clickOpen || hasTouch){
+      this.$menuItems.on('click.zf.dropdownmenu touchstart.zf.dropdownmenu', function(e){
         var $elem = $(e.target).parentsUntil('ul', '.' + parClass),
             hasSub = $elem.hasClass(parClass),
             hasClicked = $elem.attr('data-is-click') === 'true',
@@ -41565,16 +41591,15 @@ Foundation.Motion = Motion;
 
         if(hasSub){
           if(hasClicked){
-            if(hasTouch){ return;}
-
+            if(!_this.options.closeOnClick || (!_this.options.clickOpen && !hasTouch) || (_this.options.forceFollow && hasTouch)){ return; }
             else{
-            e.stopImmediatePropagation();
-            e.preventDefault();
-            _this._hide($elem);
+              e.stopImmediatePropagation();
+              e.preventDefault();
+              _this._hide($elem);
             }
           }else{
-            e.stopImmediatePropagation();
             e.preventDefault();
+            e.stopImmediatePropagation();
             _this._show($elem.children('.is-dropdown-submenu'));
             $elem.add($elem.parentsUntil(_this.$element, '.' + parClass)).attr('data-is-click', true);
           }
@@ -41658,14 +41683,14 @@ Foundation.Motion = Motion;
               down: nextSibling,
               up: prevSibling,
               next: openSub,
-              previous: closeSub,
+              previous: closeSub
             });
           } else { // right aligned
             $.extend(functions, {
               down: nextSibling,
               up: prevSibling,
               next: closeSub,
-              previous: openSub,
+              previous: openSub
             });
           }
         } else { // horizontal menu
@@ -41673,7 +41698,7 @@ Foundation.Motion = Motion;
             next: nextSibling,
             previous: prevSibling,
             down: openSub,
-            up: closeSub,
+            up: closeSub
           });
         }
       } else { // not tabs -> one sub
@@ -41702,21 +41727,18 @@ Foundation.Motion = Motion;
    * @function
    * @private
    */
-  // DropdownMenu.prototype._addBodyHandler = function(){
-  //   var $body = $(document.body).not(this.$element),
-  //       _this = this;
-  //   $body.off('click.zf.dropdownmenu')
-  //        .on('click.zf.dropdownmenu', function(e){
-  //          console.log('body click');
-  //          var $link = _this.$element.find(e.target);
-  //          if($link.length){
-  //            $link.triggerHandler('click.zf.dropdownmenu', [$link]);
-  //            return false;
-  //          }
-  //          _this._hide();
-  //          $body.off('click.zf.dropdownmenu');
-  //        });
-  // };
+  DropdownMenu.prototype._addBodyHandler = function(){
+    var $body = $(document.body),
+        _this = this;
+    $body.off('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu')
+         .on('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu', function(e){
+           var $link = _this.$element.find(e.target);
+           if($link.length){ return; }
+
+           _this._hide();
+           $body.off('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu');
+         });
+  };
   /**
    * Opens a dropdown pane, and checks for collisions first.
    * @param {jQuery} $sub - ul element that is a submenu to show
@@ -41745,7 +41767,7 @@ Foundation.Motion = Motion;
       this.changed = true;
     }
     $sub.css('visibility', '');
-    // if(this.options.closeOnClick){ this._addBodyHandler(); }
+    if(this.options.closeOnClick){ this._addBodyHandler(); }
     /**
      * Fires when the new dropdown pane is visible.
      * @event DropdownMenu#show
@@ -41918,7 +41940,7 @@ Foundation.Motion = Motion;
 
     eqGroup.height('inherit');
     heights = eqGroup.map(function () { return $(this).outerHeight(false);}).get();
-    console.log(heights);
+    
     return heights;
   };
   /**
@@ -41943,7 +41965,7 @@ Foundation.Motion = Motion;
     for (var i = 0; i < eqGroup.length; i++) {
       $(eqGroup[i]).css('height', max);
     }
-    // console.log(max);
+
     /**
      * Fires when the heights have been applied
      * @event Equalizer#postEqualized
@@ -42171,7 +42193,7 @@ Foundation.Motion = Motion;
    */
   function Magellan(element, options) {
     this.$element = element;
-    this.options  = $.extend({}, Magellan.defaults, options);
+    this.options  = $.extend({}, Magellan.defaults, this.$element.data(), options);
 
     this._init();
 
@@ -42211,7 +42233,13 @@ Foundation.Motion = Motion;
      * @option
      * @example true
      */
-    deepLinking: false
+    deepLinking: false,
+    /**
+     * Number of pixels to offset the scroll of the page on item click if using a sticky nav bar.
+     * @option
+     * @example 25
+     */
+    barOffset: 0
   };
 
   /**
@@ -42277,7 +42305,7 @@ Foundation.Motion = Motion;
     }).on('click.zf.magellan', 'a[href^="#"]', function(e) {
         e.preventDefault();
         var arrival   = this.getAttribute('href'),
-            scrollPos = $(arrival).offset().top - _this.options.threshold / 2;
+            scrollPos = $(arrival).offset().top - _this.options.threshold / 2 - _this.options.barOffset;
 
         // requestAnimationFrame is disabled for this plugin currently
         // Foundation.Move(_this.options.animationDuration, $body, function(){
@@ -42821,7 +42849,13 @@ Foundation.plugin(OffCanvas, 'OffCanvas');
      * @option
      * @example 'orbit-previous'
      */
-    prevClass: 'orbit-previous'
+    prevClass: 'orbit-previous',
+    /**
+     * Boolean to flag the js to use motion ui classes or not. Default to true for backwards compatability.
+     * @option
+     * @example true
+     */
+    useMUI: true
   };
   /**
    * Initializes the plugin by creating jQuery collections, setting attributes, and starting the animation.
@@ -42837,7 +42871,9 @@ Foundation.plugin(OffCanvas, 'OffCanvas');
     if(!initActive.length){
       this.$slides.eq(0).addClass('is-active');
     }
-
+    if(!this.options.useMUI){
+      this.$slides.addClass('no-motionui');
+    }
     if($images.length){
       Foundation.onImagesLoaded($images, this._prepareForOrbit.bind(this));
     }else{
@@ -43014,7 +43050,6 @@ Foundation.plugin(OffCanvas, 'OffCanvas');
   Orbit.prototype.changeSlide = function(isLTR, chosenSlide, idx){
     var $curSlide = this.$slides.filter('.is-active').eq(0);
 
-
     if(/mui/g.test($curSlide[0].className)){ return false; }//if the slide is currently animating, kick out of the function
 
     var $firstSlide = this.$slides.first(),
@@ -43037,29 +43072,38 @@ Foundation.plugin(OffCanvas, 'OffCanvas');
         idx = idx || this.$slides.index($newSlide);//grab index to update bullets
         this._updateBullets(idx);
       }
-      Foundation.Motion.animateIn(
-        $newSlide.addClass('is-active').css({'position': 'absolute', 'top': 0}),
-        this.options['animInFrom' + dirIn],
-        function(){
-          $newSlide.css({'position': 'relative', 'display': 'block'})
-                   .attr('aria-live', 'polite');
-        });
+      if(this.options.useMUI){
 
-      Foundation.Motion.animateOut(
-        $curSlide.removeClass('is-active'),
-        this.options['animOutTo' + dirOut],
-        function(){
-          $curSlide.removeAttr('aria-live');
-          if(_this.options.autoPlay){
-            _this.timer.restart();
-          }
-          //do stuff?
-          /**
-           * Triggers when the slide has finished animating in.
-           * @event Orbit#slidechange
-           */
-          _this.$element.trigger('slidechange.zf.orbit', [$newSlide]);
-        });
+        Foundation.Motion.animateIn(
+          $newSlide.addClass('is-active').css({'position': 'absolute', 'top': 0}),
+          this.options['animInFrom' + dirIn],
+          function(){
+            $newSlide.css({'position': 'relative', 'display': 'block'})
+                     .attr('aria-live', 'polite');
+          });
+
+        Foundation.Motion.animateOut(
+          $curSlide.removeClass('is-active'),
+          this.options['animOutTo' + dirOut],
+          function(){
+            $curSlide.removeAttr('aria-live');
+            if(_this.options.autoPlay){
+              _this.timer.restart();
+            }
+            //do stuff?
+          });
+      }else{
+        $curSlide.removeClass('is-active is-in').removeAttr('aria-live').hide();
+        $newSlide.addClass('is-active is-in').attr('aria-live', 'polite').show();
+        if(this.options.autoPlay){
+          this.timer.restart();
+        }
+      }
+      /**
+       * Triggers when the slide has finished animating in.
+       * @event Orbit#slidechange
+       */
+      this.$element.trigger('slidechange.zf.orbit', [$newSlide]);
     }
   };
   /**
@@ -43557,7 +43601,6 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
     var elePos = this.options.fullScreen ? 'reveal full' : (eleDims.height >= (0.5 * eleDims.windowDims.height)) ? 'reveal' : 'center';
 
     if(elePos === 'reveal full'){
-      console.log('full');
       //set to full height/width
       this.$element
           .offset(Foundation.Box.GetOffsets(this.$element, null, elePos, this.options.vOffset))
@@ -43617,10 +43660,12 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
         if(_this.options.overlay){
           Foundation.Motion.animateIn(_this.$overlay, 'fade-in', function(){
             Foundation.Motion.animateIn(_this.$element, _this.options.animationIn, function(){
+              _this.focusableElements = Foundation.Keyboard.findFocusable(_this.$element);
             });
           });
         }else{
           Foundation.Motion.animateIn(_this.$element, _this.options.animationIn, function(){
+            _this.focusableElements = Foundation.Keyboard.findFocusable(_this.$element);
           });
         }
       }else{
@@ -43659,10 +43704,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
    */
   Reveal.prototype._extraHandlers = function(){
     var _this = this;
-    var visibleFocusableElements = this.$element.find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').filter(function() {
-      if (!$(this).is(':visible') || $(this).attr('tabindex') < 0){ return false; }//only have visible elements and those that have a tabindex greater or equal 0
-      return true;
-    });
+    this.focusableElements = Foundation.Keyboard.findFocusable(this.$element);
 
     if(!this.options.overlay && this.options.closeOnClick && !this.options.fullScreen){
       $('body').on('click.zf.reveal', function(e){
@@ -43672,16 +43714,17 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
     }
     if(this.options.closeOnEsc){
       $(window).on('keydown.zf.reveal', function(e){
-        if (visibleFocusableElements.length === 0) { // no focusable elements inside the modal at all, prevent tabbing in general
-          e.preventDefault();
-        }
         Foundation.Keyboard.handleKey(e, _this, {
           close: function() {
             if (this.options.closeOnEsc) {
               this.close();
+              this.$anchor.focus();
             }
           }
         });
+        if (_this.focusableElements.length === 0) { // no focusable elements inside the modal at all, prevent tabbing in general
+          e.preventDefault();
+        }
       });
     }
 
@@ -43691,31 +43734,33 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
       // handle keyboard event with keyboard util
       Foundation.Keyboard.handleKey(e, _this, {
         tab_forward: function() {
-          if (this.$element.find(':focus').is(visibleFocusableElements.eq(-1))) { // left modal downwards, setting focus to first element
-            visibleFocusableElements.eq(0).focus();
+          if (this.$element.find(':focus').is(_this.focusableElements.eq(-1))) { // left modal downwards, setting focus to first element
+            _this.focusableElements.eq(0).focus();
             e.preventDefault();
           }
         },
         tab_backward: function() {
-          if (this.$element.find(':focus').is(visibleFocusableElements.eq(0)) || this.$element.is(':focus')) { // left modal upwards, setting focus to last element
-            visibleFocusableElements.eq(-1).focus();
+          if (this.$element.find(':focus').is(_this.focusableElements.eq(0)) || this.$element.is(':focus')) { // left modal upwards, setting focus to last element
+            _this.focusableElements.eq(-1).focus();
             e.preventDefault();
           }
         },
         open: function() {
-          if ($target.is(visibleFocusableElements)) { // dont't trigger if acual element has focus (i.e. inputs, links, ...)
+          if (_this.$element.find(':focus').is(_this.$element.find('[data-close]'))) {
+            setTimeout(function() { // set focus back to anchor if close button has been activated
+              _this.$anchor.focus();
+            }, 1);
+          } else if ($target.is(_this.focusableElements)) { // dont't trigger if acual element has focus (i.e. inputs, links, ...)
             this.open();
           }
         },
         close: function() {
           if (this.options.closeOnEsc) {
             this.close();
+            this.$anchor.focus();
           }
         }
       });
-      if (visibleFocusableElements.length === 0) { // no focusable elements inside the modal at all, prevent tabbing in general
-        e.preventDefault();
-      }
     });
 
   };
@@ -44776,7 +44821,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
       'ARROW_RIGHT': 'next',
       'ARROW_UP': 'previous',
       'ARROW_DOWN': 'next',
-      'ARROW_LEFT': 'previous',
+      'ARROW_LEFT': 'previous'
       // 'TAB': 'next',
       // 'SHIFT_TAB': 'previous'
     });
@@ -44889,8 +44934,8 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
    */
   Tabs.prototype._addClickHandler = function(){
     var _this = this;
-    this.$tabTitles.off('click.zf.tabs')
-                   .on('click.zf.tabs', function(e){
+    this.$element.off('click.zf.tabs')
+                   .on('click.zf.tabs', '.' + this.options.linkClass, function(e){
                      e.preventDefault();
                      e.stopPropagation();
                      if($(this).hasClass('is-active')){
@@ -44910,6 +44955,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
     var $lastTab = _this.$element.find('li:last-of-type');
 
     this.$tabTitles.off('keydown.zf.tabs').on('keydown.zf.tabs', function(e){
+      if(e.which === 9) return;
       e.stopPropagation();
       e.preventDefault();
 
@@ -45662,7 +45708,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 (function (global){
 ; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /*!
@@ -54882,7 +54928,7 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 ;(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);
@@ -55001,7 +55047,7 @@ var MotionUI = {
 return MotionUI;
 }));
 
-},{"jquery":33}],35:[function(require,module,exports){
+},{"jquery":34}],36:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -56551,7 +56597,7 @@ return MotionUI;
   }
 }.call(this));
 
-},{}]},{},[25])
+},{}]},{},[26])
 
 
 //# sourceMappingURL=main.js.map
