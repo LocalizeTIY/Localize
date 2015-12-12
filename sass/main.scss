@@ -16,11 +16,30 @@ $greyMedium:#3E3E3E;
 $greyBrown: #878676;
 $greyLight: #E6E6E6;
 $redBright: #F1091F;
+$redOrange: #FF4734;
+
+////// Breakpoints ///////
+
+$breakpoints: (
+  small: 0px,
+  medium: 640px,
+  large: 1024px,
+);
+
+$breakpoint-classes: (
+  small 
+  medium 
+  large
+);
 
 body {
   background:$greyMedium;
   opacity :0.7;
   background-size: cover;
+}
+
+a {
+  color: #fff;
 }
 
 ///// Top Bar Navigation /////
@@ -60,6 +79,12 @@ body {
   position :absolute;
   top :5%;
   right:0%;
+}
+
+////// Layout Template //////
+
+.modalLogin {
+  background: rgba(255,255,255,0.3);
 }
 
 
@@ -256,12 +281,30 @@ li.featuredList {
 
 .regSection {
   @include outer-container;
+  position: relative;
 
   .regForm {
-    background: #fff;
+    background: rgba(255,255,255,0.3);
     @include span-columns(6);
     @include shift(3);
     margin-top: 5%;
+
+    .regHeader {
+      margin-top: 10%;
+      margin-bottom: 10%;
+
+      .cityThumb {
+        position: absolute;
+        top: -5%;
+        margin-left: 5%;
+      }
+
+      .signUpHeader {
+        margin-top: 5%;
+        margin-left: 25%;
+        color: $redOrange;
+      }
+    }
 
     .regLabel {
       padding: 5% 5% 0 5%;
@@ -269,6 +312,11 @@ li.featuredList {
 
     .topLabel {
       margin-top: 5%;
+    }
+
+    .regBtn {
+      margin-left: 5%;
+      margin-top: 2%;
     }
   }
 }
