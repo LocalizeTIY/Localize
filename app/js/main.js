@@ -52,7 +52,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
     controller: 'TagsListController as vm',
     templateUrl: 'templates/app-social/tagslist.tpl.html'
   }).state('root.singlefeature', {
-    url: '/singleFeature/:id',
+    url: '/singlefeature/:id',
     controller: 'SingleFeatureController as vm',
     templateUrl: 'templates/app-layout/singleFeature.tpl.html'
   });
@@ -109,13 +109,35 @@ _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_conf
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var DashboardController = function DashboardController($scope, $cookies, UserService) {
+var DashboardController = function DashboardController(DashboardService, $scope, $stateParams, $state, LocalizeService) {
 
+  var thisUser = $stateParams;
   var vm = this;
-  $scope.user = UserService.getUserInfo();
+  vm.events = [];
+  vm.clicked = clicked;
+
+  activate();
+
+  function activate() {
+    DashboardService.getAllEvents().then(function (res) {
+      vm.events = res.data.results;
+      console.log('dashboardController?');
+      console.log(vm.events);
+    });
+  }
+
+  function events(eventObj) {
+    DashboardService.events(data).then(function (res) {
+      console.log(res);
+    });
+  }
+
+  function clicked(event) {
+    console.log('clicked', event.name);
+  }
 };
 
-DashboardController.$inject = ['$scope', '$cookies', 'UserService'];
+DashboardController.$inject = ['DashboardService', '$scope', '$stateParams', '$state', 'LocalizeService'];
 
 exports['default'] = DashboardController;
 module.exports = exports['default'];
@@ -142,20 +164,39 @@ var _servicesDashboardService2 = _interopRequireDefault(_servicesDashboardServic
 _angular2['default'].module('app.dashboard', ['app.core']).controller('DashboardController', _controllersDashboardController2['default']).service('DashboardService', _servicesDashboardService2['default']);
 
 },{"./controllers/dashboard.controller":4,"./services/dashboard.service":6,"angular":33}],6:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var DashboardService = function DashboardService() {
+var DashboardService = function DashboardService(PARSE, $http) {
 
-  var vm = this;
+  var eventURL = PARSE.URL + 'classes/events';
+
+  this.getAllEvents = getAllEvents;
+
+  function getAllEvents() {
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+  }
+
+  function Events(eventObj) {
+    console.log('eventObjs?', eventObj);
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+  }
 };
 
-DashboardService.$inject = [];
+DashboardService.$inject = ['PARSE', '$http'];
 
-exports["default"] = DashboardService;
-module.exports = exports["default"];
+exports['default'] = DashboardService;
+module.exports = exports['default'];
 
 },{}],7:[function(require,module,exports){
 'use strict';
@@ -366,6 +407,9 @@ Object.defineProperty(exports, '__esModule', {
 });
 var SingleFeatureController = function SingleFeatureController($scope, $stateParams, $http, $state, FeaturedService) {
 
+	var vm = this;
+	vm.singleFeature = singleFeature;
+
 	console.log($stateParams.name);
 	console.log($stateParams);
 
@@ -447,7 +491,9 @@ var FeaturedService = function FeaturedService(PARSE, $http) {
   this.getNameData = getNameData;
   this.getTagData = getTagData;
   this.getRatingsData = getRatingsData;
-  this.getEvent = getEvent;
+  // this.getEventData = getEventData;
+  this.getLocationData = getLocationData;
+  this.getTimeData = getTimeData;
   // this.getDateData = getDateData;
   // this.getCategoryData = getCategoryData;
   // this.getNameData = getNameData;
@@ -477,7 +523,12 @@ var FeaturedService = function FeaturedService(PARSE, $http) {
   // }
 
   function getEvent(id) {
-    return $http.get('url' + '/' + id, PARSE.CONFIG);
+    console.log('singleEvent?', id);
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
   }
 
   function getTagData() {
@@ -509,6 +560,24 @@ var FeaturedService = function FeaturedService(PARSE, $http) {
 
   function getNameData() {
     console.log('name?');
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+  }
+
+  function getLocationData() {
+    console.log('location?');
+    return $http({
+      url: eventURL,
+      method: 'GET',
+      headers: PARSE.CONFIG.headers
+    });
+  }
+
+  function getTimeData() {
+    console.log('time?');
     return $http({
       url: eventURL,
       method: 'GET',

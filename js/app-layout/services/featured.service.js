@@ -7,7 +7,9 @@ let FeaturedService = function (PARSE, $http) {
   this.getNameData = getNameData;
   this.getTagData = getTagData;
   this.getRatingsData = getRatingsData;
-  this.getEvent = getEvent;
+  // this.getEventData = getEventData;
+  this.getLocationData = getLocationData;
+  this.getTimeData = getTimeData;
   // this.getDateData = getDateData;
   // this.getCategoryData = getCategoryData;
   // this.getNameData = getNameData;
@@ -38,8 +40,13 @@ let FeaturedService = function (PARSE, $http) {
   // 	return $http.get(eventURL, PARSE.CONFIG);
   // }
 
-  function getEvent (id) {
-    	return $http.get('url' + '/' + id, PARSE.CONFIG);
+  function getEvent(id) {
+    	console.log('singleEvent?', id);
+      return $http({
+      url : eventURL,
+      method : 'GET',
+      headers : PARSE.CONFIG.headers
+      });
 
   }
 
@@ -79,6 +86,30 @@ let FeaturedService = function (PARSE, $http) {
     });
   }
 
+  function getLocationData(){
+    console.log('location?');
+    return $http({
+      url : eventURL,
+      method : 'GET',
+      headers : PARSE.CONFIG.headers
+    });
+  }
+
+  function getTimeData(){
+    console.log('time?');
+    return $http({
+      url : eventURL,
+      method : 'GET',
+      headers : PARSE.CONFIG.headers
+    });
+  }
+
+  this.showMyFeatures = function(eventObj) {
+    return $http({
+      method : 'GET',
+      url : url + 'events/'
+    })
+  }
 };
 
 

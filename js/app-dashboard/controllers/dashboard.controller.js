@@ -1,12 +1,38 @@
-let DashboardController = function ($scope, $cookies, UserService ) {
+let DashboardController = function (DashboardService, $scope, $stateParams, $state, LocalizeService) {
 
+  let thisUser = $stateParams.createdby;
+
+  $scope.createdby = thisUser;
+
+  
   let vm = this;
-  $scope.user = UserService.getUserInfo();
+  vm.events = [];
+  vm.clicked = clicked;
+
+  activate();
+
+  function activate() {
+  	DashboardService.getAllEvents().then((res)=>{
+  		vm.events = res.data.results;
+  		console.log('dashboardController?');
+  		console.log(vm.events);
+  	});
+  }
+
+  function events(eventObj){
+  	DashboardService.events(data).then((res)=>{
+  		console.log(res);
+  	});
+  }
+
+  function clicked (event){
+  	console.log('clicked', event.name);
+  }
 
   
 
 };
 
-DashboardController.$inject = ['$scope', '$cookies', 'UserService'];
+DashboardController.$inject = ['DashboardService', '$scope', '$stateParams', '$state', 'LocalizeService'];
 
 export default DashboardController;

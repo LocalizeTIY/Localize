@@ -69,7 +69,7 @@ let config = function($stateProvider, $urlRouterProvider) {
     })
 
     .state('root.singlefeature', {
-      url : '/singleFeature/:id',
+      url : '/singlefeature/:id',
       controller : 'SingleFeatureController as vm',
       templateUrl : 'templates/app-layout/singleFeature.tpl.html'
     });
