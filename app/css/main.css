@@ -5650,26 +5650,35 @@ body {
     padding: 0;
     margin: 0; }
 
-.column, .columns {
-  position: relative;
-  background: #fff;
-  margin-right: 20px;
-  height: 400px; }
-  .column .columnPic, .columns .columnPic {
-    margin-top: 4%; }
-
-.eatColumn,
-.goColumn,
-.eventColumn {
-  position: absolute;
-  top: 30px; }
+.tresColumns {
+  margin-left: 15%; }
+  .tresColumns .column, .tresColumns .columns {
+    position: relative;
+    background: #fff;
+    margin-right: 20px;
+    height: 355px; }
+    .tresColumns .column .columnPic, .tresColumns .columns .columnPic {
+      margin-top: 4%; }
+    .tresColumns .column .eatColumn, .tresColumns .columns .eatColumn {
+      position: absolute;
+      top: 16%;
+      left: 20%;
+      width: 65%; }
+    .tresColumns .column .goColumn, .tresColumns .columns .goColumn {
+      position: absolute;
+      top: 18%;
+      left: 20%;
+      width: 65%; }
+    .tresColumns .column .eventColumn, .tresColumns .columns .eventColumn {
+      position: absolute;
+      top: 10%; }
 
 .dropdown.menu
 .is-dropdown-submenu-parent.is-down-arrow > a::after {
   display: none; }
 
 .dropdown.menu .submenu {
-  background: transparent; }
+  background: #fff; }
 
 .pageHeading {
   margin: 3% auto;

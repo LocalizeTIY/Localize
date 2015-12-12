@@ -85,24 +85,43 @@ body {
   }
 }
 
-.column {
-  position: relative;
-  background: #fff;
-  margin-right: 20px;
-  height: 400px;
+.tresColumns {
+  margin-left: 15%;
 
-  .columnPic {
-    margin-top: 4%;
+  .column {
+    position: relative;
+    background: #fff;
+    margin-right: 20px;
+    height: 355px;
 
+    .columnPic {
+      margin-top: 4%;
+    }
+
+    .eatColumn {
+    position: absolute;
+    top: 16%;
+    left: 20%;
+    width: 65%;
+    }
+
+    .goColumn {
+      position: absolute;
+      top: 18%;
+      left: 20%;
+      width: 65%;
+    }
+
+    .eventColumn {
+      position: absolute;
+      top: 10%;
+    }
   }
 }
 
-.eatColumn,
-.goColumn,
-.eventColumn {
-  position: absolute;
-  top: 30px;
-}
+
+
+
 
 
 
@@ -112,7 +131,7 @@ body {
 }
 
 .dropdown.menu .submenu {
-  background: transparent;
+  background: #fff;
 }
 
 //ADD FORM
