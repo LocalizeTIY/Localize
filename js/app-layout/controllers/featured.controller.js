@@ -4,6 +4,8 @@ let FeaturedController = function(FeaturedService) {
   vm.events = [];
   vm.clicked = clicked;
 
+  let res = array;
+
   activate();
 
   function activate() {
@@ -13,7 +15,10 @@ let FeaturedController = function(FeaturedService) {
       console.log(vm.events);
     });
   }
-
+  
+  // function shuffleArray(vm.events){
+  //   for
+  // }
   function clicked (event){
     console.log('clicked', event.name);
   }
@@ -23,6 +28,16 @@ let FeaturedController = function(FeaturedService) {
       // vm.events = res.data.results;
       console.log(res);
     });
+  }
+
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
   }  
 };
 
