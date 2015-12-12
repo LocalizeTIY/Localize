@@ -5673,6 +5673,10 @@ body {
       position: absolute;
       top: 10%; }
 
+.searchResultList {
+  display: inline;
+  background: none; }
+
 .dropdown.menu
 .is-dropdown-submenu-parent.is-down-arrow > a::after {
   display: none; }

@@ -253,6 +253,7 @@ var HomeController = function HomeController(SearchService) {
   vm.getGoData = getGoData;
   vm.geteventData = geteventData;
   vm.getTagData = getTagData;
+  vm.uniqueTags = uniqueTags;
   vm.uniqueTag = [];
 
   function search(data) {
@@ -298,8 +299,8 @@ var HomeController = function HomeController(SearchService) {
       var goList = items.filter(function (item) {
         return item.category === 'go';
       });
+      vm.go = uniqueTags(goList);
       // let pluckedGo = _.pluck(goList, 'tags');
-      vm.go = uniqueTag(goList);
       //console.log('go names', vm.go);
     });
   }
@@ -312,7 +313,7 @@ var HomeController = function HomeController(SearchService) {
       var eventsList = items.filter(function (item) {
         return item.category === 'event';
       });
-      vm.events = uniqueTag(eventsList);
+      vm.events = uniqueTags(eventsList);
       //console.log('event names', vm.events);
     });
   }
@@ -320,12 +321,10 @@ var HomeController = function HomeController(SearchService) {
   function uniqueTags(items) {
     var itemsByCategory = _underscore2['default'].groupBy(items, 'category');
     console.log('itemsByCategory', itemsByCategory);
-    //let uniqueTag = [];
-
+    var uniqueTag = [];
     _underscore2['default'].each(itemsByCategory, function (items, category) {
       uniqueTag = _underscore2['default'].uniq(_underscore2['default'].pluck(items, 'tags'));
     });
-
     return uniqueTag;
   }
 
