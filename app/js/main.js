@@ -109,38 +109,50 @@ _angular2['default'].module('app.core', ['ui.router', 'ngCookies']).config(_conf
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var DashboardController = function DashboardController(DashboardService, $scope, $stateParams, $state, LocalizeService) {
+var DashboardController = function DashboardController(DashboardService, $scope, $stateParams, $state, $cookies, LocalizeService, UserService) {
 
   var thisUser = $stateParams.createdby;
 
-  $scope.createdby = thisUser;
+  var user = UserService.getUserInfo();
+
+  $scope.user = user;
+
+  //console.log('in the controller',$scope.user);
 
   var vm = this;
   vm.events = [];
   vm.clicked = clicked;
+  vm.logout = logout;
 
   activate();
 
   function activate() {
     DashboardService.getAllEvents().then(function (res) {
       vm.events = res.data.results;
-      console.log('dashboardController?');
-      console.log(vm.events);
+      //console.log('dashboardController?');
+      //console.log(vm.events);
     });
   }
 
   function events(eventObj) {
     DashboardService.events(data).then(function (res) {
-      console.log(res);
+      //console.log(res);
     });
   }
 
   function clicked(event) {
-    console.log('clicked', event.name);
+    //console.log('clicked', event.name);
+  }
+
+  function logout(user) {
+    console.log('from dashboard logout', user);
+    DashboardService.logout(user).then(function (res) {
+      console.log('res from logout', res.data);
+    });
   }
 };
 
-DashboardController.$inject = ['DashboardService', '$scope', '$stateParams', '$state', 'LocalizeService'];
+DashboardController.$inject = ['DashboardService', '$scope', '$stateParams', '$state', '$cookies', 'LocalizeService', 'UserService'];
 
 exports['default'] = DashboardController;
 module.exports = exports['default'];
@@ -172,11 +184,13 @@ _angular2['default'].module('app.dashboard', ['app.core']).controller('Dashboard
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var DashboardService = function DashboardService(PARSE, $http) {
+var DashboardService = function DashboardService(PARSE, $http, UserService, $state, $cookies) {
 
   var eventURL = PARSE.URL + 'classes/events';
 
   this.getAllEvents = getAllEvents;
+  this.logout = logout;
+  this.Events = Events;
 
   function getAllEvents() {
     return $http({
@@ -194,9 +208,19 @@ var DashboardService = function DashboardService(PARSE, $http) {
       headers: PARSE.CONFIG.headers
     });
   }
+
+  function logout(userObj) {
+    console.log('from logout in service', userObj.sessionToken);
+    $cookies.remove(userObj.sessionToken);
+    return $http({
+      url: PARSE.URL + 'logout',
+      headers: PARSE.CONFIG.headers,
+      method: 'POST'
+    });
+  }
 };
 
-DashboardService.$inject = ['PARSE', '$http'];
+DashboardService.$inject = ['PARSE', '$http', 'UserService', '$state', '$cookies'];
 
 exports['default'] = DashboardService;
 module.exports = exports['default'];
