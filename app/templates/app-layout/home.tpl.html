@@ -4,11 +4,11 @@
 
 <form ng-submit='vm.search(data)'>
   <input placeholder='Search by Name' value='100' type='text' ng-model='data'>
-  <button>Go</button>
+  <button type="button" class="success button">Go</button>
 </form>
 
 <ul class="searchResults dropdown menu" data-dropdown-menu>
-  <li ng-repeat="result in vm.results | filter: data">{{ result.name }}{{result.location}}{{result.date}}</li>
+  <li class="searchResultList" ng-repeat="result in vm.results | filter: data"> <a href="#/singleresult/{{result.name}}">{{ result.name }} {{result.date}}</a></li>
 </ul>
 
 <hr>
