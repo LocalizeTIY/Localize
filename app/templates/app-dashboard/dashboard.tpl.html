@@ -27,26 +27,30 @@
 
 </div>
 
-<div class="singlePersonTemplate">
+<!-- ALL EVENTS -->
 
-  <p class="userName"> Username: <span>{{ event.createdby }}</span></p>
 
-  <table class="userTable">
+<div>
+
+
+  <table>
     <tr>
-      <td class="tableTitles">Event Name</td>
-      <td class="centered tableTitles">Event Date</td>
-      <td class="centered tableTitles">Event Time</td>
-      <td class="centered tableTitles">Event Location</td>
-      <td class="centered tableTitles">Event Picture</td>
-      <td class="centered tableTitles">Event Tags</td>
+      <td>Event Name</td>
+      <td>Created By</td>
+      <td>Event Date</td>
+      <td>Event Time</td>
+      <td>Event Location</td>
+<!--        <td>Event Picture</td> -->
+      <td>Event Tags</td>
     </tr>
     <tr ng-repeat="event in vm.events">
-      <td class="tableTitles">{{ event.name }}</td>
-      <td class="tableTitles">{{ event.date }}</td>
-      <td class="centered">{{ event.time }}</td>
-      <td class="centered">{{ event.location }}</td>
-      <td class="centered">{{ event.picture }}</td>
-      <td class="centered">{{ event.tags }}</td>
+      <td>{{ event.name }}</td>
+      <td>{{ event.createdby }}</td>
+      <td>{{ event.date }}</td>
+      <td>{{ event.time }}</td>
+      <td>{{ event.location }}</td>
+      <!-- <td>{{ event.picture }}</td> -->
+      <td>{{ event.tags }}</td>
 
     </tr>
   </table>
