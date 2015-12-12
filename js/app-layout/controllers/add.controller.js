@@ -16,6 +16,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
     eventObj.picture = vm.image;
     LocalizeService.addEvent(eventObj, user).then((res)=>{
       console.log(res);
+      
     });
   }
  
@@ -24,6 +25,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
     UploadService.upload(file).then((res)=>{
       vm.imageUploaded = true;
       vm.image = res.data.url;
+
     });
   }
 

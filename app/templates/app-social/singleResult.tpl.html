@@ -1,5 +1,10 @@
-<h3>SINGLE CLICK INFO</h3>
-{{vm.singles}}
+<h3> {{single.name}}</h3>
+<!-- {{vm.singles}} -->
 <ul>
-  <li ng-repeat="single in vm.singles">{{single.name}}</li>
+  <li ng-class="single" ng-repeat="single in vm.singles">
+  {{single.name}} {{single.rating}}
+  <p></p>
+  {{single.picture}}
+  Address : {{single.location}}
+  </li>
 </ul>

@@ -253,6 +253,7 @@ var HomeController = function HomeController(SearchService) {
   vm.getGoData = getGoData;
   vm.geteventData = geteventData;
   vm.getTagData = getTagData;
+  vm.uniqueTag = [];
 
   function search(data) {
     SearchService.search(data).then(function (res) {
@@ -298,7 +299,7 @@ var HomeController = function HomeController(SearchService) {
         return item.category === 'go';
       });
       // let pluckedGo = _.pluck(goList, 'tags');
-      vm.go = uniqueTags(goList);
+      vm.go = uniqueTag(goList);
       //console.log('go names', vm.go);
     });
   }
@@ -311,7 +312,7 @@ var HomeController = function HomeController(SearchService) {
       var eventsList = items.filter(function (item) {
         return item.category === 'event';
       });
-      vm.events = uniqueTags(eventsList);
+      vm.events = uniqueTag(eventsList);
       //console.log('event names', vm.events);
     });
   }
@@ -319,13 +320,13 @@ var HomeController = function HomeController(SearchService) {
   function uniqueTags(items) {
     var itemsByCategory = _underscore2['default'].groupBy(items, 'category');
     console.log('itemsByCategory', itemsByCategory);
-    var uniqueTags = [];
+    //let uniqueTag = [];
 
     _underscore2['default'].each(itemsByCategory, function (items, category) {
-      uniqueTags = _underscore2['default'].uniq(_underscore2['default'].pluck(items, 'tags'));
+      uniqueTag = _underscore2['default'].uniq(_underscore2['default'].pluck(items, 'tags'));
     });
 
-    return uniqueTags;
+    return uniqueTag;
   }
 
   geteventData();

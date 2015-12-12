@@ -8,6 +8,7 @@ let HomeController = function(SearchService) {
   vm.getGoData = getGoData;
   vm.geteventData = geteventData;
   vm.getTagData = getTagData;
+  vm.uniqueTag =[];
 
   function search (data) {
     SearchService.search(data).then( (res) => {
@@ -51,7 +52,7 @@ let HomeController = function(SearchService) {
       let items = res.data.results;
       let goList = items.filter(item => item.category === 'go');
       // let pluckedGo = _.pluck(goList, 'tags');
-      vm.go = uniqueTags(goList);
+      vm.go = uniqueTag(goList);
       //console.log('go names', vm.go);
     });
   }
@@ -62,7 +63,7 @@ let HomeController = function(SearchService) {
       vm.events=[];
       let items = res.data.results;
       let eventsList =items.filter(item=> item.category ==='event');
-      vm.events= uniqueTags(eventsList);
+      vm.events= uniqueTag(eventsList);
       //console.log('event names', vm.events);
     });
   }
@@ -70,13 +71,13 @@ let HomeController = function(SearchService) {
   function uniqueTags (items) {
     let itemsByCategory = _.groupBy(items, 'category');
     console.log('itemsByCategory', itemsByCategory );
-    let uniqueTags = [];
+    //let uniqueTag = [];
 
     _.each(itemsByCategory, (items, category) => {
-      uniqueTags = _.uniq(_.pluck(items, 'tags'));
+      uniqueTag = _.uniq(_.pluck(items, 'tags'));
     });
 
-    return uniqueTags;
+    return uniqueTag;
   }
 
   geteventData();

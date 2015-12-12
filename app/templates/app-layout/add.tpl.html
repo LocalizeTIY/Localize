@@ -37,6 +37,20 @@
         ng-model="event.comment">
       </textarea>  
       
+     <!--  <ul class="dropdown menu" data-dropdown-menu>
+        <li>Eat</li>
+        <li>Go</li>
+        <li>Events</li>
+      </ul> -->
+      <div class="row">
+        <fieldset class="large-6 columns">
+          <legend>Select Event Type</legend>
+          <input ng-model="event.category" type="radio" name="pokemon" value="eat" id="pokemonRed" required><label for="pokemonRed">Eat</label>
+          <input ng-model="event.category" type="radio" name="pokemon" value="go" id="pokemonBlue"><label for="pokemonBlue">Go</label>
+          <input ng-model="event.category" type="radio" name="pokemon" value="event" id="pokemonYellow"><label for="pokemonYellow">Event</label>
+        </fieldset>
+      </div>
+
       <input class="addfields"
         placeholder="Tags" 
         ng-model="event.tags" >
