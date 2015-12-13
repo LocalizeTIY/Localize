@@ -1,2 +1,10 @@
-<h3>Hey Hey</h3>
-<div ng-click='result in vm.singleResult'>{{result.name))</div>
+<h3> {{single.name}}</h3>
+<!-- {{vm.singles}} -->
+<ul>
+  <li ng-class="single" ng-repeat="single in vm.singles">
+  {{single.name}} {{single.rating}}
+  <p></p>
+  {{single.picture}}
+  Address : {{single.location}}
+  </li>
+</ul>
