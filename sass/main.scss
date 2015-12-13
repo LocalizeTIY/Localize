@@ -11,7 +11,7 @@
 
 ////// Localize Fonts ///////
 $roboto: 'Roboto';
-$allan: 'Allan';
+$ubuntu: 'Ubuntu';
 
 
 ////// Localize Colors //////
@@ -37,7 +37,7 @@ $breakpoint-classes: (
 );
 
 body {
-  background:$greyMedium;
+  background: $greyLight;
   background-size: cover;
   height: 100%;
 }
@@ -88,6 +88,139 @@ body {
 }
 
 
+/////// Home Page ////////
+
+  .bgvideo {
+    position: relative;
+    // right: 0;
+    // top: 100;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: 712px;
+    z-index: -9999;
+    -webkit-filter: grayscale(80%);
+    filter: grayscale(70%);
+  }
+
+  .discover {
+    color: $redOrange;
+    font-family: $ubuntu;
+    font-weight: bold;
+    position: absolute;
+    top: 55%;
+    left: 35%;
+  }
+
+  .searchForm {
+    position: absolute;
+    top: 70%;
+    left: 28%;
+
+    .searchInput {
+      width: 260%;
+      margin-left: 0;
+      display: inline;
+      height: 50px;
+      border: 2px solid $greyLight;
+
+    }
+
+    .button.success {
+      background: #3adb76;
+      color: #fff;
+      margin: 0;
+      position: absolute;
+      top: 0%;
+      left: 262%;
+      height: 76%;
+      background: $redOrange;
+    }
+  }
+
+  ul.searchResults a {
+    background: #fff;
+    list-style: none;
+    width: 486px;
+    padding-left: 2%;
+    position: absolute;
+    top: 72%;
+    left: 334px;
+    padding-top: 1%;
+    margin-top: 5px;
+    margin-left: 20px;
+  }
+
+  input:-webkit-autofill {
+    display: none;
+  }
+
+  ///// Columns Section - Home Page /////
+
+  .connect {
+    font-family: $ubuntu;
+    color: $redOrange;
+    margin-top: 10%;
+    text-align: center;
+  }
+
+  .connectPara {
+    margin-bottom: 5%;
+    text-align: center;
+    font-family: $ubuntu;
+    font-size: 1.2em;
+    color: $greyMedium;
+  }
+
+  .columnsPage {
+    margin-bottom: 10%;
+
+    .tresColumns {
+      margin-left: 12%;
+
+      .column {
+        position: relative;
+        background: #fff;
+        margin-right: 22px;
+        height: 412px;
+        width: 307px;
+
+        .columnPic {
+          margin-top: 4%;
+        }
+
+        .eatColumn {
+        position: absolute;
+        top: 16%;
+        left: 20%;
+        width: 65%;
+        }
+
+        .goColumn {
+          position: absolute;
+          top: 18%;
+          left: 20%;
+          width: 65%;
+        }
+
+        .eventColumn {
+          position: absolute;
+          top: 10%;
+        }
+      }
+    }
+
+    .dropdown.menu 
+    .is-dropdown-submenu-parent.is-down-arrow > a::after {
+      display: none;
+    }
+
+    .dropdown.menu .submenu {
+      background: #fff;
+    }
+  }
+
+
 //LOGIN TEMPLATE
 
 .login{
@@ -96,64 +229,6 @@ body {
   width : 50%;
   //height:200px;
   //border:1px solid black;
-}
-
-//CONTAINER2 SPECIFIC SEARCH
-
-.columnsPage {
-
-  .container2{
-    width :50%;
-
-    #eat, #eat ul {
-     list-style : none;
-     padding : 0;
-     margin :0;
-    }
-  }
-
-  .tresColumns {
-    margin-left: 15%;
-
-    .column {
-      position: relative;
-      background: #fff;
-      margin-right: 20px;
-      height: 355px;
-
-      .columnPic {
-        margin-top: 4%;
-      }
-
-      .eatColumn {
-      position: absolute;
-      top: 16%;
-      left: 20%;
-      width: 65%;
-      }
-
-      .goColumn {
-        position: absolute;
-        top: 18%;
-        left: 20%;
-        width: 65%;
-      }
-
-      .eventColumn {
-        position: absolute;
-        top: 10%;
-      }
-    }
-  }
-
-  .dropdown.menu 
-  .is-dropdown-submenu-parent.is-down-arrow > a::after {
-    display: none;
-  }
-
-  .dropdown.menu .submenu {
-    background: #fff;
-  }
 }
 
 //ADD FORM
@@ -241,72 +316,6 @@ li.featuredList {
       text-align: center;
     }
 
-/////// Home Page ///////
-
-  .bgvideo {
-    position: relative;
-    // right: 0;
-    // top: 100;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: 712px;
-    z-index: -9999;
-    -webkit-filter: grayscale(80%);
-    filter: grayscale(70%);
-  }
-
-  .discover {
-    color: $redOrange;
-    font-family: $roboto;
-    font-weight: bold;
-    position: absolute;
-    top: 55%;
-    left: 35%;
-  }
-
-  .searchForm {
-    position: absolute;
-    top: 65%;
-    left: 28%;
-
-    .searchInput {
-      width: 260%;
-      margin-left: 0;
-      display: inline;
-      height: 50px;
-      border: 2px solid $greyLight;
-
-    }
-
-    .button.success {
-      background: #3adb76;
-      color: #fff;
-      margin: 0;
-      position: absolute;
-      top: 0%;
-      left: 262%;
-      height: 76%;
-      background: $redOrange;
-    }
-  }
-
-  ul.searchResults a {
-    background: #fff;
-    list-style: none;
-    width: 486px;
-    padding-left: 2%;
-    position: absolute;
-    top: 72%;
-    left: 334px;
-    padding-top: 1%;
-    margin-top: 5px;
-    margin-left: 20px;
-  }
-
-  input:-webkit-autofill {
-    display: none;
-  }
 
 ////// Registration Page //////
 
