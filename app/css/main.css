@@ -5685,7 +5685,12 @@ body {
       height: 76%;
       background: #FF4734; }
   body ul.searchResults a {
+    transition: color 1.5s ease;
     background: #fff;
+    color: #000;
+    font-family: "Ubuntu";
+    font-weight: bold;
+    font-size: 1.2em;
     list-style: none;
     width: 486px;
     padding-left: 2%;
@@ -5695,6 +5700,8 @@ body {
     padding-top: 1%;
     margin-top: 5px;
     margin-left: 20px; }
+  body ul.searchResults a:hover {
+    color: #878676; }
   body input:-webkit-autofill {
     display: none; }
   body .connect {
@@ -5734,6 +5741,7 @@ body {
           position: absolute;
           top: 10%; }
         body .columnsPage .tresColumns .column .menu > li > a, body .columnsPage .tresColumns .columns .menu > li > a {
+          transition: 1s;
           color: #fff;
           font-weight: bold;
           font-size: 1.2em; }
