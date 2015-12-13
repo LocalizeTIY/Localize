@@ -35,8 +35,6 @@ let FeaturedService = function (PARSE, $http) {
       });
   }
 
-  
-
   // function search (objectId) {
   // 	return $http.get(eventURL, PARSE.CONFIG);
   // }

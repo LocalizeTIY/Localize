@@ -1,4 +1,49 @@
 <h3>Featured</h3>
+<div>
+
+
+  <table>
+    <tr>
+      <td>Event Name</td>
+      <td>Event Date</td>
+      <!-- <td>Event Time</td> -->
+      <td>Event Location</td>
+      <!-- <td>Event Tags</td> -->
+      <td>Event Ratings</td>
+      <td>Event Category</td>
+
+    </tr>
+    <tr ng-repeat="event in vm.events">
+      <td>{{ event.name }}</td>
+      <td>{{ event.date }}</td>
+      <!-- <td>{{ event.time }}</td> -->
+      <td>{{ event.location }}</td>
+      <!-- <td>{{ event.tags }}</td> -->
+      <td>{{ event.ratings}}</td>
+      <td>{{ event.category }}</td>
+
+    </tr>
+  </table>
+
+<!-- RATING STARS -->
+      <hr>
+<rating class="rating-stars"
+ ng-model="event.rating" 
+ value="rate" 
+ max="max" 
+ readonly="isReadonly" 
+ on-hover="hoveringOver(value)" 
+ on-leave="overStar = null" 
+ ng-click="vm.rateMe(rating)"></rating>
+
+<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+
+<hr>
+    <label  class="addfields" ng-model="event.rating">Event Not Rated</label>
+
+
+<!-- END OF STARS -->
+
 <!-- <div class="container" id="featured">
   
   <a id="featured"></a>
@@ -51,31 +96,8 @@
 <!-- <event-item id="event-{{ $index }}" ng-repeat "e in vm.events" event="e"></event-item>
  -->
 
-<div>
 
 
-  <table>
-    <tr>
-      <td>Event Name</td>
-      <td>Event Date</td>
-      <td>Event Time</td>
-      <td>Event Location</td>
-<!--       <td>Event Picture</td> -->
-      <td>Event Tags</td>
-      <td>Event Category</td>
-
-    </tr>
-    <tr ng-repeat="event in vm.events">
-      <td>{{ event.name }}</td>
-      <td>{{ event.date }}</td>
-      <td>{{ event.time }}</td>
-      <td>{{ event.location }}</td>
-<!--       <td>{{ event.picture }}</td> -->
-      <td>{{ event.tags }}</td>
-      <td>{{ event.category }}</td>
-
-    </tr>
-  </table>
 <!-- <div>
   <ul>
     <li ng-repeat='event in vm.events'>{{event.name}}</li>

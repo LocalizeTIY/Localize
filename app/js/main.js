@@ -288,7 +288,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FeaturedController = function FeaturedController(FeaturedService) {
+var FeaturedController = function FeaturedController(FeaturedService, $scope, LocalizeService, UploadService, $cookies) {
 
   var vm = this;
   vm.events = [];
@@ -319,19 +319,37 @@ var FeaturedController = function FeaturedController(FeaturedService) {
       console.log(res);
     });
   }
+  // -----------STARS-------------
+  $scope.rate = 5;
+  $scope.max = 10;
+  $scope.isReadonly = false;
 
-  // function shuffleArray(array) {
-  //   for (var i = array.length - 1; i > 0; i--) {
-  //       var j = Math.floor(Math.random() * (i + 1));
-  //       var temp = array[i];
-  //       array[i] = array[j];
-  //       array[j] = temp;
-  //   }
-  //   return array;
-  // }
+  $scope.hoveringOver = function (value) {
+    $scope.overStar = value;
+    $scope.percent = 100 * (value / $scope.max);
+  };
+
+  $scope.ratingStates = [{ stateOn: 'fa-check-circle', stateOff: 'fa-check-circle-o' }, { stateOn: 'fa-star', stateOff: 'fa-start-o' }, { stateOn: 'fa-heart', stateOff: 'fa-ban' }, { stateOn: 'fa-heart' }, { stateOff: 'fa-power-off' }];
+
+  // --------------END OF STARS------------
+
+  // ------RANDOMIZE RESULTS--------
+  // let categories = [
+  //   {'category' : 'go'},
+  //   {'category' : 'event'},
+  //   {'category' : 'eat'}
+  // ];
+
+  // _.find(categories, _.matchesProperty('category', 'go'));
+  // console.log(_.matchesProperty);
+  // let categoryArr = [(
+  //   "category" : "go",
+  //   ""
+  //   )]
+  // ------END OF RANDOMIZE--------
 };
 
-FeaturedController.$inject = ['FeaturedService'];
+FeaturedController.$inject = ['FeaturedService', '$scope', 'LocalizeService', 'UploadService', '$cookies'];
 
 exports['default'] = FeaturedController;
 module.exports = exports['default'];
