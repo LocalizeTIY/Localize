@@ -19,6 +19,13 @@
       <input class="addfields"
         placeholder="Event Name " 
         ng-model="event.name" >
+    <div class="row">
+      <fieldset class="large-6 columns">
+        <legend>Select Event Type</legend>
+        <input ng-model="event.permanent" type="radio" name="pokemon" value="true" id="pokemonRed" required><label for="pokemonRed">On Going</label>
+        <input ng-model="event.category" type="radio" name="pokemon" value="false" id="pokemonBlue"><label for="pokemonBlue">Single Event</label>
+      </fieldset>
+  </div>
     
       <input class="addfields"
         placeholder="Date" 
