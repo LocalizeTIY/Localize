@@ -55,7 +55,6 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/singleresult/:id',
     controller: 'SingleResultController as vm',
     templateUrl: 'templates/app-social/singleResult.tpl.html'
-<<<<<<< HEAD
   }).state('root.list', {
     url: '/tag/type/:list',
     controller: 'TagsListController as vm',
@@ -64,8 +63,6 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/singlefeature/:id',
     controller: 'SingleFeatureController as vm',
     templateUrl: 'templates/app-layout/singleFeature.tpl.html'
-=======
->>>>>>> master
   });
 };
 
@@ -444,11 +441,7 @@ HomeController.$inject = ['SearchService'];
 exports['default'] = HomeController;
 module.exports = exports['default'];
 
-<<<<<<< HEAD
-},{"underscore":37}],10:[function(require,module,exports){
-=======
-},{"underscore":44}],10:[function(require,module,exports){
->>>>>>> master
+},{"underscore":46}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1028,11 +1021,15 @@ var RegisterController = function RegisterController(UserService, $state) {
   vm.signUp = signUp;
 
   function signUp(user) {
-    console.log(user);
-    UserService.signup(user).then(function (res) {
-      console.log(res.data);
-      $state.go('root.home');
-    });
+    if (user) {
+      console.log(user);
+      UserService.signup(user).then(function (res) {
+        swal('Welcome', user.username);
+        $state.go('root.home');
+      });
+    } else {
+      swal('Fields cannot be blank');
+    }
   }
 };
 
@@ -1182,11 +1179,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.s
   });
 });
 
-<<<<<<< HEAD
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":12,"./app-social/index":21,"./app-user/index":25,"angular":33,"angular-foundation":30,"foundation":34,"jquery":35,"motion-ui":36,"underscore":37}],28:[function(require,module,exports){
-=======
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-social/index":19,"./app-user/index":23,"angular":31,"angular-foundation":28,"foundation":32,"jquery":33,"motion-ui":34,"sweetalert":43,"underscore":44}],26:[function(require,module,exports){
->>>>>>> master
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":12,"./app-social/index":21,"./app-user/index":25,"angular":33,"angular-foundation":30,"foundation":34,"jquery":35,"motion-ui":36,"sweetalert":45,"underscore":46}],28:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -38530,7 +38523,7 @@ module.exports = angular;
 
 "use strict";
 
-var FOUNDATION_VERSION = '6.0.5';
+var FOUNDATION_VERSION = '6.0.4';
 
 // Global Foundation object
 // This is attached to the window, or used as a module for AMD/Browserify
@@ -39046,7 +39039,7 @@ function hyphenate(str) {
       case 'reveal full':
         return {
           left: $eleDims.windowDims.offset.left,
-          top: $eleDims.windowDims.offset.top
+          top: $eleDims.windowDims.offset.top,
         };
         break;
       default:
@@ -41103,15 +41096,15 @@ Foundation.Motion = Motion;
   }
   Drilldown.defaults = {
     /**
-     * Markup used for JS generated back button. Prepended to submenu lists and deleted on `destroy` method, 'js-drilldown-back' class required. Remove the backslash (`\`) if copy and pasting.
+     * Markup used for JS generated back button. Prepended to submenu lists and deleted on `destroy` method.
      * @option
-     * @example '<\li><\a>Back<\/a><\/li>'
+     * @example '<li><a>Back</a></li>'
      */
-    backButton: '<li class="js-drilldown-back"><a>Back</a></li>',
+    backButton: '<li class="js-drilldown-back" tabindex="0"><a>Back</a></li>',
     /**
-     * Markup used to wrap drilldown menu. Use a class name for independent styling; the JS applied class: `is-drilldown` is required. Remove the backslash (`\`) if copy and pasting.
+     * Markup used to wrap drilldown menu. Use a class name for independent styling, or the JS applied class: `is-drilldown`.
      * @option
-     * @example '<\div class="is-drilldown"><\/div>'
+     * @example '<div></div>'
      */
     wrapper: '<div></div>',
     /**
@@ -41119,7 +41112,7 @@ Foundation.Motion = Motion;
      * @option
      * @example false
      */
-    closeOnClick: false
+    closeOnClick: false,
     // holdOpen: false
   };
   /**
@@ -41128,11 +41121,14 @@ Foundation.Motion = Motion;
    */
   Drilldown.prototype._init = function(){
     this.$submenuAnchors = this.$element.find('li.has-submenu');
-    this.$submenus = this.$submenuAnchors.children('[data-submenu]');
-    this.$menuItems = this.$element.find('li:visible').not('.js-drilldown-back').attr('role', 'menuitem');
+    this.$submenus = this.$submenuAnchors.children('[data-submenu]').addClass('is-drilldown-sub')/*.wrap($(this.options.wrapper).addClass('is-drilldown-sub'))*/;
+    // this.$rootElems = this.$element.children('[data-submenu]')/*.addClass('first-sub')*/;
+    this.$menuItems = this.$element.find('li').not('.js-drilldown-back').attr('role', 'menuitem');
+    // this.$submenus;
+
 
     this._prepareMenu();
-
+    // this._getMaxDims();
     this._keyboardEvents();
   };
   /**
@@ -41149,8 +41145,7 @@ Foundation.Motion = Motion;
     // }
     this.$submenuAnchors.each(function(){
       var $sub = $(this);
-      var $link = $sub.find('a:first');
-      $link.data('savedHref', $link.attr('href')).removeAttr('href');
+      $sub.find('a')[0].removeAttribute('href');
       $sub.children('[data-submenu]')
           .attr({
             'aria-hidden': true,
@@ -41184,14 +41179,12 @@ Foundation.Motion = Motion;
 
     $elem.off('click.zf.drilldown')
     .on('click.zf.drilldown', function(e){
-      if($(e.target).parentsUntil('ul', 'li').hasClass('is-drilldown-submenu-parent')){
-        e.stopImmediatePropagation();
-        e.preventDefault();
-      }
+      e.stopImmediatePropagation();
+      e.preventDefault();
 
-      // if(e.target !== e.currentTarget.firstElementChild){
-      //   return false;
-      // }
+      if(e.target !== e.currentTarget.firstElementChild){
+        return false;
+      }
       _this._show($elem);
 
       if(_this.options.closeOnClick){
@@ -41375,12 +41368,7 @@ Foundation.Motion = Motion;
                  .end().find('.is-active, .is-closing, .is-drilldown-sub').removeClass('is-active is-closing is-drilldown-sub')
                  .end().find('[data-submenu]').removeAttr('aria-hidden tabindex role')
                  .off('.zf.drilldown').end().off('zf.drilldown');
-    this.$element.find('a').each(function(){
-      var $link = $(this);
-      if($link.data('savedHref')){
-        $link.attr('href', $link.data('savedHref')).removeData('savedHref');
-      }else{ return; }
-    });
+
     Foundation.unregisterPlugin(this);
   };
   Foundation.plugin(Drilldown, 'Drilldown');
@@ -41556,7 +41544,7 @@ Foundation.Motion = Motion;
     if(($eleDims.width >= $eleDims.windowDims.width) || (!this.counter && !Foundation.Box.ImNotTouchingYou(this.$element))){
       this.$element.offset(Foundation.Box.GetOffsets(this.$element, this.$anchor, 'center bottom', this.options.vOffset, this.options.hOffset, true)).css({
         'width': $eleDims.windowDims.width - (this.options.hOffset * 2),
-        'height': 'auto'
+        'height': 'auto',
       });
       this.classChanged = true;
       return false;
@@ -41775,7 +41763,7 @@ Foundation.Motion = Motion;
      */
     disableHover: false,
     /**
-     * Allow a submenu to automatically close on a mouseleave event, if not clicked open.
+     * Allow a submenu to automatically close on a mouseleave event.
      * @option
      * @example true
      */
@@ -41807,10 +41795,10 @@ Foundation.Motion = Motion;
     alignment: 'left',
     /**
      * Allow clicks on the body to close any open submenus.
-     * @option
-     * @example true
+     *
+     *
      */
-    closeOnClick: true,
+    // closeOnClick: true,
     /**
      * Class applied to vertical oriented menus, Foundation default is `vertical`. Update this if using your own class.
      * @option
@@ -41822,13 +41810,7 @@ Foundation.Motion = Motion;
      * @option
      * @example 'align-right'
      */
-    rightClass: 'align-right',
-    /**
-     * Boolean to force overide the clicking of links to perform default action, on second touch event for mobile.
-     * @option
-     * @example false
-     */
-    forceFollow: true
+    rightClass: 'align-right'
   };
   /**
    * Initializes the plugin, and calls _prepareMenu
@@ -41864,12 +41846,13 @@ Foundation.Motion = Motion;
    */
   DropdownMenu.prototype._events = function(){
     var _this = this,
-        hasTouch = 'ontouchstart' in window || (typeof window.ontouchstart !== 'undefined'),
+        hasTouch = 'ontouchstart' in window || window.ontouchstart !== undefined,
         parClass = 'is-dropdown-submenu-parent',
         delay;
-
+        
     if(this.options.clickOpen || hasTouch){
-      this.$menuItems.on('click.zf.dropdownmenu touchstart.zf.dropdownmenu', function(e){
+      this.$menuItems.on('click.zf.dropdownmenu', function(e){
+
         var $elem = $(e.target).parentsUntil('ul', '.' + parClass),
             hasSub = $elem.hasClass(parClass),
             hasClicked = $elem.attr('data-is-click') === 'true',
@@ -41877,15 +41860,16 @@ Foundation.Motion = Motion;
 
         if(hasSub){
           if(hasClicked){
-            if(!_this.options.closeOnClick || (!_this.options.clickOpen && !hasTouch) || (_this.options.forceFollow && hasTouch)){ return; }
+            if(hasTouch){ return;}
+
             else{
-              e.stopImmediatePropagation();
-              e.preventDefault();
-              _this._hide($elem);
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            _this._hide($elem);
             }
           }else{
-            e.preventDefault();
             e.stopImmediatePropagation();
+            e.preventDefault();
             _this._show($elem.children('.is-dropdown-submenu'));
             $elem.add($elem.parentsUntil(_this.$element, '.' + parClass)).attr('data-is-click', true);
           }
@@ -41969,14 +41953,14 @@ Foundation.Motion = Motion;
               down: nextSibling,
               up: prevSibling,
               next: openSub,
-              previous: closeSub
+              previous: closeSub,
             });
           } else { // right aligned
             $.extend(functions, {
               down: nextSibling,
               up: prevSibling,
               next: closeSub,
-              previous: openSub
+              previous: openSub,
             });
           }
         } else { // horizontal menu
@@ -41984,7 +41968,7 @@ Foundation.Motion = Motion;
             next: nextSibling,
             previous: prevSibling,
             down: openSub,
-            up: closeSub
+            up: closeSub,
           });
         }
       } else { // not tabs -> one sub
@@ -42013,18 +41997,21 @@ Foundation.Motion = Motion;
    * @function
    * @private
    */
-  DropdownMenu.prototype._addBodyHandler = function(){
-    var $body = $(document.body),
-        _this = this;
-    $body.off('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu')
-         .on('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu', function(e){
-           var $link = _this.$element.find(e.target);
-           if($link.length){ return; }
-
-           _this._hide();
-           $body.off('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu');
-         });
-  };
+  // DropdownMenu.prototype._addBodyHandler = function(){
+  //   var $body = $(document.body).not(this.$element),
+  //       _this = this;
+  //   $body.off('click.zf.dropdownmenu')
+  //        .on('click.zf.dropdownmenu', function(e){
+  //          console.log('body click');
+  //          var $link = _this.$element.find(e.target);
+  //          if($link.length){
+  //            $link.triggerHandler('click.zf.dropdownmenu', [$link]);
+  //            return false;
+  //          }
+  //          _this._hide();
+  //          $body.off('click.zf.dropdownmenu');
+  //        });
+  // };
   /**
    * Opens a dropdown pane, and checks for collisions first.
    * @param {jQuery} $sub - ul element that is a submenu to show
@@ -42053,7 +42040,7 @@ Foundation.Motion = Motion;
       this.changed = true;
     }
     $sub.css('visibility', '');
-    if(this.options.closeOnClick){ this._addBodyHandler(); }
+    // if(this.options.closeOnClick){ this._addBodyHandler(); }
     /**
      * Fires when the new dropdown pane is visible.
      * @event DropdownMenu#show
@@ -42226,7 +42213,7 @@ Foundation.Motion = Motion;
 
     eqGroup.height('inherit');
     heights = eqGroup.map(function () { return $(this).outerHeight(false);}).get();
-    
+    console.log(heights);
     return heights;
   };
   /**
@@ -42251,7 +42238,7 @@ Foundation.Motion = Motion;
     for (var i = 0; i < eqGroup.length; i++) {
       $(eqGroup[i]).css('height', max);
     }
-
+    // console.log(max);
     /**
      * Fires when the heights have been applied
      * @event Equalizer#postEqualized
@@ -42479,7 +42466,7 @@ Foundation.Motion = Motion;
    */
   function Magellan(element, options) {
     this.$element = element;
-    this.options  = $.extend({}, Magellan.defaults, this.$element.data(), options);
+    this.options  = $.extend({}, Magellan.defaults, options);
 
     this._init();
 
@@ -42519,13 +42506,7 @@ Foundation.Motion = Motion;
      * @option
      * @example true
      */
-    deepLinking: false,
-    /**
-     * Number of pixels to offset the scroll of the page on item click if using a sticky nav bar.
-     * @option
-     * @example 25
-     */
-    barOffset: 0
+    deepLinking: false
   };
 
   /**
@@ -42591,7 +42572,7 @@ Foundation.Motion = Motion;
     }).on('click.zf.magellan', 'a[href^="#"]', function(e) {
         e.preventDefault();
         var arrival   = this.getAttribute('href'),
-            scrollPos = $(arrival).offset().top - _this.options.threshold / 2 - _this.options.barOffset;
+            scrollPos = $(arrival).offset().top - _this.options.threshold / 2;
 
         // requestAnimationFrame is disabled for this plugin currently
         // Foundation.Move(_this.options.animationDuration, $body, function(){
@@ -43135,13 +43116,7 @@ Foundation.plugin(OffCanvas, 'OffCanvas');
      * @option
      * @example 'orbit-previous'
      */
-    prevClass: 'orbit-previous',
-    /**
-     * Boolean to flag the js to use motion ui classes or not. Default to true for backwards compatability.
-     * @option
-     * @example true
-     */
-    useMUI: true
+    prevClass: 'orbit-previous'
   };
   /**
    * Initializes the plugin by creating jQuery collections, setting attributes, and starting the animation.
@@ -43157,9 +43132,7 @@ Foundation.plugin(OffCanvas, 'OffCanvas');
     if(!initActive.length){
       this.$slides.eq(0).addClass('is-active');
     }
-    if(!this.options.useMUI){
-      this.$slides.addClass('no-motionui');
-    }
+
     if($images.length){
       Foundation.onImagesLoaded($images, this._prepareForOrbit.bind(this));
     }else{
@@ -43336,6 +43309,7 @@ Foundation.plugin(OffCanvas, 'OffCanvas');
   Orbit.prototype.changeSlide = function(isLTR, chosenSlide, idx){
     var $curSlide = this.$slides.filter('.is-active').eq(0);
 
+
     if(/mui/g.test($curSlide[0].className)){ return false; }//if the slide is currently animating, kick out of the function
 
     var $firstSlide = this.$slides.first(),
@@ -43358,38 +43332,29 @@ Foundation.plugin(OffCanvas, 'OffCanvas');
         idx = idx || this.$slides.index($newSlide);//grab index to update bullets
         this._updateBullets(idx);
       }
-      if(this.options.useMUI){
+      Foundation.Motion.animateIn(
+        $newSlide.addClass('is-active').css({'position': 'absolute', 'top': 0}),
+        this.options['animInFrom' + dirIn],
+        function(){
+          $newSlide.css({'position': 'relative', 'display': 'block'})
+                   .attr('aria-live', 'polite');
+        });
 
-        Foundation.Motion.animateIn(
-          $newSlide.addClass('is-active').css({'position': 'absolute', 'top': 0}),
-          this.options['animInFrom' + dirIn],
-          function(){
-            $newSlide.css({'position': 'relative', 'display': 'block'})
-                     .attr('aria-live', 'polite');
-          });
-
-        Foundation.Motion.animateOut(
-          $curSlide.removeClass('is-active'),
-          this.options['animOutTo' + dirOut],
-          function(){
-            $curSlide.removeAttr('aria-live');
-            if(_this.options.autoPlay){
-              _this.timer.restart();
-            }
-            //do stuff?
-          });
-      }else{
-        $curSlide.removeClass('is-active is-in').removeAttr('aria-live').hide();
-        $newSlide.addClass('is-active is-in').attr('aria-live', 'polite').show();
-        if(this.options.autoPlay){
-          this.timer.restart();
-        }
-      }
-      /**
-       * Triggers when the slide has finished animating in.
-       * @event Orbit#slidechange
-       */
-      this.$element.trigger('slidechange.zf.orbit', [$newSlide]);
+      Foundation.Motion.animateOut(
+        $curSlide.removeClass('is-active'),
+        this.options['animOutTo' + dirOut],
+        function(){
+          $curSlide.removeAttr('aria-live');
+          if(_this.options.autoPlay){
+            _this.timer.restart();
+          }
+          //do stuff?
+          /**
+           * Triggers when the slide has finished animating in.
+           * @event Orbit#slidechange
+           */
+          _this.$element.trigger('slidechange.zf.orbit', [$newSlide]);
+        });
     }
   };
   /**
@@ -43887,6 +43852,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
     var elePos = this.options.fullScreen ? 'reveal full' : (eleDims.height >= (0.5 * eleDims.windowDims.height)) ? 'reveal' : 'center';
 
     if(elePos === 'reveal full'){
+      console.log('full');
       //set to full height/width
       this.$element
           .offset(Foundation.Box.GetOffsets(this.$element, null, elePos, this.options.vOffset))
@@ -43946,12 +43912,10 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
         if(_this.options.overlay){
           Foundation.Motion.animateIn(_this.$overlay, 'fade-in', function(){
             Foundation.Motion.animateIn(_this.$element, _this.options.animationIn, function(){
-              _this.focusableElements = Foundation.Keyboard.findFocusable(_this.$element);
             });
           });
         }else{
           Foundation.Motion.animateIn(_this.$element, _this.options.animationIn, function(){
-            _this.focusableElements = Foundation.Keyboard.findFocusable(_this.$element);
           });
         }
       }else{
@@ -43990,7 +43954,10 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
    */
   Reveal.prototype._extraHandlers = function(){
     var _this = this;
-    this.focusableElements = Foundation.Keyboard.findFocusable(this.$element);
+    var visibleFocusableElements = this.$element.find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').filter(function() {
+      if (!$(this).is(':visible') || $(this).attr('tabindex') < 0){ return false; }//only have visible elements and those that have a tabindex greater or equal 0
+      return true;
+    });
 
     if(!this.options.overlay && this.options.closeOnClick && !this.options.fullScreen){
       $('body').on('click.zf.reveal', function(e){
@@ -44000,17 +43967,16 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
     }
     if(this.options.closeOnEsc){
       $(window).on('keydown.zf.reveal', function(e){
+        if (visibleFocusableElements.length === 0) { // no focusable elements inside the modal at all, prevent tabbing in general
+          e.preventDefault();
+        }
         Foundation.Keyboard.handleKey(e, _this, {
           close: function() {
             if (this.options.closeOnEsc) {
               this.close();
-              this.$anchor.focus();
             }
           }
         });
-        if (_this.focusableElements.length === 0) { // no focusable elements inside the modal at all, prevent tabbing in general
-          e.preventDefault();
-        }
       });
     }
 
@@ -44020,33 +43986,31 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
       // handle keyboard event with keyboard util
       Foundation.Keyboard.handleKey(e, _this, {
         tab_forward: function() {
-          if (this.$element.find(':focus').is(_this.focusableElements.eq(-1))) { // left modal downwards, setting focus to first element
-            _this.focusableElements.eq(0).focus();
+          if (this.$element.find(':focus').is(visibleFocusableElements.eq(-1))) { // left modal downwards, setting focus to first element
+            visibleFocusableElements.eq(0).focus();
             e.preventDefault();
           }
         },
         tab_backward: function() {
-          if (this.$element.find(':focus').is(_this.focusableElements.eq(0)) || this.$element.is(':focus')) { // left modal upwards, setting focus to last element
-            _this.focusableElements.eq(-1).focus();
+          if (this.$element.find(':focus').is(visibleFocusableElements.eq(0)) || this.$element.is(':focus')) { // left modal upwards, setting focus to last element
+            visibleFocusableElements.eq(-1).focus();
             e.preventDefault();
           }
         },
         open: function() {
-          if (_this.$element.find(':focus').is(_this.$element.find('[data-close]'))) {
-            setTimeout(function() { // set focus back to anchor if close button has been activated
-              _this.$anchor.focus();
-            }, 1);
-          } else if ($target.is(_this.focusableElements)) { // dont't trigger if acual element has focus (i.e. inputs, links, ...)
+          if ($target.is(visibleFocusableElements)) { // dont't trigger if acual element has focus (i.e. inputs, links, ...)
             this.open();
           }
         },
         close: function() {
           if (this.options.closeOnEsc) {
             this.close();
-            this.$anchor.focus();
           }
         }
       });
+      if (visibleFocusableElements.length === 0) { // no focusable elements inside the modal at all, prevent tabbing in general
+        e.preventDefault();
+      }
     });
 
   };
@@ -45107,7 +45071,7 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
       'ARROW_RIGHT': 'next',
       'ARROW_UP': 'previous',
       'ARROW_DOWN': 'next',
-      'ARROW_LEFT': 'previous'
+      'ARROW_LEFT': 'previous',
       // 'TAB': 'next',
       // 'SHIFT_TAB': 'previous'
     });
@@ -45220,8 +45184,8 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
    */
   Tabs.prototype._addClickHandler = function(){
     var _this = this;
-    this.$element.off('click.zf.tabs')
-                   .on('click.zf.tabs', '.' + this.options.linkClass, function(e){
+    this.$tabTitles.off('click.zf.tabs')
+                   .on('click.zf.tabs', function(e){
                      e.preventDefault();
                      e.stopPropagation();
                      if($(this).hasClass('is-active')){
@@ -45241,7 +45205,6 @@ Foundation.plugin(ResponsiveToggle, 'ResponsiveToggle');
     var $lastTab = _this.$element.find('li:last-of-type');
 
     this.$tabTitles.off('keydown.zf.tabs').on('keydown.zf.tabs', function(e){
-      if(e.which === 9) return;
       e.stopPropagation();
       e.preventDefault();
 
@@ -55333,10 +55296,7 @@ var MotionUI = {
 return MotionUI;
 }));
 
-<<<<<<< HEAD
 },{"jquery":35}],37:[function(require,module,exports){
-=======
-},{"jquery":33}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55369,7 +55329,7 @@ var defaultParams = {
 
 exports['default'] = defaultParams;
 module.exports = exports['default'];
-},{}],36:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55505,7 +55465,7 @@ exports['default'] = {
   handleCancel: handleCancel
 };
 module.exports = exports['default'];
-},{"./handle-dom":37,"./handle-swal-dom":39,"./utils":42}],37:[function(require,module,exports){
+},{"./handle-dom":39,"./handle-swal-dom":41,"./utils":44}],39:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55697,7 +55657,7 @@ exports.fadeIn = fadeIn;
 exports.fadeOut = fadeOut;
 exports.fireClick = fireClick;
 exports.stopEventPropagation = stopEventPropagation;
-},{}],38:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55777,7 +55737,7 @@ var handleKeyDown = function handleKeyDown(event, params, modal) {
 
 exports['default'] = handleKeyDown;
 module.exports = exports['default'];
-},{"./handle-dom":37,"./handle-swal-dom":39}],39:[function(require,module,exports){
+},{"./handle-dom":39,"./handle-swal-dom":41}],41:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -55945,7 +55905,7 @@ exports.openModal = openModal;
 exports.resetInput = resetInput;
 exports.resetInputError = resetInputError;
 exports.fixVerticalPosition = fixVerticalPosition;
-},{"./default-params":35,"./handle-dom":37,"./injected-html":40,"./utils":42}],40:[function(require,module,exports){
+},{"./default-params":37,"./handle-dom":39,"./injected-html":42,"./utils":44}],42:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -55988,7 +55948,7 @@ var injectedHTML =
 
 exports["default"] = injectedHTML;
 module.exports = exports["default"];
-},{}],41:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56214,7 +56174,7 @@ var setParameters = function setParameters(params) {
 
 exports['default'] = setParameters;
 module.exports = exports['default'];
-},{"./handle-dom":37,"./handle-swal-dom":39,"./utils":42}],42:[function(require,module,exports){
+},{"./handle-dom":39,"./handle-swal-dom":41,"./utils":44}],44:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56288,7 +56248,7 @@ exports.hexToRgb = hexToRgb;
 exports.isIE8 = isIE8;
 exports.logStr = logStr;
 exports.colorLuminance = colorLuminance;
-},{}],43:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -56592,8 +56552,7 @@ if (typeof window !== 'undefined') {
   _extend$hexToRgb$isIE8$logStr$colorLuminance.logStr('SweetAlert is a frontend module!');
 }
 module.exports = exports['default'];
-},{"./modules/default-params":35,"./modules/handle-click":36,"./modules/handle-dom":37,"./modules/handle-key":38,"./modules/handle-swal-dom":39,"./modules/set-params":41,"./modules/utils":42}],44:[function(require,module,exports){
->>>>>>> master
+},{"./modules/default-params":37,"./modules/handle-click":38,"./modules/handle-dom":39,"./modules/handle-key":40,"./modules/handle-swal-dom":41,"./modules/set-params":43,"./modules/utils":44}],46:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
