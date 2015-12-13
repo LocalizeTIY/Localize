@@ -5758,8 +5758,16 @@ li.featuredList .textarea {
   width: auto;
   height: 712px;
   z-index: -9999;
-  -webkit-filter: grayscale(70%);
-  filter: grayscale(50%); }
+  -webkit-filter: grayscale(80%);
+  filter: grayscale(70%); }
+
+.discover {
+  color: #FF4734;
+  font-family: "Roboto";
+  font-weight: bold;
+  position: absolute;
+  top: 55%;
+  left: 35%; }
 
 .searchForm {
   position: absolute;

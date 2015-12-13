@@ -9,6 +9,9 @@
 //@import 'sweetalert.css';
 
 
+////// Localize Fonts ///////
+$roboto: 'Roboto';
+$allan: 'Allan';
 
 
 ////// Localize Colors //////
@@ -238,16 +241,6 @@ li.featuredList {
       text-align: center;
     }
 
-  
-
-
-
-
-
-
-
-
-
 /////// Home Page ///////
 
   .bgvideo {
@@ -259,8 +252,17 @@ li.featuredList {
     width: auto;
     height: 712px;
     z-index: -9999;
-    -webkit-filter: grayscale(70%);
-    filter: grayscale(50%);
+    -webkit-filter: grayscale(80%);
+    filter: grayscale(70%);
+  }
+
+  .discover {
+    color: $redOrange;
+    font-family: $roboto;
+    font-weight: bold;
+    position: absolute;
+    top: 55%;
+    left: 35%;
   }
 
   .searchForm {

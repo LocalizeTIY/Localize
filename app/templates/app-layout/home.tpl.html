@@ -1,18 +1,25 @@
-<video autoplay loop muted class='bgvideo' id='bgvideo'>
-  <source ng-src='../media/nightstreet.mov'>
-</video>
+<section class='landingPage'>
+  <video autoplay loop muted class='bgvideo' id='bgvideo'>
+    <source ng-src='../media/nightstreet.mov'>
+  </video>
 
-<form ng-submit='vm.search(data)' class='searchForm'>
-  <input placeholder='Search' type='text' class='searchInput' id='middle-label' autocomplete='off' ng-model='data'>
-  <button ng-click ="vm.search(data)" type="button" class="success button">Search</button>
-</form>
+  <section class='searchArea'>
+    <h2 class='discover'>Discover Your City</h2>
+    <form ng-submit='vm.search(data)' class='searchForm'>
+      <input placeholder='Search' type='text' class='searchInput' id='middle-label' autocomplete='off' ng-model='data'>
+      <button ng-click ="vm.search(data)" type="button" class="success button">Search</button>
+    </form>
 
-<!-- DISPLAYING SEARCH RESULTS AS LINKS AND DIRECTING IT TO SINGLE VIEW -->
-<ul class="searchResults dropdown menu">
-  <li class="searchResultList" ng-repeat="result in vm.results | filter: data">
-    <a href="#/singleresult/{{result.name}}">{{ result.name }}</a>
-  </li>
-</ul>
+
+    <!-- DISPLAYING SEARCH RESULTS AS LINKS AND DIRECTING IT TO SINGLE VIEW -->
+    <ul class="searchResults dropdown menu">
+      <li class="searchResultList" ng-repeat="result in vm.results | filter: data">
+        <a href="#/singleresult/{{result.name}}">{{ result.name }}</a>
+      </li>
+    </ul>
+  </section>
+
+</section>
 
 <section class='columnsPage'>
 
