@@ -1,4 +1,4 @@
-let AddController = function($scope,LocalizeService, UserService, $cookies, UploadService) {
+let AddController = function($scope,LocalizeService, UserService, $cookies, UploadService,$state) {
   
   let vm = this;
   vm.addEvent = addEvent;
@@ -15,8 +15,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
     let user = UserService.getUserInfo();
     eventObj.picture = vm.image;
     LocalizeService.addEvent(eventObj, user).then((res)=>{
-      console.log(res);
-      
+      $state.go('root.dashboard');
     });
   }
  
@@ -31,7 +30,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
 
 };
 
-AddController.$inject = ['$scope','LocalizeService','UserService','$cookies', 'UploadService'];
+AddController.$inject = ['$scope','LocalizeService','UserService','$cookies', 'UploadService','$state'];
 
 export default AddController;
  
