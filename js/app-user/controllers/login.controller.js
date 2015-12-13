@@ -3,6 +3,7 @@ let LoginController = function(UserService, $state) {
   let vm = this;
 
   vm.login =login;
+  //vm.sweetAlert = sweetAlert;
 
   function login(userObj){
     if(userObj){
@@ -11,13 +12,18 @@ let LoginController = function(UserService, $state) {
         UserService.storeAuth(res.data);
         $state.go('root.dashboard'); //HAS TO GO TO DASHBOARD
       }).catch(()=>{
-        alert('Invalid User Name or Password');
+        swal('Invalid User Name or Password');
       });
     } else{
-      alert('Cannot be blank!');
+      swal('Cannot be blank!');
     }  
   }
+  //sweetAlert({ text: "Here's my error message!",   type: "error",   confirmButtonText: "RETRY" });
 };
+
+
+
+
 
 LoginController.$inject = ['UserService','$state'];
 

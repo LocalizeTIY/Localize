@@ -1,5 +1,6 @@
 import _ from 'underscore';
 import angular from 'angular';
+import 'sweetalert';
 
 //Import jQuery & Foundation
 import $ from 'jquery';
