@@ -2,20 +2,19 @@
   <source ng-src='../media/nightstreet.mov'>
 </video>
 
-<form ng-submit='vm.search(data)'>
-  <input placeholder='Search' value='100' type='text' ng-model='data'>
+<form ng-submit='vm.search(data)' class='searchForm'>
+  <input placeholder='Search' type='text' class='searchInput' id='middle-label' autocomplete='off' ng-model='data'>
   <button type="button" class="success button">Go</button>
 </form>
 
-
 <!-- DISPLAYING SEARCH RESULTS AS LINKS AND DIRECTING IT TO SINGLE VIEW -->
-<ul class="searchResults dropdown menu" data-dropdown-menu>
+<ul class="searchResults dropdown menu">
   <li class="searchResultList" ng-repeat="result in vm.results | filter: data">
-    <a href="#/singleresult/{{result.name}}">{{ result.name }} {{result.date}}</a>
+    <a href="#/singleresult/{{result.name}}">{{ result.name }}</a>
   </li>
 </ul>
-<hr>
 
+<section class='columnsPage'>
 
 <!-- EAT TAGS -->
 <div class="row small-up-1 medium-up-2 large-up-4 tresColumns">
@@ -63,3 +62,4 @@
     </ul> 
   </div>  
 </div>
+</section>

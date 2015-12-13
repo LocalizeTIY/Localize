@@ -5607,11 +5607,8 @@ html {
 
 body {
   background: #3E3E3E;
-  opacity: 0.7;
-  background-size: cover; }
-
-a {
-  color: #fff; }
+  background-size: cover;
+  height: 100%; }
 
 .top-bar {
   background: #000; }
@@ -5649,45 +5646,41 @@ a {
   margin: 5% auto;
   width: 50%; }
 
-.container2 {
+.columnsPage .container2 {
   width: 50%; }
-  .container2 #eat, .container2 #eat ul {
+  .columnsPage .container2 #eat, .columnsPage .container2 #eat ul {
     list-style: none;
     padding: 0;
     margin: 0; }
 
-.tresColumns {
+.columnsPage .tresColumns {
   margin-left: 15%; }
-  .tresColumns .column, .tresColumns .columns {
+  .columnsPage .tresColumns .column, .columnsPage .tresColumns .columns {
     position: relative;
     background: #fff;
     margin-right: 20px;
     height: 355px; }
-    .tresColumns .column .columnPic, .tresColumns .columns .columnPic {
+    .columnsPage .tresColumns .column .columnPic, .columnsPage .tresColumns .columns .columnPic {
       margin-top: 4%; }
-    .tresColumns .column .eatColumn, .tresColumns .columns .eatColumn {
+    .columnsPage .tresColumns .column .eatColumn, .columnsPage .tresColumns .columns .eatColumn {
       position: absolute;
       top: 16%;
       left: 20%;
       width: 65%; }
-    .tresColumns .column .goColumn, .tresColumns .columns .goColumn {
+    .columnsPage .tresColumns .column .goColumn, .columnsPage .tresColumns .columns .goColumn {
       position: absolute;
       top: 18%;
       left: 20%;
       width: 65%; }
-    .tresColumns .column .eventColumn, .tresColumns .columns .eventColumn {
+    .columnsPage .tresColumns .column .eventColumn, .columnsPage .tresColumns .columns .eventColumn {
       position: absolute;
       top: 10%; }
 
-.searchResultList {
-  display: inline;
-  background: none; }
-
-.dropdown.menu
+.columnsPage .dropdown.menu
 .is-dropdown-submenu-parent.is-down-arrow > a::after {
   display: none; }
 
-.dropdown.menu .submenu {
+.columnsPage .dropdown.menu .submenu {
   background: #fff; }
 
 .pageHeading {
@@ -5759,19 +5752,49 @@ li.featuredList .textarea {
   text-align: center; }
 
 .bgvideo {
-  position: absolute;
-  right: 0;
-  top: 100;
+  position: relative;
   min-width: 100%;
   min-height: 100%;
   width: auto;
-  height: auto;
+  height: 712px;
   z-index: -9999;
   -webkit-filter: grayscale(70%);
   filter: grayscale(50%); }
 
-.searchResults {
-  background: #fff; }
+.searchForm {
+  position: absolute;
+  top: 65%;
+  left: 28%; }
+  .searchForm .searchInput {
+    width: 260%;
+    margin-left: 0;
+    display: inline;
+    height: 50px;
+    border: 2px solid #E6E6E6; }
+  .searchForm .button.success {
+    background: #3adb76;
+    color: #fff;
+    margin: 0;
+    position: absolute;
+    top: 0%;
+    left: 262%;
+    height: 76%;
+    background: #FF4734; }
+
+ul.searchResults a {
+  background: #fff;
+  list-style: none;
+  width: 486px;
+  padding-left: 2%;
+  position: absolute;
+  top: 72%;
+  left: 334px;
+  padding-top: 1%;
+  margin-top: 5px;
+  margin-left: 20px; }
+
+input:-webkit-autofill {
+  display: none; }
 
 .regSection {
   max-width: 68em;
