@@ -32,7 +32,7 @@
     <img ng-src='../media/blurredeat.png' class='columnPic'>
     <ul class='eat dropdown menu eatColumn' data-dropdown-menu>
       <li>
-        <a href="#" title='Eats'><img ng-src='../media/eatText.png' class='eatText'></a>
+        <a href="#" title='Eats' class='columnResults'><img ng-src='../media/eatText.png' class='eatText'></a>
         <ul class='menu'>
           <li ng-repeat='t in vm.tags' >
              <a ng-click='vm.getspecData(t)' href="#/tag/{{t}}">{{t}}</a> 
