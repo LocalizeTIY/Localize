@@ -1022,11 +1022,15 @@ var RegisterController = function RegisterController(UserService, $state) {
   vm.signUp = signUp;
 
   function signUp(user) {
-    console.log(user);
-    UserService.signup(user).then(function (res) {
-      console.log(res.data);
-      $state.go('root.home');
-    });
+    if (user) {
+      console.log(user);
+      UserService.signup(user).then(function (res) {
+        swal('Welcome', user.username);
+        $state.go('root.home');
+      });
+    } else {
+      swal('Fields cannot be blank');
+    }
   }
 };
 
