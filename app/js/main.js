@@ -111,8 +111,6 @@ Object.defineProperty(exports, '__esModule', {
 });
 var DashboardController = function DashboardController(DashboardService, $scope, $stateParams, $state, $cookies, LocalizeService, UserService) {
 
-  var thisUser = $stateParams.createdby;
-
   var user = UserService.getUserInfo();
 
   $scope.user = user;
@@ -120,28 +118,20 @@ var DashboardController = function DashboardController(DashboardService, $scope,
   //console.log('in the controller',$scope.user);
 
   var vm = this;
-  vm.events = [];
-  vm.clicked = clicked;
+
   vm.logout = logout;
 
   activate();
 
   function activate() {
-    DashboardService.getAllEvents().then(function (res) {
-      vm.events = res.data.results;
-      //console.log('dashboardController?');
-      //console.log(vm.events);
+    DashboardService.getAllEvents(user).then(function (res) {
+      if (user) {
+        vm.events = res.data.results;
+        console.log('vm.events', vm.events);
+        //DashboardService.Events(vm.events, user).then((res2)=>{
+        //})
+      }
     });
-  }
-
-  function events(eventObj) {
-    DashboardService.events(data).then(function (res) {
-      //console.log(res);
-    });
-  }
-
-  function clicked(event) {
-    //console.log('clicked', event.name);
   }
 
   function logout(user) {
@@ -190,24 +180,27 @@ var DashboardService = function DashboardService(PARSE, $http, UserService, $sta
 
   this.getAllEvents = getAllEvents;
   this.logout = logout;
-  this.Events = Events;
+  // this.Events= Events;
 
-  function getAllEvents() {
+  function getAllEvents(user) {
     return $http({
       url: eventURL,
       method: 'GET',
+      params: { where: { createdby: user.userName } },
       headers: PARSE.CONFIG.headers
     });
   }
 
-  function Events(eventObj) {
-    console.log('eventObjs?', eventObj);
-    return $http({
-      url: eventURL,
-      method: 'GET',
-      headers: PARSE.CONFIG.headers
-    });
-  }
+  // function Events (eventObj,user){
+  // 	console.log('eventObjs?', eventObj);
+  // 	console.log('user', user.userName);
+  // 	return $http({
+  // 		url : eventURL,
+  // 		method : 'GET',
+  // 		params : {where :{createdby : user.userName}},
+  // 		headers : PARSE.CONFIG.headers
+  // 	});
+  // }
 
   function logout(userObj) {
     console.log('from logout in service', userObj.sessionToken);

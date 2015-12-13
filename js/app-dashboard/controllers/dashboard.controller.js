@@ -1,6 +1,6 @@
 let DashboardController = function (DashboardService, $scope, $stateParams, $state, $cookies, LocalizeService, UserService) {
 
-  let thisUser = $stateParams.createdby;
+
 
 
   let user = UserService.getUserInfo();
@@ -10,29 +10,23 @@ let DashboardController = function (DashboardService, $scope, $stateParams, $sta
   //console.log('in the controller',$scope.user);
 
   let vm = this;
-  vm.events = [];
-  vm.clicked = clicked;
+
   vm.logout = logout;
 
   activate();
 
   function activate() {
-  	DashboardService.getAllEvents().then((res)=>{
-  		vm.events = res.data.results;
-  		//console.log('dashboardController?');
-  		//console.log(vm.events);
+  	DashboardService.getAllEvents(user).then((res)=>{
+  		if(user){
+  			vm.events = res.data.results;
+  			console.log('vm.events', vm.events);
+  			//DashboardService.Events(vm.events, user).then((res2)=>{
+  			//})
+  		}
   	});
   }
 
-  function events(eventObj){
-  	DashboardService.events(data).then((res)=>{
-  		//console.log(res);
-  	});
-  }
 
-  function clicked (event){
-  	//console.log('clicked', event.name);
-  }
 
   function logout(user){
   	console.log('from dashboard logout', user);
