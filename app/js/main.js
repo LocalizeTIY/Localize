@@ -55,7 +55,6 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/singleresult/:id',
     controller: 'SingleResultController as vm',
     templateUrl: 'templates/app-social/singleResult.tpl.html'
-<<<<<<< HEAD
   }).state('root.list', {
     url: '/tag/type/:list',
     controller: 'TagsListController as vm',
@@ -64,8 +63,6 @@ var config = function config($stateProvider, $urlRouterProvider) {
     url: '/singlefeature/:id',
     controller: 'SingleFeatureController as vm',
     templateUrl: 'templates/app-layout/singleFeature.tpl.html'
-=======
->>>>>>> master
   });
 };
 
@@ -444,11 +441,7 @@ HomeController.$inject = ['SearchService'];
 exports['default'] = HomeController;
 module.exports = exports['default'];
 
-<<<<<<< HEAD
-},{"underscore":37}],10:[function(require,module,exports){
-=======
-},{"underscore":44}],10:[function(require,module,exports){
->>>>>>> master
+},{"underscore":46}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -553,27 +546,27 @@ var FeaturedService = function FeaturedService(PARSE, $http) {
 
   // this.search = search;
   this.getAllEvents = getAllEvents;
-  this.getNameData = getNameData;
-  this.getTagData = getTagData;
-  this.getRatingsData = getRatingsData;
+  // this.getNameData = getNameData;
+  // this.getTagData = getTagData;
+  // this.getRatingsData = getRatingsData;
   // this.getEventData = getEventData;
-  this.getLocationData = getLocationData;
-  this.getTimeData = getTimeData;
+  // this.getLocationData = getLocationData;
+  // this.getTimeData = getTimeData;
   // this.getDateData = getDateData;
   // this.getCategoryData = getCategoryData;
   // this.getNameData = getNameData;
   // this.getTimeData = getTimeData;
 
-  function Events(eventObj) {
-    console.log('eventObjs?', eventObj);
-    return $http({
-      url: eventURL,
-      method: 'GET',
-      headers: PARSE.CONFIG.headers
-    });
+  // function Events (eventObj){
+  // 	console.log('eventObjs?', eventObj);
+  //   return $http({
+  //       url: eventURL,
+  //       method: 'GET',
+  //       headers : PARSE.CONFIG.headers
+  //     });
+  // }
 
-    // this.date = eventObj.date;
-  }
+  // this.date = eventObj.date;
 
   function getAllEvents() {
     return $http({
@@ -587,75 +580,76 @@ var FeaturedService = function FeaturedService(PARSE, $http) {
   // 	return $http.get(eventURL, PARSE.CONFIG);
   // }
 
-  function getEvent(id) {
-    console.log('singleEvent?', id);
-    return $http({
-      url: eventURL,
-      method: 'GET',
-      headers: PARSE.CONFIG.headers
-    });
-  }
+  // function getEvent(id) {
+  //   	console.log('singleEvent?', id);
+  //     return $http({
+  //     url : eventURL,
+  //     method : 'GET',
+  //     headers : PARSE.CONFIG.headers
+  //     });
 
-  function getTagData() {
-    console.log('working?');
-    return $http({
-      url: eventURL,
-      method: 'GET',
-      headers: PARSE.CONFIG.headers
-    });
-  }
+  // }
 
-  function getRatingsData() {
-    console.log('ratings?');
-    return $http({
-      url: eventURL,
-      method: 'GET',
-      headers: PARSE.CONFIG.headers
-    });
-  }
+  // function getTagData(){
+  //   	console.log('working?');
+  //   	return $http({
+  //     		url : eventURL,
+  //     		method : 'GET',
+  //     		headers : PARSE.CONFIG.headers
+  //   	});
+  // }
 
-  function getDateData() {
-    console.log('date?');
-    return $http({
-      url: eventURL,
-      method: 'GET',
-      headers: PARSE.CONFIG.headers
-    });
-  }
+  // function getRatingsData(){
+  //   	console.log('ratings?');
+  //   	return $http({
+  //     		url : eventURL,
+  //     		method : 'GET',
+  //     		headers : PARSE.CONFIG.headers
+  //   	});
+  // }
 
-  function getNameData() {
-    console.log('name?');
-    return $http({
-      url: eventURL,
-      method: 'GET',
-      headers: PARSE.CONFIG.headers
-    });
-  }
+  // function getDateData(){
+  //   	console.log('date?');
+  //   	return $http({
+  //     		url : eventURL,
+  //     		method : 'GET',
+  //     		headers : PARSE.CONFIG.headers
+  //   	});
+  // }
 
-  function getLocationData() {
-    console.log('location?');
-    return $http({
-      url: eventURL,
-      method: 'GET',
-      headers: PARSE.CONFIG.headers
-    });
-  }
+  // function getNameData(){
+  //   console.log('name?');
+  //   return $http({
+  //     url : eventURL,
+  //     method : 'GET',
+  //     headers : PARSE.CONFIG.headers
+  //   });
+  // }
 
-  function getTimeData() {
-    console.log('time?');
-    return $http({
-      url: eventURL,
-      method: 'GET',
-      headers: PARSE.CONFIG.headers
-    });
-  }
+  // function getLocationData(){
+  //   console.log('location?');
+  //   return $http({
+  //     url : eventURL,
+  //     method : 'GET',
+  //     headers : PARSE.CONFIG.headers
+  //   });
+  // }
 
-  this.showMyFeatures = function (eventObj) {
-    return $http({
-      method: 'GET',
-      url: url + 'events/'
-    });
-  };
+  // function getTimeData(){
+  //   console.log('time?');
+  //   return $http({
+  //     url : eventURL,
+  //     method : 'GET',
+  //     headers : PARSE.CONFIG.headers
+  //   });
+  // }
+
+  // this.showMyFeatures = function(eventObj) {
+  //   return $http({
+  //     method : 'GET',
+  //     url : url + 'events/'
+  //   })
+  // }
 };
 
 FeaturedService.$inject = ['PARSE', '$http'];
@@ -1182,11 +1176,7 @@ _angular2['default'].module('app', ['app.core', 'app.layout', 'app.user', 'app.s
   });
 });
 
-<<<<<<< HEAD
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":12,"./app-social/index":21,"./app-user/index":25,"angular":33,"angular-foundation":30,"foundation":34,"jquery":35,"motion-ui":36,"underscore":37}],28:[function(require,module,exports){
-=======
-},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":11,"./app-social/index":19,"./app-user/index":23,"angular":31,"angular-foundation":28,"foundation":32,"jquery":33,"motion-ui":34,"sweetalert":43,"underscore":44}],26:[function(require,module,exports){
->>>>>>> master
+},{"./app-core/index":3,"./app-dashboard/index":5,"./app-layout/index":12,"./app-social/index":21,"./app-user/index":25,"angular":33,"angular-foundation":30,"foundation":34,"jquery":35,"motion-ui":36,"sweetalert":45,"underscore":46}],28:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -55333,10 +55323,7 @@ var MotionUI = {
 return MotionUI;
 }));
 
-<<<<<<< HEAD
 },{"jquery":35}],37:[function(require,module,exports){
-=======
-},{"jquery":33}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55369,7 +55356,7 @@ var defaultParams = {
 
 exports['default'] = defaultParams;
 module.exports = exports['default'];
-},{}],36:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55505,7 +55492,7 @@ exports['default'] = {
   handleCancel: handleCancel
 };
 module.exports = exports['default'];
-},{"./handle-dom":37,"./handle-swal-dom":39,"./utils":42}],37:[function(require,module,exports){
+},{"./handle-dom":39,"./handle-swal-dom":41,"./utils":44}],39:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55697,7 +55684,7 @@ exports.fadeIn = fadeIn;
 exports.fadeOut = fadeOut;
 exports.fireClick = fireClick;
 exports.stopEventPropagation = stopEventPropagation;
-},{}],38:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55777,7 +55764,7 @@ var handleKeyDown = function handleKeyDown(event, params, modal) {
 
 exports['default'] = handleKeyDown;
 module.exports = exports['default'];
-},{"./handle-dom":37,"./handle-swal-dom":39}],39:[function(require,module,exports){
+},{"./handle-dom":39,"./handle-swal-dom":41}],41:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -55945,7 +55932,7 @@ exports.openModal = openModal;
 exports.resetInput = resetInput;
 exports.resetInputError = resetInputError;
 exports.fixVerticalPosition = fixVerticalPosition;
-},{"./default-params":35,"./handle-dom":37,"./injected-html":40,"./utils":42}],40:[function(require,module,exports){
+},{"./default-params":37,"./handle-dom":39,"./injected-html":42,"./utils":44}],42:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -55988,7 +55975,7 @@ var injectedHTML =
 
 exports["default"] = injectedHTML;
 module.exports = exports["default"];
-},{}],41:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56214,7 +56201,7 @@ var setParameters = function setParameters(params) {
 
 exports['default'] = setParameters;
 module.exports = exports['default'];
-},{"./handle-dom":37,"./handle-swal-dom":39,"./utils":42}],42:[function(require,module,exports){
+},{"./handle-dom":39,"./handle-swal-dom":41,"./utils":44}],44:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -56288,7 +56275,7 @@ exports.hexToRgb = hexToRgb;
 exports.isIE8 = isIE8;
 exports.logStr = logStr;
 exports.colorLuminance = colorLuminance;
-},{}],43:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -56592,8 +56579,7 @@ if (typeof window !== 'undefined') {
   _extend$hexToRgb$isIE8$logStr$colorLuminance.logStr('SweetAlert is a frontend module!');
 }
 module.exports = exports['default'];
-},{"./modules/default-params":35,"./modules/handle-click":36,"./modules/handle-dom":37,"./modules/handle-key":38,"./modules/handle-swal-dom":39,"./modules/set-params":41,"./modules/utils":42}],44:[function(require,module,exports){
->>>>>>> master
+},{"./modules/default-params":37,"./modules/handle-click":38,"./modules/handle-dom":39,"./modules/handle-key":40,"./modules/handle-swal-dom":41,"./modules/set-params":43,"./modules/utils":44}],46:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
