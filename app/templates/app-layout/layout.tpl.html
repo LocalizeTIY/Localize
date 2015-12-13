@@ -24,7 +24,7 @@
     </button>
     <label>Username<input type="text" ng-model="user.username"></label>
     <label>Password<input type="password" ng-model="user.password"></label>
-    <button class="success button">Login</button>
+    <button ng-click="vm.login(user)" class="success button">Login</button>
 
     <div>
       <p>Not a member yet? <span class='regLink'><a href="#/register" data-close aria-label="Close reveal">Register Here</a></span></p>
