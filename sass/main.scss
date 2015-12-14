@@ -41,6 +41,10 @@ body {
   background-size: cover;
   height: 100%;
 
+  ul {
+    margin-bottom: 0;
+  }
+
 ///// Top Bar Navigation /////
 
 .top-bar {
@@ -264,6 +268,10 @@ body {
 
 //LOGIN TEMPLATE
 
+  #regTopBar {
+    background: $greyMedium;
+  }
+
 .login{
   padding :5%;
   margin:5% auto;
@@ -360,47 +368,70 @@ li.featuredList {
 
 ////// Registration Page //////
 
-.regSection {
-  @include outer-container;
-  position: relative;
+  .regPage {
 
-  .regForm {
-    background: rgba(255,255,255,0.3);
-    @include span-columns(6);
-    @include shift(3);
-    margin-top: 5%;
+    .nightImg {
+      width: 100%;
+    }
 
-    .regHeader {
-      margin-top: 10%;
-      margin-bottom: 10%;
+    .regSection {
+      @include outer-container;
+      width :100%;
+      // position: relative;
 
-      .cityThumb {
-        position: absolute;
-        top: -5%;
-        margin-left: 5%;
-      }
-
-      .signUpHeader {
+      .regForm {
+        background: rgba(255,255,255,0.6);
+        @include span-columns(6);
+        @include shift(3);
         margin-top: 5%;
-        margin-left: 25%;
-        color: $redOrange;
+        border: 1px solid $redOrange;
+        border-radius: 3px;
+        position: absolute;
+        top: 22%;
+        right: 26%;
+
+        .regHeader {
+          margin-top: 10%;
+
+          .cityThumb {
+            position: absolute;
+            top: -5%;
+            margin-left: 5%;
+          }
+
+          .signUpHeader {
+            margin-top: 5%;
+            margin-left: 25%;
+            color: #000;
+          }
+        }
+
+        .regLabel {
+          padding: 5% 5% 0 5%;
+          color: #000;
+        }
+
+        .topLabel {
+          margin-top: 5%;
+        }
+
+        .regBtn {
+          margin-left: 5%;
+          margin-top: 2%;
+        }
+
+        a {
+          color: $redOrange;
+          transition: 2s;
+        }
+
+        a:hover {
+          color: #fff;
+          transition: 1s;
+        }
       }
-    }
-
-    .regLabel {
-      padding: 5% 5% 0 5%;
-    }
-
-    .topLabel {
-      margin-top: 5%;
-    }
-
-    .regBtn {
-      margin-left: 5%;
-      margin-top: 2%;
     }
   }
-}
 
 
 ///CSS FOR SWEET ALERT
@@ -1336,4 +1367,8 @@ body.stop-scrolling {
     -moz-transform: translateY(145%);
     -o-transform: translateY(145%);
     transform: translateY(145%); } }
+}
+
+footer {
+  background: $greyMedium;
 }

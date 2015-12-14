@@ -1,16 +1,34 @@
-<section class='regSection'>
+<section class='regPage'>
+  <img ng-src='../media/nightcity.png' class='nightImg'>
 
-  <form ng-submit='vm.signUp(user)' class='regForm'>
-    <div class="regHeader">
-      <img ng-src='../media/cityO.png' class='regHeader cityThumb'>
-      <h3 class='regHeader signUpHeader'>Sign up with Localize</h3>
+
+  <h1><a href="#/" class='logo'><img src="../media/localizelogo.png" class='localizeLogo'></a></h1>
+      
+  <section class="top-bar-section">
+    <ul class="right">
+    <div class="position-right"> 
+      <li id ="home"><a href="#/"><i class="fa fa-home fa-2x"></i></a></li>
+      <li id="login"><a href="#/login">Login</a></li>
+      <li id='register'><a href="#/register">Register</a></li>
+      <li id="add"><a data-toggle='animatedModal1'>Add Event</a></li>
     </div>
-    <label class='regLabel topLabel'>Enter a username
-    <input ng-model='user.username' placeholder='Create Username' class='regField' type='text'></label>
-    <label class='regLabel secondLabel'>Enter a password
-    <input ng-model='user.password' placeholder='Create Password' class='regField' type='password'></label>
-    <button type="submit" class="regBtn alert button">Register</button>
-    <span>Already a member? <span><a href="#/login">Log In</a></span></span>
-  </form>
+    </ul>
+  </section>
 
+  <div class='registration'>
+    <section class='regSection'>
+      <form ng-submit='vm.signUp(user)' class='regForm'>
+        <div class="regHeader">
+          <img ng-src='../media/cityO.png' class='regHeader cityThumb'>
+          <h3 class='regHeader signUpHeader'>Sign up with Localize</h3>
+        </div>
+        <label class='regLabel topLabel'>Enter a username
+        <input ng-model='user.username' placeholder='Create Username' class='regField' type='text'></label>
+        <label class='regLabel secondLabel'>Enter a password
+        <input ng-model='user.password' placeholder='Create Password' class='regField' type='password'></label>
+        <button type="submit" class="regBtn alert button">Register</button>
+        <span>Already a member? <span><a href="#/login">Log In</a></span></span>
+      </form>
+    </section>
+  </div>
 </section>
