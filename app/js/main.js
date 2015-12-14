@@ -182,7 +182,7 @@ _angular2['default'].module('app.dashboard', ['app.core']).controller('Dashboard
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var DashboardService = function DashboardService(PARSE, $http, UserService, $state, $cookies) {
+var DashboardService = function DashboardService(PARSE, $http, UserService, $state, $cookies, LocalizeService) {
 
   var eventURL = PARSE.URL + 'classes/events';
 
@@ -221,7 +221,7 @@ var DashboardService = function DashboardService(PARSE, $http, UserService, $sta
   }
 };
 
-DashboardService.$inject = ['PARSE', '$http', 'UserService', '$state', '$cookies'];
+DashboardService.$inject = ['PARSE', '$http', 'UserService', '$state', '$cookies', 'LocalizeService'];
 
 exports['default'] = DashboardService;
 module.exports = exports['default'];
@@ -288,7 +288,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FeaturedController = function FeaturedController(FeaturedService, $scope, LocalizeService, UploadService, $cookies) {
+var FeaturedController = function FeaturedController(FeaturedService, $scope, $http, LocalizeService, UploadService, $cookies) {
 
   var vm = this;
   vm.events = [];
@@ -304,6 +304,17 @@ var FeaturedController = function FeaturedController(FeaturedService, $scope, Lo
       console.log('featuredController?');
       console.log(vm.events);
     });
+    // --------LIMIT DISPLAY-------
+    // function categoryLimit($scope, $http) {
+    //   $http.get('event/event.json').success(function(data){
+    //     $scope.event = data.splice(0, 'quantity');
+    //   });
+
+    //   $scope.orderProp = 'category';
+    //   $scope.quantity = 3;
+    // }
+
+    // --------------END OF LIMIT DISPLAY-----------
   }
 
   // function shuffleArray(vm.events){
@@ -349,7 +360,7 @@ var FeaturedController = function FeaturedController(FeaturedService, $scope, Lo
   // ------END OF RANDOMIZE--------
 };
 
-FeaturedController.$inject = ['FeaturedService', '$scope', 'LocalizeService', 'UploadService', '$cookies'];
+FeaturedController.$inject = ['FeaturedService', '$scope', '$http', 'LocalizeService', 'UploadService', '$cookies'];
 
 exports['default'] = FeaturedController;
 module.exports = exports['default'];

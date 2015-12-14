@@ -13,7 +13,7 @@
       <td>Event Category</td>
 
     </tr>
-    <tr ng-repeat="event in vm.events">
+    <tr ng-repeat="event in vm.events | limitTo: 3">
       <td>{{ event.name }}</td>
       <td>{{ event.date }}</td>
       <!-- <td>{{ event.time }}</td> -->

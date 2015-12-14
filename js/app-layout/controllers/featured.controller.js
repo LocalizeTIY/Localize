@@ -1,4 +1,4 @@
-let FeaturedController = function(FeaturedService, $scope, LocalizeService, UploadService, $cookies) {
+let FeaturedController = function(FeaturedService, $scope, $http, LocalizeService, UploadService, $cookies) {
 
   let vm = this;
   vm.events = [];
@@ -14,6 +14,17 @@ let FeaturedController = function(FeaturedService, $scope, LocalizeService, Uplo
       console.log('featuredController?');
       console.log(vm.events);
     });
+// --------LIMIT DISPLAY-------
+  // function categoryLimit($scope, $http) {
+  //   $http.get('event/event.json').success(function(data){
+  //     $scope.event = data.splice(0, 'quantity');
+  //   });
+
+  //   $scope.orderProp = 'category';
+  //   $scope.quantity = 3;
+  // }
+
+  // --------------END OF LIMIT DISPLAY-----------
   }
   
   // function shuffleArray(vm.events){
@@ -65,6 +76,6 @@ let FeaturedController = function(FeaturedService, $scope, LocalizeService, Uplo
     // ------END OF RANDOMIZE--------
 };
 
-FeaturedController.$inject = ['FeaturedService', '$scope', 'LocalizeService', 'UploadService', '$cookies'];
+FeaturedController.$inject = ['FeaturedService', '$scope','$http', 'LocalizeService', 'UploadService', '$cookies'];
 
 export default FeaturedController;
