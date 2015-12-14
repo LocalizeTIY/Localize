@@ -16,33 +16,34 @@
   <div class='add-event' ng-show="vm.imageUploaded">
 
     <form ng-submit="vm.addEvent(event)">
-      <input class="addfields"
+      <input class="addfields" 
         placeholder="Event Name " 
-        ng-model="event.name" >
-   <!--  <div class="row">
-      <fieldset class="large-6 columns">
-        <legend>Select Event Type</legend>
-        <input name='perm' ng-model="event.permanent" type="radio" value="true" id="perms" required><label for="perms">On Going</label>
-        <input name='perm' ng-model="event.permanent" type="radio"  value="false" id="eve"><label for="eve">Single Event</label>
-      </fieldset>
-  </div> -->
+        ng-model="event.name">
+      <small>{{ vm.errNameMsg }}</small>
     
       <input class="addfields"
+        type="date"
         placeholder="Date" 
         ng-model="event.date">
+      <small>{{vm.errDateMsg }}</small>
       
       <input class="addfields"
         placeholder="Time" 
+        type="time"
         ng-model="event.time">
+      <small>{{vm.errTimeMsg}}</small>
       
       <input class="addfields"
         placeholder="Location" 
         ng-model="event.location" >
+      <small>{{vm.errLocationMsg}}</small>
+
       
       <textarea class="addfields detail"
         placeholder="Details" 
         ng-model="event.comment">
-      </textarea>  
+      </textarea>
+      <small>{{vm.errDetailMsg}}</small>  
 
       <div class="row">
         <fieldset class="large-6 columns">
@@ -56,6 +57,7 @@
       <input class="addfields"
         placeholder="Tags" 
         ng-model="event.tags" >
+        <small>{{vm.errTagsMsg}}</small>
 
       <button class="button">Add Event</button>
 

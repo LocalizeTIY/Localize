@@ -2,7 +2,6 @@
   
   <p> Welcome to Localize, {{ user.userName }}!</p><p>Here are your Events: </p>
 
-
   <form ng-submit="vm.logout(user)">     
       <button>Log Out</button>
   </form>
@@ -11,8 +10,8 @@
 
 <!-- ALL OF THIS USER'S EVENTS -->
 
-
 <form >
+  
   <table>
     <tr>
       <td>Event Name</td>
@@ -25,7 +24,7 @@
     <tr ng-repeat="event in vm.events">
       <td>{{ event.name }}</td>
       <td>{{ event.createdby }}</td>
-      <td>{{ event.date }}</td>
+      <td>{{ event.date}}</td>
       <td>{{ event.time }}</td>
       <td>{{ event.location }}</td>
       <td>{{ event.tags }}</td>
