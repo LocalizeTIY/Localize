@@ -276,18 +276,27 @@ body {
       width : 50%;
       position: absolute;
       top: 30%;
-      left: 25%;
       border: 1px solid $redOrange;
       border-radius: 3px;
+      @include span-columns(6);
+      @include shift(3);
 
       .headSection {
-        margin-top: 5%;
+        margin-top: 15%;
+        margin-bottom: 15%;
 
         h2 {
           font-family: $ubuntu;
           color: $redOrange;
           text-align: center;
           margin-bottom: 5%;
+          margin-left: 15%;
+        }
+
+        .logIcon {
+          position: absolute;
+          top: 10%;
+          margin-left: 1%;
         }
       }
 

@@ -5774,16 +5774,28 @@ body {
     width: 50%;
     position: absolute;
     top: 30%;
-    left: 25%;
     border: 1px solid #FF4734;
-    border-radius: 3px; }
+    border-radius: 3px;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-left: 25.58941%; }
+    body .logPage .loginForm:last-child {
+      margin-right: 0; }
     body .logPage .loginForm .headSection {
-      margin-top: 5%; }
+      margin-top: 15%;
+      margin-bottom: 15%; }
       body .logPage .loginForm .headSection h2 {
         font-family: "Ubuntu";
         color: #FF4734;
         text-align: center;
-        margin-bottom: 5%; }
+        margin-bottom: 5%;
+        margin-left: 15%; }
+      body .logPage .loginForm .headSection .logIcon {
+        position: absolute;
+        top: 10%;
+        margin-left: 1%; }
     body .logPage .loginForm .logBtnSection {
       margin-top: 10%; }
       body .logPage .loginForm .logBtnSection .logBtn {
