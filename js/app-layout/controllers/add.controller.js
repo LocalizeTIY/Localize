@@ -1,13 +1,20 @@
-let AddController = function($scope,LocalizeService, UserService, $cookies, UploadService) {
+let AddController = function($scope, LocalizeService, UserService, $cookies, UploadService,$state) {
   
   let vm = this;
   vm.addEvent = addEvent;
   vm.uploadFile = uploadFile;
   vm.imageUploaded = false;
   vm.image = '';
+  vm.validateName = validateName;
+  vm.validateDate = validateDate;
+  vm.validateTime = validateTime;
+  vm.validateLocation = validateLocation;
+  vm.validateComments = validateComments;
+  vm.validateTags = validateTags;
+
   $scope.user = UserService.getUserInfo();
 
-
+  vm.alert = (msg) => alert(msg);
 
   vm.image = UploadService.tempImage;
 
@@ -15,7 +22,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
     let user = UserService.getUserInfo();
     eventObj.picture = vm.image;
     LocalizeService.addEvent(eventObj, user).then((res)=>{
-      console.log(res);
+      $state.go('root.dashboard');
     });
   }
  
@@ -27,9 +34,99 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
     });
   }
 
+  // VALIDATE NAME
+  let validateName = (name)=>{
+    console.log('something');
+    if (name.length<= 1){
+      vm.errNameMsg= "Field Cannot be blank";
+      console.log(vm.errNameMsg);
+    }else{
+      vm.errNameMsg ='';
+    }
+  };
+
+  $scope.$watch('event.name',function(newVal, prevVal){
+    if(!newVal) return;
+    validateName(newVal);
+  });
+
+   //------ VALIDATE DATE
+  let validateDate = (date)=>{
+    if (date.length<= 1){
+      vm.errDateMsg= "Field Cannot be blank";
+    }else{
+      vm.errDateMsg ='';
+    }
+  };
+
+  $scope.$watch('event.date',function(newVal, prevVal){
+    if(!newVal) return;
+    validateDate(newVal);
+  });
+
+   //----- VALIDATE TIME
+  let validateTime = (time)=>{
+    if (time.length<= 1){
+      vm.errTimeMsg= "Field Cannot be blank";
+      console.log(vm.errTimeMsg);
+    }else{
+      vm.errTimeMsg ='';
+    }
+  };
+
+  $scope.$watch('event.time',function(newVal, prevVal){
+    if(!newVal) return;
+    validateTime(newVal);
+  });
+
+   //----- VALIDATE LOCATION
+  let validateLocation = (location)=>{
+    if (location.length<= 1){
+      vm.errLocationMsg= "Field Cannot be blank";
+    }else{
+      vm.errLocationMsg ='';
+    }
+  };
+
+  $scope.$watch('event.location',function(newVal, prevVal){
+    if(!newVal) return;
+    validateLocation(newVal);
+  });
+
+   //---- VALIDATE DETAILS
+  let validateComments = (comments)=>{
+    if (comments.length<= 1){
+      vm.errDetailMsg= "Field Cannot be blank";
+    }else{
+      vm.errDetailMsg ='';
+    }
+  };
+
+  $scope.$watch('event.comments',function(newVal, prevVal){
+    if(!newVal) return;
+    validateCommets(newVal);
+  });
+
+
+   //---- VALIDATE TAG
+  let validateTags = (tags)=>{
+    if (tags.length<= 1){
+      vm.errTagsMsg= "Field Cannot be blank";
+    }else{
+      vm.errTagsMsg ='';
+    }
+  };
+
+  $scope.$watch('event.tags',function(newVal, prevVal){
+    if(!newVal) return;
+    validateTags(newVal);
+  });
+
+
+
 };
 
-AddController.$inject = ['$scope','LocalizeService','UserService','$cookies', 'UploadService'];
+AddController.$inject = ['$scope','LocalizeService','UserService','$cookies', 'UploadService','$state'];
 
 export default AddController;
  

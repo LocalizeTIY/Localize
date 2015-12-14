@@ -3,11 +3,14 @@ let HomeController = function(SearchService) {
   
   let vm = this;
  
-  vm.search = search;
-  vm.results = [];
-  vm.getGoData = getGoData;
+  vm.search       = search;
+  vm.results      = [];
+  vm.getGoData    = getGoData;
   vm.geteventData = geteventData;
-  vm.getTagData = getTagData;
+  vm.getTagData   = getTagData;
+  vm.uniqueTags   = uniqueTags;
+  vm.uniqueTag    = [];
+
 
   function search (data) {
     SearchService.search(data).then( (res) => {
@@ -33,13 +36,16 @@ let HomeController = function(SearchService) {
       vm.tags=[];
       let items = res.data.results;
       let eatList = items.filter(item => item.category === 'eat');
-      vm.tags = _.uniq(eatList);
+      vm.tags = uniqueTags(eatList);
+      
       // let pluckedTags = _.pluck(res.data.results, 'tags');
       // console.log('plucked', pluckedTags);
       // console.log('uniqed', vm.tags);
       // window.jdtemp = res.data.results;
     });
   }
+
+
   getTagData();
 
   function getGoData(){
@@ -47,9 +53,9 @@ let HomeController = function(SearchService) {
       vm.go=[];
       let items = res.data.results;
       let goList = items.filter(item => item.category === 'go');
+      vm.go = uniqueTags(goList);
       // let pluckedGo = _.pluck(goList, 'tags');
-      vm.go = _.uniq(goList);
-      console.log('go names', vm.go);
+      //console.log('go names', vm.go);
     });
   }
   getGoData();
@@ -59,10 +65,21 @@ let HomeController = function(SearchService) {
       vm.events=[];
       let items = res.data.results;
       let eventsList =items.filter(item=> item.category ==='event');
-      vm.events= _.uniq(eventsList);
-      console.log('event names', vm.events);
+      vm.events= uniqueTags(eventsList);
+      //console.log('event names', vm.events);
     });
   }
+
+  function uniqueTags (items) {
+    let itemsByCategory = _.groupBy(items, 'category');
+    console.log('itemsByCategory', itemsByCategory );
+    let uniqueTag = [];
+    _.each(itemsByCategory, (items, category) => {
+      uniqueTag = _.uniq(_.pluck(items, 'tags'));
+    });
+    return uniqueTag;
+  }
+
   geteventData();
 };
 

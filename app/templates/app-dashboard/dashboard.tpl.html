@@ -1,28 +1,36 @@
 <div class="dashboard">
   
-  <p class="welcome"> Welcome to Localize, {{ user.userName }}!</p>
+  <p> Welcome to Localize, {{ user.userName }}!</p><p>Here are your Events: </p>
 
-  <table class="eventTable">
-    <tr>
-      <td class=eventName>Your Events</td>
-    </tr>
-    <tr ng-repeat="event in events">
-      <td class="eventTitles">{{ event.name }}</td>
-      <td class="centered">{{ event.location }}</td>
-      <td class="centered">{{ event.date }}</td>
-      <td class="centered">{{ event.time }}</td>
-      <td class="centered">{{ event.tags }}</td>
+  <form ng-submit="vm.logout(user)">     
+      <button>Log Out</button>
+  </form>
+  <button><a href="#/add">Add</a></button>
+    
 
-    </tr>
+<!-- ALL OF THIS USER'S EVENTS -->
+
+<form >
+  
+  <table>
     <tr>
-      <a href="#/add"><button><i class="fa fa-plus-circle"></i></button> Add Event</a>
-      
+      <td>Event Name</td>
+      <td>Created By</td>
+      <td>Event Date</td>
+      <td>Event Time</td>
+      <td>Event Location</td>
+      <td>Event Tags</td>
+    </tr>
+    <tr ng-repeat="event in vm.events">
+      <td>{{ event.name }}</td>
+      <td>{{ event.createdby }}</td>
+      <td>{{ event.date}}</td>
+      <td>{{ event.time }}</td>
+      <td>{{ event.location }}</td>
+      <td>{{ event.tags }}</td>
     </tr>
   </table>
-
-  <div class="fixedButtons">
-    <a href="#/"><button><i class="fa fa-home"></i> Home</button></a>   
-    <a href="#/logout"><button><i class="fa fa-sign-out"></i> Log Out</button></a>
-  </div>  
+</form>
 
 </div>
+ 

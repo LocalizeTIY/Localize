@@ -1,15 +1,18 @@
 let SingleResultController = function(SearchService, $stateParams) {
   
   let vm = this;
-
+  let single = $stateParams.id;
+  console.log(single);
   vm.singleResult = singleResult;
+  vm.singleResult(single);
 
-  console.log('hi');
-
-  function singleResult () {
-    console.log('here it is');
-
+  function singleResult(single) {
+    SearchService.singleResult(single).then((res)=>{
+      vm.singles = res.data.results;
+      console.log('res', res);
+    });
   }
+
 
 
 };

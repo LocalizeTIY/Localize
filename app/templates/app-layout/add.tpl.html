@@ -16,30 +16,49 @@
   <div class='add-event' ng-show="vm.imageUploaded">
 
     <form ng-submit="vm.addEvent(event)">
-      <input class="addfields"
+      <input class="addfields" 
         placeholder="Event Name " 
-        ng-model="event.name" >
+        ng-blur="vm.validateName(event.name)"
+        ng-model="event.name">
+      <small>{{ vm.errNameMsg }}</small>
     
       <input class="addfields"
+        type="date"
         placeholder="Date" 
         ng-model="event.date">
+      <small>{{vm.errDateMsg }}</small>
       
       <input class="addfields"
         placeholder="Time" 
+        type="time"
         ng-model="event.time">
+      <small>{{vm.errTimeMsg}}</small>
       
       <input class="addfields"
         placeholder="Location" 
         ng-model="event.location" >
+      <small>{{vm.errLocationMsg}}</small>
+
       
       <textarea class="addfields detail"
         placeholder="Details" 
         ng-model="event.comment">
-      </textarea>  
-      
+      </textarea>
+      <small>{{vm.errDetailMsg}}</small>  
+
+      <div class="row">
+        <fieldset class="large-6 columns">
+          <legend>Select Event Type</legend>
+          <input ng-model="event.category" type="radio" name="pokemon" value="eat" id="pokemonRed" required><label for="pokemonRed">Eat</label>
+          <input ng-model="event.category" type="radio" name="pokemon" value="go" id="pokemonBlue"><label for="pokemonBlue">Go</label>
+          <input ng-model="event.category" type="radio" name="pokemon" value="event" id="pokemonYellow"><label for="pokemonYellow">Event</label>
+        </fieldset>
+      </div>
+
       <input class="addfields"
         placeholder="Tags" 
         ng-model="event.tags" >
+        <small>{{vm.errTagsMsg}}</small>
 
       <button class="button">Add Event</button>
 

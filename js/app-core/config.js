@@ -56,6 +56,12 @@ let config = function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/app-social/tagresults.tpl.html'
     })
 
+    // .state('root.list', {
+    //   url : '/tag/type/:list',
+    //   controller :'TagsListController as vm',
+    //   templateUrl:'templates/app-social/tagslist.tpl.html'
+    // })
+
     .state('root.singleresult', {
       url: '/singleresult/:id',
       controller: 'SingleResultController as vm',
@@ -66,7 +72,16 @@ let config = function($stateProvider, $urlRouterProvider) {
       url : '/tag/type/:list',
       controller :'TagsListController as vm',
       templateUrl:'templates/app-social/tagslist.tpl.html'
+    })
+
+    .state('root.singlefeature', {
+      url : '/singlefeature/:id',
+      controller : 'SingleFeatureController as vm',
+      templateUrl : 'templates/app-layout/singleFeature.tpl.html'
     });
+    
+
+
 
   
 

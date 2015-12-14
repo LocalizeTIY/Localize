@@ -1,9 +1,9 @@
 <h3>Featured</h3>
-<div class="container" id="featured">
+<!-- <div class="container" id="featured">
   
   <a id="featured"></a>
 
-  <section>
+
       <section class="secondNav">
         <ul>
             <div class=""> 
@@ -19,7 +19,7 @@
                 <a href="#">Eat
                 <div class="featuredContainers"></div></a>
                 <div class='rating'>Rating: </div>
-                <div class='stars'>{{put stars here}}</div>
+                <div class='stars'>(stars)</div>
               </div>
               <textarea class="textarea" placeholder="Comment:"></textarea>
             </li>
@@ -29,7 +29,7 @@
                 <a href="#">Go
                 <div class="featuredContainers" ng-repeat="picture in pictures"></div></a>
                 <div class='rating'>Rating: </div>
-                <div class='stars'>{{put stars here}}</div>
+                <div class='stars'>(stars)</div>
               </div>
               <textarea class="textarea" placeholder="Comment:"></textarea>
             </li>
@@ -39,14 +39,52 @@
                 <a href="#">Connect
                 <div class ="featuredContainers" ng-repeat="picture in pictures"></div></a>
                 <div class='rating'>Rating: </div>
-                <div class='stars'>{{put stars here}}</div>
+                <div class='stars'>(stars)</div>
               </div>
               <textarea class="textarea" placeholder="Comment:"></textarea>
             </li>    
         </ul>
       </div>     
   </section>
+</div> -->
 
+<!-- <event-item id="event-{{ $index }}" ng-repeat "e in vm.events" event="e"></event-item>
+ -->
+
+<div>
+
+
+  <table>
+    <tr>
+      <td>Event Name</td>
+      <td>Event Date</td>
+      <td>Event Time</td>
+      <td>Event Location</td>
+<!--       <td>Event Picture</td> -->
+      <td>Event Tags</td>
+      <td>Event Category</td>
+
+    </tr>
+    <tr ng-repeat="event in vm.events">
+      <td>{{ event.name }}</td>
+      <td>{{ event.date }}</td>
+      <td>{{ event.time }}</td>
+      <td>{{ event.location }}</td>
+<!--       <td>{{ event.picture }}</td> -->
+      <td>{{ event.tags }}</td>
+      <td>{{ event.category }}</td>
+
+    </tr>
+  </table>
+<!-- <div>
+  <ul>
+    <li ng-repeat='event in vm.events'>{{event.name}}</li>
+    <li ng-repeat='event in vm.events'>{{event.tags}}</li>
+    <li ng-repeat='event in vm.events'>{{event.ratings}}</li>
+    <li ng-repeat='event in vm.events'>{{event.picture}}</li>
+
+  </ul>
+</div> -->
    
 
 
@@ -63,4 +101,3 @@
 
 
 
-</div>
