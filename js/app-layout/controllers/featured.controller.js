@@ -4,6 +4,20 @@ let FeaturedController = function(FeaturedService, $scope, $http, LocalizeServic
   vm.events = [];
   vm.clicked = clicked;
 
+
+  activate();
+
+  function activate () {
+    FeaturedService.getAllEvents().then((res)=>{
+      vm.events = res.data.results;
+    });
+  }
+
+  // function clicked (event) {
+  // 	console.log.('clicked', event.category);
+  // }
+  // this.
+
   // let res = array;
 
   activate();
@@ -92,6 +106,17 @@ let FeaturedController = function(FeaturedService, $scope, $http, LocalizeServic
   //   ""
   //   )]
     // ------END OF RANDOMIZE--------
+
+  // function shuffleArray(array) {
+  //   for (var i = array.length - 1; i > 0; i--) {
+  //       var j = Math.floor(Math.random() * (i + 1));
+  //       var temp = array[i];
+  //       array[i] = array[j];
+  //       array[j] = temp;
+  //   }
+  //   return array;
+  // }  
+
 };
 
 FeaturedController.$inject = ['FeaturedService', '$scope','$http', 'LocalizeService', 'UploadService', '$cookies'];
