@@ -34,8 +34,54 @@ let FeaturedService = function (PARSE, $http) {
         headers: PARSE.CONFIG.headers
       });
   }
+// -------STARS ATTEMPT 1-----------
+  // let starApp = angular.module('starApp', []);
 
-  
+  // starApp.service('starRating', function(){
+  //   return{
+  //     template: <td class ="ratings"> +
+  //       '<li ng-repeat=star in stars" ng-class="star">' +
+  //       '\u2605' +
+  //       '</li>' +
+  //       '</ul>',
+  //     scope:{
+  //       ratingValue:"=",
+  //       max: '='
+  //     },
+
+  //     link: function (scope, elem, attrs) {
+  //       scope.stars = [];
+  //       for (var i=0; i< scope.max; i++) {
+  //         scope.stars.push({
+  //           filled: i<scope.ratingValue
+  //         });
+  //       }
+  //     }
+  //   }
+  // });
+
+// -----------END OF STARS ATTEMPT 1----------
+
+// -----------STARS ATTEMPT 2--------------
+
+
+// -----------END OF STARS ATTEMPT 2--------------
+
+//--------------STARS ATTEMPT 3-------------------
+  // $.fn.stars = function() {
+  //   return $(this).each(function(){
+
+  //     var val = parseFloat($(this).html());
+
+  //     var size = Math.max(0, (Math.min(10, val))) * 16;
+
+  //     var $span = $('<span />').width(size);
+      
+  //     $(this).html($span);
+  //    });
+  // }
+
+//--------------STARS ATTEMPT 3-------------------
 
   // function search (objectId) {
   // 	return $http.get(eventURL, PARSE.CONFIG);

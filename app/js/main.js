@@ -182,7 +182,7 @@ _angular2['default'].module('app.dashboard', ['app.core']).controller('Dashboard
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var DashboardService = function DashboardService(PARSE, $http, UserService, $state, $cookies) {
+var DashboardService = function DashboardService(PARSE, $http, UserService, $state, $cookies, LocalizeService) {
 
   var eventURL = PARSE.URL + 'classes/events';
 
@@ -221,7 +221,7 @@ var DashboardService = function DashboardService(PARSE, $http, UserService, $sta
   }
 };
 
-DashboardService.$inject = ['PARSE', '$http', 'UserService', '$state', '$cookies'];
+DashboardService.$inject = ['PARSE', '$http', 'UserService', '$state', '$cookies', 'LocalizeService'];
 
 exports['default'] = DashboardService;
 module.exports = exports['default'];
@@ -386,7 +386,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var FeaturedController = function FeaturedController(FeaturedService) {
+var FeaturedController = function FeaturedController(FeaturedService, $scope, $http, LocalizeService, UploadService, $cookies) {
 
   var vm = this;
   vm.events = [];
@@ -403,6 +403,17 @@ var FeaturedController = function FeaturedController(FeaturedService) {
       console.log(vm.events);
     });
   }
+  // --------LIMIT DISPLAY-------
+  // function categoryLimit($scope, $http) {
+  //   $http.get('event/event.json').success(function(data){
+  //     $scope.event = data.splice(0, 'quantity');
+  //   });
+
+  //   $scope.orderProp = 'category';
+  //   $scope.quantity = 3;
+  // }
+
+  // --------------END OF LIMIT DISPLAY-----------
 
   // function shuffleArray(vm.events){
   //   for
@@ -418,18 +429,52 @@ var FeaturedController = function FeaturedController(FeaturedService) {
     });
   }
 
-  // function shuffleArray(array) {
-  //   for (var i = array.length - 1; i > 0; i--) {
-  //       var j = Math.floor(Math.random() * (i + 1));
-  //       var temp = array[i];
-  //       array[i] = array[j];
-  //       array[j] = temp;
-  //   }
-  //   return array;
-  // }
+  // -----------STARS-------------
+  $scope.rate = 5;
+  $scope.max = 10;
+  $scope.isReadonly = false;
+
+  $scope.hoveringOver = function (value) {
+    $scope.overStar = value;
+    $scope.percent = 100 * (value / $scope.max);
+  };
+
+  $scope.ratingStates = [{ stateOn: 'fa-check-circle', stateOff: 'fa-check-circle-o' }, { stateOn: 'fa-star', stateOff: 'fa-start-o' }, { stateOn: 'fa-heart', stateOff: 'fa-ban' }, { stateOn: 'fa-heart' }, { stateOff: 'fa-power-off' }];
+  // --------------END OF STARS------------
+
+  // ------------STARS ATTEMPT 2------------
+  // let starApp = angular.module('starApp', []);
+
+  // starApp.controller('StarCtrl', ['$scope', function($scope) {
+
+  // }])
+
+  // ------------END OF STARS ATTEMPT 2-----------------
+
+  //--------------STARS ATTEMPT 3-------------------
+  // $(function(){
+  //   $('span.stars').stars();
+  // });
+
+  //--------------STARS ATTEMPT 3-------------------
+
+  // ------RANDOMIZE RESULTS--------
+  // let categories = [
+  //   {'category' : 'go'},
+  //   {'category' : 'event'},
+  //   {'category' : 'eat'}
+  // ];
+
+  // _.find(categories, _.matchesProperty('category', 'go'));
+  // console.log(_.matchesProperty);
+  // let categoryArr = [(
+  //   "category" : "go",
+  //   ""
+  //   )]
+  // ------END OF RANDOMIZE--------
 };
 
-FeaturedController.$inject = ['FeaturedService'];
+FeaturedController.$inject = ['FeaturedService', '$scope', '$http', 'LocalizeService', 'UploadService', '$cookies'];
 
 exports['default'] = FeaturedController;
 module.exports = exports['default'];
@@ -673,6 +718,53 @@ var FeaturedService = function FeaturedService(PARSE, $http) {
       headers: PARSE.CONFIG.headers
     });
   }
+  // -------STARS ATTEMPT 1-----------
+  // let starApp = angular.module('starApp', []);
+
+  // starApp.service('starRating', function(){
+  //   return{
+  //     template: <td class ="ratings"> +
+  //       '<li ng-repeat=star in stars" ng-class="star">' +
+  //       '\u2605' +
+  //       '</li>' +
+  //       '</ul>',
+  //     scope:{
+  //       ratingValue:"=",
+  //       max: '='
+  //     },
+
+  //     link: function (scope, elem, attrs) {
+  //       scope.stars = [];
+  //       for (var i=0; i< scope.max; i++) {
+  //         scope.stars.push({
+  //           filled: i<scope.ratingValue
+  //         });
+  //       }
+  //     }
+  //   }
+  // });
+
+  // -----------END OF STARS ATTEMPT 1----------
+
+  // -----------STARS ATTEMPT 2--------------
+
+  // -----------END OF STARS ATTEMPT 2--------------
+
+  //--------------STARS ATTEMPT 3-------------------
+  // $.fn.stars = function() {
+  //   return $(this).each(function(){
+
+  //     var val = parseFloat($(this).html());
+
+  //     var size = Math.max(0, (Math.min(10, val))) * 16;
+
+  //     var $span = $('<span />').width(size);
+
+  //     $(this).html($span);
+  //    });
+  // }
+
+  //--------------STARS ATTEMPT 3-------------------
 
   // function search (objectId) {
   // 	return $http.get(eventURL, PARSE.CONFIG);

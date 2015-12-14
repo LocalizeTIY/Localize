@@ -1,4 +1,4 @@
-let DashboardService = function (PARSE, $http, UserService, $state, $cookies) {
+let DashboardService = function (PARSE, $http, UserService, $state, $cookies, LocalizeService) {
 
   let eventURL = PARSE.URL + 'classes/events';
 
@@ -42,6 +42,6 @@ let DashboardService = function (PARSE, $http, UserService, $state, $cookies) {
   
 };
 
-DashboardService.$inject = ['PARSE', '$http', 'UserService','$state', '$cookies'];
+DashboardService.$inject = ['PARSE', '$http', 'UserService','$state', '$cookies', 'LocalizeService'];
 
 export default DashboardService;
