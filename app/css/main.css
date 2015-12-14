@@ -5768,12 +5768,82 @@ body {
     body .columnsPage .dropdown.menu .submenu {
       background: transparent;
       border: none; }
-  body #regTopBar {
-    background: #3E3E3E; }
-  body .login {
-    padding: 5%;
-    margin: 5% auto;
-    width: 50%; }
+  body .logPage .loginForm {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0 5%;
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    border: 1px solid #FF4734;
+    border-radius: 3px; }
+    body .logPage .loginForm .headSection {
+      margin-top: 5%; }
+      body .logPage .loginForm .headSection h2 {
+        font-family: "Ubuntu";
+        color: #FF4734;
+        text-align: center;
+        margin-bottom: 5%; }
+    body .logPage .loginForm .logBtnSection {
+      margin-top: 10%; }
+      body .logPage .loginForm .logBtnSection .logBtn {
+        margin-left: 0; }
+      body .logPage .loginForm .logBtnSection a {
+        color: #FF4734;
+        transition: 1s; }
+      body .logPage .loginForm .logBtnSection a:hover {
+        color: #fff;
+        transition: 1s; }
+  body .regPage .nightImg {
+    width: 100%; }
+  body .regPage .regSection {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; }
+    body .regPage .regSection::after {
+      clear: both;
+      content: "";
+      display: table; }
+    body .regPage .regSection .regForm {
+      background: rgba(255, 255, 255, 0.6);
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      margin-left: 25.58941%;
+      margin-top: 5%;
+      border: 1px solid #FF4734;
+      border-radius: 3px;
+      position: absolute;
+      top: 22%;
+      right: 26%; }
+      body .regPage .regSection .regForm:last-child {
+        margin-right: 0; }
+      body .regPage .regSection .regForm .regHeader {
+        margin-top: 10%;
+        margin-bottom: 15%; }
+        body .regPage .regSection .regForm .regHeader .cityThumb {
+          position: absolute;
+          top: -7%;
+          margin-left: 15%; }
+        body .regPage .regSection .regForm .regHeader .signUpHeader {
+          margin-top: 5%;
+          margin-left: 25%;
+          color: #000; }
+      body .regPage .regSection .regForm .regField {
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 5%; }
+      body .regPage .regSection .regForm .regBtn {
+        margin-left: 10%;
+        margin-top: 2%; }
+      body .regPage .regSection .regForm a {
+        color: #FF4734;
+        transition: 2s; }
+      body .regPage .regSection .regForm a:hover {
+        color: #fff;
+        transition: 1s; }
   body .pageHeading {
     margin: 3% auto;
     padding-left: 15%; }
@@ -5826,56 +5896,6 @@ body {
     font-size: 1.3em; }
   body li.featuredList .textarea {
     text-align: center; }
-  body .regPage .nightImg {
-    width: 100%; }
-  body .regPage .regSection {
-    max-width: 68em;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%; }
-    body .regPage .regSection::after {
-      clear: both;
-      content: "";
-      display: table; }
-    body .regPage .regSection .regForm {
-      background: rgba(255, 255, 255, 0.6);
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%;
-      margin-left: 25.58941%;
-      margin-top: 5%;
-      border: 1px solid #FF4734;
-      border-radius: 3px;
-      position: absolute;
-      top: 22%;
-      right: 26%; }
-      body .regPage .regSection .regForm:last-child {
-        margin-right: 0; }
-      body .regPage .regSection .regForm .regHeader {
-        margin-top: 10%; }
-        body .regPage .regSection .regForm .regHeader .cityThumb {
-          position: absolute;
-          top: -5%;
-          margin-left: 5%; }
-        body .regPage .regSection .regForm .regHeader .signUpHeader {
-          margin-top: 5%;
-          margin-left: 25%;
-          color: #000; }
-      body .regPage .regSection .regForm .regLabel {
-        padding: 5% 5% 0 5%;
-        color: #000; }
-      body .regPage .regSection .regForm .topLabel {
-        margin-top: 5%; }
-      body .regPage .regSection .regForm .regBtn {
-        margin-left: 5%;
-        margin-top: 2%; }
-      body .regPage .regSection .regForm a {
-        color: #FF4734;
-        transition: 2s; }
-      body .regPage .regSection .regForm a:hover {
-        color: #fff;
-        transition: 1s; }
   body body.stop-scrolling {
     height: 100%;
     overflow: hidden; }

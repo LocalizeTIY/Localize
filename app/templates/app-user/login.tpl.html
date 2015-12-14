@@ -1,5 +1,8 @@
-<nav class="top-bar horizontal" data-topbar role="navigation">
-      <h1><a href="#/" class='logo'><img src="../media/localizelogo.png"></a></h1>
+<section class='logPage'>
+  <img ng-src='../media/daycity.png' class='dayImg'>
+
+
+  <h1><a href="#/" class='logo'><img src="../media/localizelogo.png" class='localizeLogo'></a></h1>
       
   <section class="top-bar-section">
     <ul class="right">
@@ -11,14 +14,20 @@
     </div>
     </ul>
   </section>
-</nav>
  
-<div class="login">
+<div class="loginForm">
 
   <form ng-submit="vm.login(user)">
+    <div class='headSection'>
+    <img ng-src='../media/cityO.png' class='regHeader cityThumb'>
+    <h2>Localize Yourself</h2>
+    </div>
     <input type="text" placeholder="Username" ng-model="user.username">
     <input type="password" placeholder="Password" ng-model="user.password">
-    <button class="success button">Login</button>
+    <div class='logBtnSection'>
+      <button class="alert button logBtn">Login</button>
+      <span>Not a member yet? <span><a href="#/register">Register Here</a></span></span>
+    </div>
   </form>
 
 </div>

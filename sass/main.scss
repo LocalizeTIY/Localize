@@ -266,19 +266,115 @@ body {
   }
 
 
-//LOGIN TEMPLATE
+///// LOGIN TEMPLATE /////
 
-  #regTopBar {
-    background: $greyMedium;
+  .logPage {
+
+    .loginForm {
+      background: rgba(255,255,255,0.5);
+      padding: 0 5%;
+      width : 50%;
+      position: absolute;
+      top: 30%;
+      left: 25%;
+      border: 1px solid $redOrange;
+      border-radius: 3px;
+
+      .headSection {
+        margin-top: 5%;
+
+        h2 {
+          font-family: $ubuntu;
+          color: $redOrange;
+          text-align: center;
+          margin-bottom: 5%;
+        }
+      }
+
+      .logBtnSection {
+        margin-top: 10%;
+
+        .logBtn {
+          margin-left: 0;
+        }
+
+        a {
+          color: $redOrange;
+          transition: 1s;
+        }
+
+        a:hover {
+          color: #fff;
+          transition: 1s;
+        }
+      }
+    }
   }
 
-.login{
-  padding :5%;
-  margin:5% auto;
-  width : 50%;
-  //height:200px;
-  //border:1px solid black;
-}
+////// Registration Page //////
+
+  .regPage {
+
+    .nightImg {
+      width: 100%;
+    }
+
+    .regSection {
+      @include outer-container;
+      width :100%;
+      // position: relative;
+
+      .regForm {
+        background: rgba(255,255,255,0.6);
+        @include span-columns(6);
+        @include shift(3);
+        margin-top: 5%;
+        border: 1px solid $redOrange;
+        border-radius: 3px;
+        position: absolute;
+        top: 22%;
+        right: 26%;
+
+        .regHeader {
+          margin-top: 10%;
+          margin-bottom: 15%;
+
+          .cityThumb {
+            position: absolute;
+            top: -7%;
+            margin-left: 15%;
+          }
+
+          .signUpHeader {
+            margin-top: 5%;
+            margin-left: 25%;
+            color: #000;
+          }
+        }
+
+        .regField {
+          width: 80%;
+          margin-left: 10%;
+          margin-bottom: 5%;
+        }
+
+        .regBtn {
+          margin-left: 10%;
+          margin-top: 2%;
+        }
+
+        a {
+          color: $redOrange;
+          transition: 2s;
+        }
+
+        a:hover {
+          color: #fff;
+          transition: 1s;
+        }
+      }
+    }
+  }
 
 //ADD FORM
 .pageHeading{
@@ -364,75 +460,6 @@ li.featuredList {
     li.featuredList .textarea {
       text-align: center;
     }
-
-
-////// Registration Page //////
-
-  .regPage {
-
-    .nightImg {
-      width: 100%;
-    }
-
-    .regSection {
-      @include outer-container;
-      width :100%;
-      // position: relative;
-
-      .regForm {
-        background: rgba(255,255,255,0.6);
-        @include span-columns(6);
-        @include shift(3);
-        margin-top: 5%;
-        border: 1px solid $redOrange;
-        border-radius: 3px;
-        position: absolute;
-        top: 22%;
-        right: 26%;
-
-        .regHeader {
-          margin-top: 10%;
-
-          .cityThumb {
-            position: absolute;
-            top: -5%;
-            margin-left: 5%;
-          }
-
-          .signUpHeader {
-            margin-top: 5%;
-            margin-left: 25%;
-            color: #000;
-          }
-        }
-
-        .regLabel {
-          padding: 5% 5% 0 5%;
-          color: #000;
-        }
-
-        .topLabel {
-          margin-top: 5%;
-        }
-
-        .regBtn {
-          margin-left: 5%;
-          margin-top: 2%;
-        }
-
-        a {
-          color: $redOrange;
-          transition: 2s;
-        }
-
-        a:hover {
-          color: #fff;
-          transition: 1s;
-        }
-      }
-    }
-  }
-
 
 ///CSS FOR SWEET ALERT
 body.stop-scrolling {
