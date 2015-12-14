@@ -14,6 +14,7 @@ let FeaturedController = function(FeaturedService, $scope, $http, LocalizeServic
       console.log('featuredController?');
       console.log(vm.events);
     });
+  }
 // --------LIMIT DISPLAY-------
   // function categoryLimit($scope, $http) {
   //   $http.get('event/event.json').success(function(data){
@@ -25,7 +26,7 @@ let FeaturedController = function(FeaturedService, $scope, $http, LocalizeServic
   // }
 
   // --------------END OF LIMIT DISPLAY-----------
-  }
+  
   
   // function shuffleArray(vm.events){
   //   for
