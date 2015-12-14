@@ -25,8 +25,14 @@ let DashboardController = function (DashboardService, $scope, $stateParams, $sta
   		}
   	});
   }
+  
+// USER CAN ADD RATINGS TO THEIR OWN EVENTS
 
-
+  function addRating(eventObj) {
+    DashboardService.addRating(eventObj).then((res)=>{
+      console.log(res);
+    });
+  }
 
   function logout(user){
   	console.log('from dashboard logout', user);

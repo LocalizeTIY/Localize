@@ -16,6 +16,18 @@ let DashboardService = function (PARSE, $http, UserService, $state, $cookies, Lo
   	});
   }
 
+// USER CAN ADD RATING TO THEIR OWN EVENTS
+
+  function addRating(eventObj){
+    console.log('from addRating');
+    // return $http ({
+    //   url : eventURL,
+    //   method : 'PUT',
+    //   params : {where :{objectId : eventObj.objectId}},
+    //   headers : PARSE.CONFIG.headers
+    // });
+  }
+
 
   // function Events (eventObj,user){
   // 	console.log('eventObjs?', eventObj);

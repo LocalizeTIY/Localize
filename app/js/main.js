@@ -142,6 +142,14 @@ var DashboardController = function DashboardController(DashboardService, $scope,
     });
   }
 
+  // USER CAN ADD RATINGS TO THEIR OWN EVENTS
+
+  function addRating(eventObj) {
+    DashboardService.addRating(eventObj).then(function (res) {
+      console.log(res);
+    });
+  }
+
   function logout(user) {
     console.log('from dashboard logout', user);
     DashboardService.logout(user).then(function (res) {
@@ -197,6 +205,18 @@ var DashboardService = function DashboardService(PARSE, $http, UserService, $sta
       params: { where: { createdby: user.userName } },
       headers: PARSE.CONFIG.headers
     });
+  }
+
+  // USER CAN ADD RATING TO THEIR OWN EVENTS
+
+  function addRating(eventObj) {
+    console.log('from addRating');
+    // return $http ({
+    //   url : eventURL,
+    //   method : 'PUT',
+    //   params : {where :{objectId : eventObj.objectId}},
+    //   headers : PARSE.CONFIG.headers
+    // });
   }
 
   // function Events (eventObj,user){
@@ -304,18 +324,18 @@ var FeaturedController = function FeaturedController(FeaturedService, $scope, $h
       console.log('featuredController?');
       console.log(vm.events);
     });
-    // --------LIMIT DISPLAY-------
-    // function categoryLimit($scope, $http) {
-    //   $http.get('event/event.json').success(function(data){
-    //     $scope.event = data.splice(0, 'quantity');
-    //   });
-
-    //   $scope.orderProp = 'category';
-    //   $scope.quantity = 3;
-    // }
-
-    // --------------END OF LIMIT DISPLAY-----------
   }
+  // --------LIMIT DISPLAY-------
+  // function categoryLimit($scope, $http) {
+  //   $http.get('event/event.json').success(function(data){
+  //     $scope.event = data.splice(0, 'quantity');
+  //   });
+
+  //   $scope.orderProp = 'category';
+  //   $scope.quantity = 3;
+  // }
+
+  // --------------END OF LIMIT DISPLAY-----------
 
   // function shuffleArray(vm.events){
   //   for
