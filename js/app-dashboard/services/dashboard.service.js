@@ -20,12 +20,12 @@ let DashboardService = function (PARSE, $http, UserService, $state, $cookies, Lo
 
   function addRating(eventObj){
     console.log('from addRating');
-    // return $http ({
-    //   url : eventURL,
-    //   method : 'PUT',
-    //   params : {where :{objectId : eventObj.objectId}},
-    //   headers : PARSE.CONFIG.headers
-    // });
+    return $http ({
+      url : eventURL,
+      method : 'POST',
+      params : {where :{objectId : eventObj.objectId}},
+      headers : PARSE.CONFIG.headers
+    });
   }
 
 

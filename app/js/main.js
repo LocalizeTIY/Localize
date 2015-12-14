@@ -129,6 +129,8 @@ var DashboardController = function DashboardController(DashboardService, $scope,
 
   vm.logout = logout;
 
+  vm.addRating = addRating;
+
   activate();
 
   function activate() {
@@ -145,6 +147,7 @@ var DashboardController = function DashboardController(DashboardService, $scope,
   // USER CAN ADD RATINGS TO THEIR OWN EVENTS
 
   function addRating(eventObj) {
+    console.log('addRating', eventObj);
     DashboardService.addRating(eventObj).then(function (res) {
       console.log(res);
     });
@@ -211,12 +214,12 @@ var DashboardService = function DashboardService(PARSE, $http, UserService, $sta
 
   function addRating(eventObj) {
     console.log('from addRating');
-    // return $http ({
-    //   url : eventURL,
-    //   method : 'PUT',
-    //   params : {where :{objectId : eventObj.objectId}},
-    //   headers : PARSE.CONFIG.headers
-    // });
+    return $http({
+      url: eventURL,
+      method: 'POST',
+      params: { where: { objectId: eventObj.objectId } },
+      headers: PARSE.CONFIG.headers
+    });
   }
 
   // function Events (eventObj,user){
