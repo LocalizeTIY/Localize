@@ -44,7 +44,7 @@ body {
 ///// Top Bar Navigation /////
 
 .top-bar {
-  background: #000;
+  background: transparent;
 }
 
 .top-bar ul {
@@ -68,16 +68,33 @@ body {
   padding:2%;
   display:inline-block;
   text-align :top;
-
+  margin-right: 5%;
+  color: #fff;
 }
 
 .position-right{
-  display:inline-block;
-  //border:1px solid black;
   width :30%;
   position :absolute;
   top :5%;
   right:0%;
+}
+
+.fa {
+  transition: 0.5s;
+  color: $redOrange;
+}
+
+.fa:hover {
+  color: #fff;
+  transition: 0.5s;
+}
+
+.position-right li a {
+  color: #fff
+}
+
+.position-right li a:hover {
+  color: $redOrange;
 }
 
 ////// Layout Template //////
@@ -98,8 +115,13 @@ body {
     width: auto;
     height: 712px;
     z-index: -9999;
-    -webkit-filter: grayscale(80%);
-    filter: grayscale(70%);
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%);
+  }
+
+  .localizeLogo {
+    position: absolute;
+    top: 2%;
   }
 
   .discover {
@@ -141,8 +163,6 @@ body {
     transition: color 1.5s ease;
     background: #fff;
     color: #000;
-    font-family: $ubuntu;
-    font-weight: bold;
     font-size: 1.2em;
     list-style: none;
     width: 486px;

@@ -5626,7 +5626,7 @@ body {
  * Animation
  */ }
   body .top-bar {
-    background: #000; }
+    background: transparent; }
   body .top-bar ul {
     background: transparent; }
   body .title-area {
@@ -5640,13 +5640,24 @@ body {
     font-size: 0.9em;
     padding: 2%;
     display: inline-block;
-    text-align: top; }
+    text-align: top;
+    margin-right: 5%;
+    color: #fff; }
   body .position-right {
-    display: inline-block;
     width: 30%;
     position: absolute;
     top: 5%;
     right: 0%; }
+  body .fa {
+    transition: 0.5s;
+    color: #FF4734; }
+  body .fa:hover {
+    color: #fff;
+    transition: 0.5s; }
+  body .position-right li a {
+    color: #fff; }
+  body .position-right li a:hover {
+    color: #FF4734; }
   body .modalLogin {
     background: rgba(255, 255, 255, 0.3); }
   body .bgvideo {
@@ -5656,8 +5667,11 @@ body {
     width: auto;
     height: 712px;
     z-index: -9999;
-    -webkit-filter: grayscale(80%);
-    filter: grayscale(70%); }
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%); }
+  body .localizeLogo {
+    position: absolute;
+    top: 2%; }
   body .discover {
     color: #FF4734;
     font-family: "Ubuntu";
@@ -5688,8 +5702,6 @@ body {
     transition: color 1.5s ease;
     background: #fff;
     color: #000;
-    font-family: "Ubuntu";
-    font-weight: bold;
     font-size: 1.2em;
     list-style: none;
     width: 486px;
