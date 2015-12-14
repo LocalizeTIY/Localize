@@ -40,6 +40,8 @@ let FeaturedController = function(FeaturedService, $scope, $http, LocalizeServic
       console.log(res);
     });
   }
+
+
 // -----------STARS-------------
   $scope.rate = 5;
   $scope.max = 10;
@@ -57,8 +59,24 @@ let FeaturedController = function(FeaturedService, $scope, $http, LocalizeServic
     {stateOn: 'fa-heart'},
     {stateOff: 'fa-power-off'}
   ];
-
   // --------------END OF STARS------------
+
+
+// ------------STARS ATTEMPT 2------------
+  // let starApp = angular.module('starApp', []);
+
+  // starApp.controller('StarCtrl', ['$scope', function($scope) {
+
+  // }])
+
+// ------------END OF STARS ATTEMPT 2-----------------
+
+//--------------STARS ATTEMPT 3-------------------
+  // $(function(){
+  //   $('span.stars').stars();
+  // });
+
+//--------------STARS ATTEMPT 3-------------------
 
   // ------RANDOMIZE RESULTS--------
   // let categories = [

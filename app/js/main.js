@@ -330,6 +330,7 @@ var FeaturedController = function FeaturedController(FeaturedService, $scope, $h
       console.log(res);
     });
   }
+
   // -----------STARS-------------
   $scope.rate = 5;
   $scope.max = 10;
@@ -341,8 +342,23 @@ var FeaturedController = function FeaturedController(FeaturedService, $scope, $h
   };
 
   $scope.ratingStates = [{ stateOn: 'fa-check-circle', stateOff: 'fa-check-circle-o' }, { stateOn: 'fa-star', stateOff: 'fa-start-o' }, { stateOn: 'fa-heart', stateOff: 'fa-ban' }, { stateOn: 'fa-heart' }, { stateOff: 'fa-power-off' }];
-
   // --------------END OF STARS------------
+
+  // ------------STARS ATTEMPT 2------------
+  // let starApp = angular.module('starApp', []);
+
+  // starApp.controller('StarCtrl', ['$scope', function($scope) {
+
+  // }])
+
+  // ------------END OF STARS ATTEMPT 2-----------------
+
+  //--------------STARS ATTEMPT 3-------------------
+  // $(function(){
+  //   $('span.stars').stars();
+  // });
+
+  //--------------STARS ATTEMPT 3-------------------
 
   // ------RANDOMIZE RESULTS--------
   // let categories = [
@@ -604,6 +620,53 @@ var FeaturedService = function FeaturedService(PARSE, $http) {
       headers: PARSE.CONFIG.headers
     });
   }
+  // -------STARS ATTEMPT 1-----------
+  // let starApp = angular.module('starApp', []);
+
+  // starApp.service('starRating', function(){
+  //   return{
+  //     template: <td class ="ratings"> +
+  //       '<li ng-repeat=star in stars" ng-class="star">' +
+  //       '\u2605' +
+  //       '</li>' +
+  //       '</ul>',
+  //     scope:{
+  //       ratingValue:"=",
+  //       max: '='
+  //     },
+
+  //     link: function (scope, elem, attrs) {
+  //       scope.stars = [];
+  //       for (var i=0; i< scope.max; i++) {
+  //         scope.stars.push({
+  //           filled: i<scope.ratingValue
+  //         });
+  //       }
+  //     }
+  //   }
+  // });
+
+  // -----------END OF STARS ATTEMPT 1----------
+
+  // -----------STARS ATTEMPT 2--------------
+
+  // -----------END OF STARS ATTEMPT 2--------------
+
+  //--------------STARS ATTEMPT 3-------------------
+  // $.fn.stars = function() {
+  //   return $(this).each(function(){
+
+  //     var val = parseFloat($(this).html());
+
+  //     var size = Math.max(0, (Math.min(10, val))) * 16;
+
+  //     var $span = $('<span />').width(size);
+
+  //     $(this).html($span);
+  //    });
+  // }
+
+  //--------------STARS ATTEMPT 3-------------------
 
   // function search (objectId) {
   // 	return $http.get(eventURL, PARSE.CONFIG);
