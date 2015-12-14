@@ -1,4 +1,4 @@
-let AddController = function($scope,LocalizeService, UserService, $cookies, UploadService,$state) {
+let AddController = function($scope, LocalizeService, UserService, $cookies, UploadService,$state) {
   
   let vm = this;
   vm.addEvent = addEvent;
@@ -14,7 +14,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
 
   $scope.user = UserService.getUserInfo();
 
-
+  vm.alert = (msg) => alert(msg);
 
   vm.image = UploadService.tempImage;
 
@@ -36,6 +36,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
 
   // VALIDATE NAME
   let validateName = (name)=>{
+    console.log('something');
     if (name.length<= 1){
       vm.errNameMsg= "Field Cannot be blank";
       console.log(vm.errNameMsg);
@@ -44,7 +45,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
     }
   };
 
-  $scope.$watch('eventObj.name',function(newVal, prevVal){
+  $scope.$watch('event.name',function(newVal, prevVal){
     if(!newVal) return;
     validateName(newVal);
   });
@@ -58,7 +59,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
     }
   };
 
-  $scope.$watch('eventObj.date',function(newVal, prevVal){
+  $scope.$watch('event.date',function(newVal, prevVal){
     if(!newVal) return;
     validateDate(newVal);
   });
@@ -73,13 +74,13 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
     }
   };
 
-  $scope.$watch('eventObj.time',function(newVal, prevVal){
+  $scope.$watch('event.time',function(newVal, prevVal){
     if(!newVal) return;
     validateTime(newVal);
   });
 
    //----- VALIDATE LOCATION
-  let validateLocation = (eventObj)=>{
+  let validateLocation = (location)=>{
     if (location.length<= 1){
       vm.errLocationMsg= "Field Cannot be blank";
     }else{
@@ -87,7 +88,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
     }
   };
 
-  $scope.$watch('eventObj.location',function(newVal, prevVal){
+  $scope.$watch('event.location',function(newVal, prevVal){
     if(!newVal) return;
     validateLocation(newVal);
   });
@@ -101,7 +102,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
     }
   };
 
-  $scope.$watch('eventObj.comments',function(newVal, prevVal){
+  $scope.$watch('event.comments',function(newVal, prevVal){
     if(!newVal) return;
     validateCommets(newVal);
   });
@@ -116,7 +117,7 @@ let AddController = function($scope,LocalizeService, UserService, $cookies, Uplo
     }
   };
 
-  $scope.$watch('eventObj.tags',function(newVal, prevVal){
+  $scope.$watch('event.tags',function(newVal, prevVal){
     if(!newVal) return;
     validateTags(newVal);
   });

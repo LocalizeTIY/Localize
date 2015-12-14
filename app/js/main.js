@@ -248,6 +248,10 @@ var AddController = function AddController($scope, LocalizeService, UserService,
 
   $scope.user = UserService.getUserInfo();
 
+  vm.alert = function (msg) {
+    return alert(msg);
+  };
+
   vm.image = UploadService.tempImage;
 
   function addEvent(eventObj) {
@@ -268,6 +272,7 @@ var AddController = function AddController($scope, LocalizeService, UserService,
 
   // VALIDATE NAME
   var validateName = function validateName(name) {
+    console.log('something');
     if (name.length <= 1) {
       vm.errNameMsg = "Field Cannot be blank";
       console.log(vm.errNameMsg);
@@ -276,7 +281,7 @@ var AddController = function AddController($scope, LocalizeService, UserService,
     }
   };
 
-  $scope.$watch('eventObj.name', function (newVal, prevVal) {
+  $scope.$watch('event.name', function (newVal, prevVal) {
     if (!newVal) return;
     validateName(newVal);
   });
@@ -290,7 +295,7 @@ var AddController = function AddController($scope, LocalizeService, UserService,
     }
   };
 
-  $scope.$watch('eventObj.date', function (newVal, prevVal) {
+  $scope.$watch('event.date', function (newVal, prevVal) {
     if (!newVal) return;
     validateDate(newVal);
   });
@@ -305,13 +310,13 @@ var AddController = function AddController($scope, LocalizeService, UserService,
     }
   };
 
-  $scope.$watch('eventObj.time', function (newVal, prevVal) {
+  $scope.$watch('event.time', function (newVal, prevVal) {
     if (!newVal) return;
     validateTime(newVal);
   });
 
   //----- VALIDATE LOCATION
-  var validateLocation = function validateLocation(eventObj) {
+  var validateLocation = function validateLocation(location) {
     if (location.length <= 1) {
       vm.errLocationMsg = "Field Cannot be blank";
     } else {
@@ -319,7 +324,7 @@ var AddController = function AddController($scope, LocalizeService, UserService,
     }
   };
 
-  $scope.$watch('eventObj.location', function (newVal, prevVal) {
+  $scope.$watch('event.location', function (newVal, prevVal) {
     if (!newVal) return;
     validateLocation(newVal);
   });
@@ -333,7 +338,7 @@ var AddController = function AddController($scope, LocalizeService, UserService,
     }
   };
 
-  $scope.$watch('eventObj.comments', function (newVal, prevVal) {
+  $scope.$watch('event.comments', function (newVal, prevVal) {
     if (!newVal) return;
     validateCommets(newVal);
   });
@@ -347,7 +352,7 @@ var AddController = function AddController($scope, LocalizeService, UserService,
     }
   };
 
-  $scope.$watch('eventObj.tags', function (newVal, prevVal) {
+  $scope.$watch('event.tags', function (newVal, prevVal) {
     if (!newVal) return;
     validateTags(newVal);
   });

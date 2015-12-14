@@ -18,6 +18,7 @@
     <form ng-submit="vm.addEvent(event)">
       <input class="addfields" 
         placeholder="Event Name " 
+        ng-blur="vm.validateName(event.name)"
         ng-model="event.name">
       <small>{{ vm.errNameMsg }}</small>
     
