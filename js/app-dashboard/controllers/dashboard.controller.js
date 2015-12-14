@@ -7,12 +7,16 @@ let DashboardController = function (DashboardService, $scope, $stateParams, $sta
 
   $scope.user = user;
 
+
+
   //console.log('in the controller',$scope.user);
 
   let vm = this;
 
   vm.logout = logout;
 
+  vm.addRating = addRating;
+  
   activate();
 
   function activate() {
@@ -26,7 +30,14 @@ let DashboardController = function (DashboardService, $scope, $stateParams, $sta
   	});
   }
 
+// USER CAN ADD RATINGS TO THEIR OWN EVENTS
 
+  function addRating(eventObj) {
+    console.log('addRating', eventObj);
+    DashboardService.addRating(eventObj).then((res)=>{
+      console.log(res);
+    });
+  }
 
   function logout(user){
   	console.log('from dashboard logout', user);
