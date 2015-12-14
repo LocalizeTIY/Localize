@@ -45,6 +45,10 @@ body {
     margin-bottom: 0;
   }
 
+  ul.right {
+    height: 0;
+  }
+
 ///// Top Bar Navigation /////
 
 .top-bar {
@@ -270,6 +274,8 @@ body {
 
   .logPage {
 
+    height: 100%;
+
     .loginForm {
       background: rgba(255,255,255,0.5);
       padding: 0 5%;
@@ -351,13 +357,14 @@ body {
           .cityThumb {
             position: absolute;
             top: -7%;
-            margin-left: 15%;
+            margin-left: 10%;
           }
 
           .signUpHeader {
             margin-top: 5%;
-            margin-left: 25%;
+            margin-left: 30%;
             color: #000;
+            font-family: $ubuntu;
           }
         }
 
@@ -1403,8 +1410,10 @@ body.stop-scrolling {
     -moz-transform: translateY(145%);
     -o-transform: translateY(145%);
     transform: translateY(145%); } }
+
 }
 
 footer {
   background: $greyMedium;
 }
+
