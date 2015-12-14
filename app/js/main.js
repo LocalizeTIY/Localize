@@ -122,6 +122,7 @@ var DashboardController = function DashboardController(DashboardService, $scope,
   var user = UserService.getUserInfo();
 
   $scope.user = user;
+  var e = {};
 
   //console.log('in the controller',$scope.user);
 
@@ -137,19 +138,18 @@ var DashboardController = function DashboardController(DashboardService, $scope,
     DashboardService.getAllEvents(user).then(function (res) {
       if (user) {
         vm.events = res.data.results;
-        console.log('vm.events', vm.events);
-        //DashboardService.Events(vm.events, user).then((res2)=>{
-        //})
+
+        //console.log('vm.events', vm.events;
       }
     });
   }
 
   // USER CAN ADD RATINGS TO THEIR OWN EVENTS
 
-  function addRating(eventObj) {
-    console.log('addRating', eventObj);
-    DashboardService.addRating(eventObj).then(function (res) {
-      console.log(res);
+  function addRating(eventObj, e) {
+    console.log('addRating', eventObj, e);
+    DashboardService.addRating(eventObj, e).then(function (res) {
+      console.log('eventObj deom controller then part', e);
     });
   }
 
@@ -199,6 +199,7 @@ var DashboardService = function DashboardService(PARSE, $http, UserService, $sta
 
   this.getAllEvents = getAllEvents;
   this.logout = logout;
+  this.addRating = addRating;
   // this.Events= Events;
 
   function getAllEvents(user) {
@@ -212,26 +213,16 @@ var DashboardService = function DashboardService(PARSE, $http, UserService, $sta
 
   // USER CAN ADD RATING TO THEIR OWN EVENTS
 
-  function addRating(eventObj) {
-    console.log('from addRating');
+  function addRating(eventObj, e) {
+    console.log('from service eventObj is new rating and e is objectId', eventObj, e);
     return $http({
       url: eventURL,
-      method: 'POST',
-      params: { where: { objectId: eventObj.objectId } },
+      method: 'PUT',
+      ratings: eventObj,
+      params: { where: { objectId: e } },
       headers: PARSE.CONFIG.headers
     });
   }
-
-  // function Events (eventObj,user){
-  // 	console.log('eventObjs?', eventObj);
-  // 	console.log('user', user.userName);
-  // 	return $http({
-  // 		url : eventURL,
-  // 		method : 'GET',
-  // 		params : {where :{createdby : user.userName}},
-  // 		headers : PARSE.CONFIG.headers
-  // 	});
-  // }
 
   function logout(userObj) {
     console.log('from logout in service', userObj.sessionToken);

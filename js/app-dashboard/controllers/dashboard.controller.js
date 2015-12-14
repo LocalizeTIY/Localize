@@ -6,7 +6,7 @@ let DashboardController = function (DashboardService, $scope, $stateParams, $sta
   let user = UserService.getUserInfo();
 
   $scope.user = user;
-
+  let e ={};
 
 
   //console.log('in the controller',$scope.user);
@@ -23,19 +23,18 @@ let DashboardController = function (DashboardService, $scope, $stateParams, $sta
   	DashboardService.getAllEvents(user).then((res)=>{
   		if(user){
   			vm.events = res.data.results;
-  			console.log('vm.events', vm.events);
-  			//DashboardService.Events(vm.events, user).then((res2)=>{
-  			//})
+
+  			//console.log('vm.events', vm.events;
   		}
   	});
   }
 
 // USER CAN ADD RATINGS TO THEIR OWN EVENTS
 
-  function addRating(eventObj) {
-    console.log('addRating', eventObj);
-    DashboardService.addRating(eventObj).then((res)=>{
-      console.log(res);
+  function addRating(eventObj, e) {
+    console.log('addRating', eventObj, e);
+    DashboardService.addRating(eventObj, e).then((res)=>{
+      console.log('eventObj deom controller then part',e);
     });
   }
 

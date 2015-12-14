@@ -4,6 +4,7 @@ let DashboardService = function (PARSE, $http, UserService, $state, $cookies, Lo
 
   this.getAllEvents = getAllEvents;
   this.logout= logout;
+  this.addRating = addRating;
   // this.Events= Events;
 
 
@@ -18,27 +19,18 @@ let DashboardService = function (PARSE, $http, UserService, $state, $cookies, Lo
 
 // USER CAN ADD RATING TO THEIR OWN EVENTS
 
-  function addRating(eventObj){
-    console.log('from addRating');
+  function addRating(eventObj, e){
+    console.log('from service eventObj is new rating and e is objectId',eventObj, e );
     return $http ({
       url : eventURL,
-      method : 'POST',
-      params : {where :{objectId : eventObj.objectId}},
+      method : 'PUT',
+      ratings : eventObj,
+      params : {where :{objectId : e }},
       headers : PARSE.CONFIG.headers
     });
   }
 
 
-  // function Events (eventObj,user){
-  // 	console.log('eventObjs?', eventObj);
-  // 	console.log('user', user.userName);
-  // 	return $http({
-  // 		url : eventURL,
-  // 		method : 'GET',
-  // 		params : {where :{createdby : user.userName}},
-  // 		headers : PARSE.CONFIG.headers
-  // 	});
-  // }
 
 
 

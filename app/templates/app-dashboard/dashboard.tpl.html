@@ -10,8 +10,6 @@
 
 <!-- ALL OF THIS USER'S EVENTS -->
 
-
-<form >
   
   <table>
     <tr>
@@ -31,9 +29,9 @@
       <td>{{ event.location }}</td>
       <td>{{ event.tags }}</td>
       <td> 
-        <form class='ratings' ng-submit="vm.addRating(event.rating)" >
-          <input model= "jd" type="text" placeholder="Rate this from 1-10">
-          {{jd}}
+        <form class='ratings' ng-submit="vm.addRating(event.rating, event.objectId)" >
+          <input ng-model="event.rating" placeholder="Rate this from 1-10">
+          <button>Vote</button>
         </form>
       </td>
     </tr>
