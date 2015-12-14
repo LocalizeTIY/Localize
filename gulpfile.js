@@ -19,7 +19,7 @@ var watch = require('gulp-watch'); // A Better File Watcher
 // Set up Foundation
 var path = require('path');
 var foundationEntry = require.resolve('foundation-sites');
-var foundationSCSS = path.join(foundationEntry, '..', '..', 'scss');
+var foundationSCSS = path.join(foundationEntry, '..', '..', '..', 'scss');
 
 var notifyError = function() {
   return plumber({
@@ -31,7 +31,6 @@ var browserifyError = function(err) {
   notify.onError("Error: <%= error.message %>")(err);
   this.emit('end');
 }
-
 
 
 gulp.task('sass', function () {
@@ -144,3 +143,4 @@ gulp.task('default', ['sass',
                       'browserify-test']);
 
 gulp.task('start', ['default', 'watch', 'server']);
+

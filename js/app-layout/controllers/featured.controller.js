@@ -4,6 +4,20 @@ let FeaturedController = function(FeaturedService) {
   vm.events = [];
   vm.clicked = clicked;
 
+
+  activate();
+
+  function activate () {
+    FeaturedService.getAllEvents().then((res)=>{
+      vm.events = res.data.results;
+    });
+  }
+
+  // function clicked (event) {
+  // 	console.log.('clicked', event.category);
+  // }
+  // this.
+
   // let res = array;
 
   activate();
@@ -29,6 +43,7 @@ let FeaturedController = function(FeaturedService) {
       console.log(res);
     });
   }
+
 
   // function shuffleArray(array) {
   //   for (var i = array.length - 1; i > 0; i--) {

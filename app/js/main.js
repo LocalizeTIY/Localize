@@ -392,13 +392,25 @@ var FeaturedController = function FeaturedController(FeaturedService) {
   vm.events = [];
   vm.clicked = clicked;
 
+<<<<<<< HEAD
+=======
   // let res = array;
 
+>>>>>>> master
   activate();
 
   function activate() {
     FeaturedService.getAllEvents().then(function (res) {
       vm.events = res.data.results;
+<<<<<<< HEAD
+    });
+  }
+
+  // function clicked (event) {
+  // 	console.log.('clicked', event.category);
+  // }
+  // this.
+=======
       console.log('featuredController?');
       console.log(vm.events);
     });
@@ -427,6 +439,7 @@ var FeaturedController = function FeaturedController(FeaturedService) {
   //   }
   //   return array;
   // }
+>>>>>>> master
 };
 
 FeaturedController.$inject = ['FeaturedService'];
