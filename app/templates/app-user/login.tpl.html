@@ -1,10 +1,33 @@
-<!-- <h4>login tpl</h4>   --> 
-<div class="login">
+<section class='logPage'>
+  <img ng-src='../media/daycity.png' class='dayImg'>
+
+
+  <h1><a href="#/" class='logo'><img src="../media/localizelogo.png" class='localizeLogo'></a></h1>
+      
+  <section class="top-bar-section">
+    <ul class="right">
+    <div class="position-right"> 
+      <li id ="home"><a href="#/"><i class="fa fa-home fa-2x"></i></a></li>
+      <li id="login"><a href="#/login">Login</a></li>
+      <li id='register'><a href="#/register">Register</a></li>
+      <li id="add"><a data-toggle='animatedModal1'>Add Event</a></li>
+    </div>
+    </ul>
+  </section>
+ 
+<div class="loginForm">
 
   <form ng-submit="vm.login(user)">
+    <div class='headSection'>
+    <img ng-src='../media/cityO.png' class='regHeader cityThumb'>
+    <h2>Localize Yourself</h2>
+    </div>
     <input type="text" placeholder="Username" ng-model="user.username">
     <input type="password" placeholder="Password" ng-model="user.password">
-    <button class="success button">Login</button>
+    <div class='logBtnSection'>
+      <button class="alert button logBtn">Login</button>
+      <span>Not a member yet? <span><a href="#/register">Register Here</a></span></span>
+    </div>
   </form>
 
 </div>

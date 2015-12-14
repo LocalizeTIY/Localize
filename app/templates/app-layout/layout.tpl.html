@@ -1,4 +1,4 @@
-<nav class="top-bar" data-topbar role="navigation">
+<!-- <nav class="top-bar horizontal" data-topbar role="navigation">
       <h1><a href="#/" class='logo'><img src="../media/localizelogo.png"></a></h1>
       
   <section class="top-bar-section">
@@ -13,19 +13,19 @@
   </section>
 </nav>
 
-<!-- This is the beginning of the Add Event Link modal pop out to login or register -->
+<!--This is the beginning of the Add Event Link modal pop out to login or register -->
 
 <section class="modalLogin reveal" id='animatedModal1' data-reveal data-close-on-click='true' data-animation-in-'spin-in' data-animation-out='spin-out'>
 
 <h3>Sign in to add an event</h3>
-  <form ng-submit="vm.login(user)">
+  <form id="jdtemp" ng-submit="vm.login(user)">
     <button class="close-button" data-close aria-label="Close reveal" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
-    <label>Username<input type="text" ng-model="user.username"></label>
-    <label>Password<input type="password" ng-model="user.password"></label>
-    <button class="success button">Login</button>
-
+    <div>
+      <p>To Add Event Log In <span class='logLink'><a href="#/login" data-close aria-label="close reveal">Login</a></span>
+      </p>
+    </div>
     <div>
       <p>Not a member yet? <span class='regLink'><a href="#/register" data-close aria-label="Close reveal">Register Here</a></span></p>
     </div>
@@ -46,4 +46,4 @@
       <li id="Featured"><a href="#/featured">Featured</a></li>
     </div>
     </ul>
-</section> -->
+</section> --> 

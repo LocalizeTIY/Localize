@@ -18,9 +18,10 @@ let LocalizeService = function(PARSE, $http, $state, $cookies, UserService) {
 
   function addEvent(eventObj, user){
     // let newEvent = new Event(eventObj);
-
     console.log(eventObj);
-
+    let Dt = eventObj.date.toLocaleDateString();
+    let time = eventObj.time.toLocaleTimeString();
+    
     let newEventObject = Object.assign({}, {
       ratings: 'No Rating',
       createdby: user.userName,
@@ -30,6 +31,8 @@ let LocalizeService = function(PARSE, $http, $state, $cookies, UserService) {
         objectId: user.userObjID
       }
     }, eventObj);
+    newEventObject.date = Dt;
+    newEventObject.time = time;
 
     return $http.post(url, newEventObject, PARSE.CONFIG);
   }
