@@ -1,9 +1,56 @@
 <h3>Featured</h3>
-<div class="container" id="featured">
+<div>
+
+
+  <table>
+    <tr>
+      <td>Event Name</td>
+      <td>Event Date</td>
+      <!-- <td>Event Time</td> -->
+      <td>Event Location</td>
+      <!-- <td>Event Tags</td> -->
+      <td>Event Category</td>
+      <td>Event Ratings</td>
+      
+
+    </tr>
+    <tr ng-repeat="event in vm.events | limitTo: 3">
+      <td>{{ event.name }}</td>
+      <td>{{ event.date }}</td>
+      <!-- <td>{{ event.time }}</td> -->
+      <td>{{ event.location }}</td>
+      <td>{{ event.category }}</td>
+      <!-- <td>{{ event.tags }}</td> -->
+      <!-- <td>{{ event.ratings}}</td> -->
+      <td>
+        <rating class="rating-stars"
+            ng-model="event.ratings" 
+            value="rate"
+            max="max" 
+            readonly="isReadonly" 
+            on-hover="hoveringOver(value)" 
+            on-leave="overStar = null" 
+            ng-click="vm.rateMe(ratings)"></rating>
+           <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+          <label  class="addfields" ng-model="event.ratings"></label>     
+      </td> 
+    </tr>
+  </table>
+
+<!-- RATING STARS -->
+      <hr>
+
+
+
+
+
+<!-- END OF STARS -->
+
+<!-- <div class="container" id="featured">
   
   <a id="featured"></a>
 
-  <section>
+
       <section class="secondNav">
         <ul>
             <div class=""> 
@@ -19,7 +66,7 @@
                 <a href="#">Eat
                 <div class="featuredContainers"></div></a>
                 <div class='rating'>Rating: </div>
-                <div class='stars'>{{put stars here}}</div>
+                <div class='stars'>(stars)</div>
               </div>
               <textarea class="textarea" placeholder="Comment:"></textarea>
             </li>
@@ -29,7 +76,7 @@
                 <a href="#">Go
                 <div class="featuredContainers" ng-repeat="picture in pictures"></div></a>
                 <div class='rating'>Rating: </div>
-                <div class='stars'>{{put stars here}}</div>
+                <div class='stars'>(stars)</div>
               </div>
               <textarea class="textarea" placeholder="Comment:"></textarea>
             </li>
@@ -39,14 +86,29 @@
                 <a href="#">Connect
                 <div class ="featuredContainers" ng-repeat="picture in pictures"></div></a>
                 <div class='rating'>Rating: </div>
-                <div class='stars'>{{put stars here}}</div>
+                <div class='stars'>(stars)</div>
               </div>
               <textarea class="textarea" placeholder="Comment:"></textarea>
             </li>    
         </ul>
       </div>     
   </section>
+</div> -->
 
+<!-- <event-item id="event-{{ $index }}" ng-repeat "e in vm.events" event="e"></event-item>
+ -->
+
+
+
+<!-- <div>
+  <ul>
+    <li ng-repeat='event in vm.events'>{{event.name}}</li>
+    <li ng-repeat='event in vm.events'>{{event.tags}}</li>
+    <li ng-repeat='event in vm.events'>{{event.ratings}}</li>
+    <li ng-repeat='event in vm.events'>{{event.picture}}</li>
+
+  </ul>
+</div> -->
    
 
 
@@ -63,4 +125,3 @@
 
 
 
-</div>
