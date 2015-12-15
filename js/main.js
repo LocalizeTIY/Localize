@@ -1,7 +1,6 @@
 import _ from 'underscore';
 import angular from 'angular';
 import 'sweetalert';
-import 'angular-material';
 
 //Import jQuery & Foundation
 import $ from 'jquery';
@@ -20,7 +19,7 @@ import './app-social/index';
 import './app-dashboard/index';
 
 angular
-  .module('app', ['app.core', 'app.layout', 'app.user', 'app.social', 'app.dashboard','mm.foundation','ngMaterial'])
+  .module('app', ['app.core', 'app.layout', 'app.user', 'app.social', 'app.dashboard','mm.foundation'])
   .run( function ($rootScope) {
     // $viewContentLoaded comes from Ui Router
     $rootScope.$on('$viewContentLoaded', function (event, data) {

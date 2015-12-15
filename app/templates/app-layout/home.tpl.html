@@ -1,11 +1,13 @@
+<!-- Video Background -->
 <section class='landingPage'>
   <video autoplay loop muted class='bgvideo' id='bgvideo'>
     <source ng-src='../media/nightstreet.mov'>
   </video>
 
-
+<!-- Localize Logo -->
   <h1><a href="#/" class='logo'><img src="../media/localizelogo.png" class='localizeLogo'></a></h1>
-      
+ 
+<!-- Top Right Navigation -->
   <section class="top-bar-section">
     <ul class="right">
     <div class="position-right"> 
@@ -17,7 +19,7 @@
     </ul>
   </section>
 
-
+<!-- This is the Search Bar of the Home Page -->
   <section class='searchArea'>
     <h2 class='discover'>Discover Your City</h2>
     <form ng-submit='vm.search(data)' class='searchForm'>
@@ -25,8 +27,7 @@
       <button ng-click ="vm.search(data)" type="button" class="success button">Search</button>
     </form>
 
-
-    <!-- DISPLAYING SEARCH RESULTS AS LINKS AND DIRECTING IT TO SINGLE VIEW -->
+<!-- DISPLAYING SEARCH RESULTS AS LINKS AND DIRECTING IT TO SINGLE VIEW -->
     <ul class="searchResults dropdown menu">
       <li class="searchResultList" ng-repeat="result in vm.results | filter: data">
         <a href="#/singleresult/{{result.name}}">{{ result.name }}</a>
@@ -36,186 +37,91 @@
 
 </section>
 
+<!-- Eat, Go, Event Columns Area on Home Page -->
 <section class='columnsPage'>
 
-<h2 class='connect'>Connect Locally</h2>
-<p class='connectPara'>Find tasty restaurants, explore the city, connect with the locals</p>
+  <h2 class='connect'>Connect Locally</h2>
+  <p class='connectPara'>Find tasty restaurants, explore the city, connect with the locals</p>
 
-<!-- EAT TAGS -->
-<div class="row small-up-1 medium-up-2 large-up-4 tresColumns">
-  <div class='column'>
-    <img ng-src='../media/blurredeat.png' class='columnPic'>
-    <ul class='eat dropdown menu eatColumn' data-dropdown-menu>
-      <li>
-        <a href="#" title='Eats' class='columnResults'><img ng-src='../media/eatText.png' class='eatText'></a>
-        <ul class='menu'>
-          <li ng-repeat='t in vm.tags' >
-             <a ng-click='vm.getspecData(t)' href="#/tag/{{t}}">{{t}}</a> 
-          </li>
-        </ul>
-      </li>
-    </ul>
+  <!-- EAT TAGS -->
+  <div class="row small-up-1 medium-up-2 large-up-4 tresColumns">
+    <div class='column'>
+      <img ng-src='../media/blurredeat.png' class='columnPic'>
+      <ul class='eat dropdown menu eatColumn' data-dropdown-menu>
+        <li>
+          <a href="#" title='Eats' class='columnResults'><img ng-src='../media/eatText.png' class='eatText'></a>
+          <ul class='menu'>
+            <li ng-repeat='t in vm.tags' >
+               <a ng-click='vm.getspecData(t)' href="#/tag/{{t}}">{{t}}</a> 
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- GO TAGS  -->
+    <div class='column'>
+      <img ng-src='../media/blurredpier.png' class='columnPic'>
+      <ul class='eat dropdown menu goColumn' data-dropdown-menu>
+        <li>
+          <a href="#" title='Go'><img ng-src='../media/goText.png' class='goText'></a>
+          <ul class='menu'>
+            <li ng-repeat='g in vm.go'>
+              <a ng-click = 'vm.getspecData(g)' href="#/tag/{{g}}">{{g}}</a> 
+            </li>
+          </ul>
+        </li>
+      </ul> 
+    </div>
+
+    <!-- EVENTS TAGS -->
+    <div class='column'>
+      <img ng-src='../media/blurredevent.png' class='columnPic'>
+      <ul class='eat dropdown menu eventColumn' data-dropdown-menu>
+        <li>
+          <a href="#" title='Events'><img ng-src='../media/eventText.png' class='eventText'></a>
+          <ul class='menu'>
+            <li ng-repeat='e in vm.events'>
+              <a ng-click = 'vm.getspecData(e)' href="#/tag/{{e}}">{{e}}</a> 
+            </li>
+          </ul>
+        </li>
+      </ul> 
+    </div>  
   </div>
 
-  <!-- GO TAGS  -->
-  <div class='column'>
-    <img ng-src='../media/blurredpier.png' class='columnPic'>
-    <ul class='eat dropdown menu goColumn' data-dropdown-menu>
-      <li>
-        <a href="#" title='Go'><img ng-src='../media/goText.png' class='goText'></a>
-        <ul class='menu'>
-          <li ng-repeat='g in vm.go'>
-            <a ng-click = 'vm.getspecData(g)' href="#/tag/{{g}}">{{g}}</a> 
-          </li>
-        </ul>
-      </li>
-    </ul> 
-  </div>
-
-  <!-- EVENTS TAGS -->
-  <div class='column'>
-    <img ng-src='../media/blurredevent.png' class='columnPic'>
-    <ul class='eat dropdown menu eventColumn' data-dropdown-menu>
-      <li>
-        <a href="#" title='Events'><img ng-src='../media/eventText.png' class='eventText'></a>
-        <ul class='menu'>
-          <li ng-repeat='e in vm.events'>
-            <a ng-click = 'vm.getspecData(e)' href="#/tag/{{e}}">{{e}}</a> 
-          </li>
-        </ul>
-      </li>
-    </ul> 
-  </div>  
-</div>
 </section>
 
 
+<!-- Featured Section of the Home Page -->
 
-<!-- FEATURED TEMP -->
-<h3>Featured</h3>
-<div>
+<section class='featSection'>
+  <h2 class='featHeader'>Featured</h2>
+  <p class='featPara'>Check out some of your local area featured events.</p>
 
+  <div class='featured1 row small-up-1 medium-up-2 large-up-4'>
+    <ul class='column' ng-repeat='event in vm.eventRes | limitTo: 3'>
+      <li>
+      <div class='featImgDiv'>
+        <img ng-src='{{event.picture}}' class='featuredImg'>
+      </div>
+      <div class='featInfo'>
+        <p class='featInfoPara'>{{event.name}}</p>
 
-  <table>
-    <tr>
-      <td>Event Name</td>
-      <td>Event Date</td>
-      <!-- <td>Event Time</td> -->
-      <td>Event Location</td>
-      <!-- <td>Event Tags</td> -->
-      <td>Event Category</td>
-      <td>Event Ratings</td>
-      
-
-    </tr>
-    <tr ng-repeat="event in vm.events | limitTo: 3">
-      <td>{{ event.name }}</td>
-      <td>{{ event.date }}</td>
-      <!-- <td>{{ event.time }}</td> -->
-      <td>{{ event.location }}</td>
-      <td>{{ event.category }}</td>
-      <!-- <td>{{ event.tags }}</td> -->
-      <!-- <td>{{ event.ratings}}</td> -->
-      <td>
-        <rating class="rating-stars"
-            ng-model="event.ratings" 
-            value="rate"
-            max="max" 
-            readonly="isReadonly" 
-            on-hover="hoveringOver(value)" 
-            on-leave="overStar = null" 
-            ng-click="vm.rateMe(ratings)"></rating>
-           <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
-          <label  class="addfields" ng-model="event.ratings"></label>     
-      </td> 
-    </tr>
-  </table>
-
-<!-- RATING STARS -->
-      <hr>
-
-
-
-
-
-<!-- END OF STARS -->
-
-<!-- <div class="container" id="featured">
-  
-  <a id="featured"></a>
-
-
-      <section class="secondNav">
-        <ul>
-            <div class=""> 
-              <li class = 'no-bullet' id ="secondNavLink"><a href="#/options"><i class="fa fa-arrow-left"></i> Options</a></li>
-            </div>
-        </ul>
-      </section>
-
-      <div class='list'> 
-        <ul class='contain'> 
-            <li class="featuredList">
-              <div class='topContainer'>
-                <a href="#">Eat
-                <div class="featuredContainers"></div></a>
-                <div class='rating'>Rating: </div>
-                <div class='stars'>(stars)</div>
-              </div>
-              <textarea class="textarea" placeholder="Comment:"></textarea>
-            </li>
-
-            <li class="featuredList">
-              <div class='topContainer'>
-                <a href="#">Go
-                <div class="featuredContainers" ng-repeat="picture in pictures"></div></a>
-                <div class='rating'>Rating: </div>
-                <div class='stars'>(stars)</div>
-              </div>
-              <textarea class="textarea" placeholder="Comment:"></textarea>
-            </li>
-
-            <li class="featuredList">
-              <div class='topContainer'>
-                <a href="#">Connect
-                <div class ="featuredContainers" ng-repeat="picture in pictures"></div></a>
-                <div class='rating'>Rating: </div>
-                <div class='stars'>(stars)</div>
-              </div>
-              <textarea class="textarea" placeholder="Comment:"></textarea>
-            </li>    
-        </ul>
-      </div>     
-  </section>
-</div> -->
-
-<!-- <event-item id="event-{{ $index }}" ng-repeat "e in vm.events" event="e"></event-item>
- -->
-
-
-
-<!-- <div>
-  <ul>
-    <li ng-repeat='event in vm.events'>{{event.name}}</li>
-    <li ng-repeat='event in vm.events'>{{event.tags}}</li>
-    <li ng-repeat='event in vm.events'>{{event.ratings}}</li>
-    <li ng-repeat='event in vm.events'>{{event.picture}}</li>
-
-  </ul>
-</div> -->
-   
-
-
-<!-- TESTING OUT GRID BLOCKS -->
-<!--  <div class="grid-frame">
-    <div class="grid-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum iure architecto minima, ipsum officiis rem illum ea, eos, magnam reprehenderit aperiam tempore totam qui neque voluptatibus dolorem blanditiis natus facilis.</div>
-    <div class="grid-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consequatur ea dicta doloribus alias nihil nostrum ab aliquid temporibus, esse iusto voluptas explicabo unde molestias, eum obcaecati minus, aspernatur libero.</div>
-    <div class="grid-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta explicabo nam ipsum, nobis odit iure sequi, dignissimos totam sit sapiente pariatur laudantium, quae repellat deserunt. Ducimus fugit alias aspernatur accusantium.</div>
-
-
-    </div> -->
-
-<!-- END OF TEST AREA -->
-
-
-
+      <!-- Star Rating for featured items -->
+        <div><rating class="rating-stars"
+          ng-model="event.ratings" 
+          value="rate"
+          max="max" 
+          readonly="isReadonly" 
+          on-hover="hoveringOver(value)" 
+          on-leave="overStar = null" 
+          ng-click="vm.rateMe(ratings)"></rating>
+          <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 &&   percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+          <label class="addfields" ng-model="event.ratings"></label>
+        </div> 
+      </div>   
+      </li>
+    </ul>
+  </div>
+</section>
