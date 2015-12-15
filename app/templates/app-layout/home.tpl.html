@@ -101,12 +101,12 @@
 
   <div class='featured1 row small-up-1 medium-up-2 large-up-4'>
     <ul class='column' ng-repeat='event in vm.eventRes | limitTo: 3'>
-      <li>
+      <li><a ng-click="vm.getspecData(e)" href="#/singleresult/{{event.name}}">
       <div class='featImgDiv'>
         <img ng-src='{{event.picture}}' class='featuredImg'>
       </div>
       <div class='featInfo'>
-        <p class='featInfoPara'>{{event.name}}</p>
+        <p class='featInfoPara'>{{event.name}}</p></a>
 
       <!-- Star Rating for featured items -->
         <div><rating class="rating-stars"
