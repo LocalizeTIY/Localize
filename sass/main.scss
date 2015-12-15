@@ -87,7 +87,7 @@ body {
   right:0%;
 }
 
-.fa {
+.fa.fa-home {
   transition: 0.5s;
   color: $redOrange;
 }
@@ -109,6 +109,37 @@ body {
 
 .modalLogin {
   background: rgba(255,255,255,0.3);
+  padding : 2%; 
+}
+
+.btns{
+  padding:3%;
+  margin-top: 1%;
+}
+
+.bt1{
+    margin-left:22%;
+    width: 30%;
+    display: inline-block;
+}
+
+.bt2{
+  display:inline-block;
+  width:30%;
+}
+
+#modbtn1{
+    display:inline-block;
+    margin:2%;
+  }
+  #modbtn1 a, #modbtn2 a{
+    color:#fff !important;
+  }
+
+#modbtn2{
+    display:inline-block;
+    margin:2%;
+    //width:20%;
 }
 
 
@@ -1207,111 +1238,27 @@ body.stop-scrolling {
   100% {
     transform: rotate(360deg); } }
 
-/* Internet Explorer 9 has some special quirks that are fixed here */
-/* The icons are not animated. */
-/* This file is automatically merged into sweet-alert.min.js through Gulp */
-/* Error icon */
-.sweet-alert .sa-icon.sa-error .sa-line.sa-left {
-  -ms-transform: rotate(45deg) \9; }
+// /* Internet Explorer 9 has some special quirks that are fixed here */
+// /* The icons are not animated. */
+// /* This file is automatically merged into sweet-alert.min.js through Gulp */
+// /* Error icon */
+// .sweet-alert .sa-icon.sa-error .sa-line.sa-left {
+//   -ms-transform: rotate(45deg) \9; }
 
-.sweet-alert .sa-icon.sa-error .sa-line.sa-right {
-  -ms-transform: rotate(-45deg) \9; }
+// .sweet-alert .sa-icon.sa-error .sa-line.sa-right {
+//   -ms-transform: rotate(-45deg) \9; }
 
-/* Success icon */
-.sweet-alert .sa-icon.sa-success {
-  border-color: transparent\9; }
+// /* Success icon */
+// .sweet-alert .sa-icon.sa-success {
+//   border-color: transparent\9; }
 
-.sweet-alert .sa-icon.sa-success .sa-line.sa-tip {
-  -ms-transform: rotate(45deg) \9; }
+// .sweet-alert .sa-icon.sa-success .sa-line.sa-tip {
+//   -ms-transform: rotate(45deg) \9; }
 
-.sweet-alert .sa-icon.sa-success .sa-line.sa-long {
-  -ms-transform: rotate(-45deg) \9; }
+// .sweet-alert .sa-icon.sa-success .sa-line.sa-long {
+//   -ms-transform: rotate(-45deg) \9; }
 
-/*!
- * Load Awesome v1.1.0 (http://github.danielcardoso.net/load-awesome/)
- * Copyright 2015 Daniel Cardoso <@DanielCardoso>
- * Licensed under MIT
- */
-.la-ball-fall,
-.la-ball-fall > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-.la-ball-fall {
-  display: block;
-  font-size: 0;
-  color: #fff; }
-
-.la-ball-fall.la-dark {
-  color: #333; }
-
-.la-ball-fall > div {
-  display: inline-block;
-  float: none;
-  background-color: currentColor;
-  border: 0 solid currentColor; }
-
-.la-ball-fall {
-  width: 54px;
-  height: 18px; }
-
-.la-ball-fall > div {
-  width: 10px;
-  height: 10px;
-  margin: 4px;
-  border-radius: 100%;
-  opacity: 0;
-  -webkit-animation: ball-fall 1s ease-in-out infinite;
-  -moz-animation: ball-fall 1s ease-in-out infinite;
-  -o-animation: ball-fall 1s ease-in-out infinite;
-  animation: ball-fall 1s ease-in-out infinite; }
-
-.la-ball-fall > div:nth-child(1) {
-  -webkit-animation-delay: -200ms;
-  -moz-animation-delay: -200ms;
-  -o-animation-delay: -200ms;
-  animation-delay: -200ms; }
-
-.la-ball-fall > div:nth-child(2) {
-  -webkit-animation-delay: -100ms;
-  -moz-animation-delay: -100ms;
-  -o-animation-delay: -100ms;
-  animation-delay: -100ms; }
-
-.la-ball-fall > div:nth-child(3) {
-  -webkit-animation-delay: 0ms;
-  -moz-animation-delay: 0ms;
-  -o-animation-delay: 0ms;
-  animation-delay: 0ms; }
-
-.la-ball-fall.la-sm {
-  width: 26px;
-  height: 8px; }
-
-.la-ball-fall.la-sm > div {
-  width: 4px;
-  height: 4px;
-  margin: 2px; }
-
-.la-ball-fall.la-2x {
-  width: 108px;
-  height: 36px; }
-
-.la-ball-fall.la-2x > div {
-  width: 20px;
-  height: 20px;
-  margin: 8px; }
-
-.la-ball-fall.la-3x {
-  width: 162px;
-  height: 54px; }
-
-.la-ball-fall.la-3x > div {
-  width: 30px;
-  height: 30px;
-  margin: 12px; }
+//DELETE THE BALL FALL FROM SWEET ALERT.
 
 /*
  * Animation
@@ -1417,7 +1364,7 @@ body.stop-scrolling {
 
 .foo {
   background: $greyMedium;
-  margin: -3% 0;
+  margin:-3% 0;
   padding-top: 4%;
   background: #3E3E3E;  
 }
@@ -1459,4 +1406,5 @@ li{
   margin: 2% 31% 3%;
   font-size: 0.875em;
   opacity :0.7;
+}
 }
