@@ -257,15 +257,15 @@ body {
         .eatColumn {
         position: absolute;
         top: 16%;
-        left: 20%;
-        width: 65%;
+        //left: 20%;
+       // width: 65%;
         }
 
         .goColumn {
           position: absolute;
           top: 18%;
-          left: 20%;
-          width: 65%;
+          //left: 20%;
+          //width: 65%;
         }
 
         .eventColumn {
@@ -275,15 +275,16 @@ body {
 
         .menu > li > a {
           transition: 1s;
-          color: #fff;
+          color: $greyMedium;
           font-weight: bold;
-          font-size: 1.2em;
-          height: 10%;
+          font-size: 0.9em;
         }
 
         .menu > li > a:hover {
           color: red;
           transition: 1s;
+          background:rgba(255,255,255,0.9);
+          opacity :0.7;
         }
       }
     }
@@ -296,6 +297,12 @@ body {
     .dropdown.menu .submenu {
       background: transparent;
       border: none;
+      width: 100%;
+      height:210px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background:rgba(255,255,255,0.6);
+
     }
   }
 
@@ -1361,11 +1368,9 @@ body.stop-scrolling {
     transform: translateY(145%); } }
 
 
-<<<<<<< HEAD
 //FOOTER
 
-=======
->>>>>>> b935644e02f076414258645f62c0a78a8f251ec0
+
 .foo {
   background: $greyMedium;
   margin:-3% 0;
