@@ -204,6 +204,7 @@ var DashboardService = function DashboardService(PARSE, $http, UserService, $sta
   this.addRating = addRating;
   // this.Events= Events;
 
+  //CHECKING FOR USER SESSION TOKEN TO GO TO HOME IF NOT LOGGED IN.
   function getAllEvents(user) {
     console.log('user', user);
     if (!user.sessionToken) {
