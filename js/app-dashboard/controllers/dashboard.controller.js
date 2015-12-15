@@ -1,8 +1,6 @@
 let DashboardController = function (DashboardService, $scope, $stateParams, $state, $cookies, LocalizeService, UserService) {
 
 
-
-
   let user = UserService.getUserInfo();
 
   $scope.user = user;
@@ -39,11 +37,8 @@ let DashboardController = function (DashboardService, $scope, $stateParams, $sta
   }
 
   function logout(user){
-  	console.log('from dashboard logout', user);
-  	DashboardService.logout(user).then((res)=>{
-  		console.log('res from logout', res.data);
-  	})
-
+  	//console.log('from dashboard logout', user);
+  	DashboardService.logout(user);
   }
 
 };
