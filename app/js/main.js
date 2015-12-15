@@ -122,7 +122,7 @@ var DashboardController = function DashboardController(DashboardService, $scope,
   var user = UserService.getUserInfo();
 
   $scope.user = user;
-  var e = {};
+  var objId = {};
 
   //console.log('in the controller',$scope.user);
 
@@ -146,10 +146,10 @@ var DashboardController = function DashboardController(DashboardService, $scope,
 
   // USER CAN ADD RATINGS TO THEIR OWN EVENTS
 
-  function addRating(eventObj, e) {
-    console.log('addRating', eventObj, e);
-    DashboardService.addRating(eventObj, e).then(function (res) {
-      console.log('eventObj deom controller then part', e);
+  function addRating(eventObj, objId) {
+    console.log('addRating', eventObj, objId);
+    DashboardService.addRating(eventObj, objId).then(function (res) {
+      console.log('eventObj deom controller then part', objId);
     });
   }
 
@@ -213,13 +213,15 @@ var DashboardService = function DashboardService(PARSE, $http, UserService, $sta
 
   // USER CAN ADD RATING TO THEIR OWN EVENTS
 
-  function addRating(eventObj, e) {
-    console.log('from service eventObj is new rating and e is objectId', eventObj, e);
+  function addRating(newrating, objId) {
+    console.log('from service newrating ' + newrating + 'and  objId' + objId);
     return $http({
-      url: eventURL,
+      // url     : `${eventURL}/${objId}`,
+      url: eventURL + '/' + objId,
       method: 'PUT',
-      ratings: eventObj,
-      params: { where: { objectId: e } },
+      //body :{rating : newrating}
+      data: { ratings: newrating },
+      // params  : {where :{objectId : objId }},
       headers: PARSE.CONFIG.headers
     });
   }

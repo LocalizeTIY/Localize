@@ -19,20 +19,18 @@ let DashboardService = function (PARSE, $http, UserService, $state, $cookies, Lo
 
 // USER CAN ADD RATING TO THEIR OWN EVENTS
 
-  function addRating(eventObj, e){
-    console.log('from service eventObj is new rating and e is objectId',eventObj, e );
+  function addRating(newrating, objId){
+    console.log('from service newrating ' + newrating + 'and  objId'+ objId );
     return $http ({
-      url : eventURL,
-      method : 'PUT',
-      ratings : eventObj,
-      params : {where :{objectId : e }},
+      // url     : `${eventURL}/${objId}`,
+      url : eventURL+'/'+objId,
+      method  : 'PUT',
+      //body :{rating : newrating}
+      data:{ratings : newrating},
+      // params  : {where :{objectId : objId }},
       headers : PARSE.CONFIG.headers
     });
   }
-
-
-
-
 
   function logout(userObj) {
   	console.log('from logout in service',userObj.sessionToken);
