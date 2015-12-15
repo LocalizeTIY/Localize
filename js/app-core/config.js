@@ -44,11 +44,11 @@ let config = function($stateProvider, $urlRouterProvider) {
       templateUrl : 'templates/app-layout/options.tpl.html'
     })
 
-    .state('root.featured',{
-      url:'/featured',
-      controller:'FeaturedController as vm',
-      templateUrl : 'templates/app-layout/featured.tpl.html'
-    })
+    // .state('root.featured',{
+    //   url:'/featured',
+    //   controller:'FeaturedController as vm',
+    //   templateUrl : 'templates/app-layout/featured.tpl.html'
+    // })
 
     .state('root.tagresults', {
       url: '/tag/:type',
@@ -80,11 +80,6 @@ let config = function($stateProvider, $urlRouterProvider) {
       templateUrl : 'templates/app-layout/singleFeature.tpl.html'
     });
     
-
-
-
-  
-
 };
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];

@@ -1,5 +1,5 @@
 import _ from 'underscore';
-let HomeController = function(SearchService) {
+let HomeController = function($scope, $cookies, $http, SearchService, FeaturedService, LocalizeService, UploadService) {
   
   let vm = this;
  
@@ -10,6 +10,9 @@ let HomeController = function(SearchService) {
   vm.getTagData   = getTagData;
   vm.uniqueTags   = uniqueTags;
   vm.uniqueTag    = [];
+  vm.clicked      = clicked;
+  vm.events       = [];
+  
 
 
   function search (data) {
@@ -22,13 +25,6 @@ let HomeController = function(SearchService) {
   let video = document.getElementById('bgvideo');
   video.playbackRate = 0.8;
 
-  // function specific(data){
-  //   SearchService.specific(data).then((res)=>{
-  //     vm.results =res.data.results;
-  //     console.log(res);
-  //     //console.log(vm.results);
-  //   });
-  // }
 
   function getTagData(){
 
@@ -45,7 +41,6 @@ let HomeController = function(SearchService) {
     });
   }
 
-
   getTagData();
 
   function getGoData(){
@@ -58,6 +53,7 @@ let HomeController = function(SearchService) {
       //console.log('go names', vm.go);
     });
   }
+
   getGoData();
 
   function geteventData(){
@@ -78,15 +74,59 @@ let HomeController = function(SearchService) {
       uniqueTag = _.uniq(_.pluck(items, 'tags'));
     });
     return uniqueTag;
-  }
+  };
 
   geteventData();
+
+
+// ///////////// FEATURED SECTION //////////////
+
+activate();
+
+  function activate() {
+    FeaturedService.getAllEvents().then((res)=>{
+      vm.eventRes = res.data.results;
+      console.log('featuredController?');
+      console.log(vm.events);
+    });
+  }
+
+  function clicked (event){
+    console.log('clicked', event.name);
+  }
+
+  function events (eventObj){
+    FeaturedService.events(data).then((res)=>{
+      // vm.events = res.data.results;
+      console.log(res);
+    });
+  }
+
+
+//////////// BEGINNING OF STARS ////////////
+
+  $scope.rate = 5;
+  $scope.max = 10;
+  $scope.isReadonly = false;
+
+  $scope.hoveringOver = function(value) {
+    $scope.overStar = value;
+    $scope.percent = 100 * (value / $scope.max);
+  };
+
+  $scope.ratingStates = [
+    {stateOn: 'fa-check-circle', stateOff: 'fa-check-circle-o'},
+    {stateOn: 'fa-star', stateOff: 'fa-start-o'},
+    {stateOn: 'fa-heart', stateOff: 'fa-ban'},
+    {stateOn: 'fa-heart'},
+    {stateOff: 'fa-power-off'}
+  ];
+
+//////////// END OF STARS //////////////
+
 };
 
 
-
-
-
-HomeController.$inject = ['SearchService'];
+HomeController.$inject = ['$scope', '$cookies', '$http', 'SearchService', 'FeaturedService', 'LocalizeService', 'UploadService'];
 
 export default HomeController;

@@ -105,19 +105,17 @@ body {
   color: $redOrange;
 }
 
-////// Layout Template //////
+////// LAYOUT TEMPLATE //////
 
 .modalLogin {
   background: rgba(255,255,255,0.3);
 }
 
 
-/////// Home Page ////////
+/////// HOME TEMPLATE ////////
 
   .bgvideo {
     position: relative;
-    // right: 0;
-    // top: 100;
     min-width: 100%;
     min-height: 100%;
     width: auto;
@@ -191,12 +189,12 @@ body {
     display: none;
   }
 
-  ///// Columns Section - Home Page /////
+  // Columns Section - Home Page //
 
   .connect {
     font-family: $ubuntu;
     color: $redOrange;
-    margin-top: 10%;
+    margin-top: 5%;
     text-align: center;
   }
 
@@ -266,6 +264,55 @@ body {
     .dropdown.menu .submenu {
       background: transparent;
       border: none;
+    }
+  }
+
+  // Featured Section - Home Page //
+
+  .featSection {
+    margin-top: 12%;
+    margin-left: 10%;
+
+    .featHeader {
+      color: $redOrange;
+      font-family: $ubuntu;
+      margin-right: 13%;
+      text-align: center;
+    }
+
+    .featPara {
+      text-align: center;
+      margin-right: 13%;
+      margin-bottom: 5%;
+      font-size: 1.2em;
+      font-family: $ubuntu;
+    }
+
+    .large-up-4 .column {
+      margin-right: 2%;
+
+      .featImgDiv {
+        overflow: hidden;
+        border: 5px solid #fff;
+        border-radius: 50%;
+
+        .featuredImg {
+          width: 630px;
+          height: 250px;
+        }
+      }
+
+      .featInfo {
+        margin-top: 15%;
+        margin-left: 17%;
+
+        .featInfoPara {
+          text-align: center;
+          margin-right: 26%;
+          font-family: $ubuntu;
+          font-size: 1.2em;
+        }
+      }
     }
   }
 
