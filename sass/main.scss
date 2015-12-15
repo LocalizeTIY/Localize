@@ -1394,10 +1394,57 @@ body.stop-scrolling {
     -moz-transform: translateY(145%);
     -o-transform: translateY(145%);
     transform: translateY(145%); } }
+<<<<<<< HEAD
 
 }
 
 footer {
   background: $greyMedium;
 }
+=======
+}
+
+.foo {
+  background: $greyMedium;
+  margin: -3% 0;
+  padding-top: 4%;
+  background: #3E3E3E;  
+
+
+  .footer-icons{
+    display:inline-block;
+    list-style:none;
+    color :white;
+    width : 100%;
+    margin :-3% 0 2% 40%;
+
+    li{
+      display:inline-block;
+      margin : 1%;
+    }
+    .fa{
+      color:#fff;
+    }
+ }
+  .copy2{
+        width:100%;
+        padding:1% 0;
+        background : black;
+        color :white;
+        #copy{
+          width:100%;
+          margin: 3% 32% 0;
+          font-size: 0.875em;
+          opacity :1.2;
+        }
+        #by{
+          width:100%;
+          margin: 2% 31% 3%;
+          font-size: 0.875em;
+          opacity :0.7;
+        }
+      }
+}
+
+>>>>>>> master
 
