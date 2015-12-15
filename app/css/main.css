@@ -6869,6 +6869,9 @@ body {
     -o-transform: translateY(145%);
     transform: translateY(145%); } }
 
+footer {
+  background: #3E3E3E; }
+
 .foo {
   background: #3E3E3E;
   margin: -3% 0;
