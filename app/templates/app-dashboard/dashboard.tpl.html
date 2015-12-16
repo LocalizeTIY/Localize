@@ -17,7 +17,18 @@
       <button type="button" class="alert button"><a href="#/add">Add</a></button>
     </aside>
 
+
+<!--LOG YOU OUT-->
+  <form ng-submit="vm.logout(user)">     
+      <button>Log Out</button>
+  </form>
+
+  <!--TAKES YOU TO THE ADD TEMPLATE-->
+
+  <button><a href="#/add">Add</a></button>
+
     <!-- ALL OF THIS USER'S EVENTS -->
+
 
     <div class='dashboard large-9 large-push-3 columns' ng-repeat='event in vm.events'>
       <div class='dashImgCont'>

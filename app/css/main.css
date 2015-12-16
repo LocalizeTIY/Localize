@@ -5815,6 +5815,8 @@ body {
       font-family: "Ubuntu"; }
     body .featSection .large-up-4 .column, body .featSection .large-up-4 .columns {
       margin-right: 2%; }
+      body .featSection .large-up-4 .column a, body .featSection .large-up-4 .columns a {
+        color: #FF4734; }
       body .featSection .large-up-4 .column .featImgDiv, body .featSection .large-up-4 .columns .featImgDiv {
         overflow: hidden;
         border: 5px solid #fff;
@@ -6951,11 +6953,16 @@ body {
     padding: 1% 0;
     background: black;
     color: white; }
-  body #copy {
-    width: 100%;
-    margin: 3% 32% 0;
-    font-size: 0.875em;
-    opacity: 1.2; }
+    body .copy2 #copy {
+      width: 100%;
+      margin: 3% 32% 0;
+      font-size: 0.875em;
+      opacity: 1.2; }
+    body .copy2 #by {
+      width: 100%;
+      margin: 2% 31% 3%;
+      font-size: 0.875em;
+      opacity: 0.7; }
   body #by {
     width: 100%;
     margin: 2% 31% 3%;
