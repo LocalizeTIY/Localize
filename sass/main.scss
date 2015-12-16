@@ -196,24 +196,45 @@ body {
     }
   }
 
+  .searchResDiv {
+    position: absolute;
+    top: 77%;
+    left: 25.2%;
+    height: 300px;
+    width: 41.2%;
+    overflow: auto;
+    overflow-x: hidden;
+
+  }
+
+  ul li {
+    display: block;
+    margin: -1%;
+
+  }
+
   ul.searchResults a {
-    transition: color 1.5s ease;
+    // transition: color 1.5s ease;
     background: #fff;
     color: #000;
     font-size: 1.2em;
     list-style: none;
     width: 486px;
-    padding-left: 2%;
-    position: absolute;
-    top: 77%;
-    left: 334px;
-    padding-top: 1%;
-    margin-top: 5px;
+    // padding-left: 2%;
+    // position: absolute;
+    // top: 77%;
+    // left: 334px;
+    // padding-top: 1% 1%;
+    padding: 2%;
+    margin-top: 2px;
     margin-left: 20px;
+    display: block;
+    border-bottom: 1px solid $greyLight;
   }
 
   ul.searchResults a:hover {
-    color: $greyBrown;
+    color: #000;
+    background: $redOrange;
   }
 
   input:-webkit-autofill {

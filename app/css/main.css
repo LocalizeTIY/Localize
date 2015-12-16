@@ -5711,22 +5711,31 @@ body {
       left: 262%;
       height: 76%;
       background: #FF4734; }
+  body .searchResDiv {
+    position: absolute;
+    top: 77%;
+    left: 25.2%;
+    height: 300px;
+    width: 41.2%;
+    overflow: auto;
+    overflow-x: hidden; }
+  body ul li {
+    display: block;
+    margin: -1%; }
   body ul.searchResults a {
-    transition: color 1.5s ease;
     background: #fff;
     color: #000;
     font-size: 1.2em;
     list-style: none;
     width: 486px;
-    padding-left: 2%;
-    position: absolute;
-    top: 77%;
-    left: 334px;
-    padding-top: 1%;
-    margin-top: 5px;
-    margin-left: 20px; }
+    padding: 2%;
+    margin-top: 2px;
+    margin-left: 20px;
+    display: block;
+    border-bottom: 1px solid #E6E6E6; }
   body ul.searchResults a:hover {
-    color: #878676; }
+    color: #000;
+    background: #FF4734; }
   body input:-webkit-autofill {
     display: none; }
   body .connect {

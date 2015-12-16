@@ -28,11 +28,13 @@
     </form>
 
 <!-- DISPLAYING SEARCH RESULTS AS LINKS AND DIRECTING IT TO SINGLE VIEW -->
-    <ul class="searchResults dropdown menu">
+  <div class='searchResDiv'>
+    <ul class="searchResults dropdown">
       <li class="searchResultList" ng-repeat="result in vm.results | filter: data">
-        <a href="#/singleresult/{{result.name}}">{{ result.name }}</a>
+        <a href="#/singleresult/{{result.name}}">{{result.name}}</a>
       </li>
     </ul>
+  </div>
   </section>
 
 </section>
