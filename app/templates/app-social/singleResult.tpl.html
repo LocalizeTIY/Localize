@@ -1,10 +1,42 @@
-<h3> {{single.name}}</h3>
-<!-- {{vm.singles}} -->
-<ul>
-  <li ng-class="single" ng-repeat="single in vm.singles">
-  {{single.name}} {{single.rating}}
-  <p></p>
-  {{single.picture}}
-  Address : {{single.location}}
-  </li>
-</ul>
+<section class='singlePage'>
+
+  <div class='singleNav'>
+  <!-- Localize Logo -->
+    <a href="#/" class='logo'><img src="../media/localizelogoInvert.png" class='localizeLogo'></a>
+   
+  <!-- Top Right Navigation -->
+    <section class="top-bar-section">
+      <ul class="right">
+      <div class="position-right"> 
+        <li id ="home"><a href="#/"><i class="fa fa-home fa-2x"></i></a></li>
+        <li id="login"><a href="#/login">Login</a></li>
+        <li id='register'><a href="#/register">Register</a></li>
+        <li id="add"><a data-toggle='animatedModal1'>Add Event</a></li>
+      </div>
+      </ul>
+    </section>
+  </div>
+
+  <section class='singleResults'>
+  	<h4>Explore your new city here: </h4>
+    <div>
+	    <li class="singleResDiv" ng-repeat="single in vm.singles">
+		    <div class="singleContainer">
+		      <a href="#/singleresult/{{single.name}}">{{single.name}}</a>
+						<div>
+							<div class="imgDiv">
+								<img ng-src="{{single.picture}}" alt="#">
+								<div class="singleResText">
+									<span><p>Address : {{single.location}}</p></span>
+									<span><p>Time : {{single.time}}</p></span>
+									<span><p>{{single.comment}}</p></span>
+								</div>
+							</div>
+						</div>					
+		    </div>
+	    </li>
+    </div>
+  </section>
+</section>
+
+
