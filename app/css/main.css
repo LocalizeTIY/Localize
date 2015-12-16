@@ -5959,6 +5959,40 @@ body {
   body .detail {
     height: 100px;
     margin-left: 0; }
+  body .singlePage .singleResults {
+    margin: 5% 0 5% 5%; }
+    body .singlePage .singleResults h4 {
+      font-family: "Ubuntu";
+      color: #FF4734;
+      margin-top: 15%; }
+    body .singlePage .singleResults .singleResDiv {
+      display: inline-block;
+      width: 25%;
+      margin: 2% 0;
+      overflow: hidden; }
+    body .singlePage .singleResults .singleContainer {
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px 30px 5px;
+      background: #fff;
+      width: 84%;
+      height: 297px; }
+      body .singlePage .singleResults .singleContainer img {
+        width: 530px;
+        height: 260px;
+        border: none;
+        border-radius: 3px 29px 0 0; }
+      body .singlePage .singleResults .singleContainer .singleResText {
+        margin-left: 5%;
+        margin-top: 2%;
+        margin-bottom: 5%;
+        font-family: "Ubuntu"; }
+        body .singlePage .singleResults .singleContainer .singleResText a {
+          color: #FF4734; }
+        body .singlePage .singleResults .singleContainer .singleResText span {
+          float: right;
+          margin-right: 5%; }
+        body .singlePage .singleResults .singleContainer .singleResText small {
+          color: #FF4734; }
   body body.stop-scrolling {
     height: 100%;
     overflow: hidden; }

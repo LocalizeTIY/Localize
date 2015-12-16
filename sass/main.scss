@@ -478,6 +478,64 @@ body {
   margin-left: 0;
 }
 
+// SINGLE RESULTS
+
+.singlePage {
+
+
+    .singleResults {
+      margin: 5% 0 5% 5%;
+
+      h4 {
+        font-family: $ubuntu;
+        color: $redOrange;
+        margin-top: 15%;
+      }
+    
+      .singleResDiv{
+        display:inline-block;
+        width:25%;
+        margin :2% 0;
+        overflow: hidden;
+      }
+
+      .singleContainer{
+        border: 3px solid rgba(255,255,255,0.2);
+        border-radius: 5px 30px 5px;
+        background: #fff;
+        width: 84%;
+        height: 297px;
+
+        img {
+          width: 530px;
+          height: 260px;
+          border: none;
+          border-radius: 3px 29px 0 0;
+        }
+
+        .singleResText {
+          margin-left: 5%;
+          margin-top: 2%;
+          margin-bottom: 5%;
+          font-family: $ubuntu;
+
+          a {
+            color: $redOrange;
+          }
+
+          span {
+            float: right;
+            margin-right: 5%;
+          }
+
+          small {
+            color: $redOrange;
+          }
+        }
+
+      }
+    }
+}
 ///CSS FOR SWEET ALERT
 body.stop-scrolling {
   height: 100%;
