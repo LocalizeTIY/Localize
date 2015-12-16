@@ -7,21 +7,20 @@
     <section class="top-bar-section">
       <ul class="right">
       <div class="position-right"> 
-        <li id ="home"><a href="#/"><i class="fa fa-home fa-2x"></i></a></li>
-        <li id="login"><a href="#/login">Login</a></li>
-        <li id='register'><a href="#/register">Register</a></li>
-        <li id="add"><a data-toggle='animatedModal1'>Add Event</a></li>
+        <li id ="home"><a href="#/"><i class="fa fa-home fa-5x"></i></a></li>
+          <form ng-submit="vm.logout(user)">     
+      <button>Log Out</button>
+  </form>
+  <button><a href="#/add">Add</a></button>
       </div>
       </ul>
     </section>
   </div>
   
+  <aside>
   <p> Welcome to Localize, {{ user.userName }}!</p><p>Here are your Events: </p>
 
-  <form ng-submit="vm.logout(user)">     
-      <button>Log Out</button>
-  </form>
-  <button><a href="#/add">Add</a></button>
+
     
 
 <!-- ALL OF THIS USER'S EVENTS -->
