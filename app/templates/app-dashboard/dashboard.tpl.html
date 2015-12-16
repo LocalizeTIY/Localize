@@ -1,42 +1,42 @@
-<div class="dashboard">
+<section class="dashPage">
   <div class='tagNav'>
-  <!-- Localize Logo -->
+    <!-- Localize Logo -->
     <a href="#/" class='logo'><img src="../media/localizelogoInvert.png" class='localizeLogo'></a>
    
-  <!-- Top Right Navigation -->
+    <!-- Top Right Navigation -->
     <section class="top-bar-section">
       <ul class="right">
       <div class="position-right"> 
         <li id ="home"><a href="#/"><i class="fa fa-home fa-5x"></i></a></li>
-          <form ng-submit="vm.logout(user)">     
-      <button>Log Out</button>
-  </form>
-  <button><a href="#/add">Add</a></button>
+        <li ng-click="vm.logout(user)"><button>Log Out</button></li>
       </div>
       </ul>
-    </section>
   </div>
   
-  <aside>
-  <p> Welcome to Localize, {{ user.userName }}!</p><p>Here are your Events: </p>
+  <section class="dashboardArea row"></div>
+    <aside class='dashAside large-3 large-pull-9 columns'>
+      <h3>Hello, {{ user.userName }}</h3>
+      <button type="button" class="alert button"><a href="#/add">Add</a></button>
+    </aside>
+
+    <!-- ALL OF THIS USER'S EVENTS -->
+
+    <div class='dashboard large-9 large-push-3 columns' ng-repeat='event in vm.events'>
+      <div class='dashImgCont'>
+        <img ng-src='{{event.picture}}'>
+        <h5>{{event.name}}</h5>
+        <p>{{event.date}} <span>{{event.time}}</p>
+        <small>{{event.location}}</small>
+        <form class='ratings' ng-submit="vm.addRating(event.rating, event.objectId)" >
+          <input ng-model="event.rating" placeholder="Rate this from 1-10">
+          <button>Rate</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
 
-    
-
-<!-- ALL OF THIS USER'S EVENTS -->
-
-  
-  <table>
-    <tr>
-      <td>Event Name</td>
-      <td>Created By</td>
-      <td>Event Date</td>
-      <td>Event Time</td>
-      <td>Event Location</td>
-      <td>Event Tags</td>
-      <td>Event Ratings</td>
-    </tr>
-    <tr ng-repeat="event in vm.events">
+    <tr ng-repeat="event in vm.events"> 
       <td>{{ event.name }}</td>
       <td>{{ event.createdby }}</td>
       <td>{{ event.date}}</td>
@@ -44,14 +44,11 @@
       <td>{{ event.location }}</td>
       <td>{{ event.tags }}</td>
       <td> 
-        <form class='ratings' ng-submit="vm.addRating(event.rating, event.objectId)" >
-          <input ng-model="event.rating" placeholder="Rate this from 1-10">
-          <button>Vote</button>
-        </form>
+        
       </td>
     </tr>
   </table>
 
 
-</div>
+</section>
  

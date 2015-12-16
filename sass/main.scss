@@ -534,8 +534,8 @@ body {
     
       .tagResDiv{
         display:inline-block;
-        width:25%;
-        margin :2% 0;
+        width:29%;
+        margin :2% -2%;
         overflow: hidden;
       }
 
@@ -572,10 +572,91 @@ body {
             color: $redOrange;
           }
         }
-
       }
     }
-}
+  }
+
+ //////// DASHBOARD TEMPLATE ////////
+
+ .dashPage {
+  margin-top: 10%;
+  margin-bottom: 10%;
+
+  .position-right {
+    right: -11% !important; 
+  }
+
+  button {
+    color: $redOrange;
+    transition: 1s;
+    font-family: $ubuntu;
+    font-size: 1.2em;
+  }
+
+  button:hover {
+    color: #fff;
+    transition: 1s;
+  }
+
+    .dashboardArea {
+      margin-top: 20%;
+
+      .large-pull-9 {
+        left: -4px;
+        margin-right: -31.64% !important;
+        @include span-columns(4);
+
+        h3 {
+          font-family: $ubuntu;
+        }
+
+        button.alert {
+          margin-left: 0;
+        }
+
+        button a {
+          color: #fff;
+        }
+      }
+
+      .dashboard {
+        // display: inline-block;
+        @include span-columns(8);
+        margin-right: 1%;
+        width: 25%;
+
+        .dashImgCont {
+          overflow: hidden;
+          border: 3px solid #fff;
+          border-radius: 5px 30px 5px;
+          height: 300px;
+          margin-bottom: 5%;
+          background: #fff;
+
+          h5 {
+            font-family: $ubuntu;
+          }
+
+          p {
+
+          }
+
+          img {
+            width: 280px;
+            height: 150px;
+          }
+
+          input {
+            border: 1px solid $redOrange;
+            border-radius: 5px;
+            padding: 2% 0;
+            margin-left: 5%;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
 
 ///CSS FOR SWEET ALERT
 body.stop-scrolling {
