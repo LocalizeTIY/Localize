@@ -330,6 +330,10 @@ body {
 
     .large-up-4 .column {
       margin-right: 2%;
+      
+      a {
+              color: $redOrange;
+            }
 
       .featImgDiv {
         overflow: hidden;
@@ -579,22 +583,13 @@ body {
   margin-left: 0;
 }
 
-<<<<<<< HEAD
+
 // SINGLE RESULTS
 
-.singlePage {
+  .singlePage {
 
 
     .singleResults {
-=======
-
-////////// TAG RESULTS TEMPLATE ///////////
-
-  .tagPage {
-
-
-    .tagResults {
->>>>>>> master
       margin: 5% 0 5% 5%;
 
       h4 {
@@ -603,22 +598,20 @@ body {
         margin-top: 15%;
       }
     
-<<<<<<< HEAD
+
+
+
       .singleResDiv{
-=======
-      .tagResDiv{
->>>>>>> master
         display:inline-block;
         width:25%;
         margin :2% 0;
         overflow: hidden;
       }
 
-<<<<<<< HEAD
+
+
+
       .singleContainer{
-=======
-      .tagContainer{
->>>>>>> master
         border: 3px solid rgba(255,255,255,0.2);
         border-radius: 5px 30px 5px;
         background: #fff;
@@ -632,11 +625,11 @@ body {
           border-radius: 3px 29px 0 0;
         }
 
-<<<<<<< HEAD
+        a {
+            color: $redOrange;
+          }
+
         .singleResText {
-=======
-        .tagResText {
->>>>>>> master
           margin-left: 5%;
           margin-top: 2%;
           margin-bottom: 5%;
@@ -659,10 +652,72 @@ body {
       }
     }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> master
+////////// TAG RESULTS TEMPLATE ///////////
+
+  .tagPage {
+
+
+    .tagResults {
+      margin: 5% 0 5% 5%;
+
+      h4 {
+        font-family: $ubuntu;
+        color: $redOrange;
+        margin-top: 15%;
+      }
+    
+
+
+
+      .tagResDiv{
+        display:inline-block;
+        width:25%;
+        margin :2% 0;
+        overflow: hidden;
+      }
+
+
+
+
+      .tagContainer{
+        border: 3px solid rgba(255,255,255,0.2);
+        border-radius: 5px 30px 5px;
+        background: #fff;
+        width: 84%;
+        height: 297px;
+
+        img {
+          width: 530px;
+          height: 260px;
+          border: none;
+          border-radius: 3px 29px 0 0;
+        }
+
+        .tagResText {
+          margin-left: 5%;
+          margin-top: 2%;
+          margin-bottom: 5%;
+          font-family: $ubuntu;
+
+          a {
+            color: $redOrange;
+          }
+
+          span {
+            float: right;
+            margin-right: 5%;
+          }
+
+          small {
+            color: $redOrange;
+          }
+        }
+
+      }
+    }
+}
+
 ///CSS FOR SWEET ALERT
 body.stop-scrolling {
   height: 100%;
@@ -1563,7 +1618,6 @@ li{
     
     
   .copy2{
-<<<<<<< HEAD
         width:100%;
         padding:1% 0;
         background : black;
@@ -1580,27 +1634,6 @@ li{
           font-size: 0.875em;
           opacity :0.7;
         }
-        } }}
-=======
-    width:100%;
-    padding:1% 0;
-    background : black;
-    color :white;
-  }
+        } }
 
-  #copy{
-    width:100%;
-    margin: 3% 32% 0;
-    font-size: 0.875em;
-    opacity :1.2;
-  }
 
-  #by{
-    width:100%;
-    margin: 2% 31% 3%;
-    font-size: 0.875em;
-    opacity :0.7;
-  }
-}
-}
->>>>>>> master
