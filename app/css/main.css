@@ -5961,6 +5961,43 @@ body {
   body .detail {
     height: 100px;
     margin-left: 0; }
+<<<<<<< HEAD
+  body .tagPage .tagResults {
+    margin: 5% 0 5% 5%; }
+    body .tagPage .tagResults h4 {
+      font-family: "Ubuntu";
+      color: #FF4734;
+      margin-top: 15%; }
+    body .tagPage .tagResults .tagResDiv {
+      display: inline-block;
+      width: 25%;
+      margin: 2% 0;
+      overflow: hidden; }
+    body .tagPage .tagResults .tagContainer {
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px 30px 5px;
+      background: #fff;
+      width: 84%;
+      height: 297px; }
+      body .tagPage .tagResults .tagContainer img {
+        width: 530px;
+        height: 260px;
+        border: none;
+        border-radius: 3px 29px 0 0; }
+      body .tagPage .tagResults .tagContainer .tagResText {
+        margin-left: 5%;
+        margin-top: 2%;
+        margin-bottom: 5%;
+        font-family: "Ubuntu"; }
+        body .tagPage .tagResults .tagContainer .tagResText a {
+          color: #FF4734; }
+        body .tagPage .tagResults .tagContainer .tagResText span {
+          float: right;
+          margin-right: 5%; }
+        body .tagPage .tagResults .tagContainer .tagResText small {
+          color: #FF4734; }
+=======
+>>>>>>> master
   body body.stop-scrolling {
     height: 100%;
     overflow: hidden; }
