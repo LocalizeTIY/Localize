@@ -40,6 +40,7 @@ body {
   background: $greyLight;
   background-size: cover;
   height: 100%;
+  max-width:100%;
 
   ul {
     margin-bottom: 0;
@@ -87,7 +88,7 @@ body {
   right:0%;
 }
 
-.fa {
+.fa.fa-home {
   transition: 0.5s;
   color: $redOrange;
 }
@@ -109,6 +110,37 @@ body {
 
 .modalLogin {
   background: rgba(255,255,255,0.3);
+  padding : 2%; 
+}
+
+.btns{
+  padding:3%;
+  margin-top: 1%;
+}
+
+.bt1{
+    margin-left:22%;
+    width: 30%;
+    display: inline-block;
+}
+
+.bt2{
+  display:inline-block;
+  width:30%;
+}
+
+#modbtn1{
+    display:inline-block;
+    margin:2%;
+  }
+  #modbtn1 a, #modbtn2 a{
+    color:#fff !important;
+  }
+
+#modbtn2{
+    display:inline-block;
+    margin:2%;
+    //width:20%;
 }
 
 
@@ -226,15 +258,15 @@ body {
         .eatColumn {
         position: absolute;
         top: 16%;
-        left: 20%;
-        width: 65%;
+        //left: 20%;
+       // width: 65%;
         }
 
         .goColumn {
           position: absolute;
           top: 18%;
-          left: 20%;
-          width: 65%;
+          //left: 20%;
+          //width: 65%;
         }
 
         .eventColumn {
@@ -244,14 +276,16 @@ body {
 
         .menu > li > a {
           transition: 1s;
-          color: #fff;
+          color: $greyMedium;
           font-weight: bold;
-          font-size: 1.2em;
+          font-size: 0.9em;
         }
 
         .menu > li > a:hover {
           color: red;
           transition: 1s;
+          background:rgba(255,255,255,0.9);
+          opacity :0.7;
         }
       }
     }
@@ -264,6 +298,12 @@ body {
     .dropdown.menu .submenu {
       background: transparent;
       border: none;
+      width: 100%;
+      height:210px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background:rgba(255,255,255,0.6);
+
     }
   }
 
@@ -439,15 +479,67 @@ body {
     }
   }
 
-//ADD FORM
+//---------ADD FORM-----------//
+.add-welcome{
+  margin : 2% 10%;
+ 
+ #uid{
+  font-size: 1em; 
+ } 
+}
+
 .pageHeading{
   margin :3% auto;
-  padding-left:15%;
+  padding-left:40%;
+  font-size: 1.2em;
+}
+
+.up-img{
+  border:1px solid $redOrange;
+  width :60%;
+  margin :1% auto 2%;
+  padding:2%;
+  // background-color:$greyBrown;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+ #eventImage{
+    color:#6D6262;
+ }
+
+
+.eventImgBtn1, .eventImgBtn2{
+  display:inline-block;
+  width:20%;
+  background-color: $redOrange;
+}
+
+.button.eventImgBtn1{
+  margin-left:25%;
+}
+
+.eventImgBtn2 a{
+  color:white !important;
+}
+
+.eventImgBtn1:hover, .eventImgBtn2:hover{
+ // color:white !important;
+  background-color: $redOrange;
+}
+
+.addForm{
+  border:1px solid $redOrange;
+  width :60%;
+  margin :1% auto 7%;
+  padding:2%;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+
 }
 
 .add-event{
   //border :0.1em solid black;
-  width : 50%;
+  //width : 50%;
   padding:5%;
   margin : 2% auto;
 }
@@ -458,19 +550,28 @@ body {
   margin : 2% auto;
 }
 
-.rating-stars{
-  color : yellow !important;
 
-}
+// .rating-stars{
+//   color : yellow !important;
+
+// }
 
 .button{
-  margin : 5% 30% ;
+  margin : 5% ;
+  background-color:$redOrange;
+}
+.button:hover{
+  background-color:$redOrange;
 }
 
 .addfields{
-  width :80%;
+  width :100%;
   height: 50px;
-  margin :1% auto;
+  margin:1% 0;
+  padding :0;
+}
+#pokemonBlue, #pokemonYellow, #pokemonRed{
+  color : $redOrange !important;
 }
 
 .detail{
@@ -478,12 +579,22 @@ body {
   margin-left: 0;
 }
 
+<<<<<<< HEAD
 // SINGLE RESULTS
 
 .singlePage {
 
 
     .singleResults {
+=======
+
+////////// TAG RESULTS TEMPLATE ///////////
+
+  .tagPage {
+
+
+    .tagResults {
+>>>>>>> master
       margin: 5% 0 5% 5%;
 
       h4 {
@@ -492,14 +603,22 @@ body {
         margin-top: 15%;
       }
     
+<<<<<<< HEAD
       .singleResDiv{
+=======
+      .tagResDiv{
+>>>>>>> master
         display:inline-block;
         width:25%;
         margin :2% 0;
         overflow: hidden;
       }
 
+<<<<<<< HEAD
       .singleContainer{
+=======
+      .tagContainer{
+>>>>>>> master
         border: 3px solid rgba(255,255,255,0.2);
         border-radius: 5px 30px 5px;
         background: #fff;
@@ -513,7 +632,11 @@ body {
           border-radius: 3px 29px 0 0;
         }
 
+<<<<<<< HEAD
         .singleResText {
+=======
+        .tagResText {
+>>>>>>> master
           margin-left: 5%;
           margin-top: 2%;
           margin-bottom: 5%;
@@ -536,6 +659,10 @@ body {
       }
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 ///CSS FOR SWEET ALERT
 body.stop-scrolling {
   height: 100%;
@@ -1265,111 +1392,27 @@ body.stop-scrolling {
   100% {
     transform: rotate(360deg); } }
 
-/* Internet Explorer 9 has some special quirks that are fixed here */
-/* The icons are not animated. */
-/* This file is automatically merged into sweet-alert.min.js through Gulp */
-/* Error icon */
-.sweet-alert .sa-icon.sa-error .sa-line.sa-left {
-  -ms-transform: rotate(45deg) \9; }
+// /* Internet Explorer 9 has some special quirks that are fixed here */
+// /* The icons are not animated. */
+// /* This file is automatically merged into sweet-alert.min.js through Gulp */
+// /* Error icon */
+// .sweet-alert .sa-icon.sa-error .sa-line.sa-left {
+//   -ms-transform: rotate(45deg) \9; }
 
-.sweet-alert .sa-icon.sa-error .sa-line.sa-right {
-  -ms-transform: rotate(-45deg) \9; }
+// .sweet-alert .sa-icon.sa-error .sa-line.sa-right {
+//   -ms-transform: rotate(-45deg) \9; }
 
-/* Success icon */
-.sweet-alert .sa-icon.sa-success {
-  border-color: transparent\9; }
+// /* Success icon */
+// .sweet-alert .sa-icon.sa-success {
+//   border-color: transparent\9; }
 
-.sweet-alert .sa-icon.sa-success .sa-line.sa-tip {
-  -ms-transform: rotate(45deg) \9; }
+// .sweet-alert .sa-icon.sa-success .sa-line.sa-tip {
+//   -ms-transform: rotate(45deg) \9; }
 
-.sweet-alert .sa-icon.sa-success .sa-line.sa-long {
-  -ms-transform: rotate(-45deg) \9; }
+// .sweet-alert .sa-icon.sa-success .sa-line.sa-long {
+//   -ms-transform: rotate(-45deg) \9; }
 
-/*!
- * Load Awesome v1.1.0 (http://github.danielcardoso.net/load-awesome/)
- * Copyright 2015 Daniel Cardoso <@DanielCardoso>
- * Licensed under MIT
- */
-.la-ball-fall,
-.la-ball-fall > div {
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-.la-ball-fall {
-  display: block;
-  font-size: 0;
-  color: #fff; }
-
-.la-ball-fall.la-dark {
-  color: #333; }
-
-.la-ball-fall > div {
-  display: inline-block;
-  float: none;
-  background-color: currentColor;
-  border: 0 solid currentColor; }
-
-.la-ball-fall {
-  width: 54px;
-  height: 18px; }
-
-.la-ball-fall > div {
-  width: 10px;
-  height: 10px;
-  margin: 4px;
-  border-radius: 100%;
-  opacity: 0;
-  -webkit-animation: ball-fall 1s ease-in-out infinite;
-  -moz-animation: ball-fall 1s ease-in-out infinite;
-  -o-animation: ball-fall 1s ease-in-out infinite;
-  animation: ball-fall 1s ease-in-out infinite; }
-
-.la-ball-fall > div:nth-child(1) {
-  -webkit-animation-delay: -200ms;
-  -moz-animation-delay: -200ms;
-  -o-animation-delay: -200ms;
-  animation-delay: -200ms; }
-
-.la-ball-fall > div:nth-child(2) {
-  -webkit-animation-delay: -100ms;
-  -moz-animation-delay: -100ms;
-  -o-animation-delay: -100ms;
-  animation-delay: -100ms; }
-
-.la-ball-fall > div:nth-child(3) {
-  -webkit-animation-delay: 0ms;
-  -moz-animation-delay: 0ms;
-  -o-animation-delay: 0ms;
-  animation-delay: 0ms; }
-
-.la-ball-fall.la-sm {
-  width: 26px;
-  height: 8px; }
-
-.la-ball-fall.la-sm > div {
-  width: 4px;
-  height: 4px;
-  margin: 2px; }
-
-.la-ball-fall.la-2x {
-  width: 108px;
-  height: 36px; }
-
-.la-ball-fall.la-2x > div {
-  width: 20px;
-  height: 20px;
-  margin: 8px; }
-
-.la-ball-fall.la-3x {
-  width: 162px;
-  height: 54px; }
-
-.la-ball-fall.la-3x > div {
-  width: 30px;
-  height: 30px;
-  margin: 12px; }
+//DELETE THE BALL FALL FROM SWEET ALERT.
 
 /*
  * Animation
@@ -1470,13 +1513,12 @@ body.stop-scrolling {
     -o-transform: translateY(145%);
     transform: translateY(145%); } }
 
-
-.foo {
-  background: $greyMedium;
-  margin: -3% 0;
-  padding-top: 4%;
-  background: #3E3E3E;  
-
+  .foo {
+    background: $greyMedium;
+    margin: -3% 0;
+    padding-top: 4%;
+    background: #3E3E3E;  
+  }
 
   .footer-icons{
     display:inline-block;
@@ -1484,16 +1526,44 @@ body.stop-scrolling {
     color :white;
     width : 100%;
     margin :-3% 0 2% 40%;
+  }
+    
+  li{
+    display:inline-block;
+    margin : 1%;
+  }
 
-    li{
-      display:inline-block;
-      margin : 1%;
-    }
-    .fa{
-      color:#fff;
-    }
- }
+
+.foo{
+  //position :absolute;
+  width:100%;
+  //bottom:0;
+  background: $greyMedium;
+  margin:-3% 0;
+  padding-top: 4%;
+  background: #3E3E3E;  
+}
+
+.footer-icons{
+  display:inline-block;
+  list-style:none;
+  color :white;
+  width : 100%;
+  margin :-3% 0 2% 40%;
+}
+  
+li{
+  display:inline-block;
+  margin : 1%;
+}
+
+  .fa{
+    color:#fff;
+  }
+    
+    
   .copy2{
+<<<<<<< HEAD
         width:100%;
         padding:1% 0;
         background : black;
@@ -1511,3 +1581,26 @@ body.stop-scrolling {
           opacity :0.7;
         }
         } }}
+=======
+    width:100%;
+    padding:1% 0;
+    background : black;
+    color :white;
+  }
+
+  #copy{
+    width:100%;
+    margin: 3% 32% 0;
+    font-size: 0.875em;
+    opacity :1.2;
+  }
+
+  #by{
+    width:100%;
+    margin: 2% 31% 3%;
+    font-size: 0.875em;
+    opacity :0.7;
+  }
+}
+}
+>>>>>>> master

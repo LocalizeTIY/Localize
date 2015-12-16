@@ -7,14 +7,20 @@ let DashboardService = function (PARSE, $http, UserService, $state, $cookies, Lo
   this.addRating = addRating;
   // this.Events= Events;
 
-
+  //CHECKING FOR USER SESSION TOKEN TO GO TO HOME IF NOT LOGGED IN.
   function getAllEvents(user){
-   	return $http({
-  		url : eventURL,
-  		method : 'GET',
-  		params : {where :{createdby : user.userName}},
-  		headers : PARSE.CONFIG.headers
-  	});
+    console.log('user',user);
+    if(!user.sessionToken){
+      swal('not logged in !!');
+      $state.go('root.home')
+    }else{
+     	return $http({
+    		url : eventURL,
+    		method : 'GET',
+    		params : {where :{createdby : user.userName}},
+    		headers : PARSE.CONFIG.headers
+    	});
+    }
   }
 
 // USER CAN ADD RATING TO THEIR OWN EVENTS
@@ -25,21 +31,25 @@ let DashboardService = function (PARSE, $http, UserService, $state, $cookies, Lo
       // url     : `${eventURL}/${objId}`,
       url : eventURL+'/'+objId,
       method  : 'PUT',
-      //body :{rating : newrating}
       data:{ratings : newrating},
-      // params  : {where :{objectId : objId }},
       headers : PARSE.CONFIG.headers
     });
   }
 
   function logout(userObj) {
-  	console.log('from logout in service',userObj.sessionToken);
-		$cookies.remove(userObj.sessionToken);
-		return $http({
-			url     : PARSE.URL + 'logout',
-  	 	headers : PARSE.CONFIG.headers,
-  	 	method  :'POST'
-  	});
+  	//console.log('from logout in service',userObj.sessionToken);
+    var temp = $cookies.get('userSessionToken','userName','userObjID');
+    console.log('temp', temp);
+		$cookies.remove('userSessionToken');
+    $cookies.remove('userName');
+    $cookies.remove('userObjID');
+    $state.go('root.home');;
+    
+    // return $http({
+    //  url     : PARSE.URL + 'logout',
+  //    headers : PARSE.CONFIG.headers,
+  //    method  :'POST'
+  //  });
   }
   
 };

@@ -1,69 +1,75 @@
 
 
+<div class='add-welcome'>
+  <h4 id='uid'>{{user.userName}}, Welcome Back !!!</h4> 
+  <div class='add-main'>
+    <h4 class='pageHeading'> Add Upcoming Events</h4>
+</div>
+  <!-- <p ng-model="vm.rating"></p> -->
 
-<h4> Welcome {{user.userName}} </h4> 
-<div class='add-main'>
-  <h4 class='pageHeading'> Add Upcoming Events</h4>
-  <p ng-model="vm.rating"></p>
-
+<div class='up-img'>
   <form ng-submit="vm.uploadFile()" ng-hide="vm.imageUploaded">
     <input type='file' id='eventImage' >
-    <button class=' button eventImgBtn'> Add Image</button>
+    <button class=' button eventImgBtn1'> Add Image</button>
+    <button class='button eventImgBtn2'><a href="#/dashboard">Cancel</a></button>
   </form>
+  <img class='img-add' ng-src="{{vm.image}}" width="200">
+</div>
 
-  <img ng-src="{{vm.image}}" width="100">
 
-  <div class='add-event' ng-show="vm.imageUploaded">
+  
+  <div class='addForm'>
+    <div class='add-event' ng-show="vm.imageUploaded">
 
-    <form ng-submit="vm.addEvent(event)">
-      <input class="addfields" 
-        placeholder="Event Name " 
-        ng-blur="vm.validateName(event.name)"
-        ng-model="event.name">
-      <small>{{ vm.errNameMsg }}</small>
-    
-      <input class="addfields"
-        type="date"
-        placeholder="Date" 
-        ng-model="event.date">
-      <small>{{vm.errDateMsg }}</small>
+      <form ng-submit="vm.addEvent(event)">
+        <input class="addfields" 
+          placeholder="Event Name " 
+          ng-blur="vm.validateName(event.name)"
+          ng-model="event.name">
+        <small>{{ vm.errNameMsg }}</small>
       
-      <input class="addfields"
-        placeholder="Time" 
-        type="time"
-        ng-model="event.time">
-      <small>{{vm.errTimeMsg}}</small>
-      
-      <input class="addfields"
-        placeholder="Location" 
-        ng-model="event.location" >
-      <small>{{vm.errLocationMsg}}</small>
+        <input class="addfields"
+          type="date"
+          ng-model="event.date">
+        <small>{{vm.errDateMsg }}</small>
+        
+        <input class="addfields" 
+          type="time"
+          ng-model="event.time">
+        <small>{{vm.errTimeMsg}}</small>
+        
+        <input class="addfields loc"
+          placeholder="Location" 
+          ng-model="event.location" >
+        <small>{{vm.errLocationMsg}}</small>
 
-      
-      <textarea class="addfields detail"
-        placeholder="Details" 
-        ng-model="event.comment">
-      </textarea>
-      <small>{{vm.errDetailMsg}}</small>  
+        
+        <textarea class="addfields detail"
+          placeholder="Details" 
+          ng-model="event.comment">
+        </textarea>
+        <small>{{vm.errDetailMsg}}</small>  
 
-      <div class="row">
-        <fieldset class="large-6 columns">
-          <legend>Select Event Type</legend>
-          <input ng-model="event.category" type="radio" name="pokemon" value="eat" id="pokemonRed" required><label for="pokemonRed">Eat</label>
-          <input ng-model="event.category" type="radio" name="pokemon" value="go" id="pokemonBlue"><label for="pokemonBlue">Go</label>
-          <input ng-model="event.category" type="radio" name="pokemon" value="event" id="pokemonYellow"><label for="pokemonYellow">Event</label>
-        </fieldset>
-      </div>
+        <div class="row">
+          <fieldset class="large-6 columns">
+            <legend>Select Event Type</legend>
+            <input ng-model="event.category" type="radio" name="pokemon" value="eat" id="pokemonRed" required><label for="pokemonRed">Eat</label>
+            <input ng-model="event.category" type="radio" name="pokemon" value="go" id="pokemonBlue"><label for="pokemonBlue">Go</label>
+            <input ng-model="event.category" type="radio" name="pokemon" value="event" id="pokemonYellow"><label for="pokemonYellow">Event</label>
+          </fieldset>
+        </div>
 
-      <input class="addfields"
-        placeholder="Tags" 
-        ng-model="event.tags" >
-        <small>{{vm.errTagsMsg}}</small>
+        <input class="addfields"
+          placeholder="Tags" 
+          ng-model="event.tags" >
+          <small>{{vm.errTagsMsg}}</small>
 
-      <button class="button">Add Event</button>
+        <button class="button">Add Event</button>
 
-    </form>
+      </form>
+    </div>
   </div>
+    
 </div>
 
 
