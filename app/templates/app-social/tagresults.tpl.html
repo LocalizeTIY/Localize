@@ -1,5 +1,37 @@
-<div class='tagContainer'>
-  <h3>Title Here</h3>
+<section class='tagPage'>
+<!-- <img ng-src='../media/minimal.jpg' class='tagImg'> -->
+  <div class='tagNav'>
+  <!-- Localize Logo -->
+    <a href="#/" class='logo'><img src="../media/localizelogoInvert.png" class='localizeLogo'></a>
+   
+  <!-- Top Right Navigation -->
+    <section class="top-bar-section">
+      <ul class="right">
+      <div class="position-right"> 
+        <li id ="home"><a href="#/"><i class="fa fa-home fa-2x"></i></a></li>
+        <li id="login"><a href="#/login">Login</a></li>
+        <li id='register'><a href="#/register">Register</a></li>
+        <li id="add"><a data-toggle='animatedModal1'>Add Event</a></li>
+      </div>
+      </ul>
+    </section>
+  </div>
 
-  <p ng-repeat="info in vm.info"><a href="#/singleresult/{{info.name}}">{{info.name}}</a></p>
-</div>
+  <section class='tagResults'>
+  <h4>Is this what you were searching for?</h4>
+    <div>
+      <a href='#/singleresult/{{info.name}}'>
+
+        <div ng-repeat="info in vm.info" class='tagResDiv'>
+          <div class='tagContainer'>         
+            <div class='imgDiv'>
+              <img ng-src='{{info.picture}}'>
+            <div class='tagResText'>
+              <p><a href="#/singleresult/{{info.name}}">{{info.name}}</a><span>{{info.date}}</span></p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+</section>
