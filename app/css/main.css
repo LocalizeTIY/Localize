@@ -5904,28 +5904,98 @@ body {
       body .regPage .regSection .regForm a:hover {
         color: #fff;
         transition: 1s; }
+  body .add-welcome {
+    margin: 2% 10%; }
+    body .add-welcome #uid {
+      font-size: 1em; }
   body .pageHeading {
     margin: 3% auto;
-    padding-left: 15%; }
+    padding-left: 40%;
+    font-size: 1.2em; }
+  body .up-img {
+    border: 1px solid #FF4734;
+    width: 60%;
+    margin: 1% auto 2%;
+    padding: 2%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px; }
+  body #eventImage {
+    color: #6D6262; }
+  body .eventImgBtn1, body .eventImgBtn2 {
+    display: inline-block;
+    width: 20%;
+    background-color: #FF4734; }
+  body .button.eventImgBtn1 {
+    margin-left: 25%; }
+  body .eventImgBtn2 a {
+    color: white !important; }
+  body .eventImgBtn1:hover, body .eventImgBtn2:hover {
+    background-color: #FF4734; }
+  body .addForm {
+    border: 1px solid #FF4734;
+    width: 60%;
+    margin: 1% auto 7%;
+    padding: 2%;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px; }
   body .add-event {
-    width: 50%;
     padding: 5%;
     margin: 2% auto; }
   body .add-event-display {
     width: 50%;
     padding: 5%;
     margin: 2% auto; }
-  body .rating-stars {
-    color: yellow !important; }
   body .button {
-    margin: 5% 30%; }
+    margin: 5%;
+    background-color: #FF4734; }
+  body .button:hover {
+    background-color: #FF4734; }
   body .addfields {
-    width: 80%;
+    width: 100%;
     height: 50px;
-    margin: 1% auto; }
+    margin: 1% 0;
+    padding: 0; }
+  body #pokemonBlue, body #pokemonYellow, body #pokemonRed {
+    color: #FF4734 !important; }
   body .detail {
     height: 100px;
     margin-left: 0; }
+  body .singlePage .singleResults {
+    margin: 5% 0 5% 5%; }
+    body .singlePage .singleResults h4 {
+      font-family: "Ubuntu";
+      color: #FF4734;
+      margin-top: 15%; }
+    body .singlePage .singleResults .singleResDiv {
+      display: inline-block;
+      width: 25%;
+      margin: 2% 0;
+      overflow: hidden; }
+    body .singlePage .singleResults .singleContainer {
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px 30px 5px;
+      background: #fff;
+      width: 84%;
+      height: 297px; }
+      body .singlePage .singleResults .singleContainer img {
+        width: 530px;
+        height: 260px;
+        border: none;
+        border-radius: 3px 29px 0 0; }
+      body .singlePage .singleResults .singleContainer a {
+        color: #FF4734; }
+      body .singlePage .singleResults .singleContainer .singleResText {
+        margin-left: 5%;
+        margin-top: 2%;
+        margin-bottom: 5%;
+        font-family: "Ubuntu"; }
+        body .singlePage .singleResults .singleContainer .singleResText a {
+          color: #FF4734; }
+        body .singlePage .singleResults .singleContainer .singleResText span {
+          float: right;
+          margin-right: 5%; }
+        body .singlePage .singleResults .singleContainer .singleResText small {
+          color: #FF4734; }
   body .tagPage .tagResults {
     margin: 5% 0 5% 5%; }
     body .tagPage .tagResults h4 {
