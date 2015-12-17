@@ -5715,10 +5715,10 @@ body {
       background: #FF4734; }
   body .searchResDiv {
     position: absolute;
-    top: 77%;
-    left: 25.2%;
+    top: 77.5%;
+    left: 24.8%;
     height: 300px;
-    width: 41.2%;
+    width: 41.5%;
     overflow: auto;
     overflow-x: hidden; }
   body ul li {
@@ -5731,7 +5731,7 @@ body {
     list-style: none;
     width: 486px;
     padding: 2%;
-    margin-top: 2px;
+    margin-top: -25px;
     margin-left: 20px;
     display: block;
     border-bottom: 1px solid #E6E6E6; }
@@ -5756,6 +5756,8 @@ body {
   body .columnsPage {
     padding-bottom: 10%;
     background-color: #E6E6E6; }
+    body .columnsPage img {
+      margin-top: 4%; }
     body .columnsPage .tresColumns {
       margin-left: 12%; }
       body .columnsPage .tresColumns .column, body .columnsPage .tresColumns .columns {
@@ -5765,21 +5767,35 @@ body {
         height: 412px;
         width: 307px; }
         body .columnsPage .tresColumns .column .columnPic, body .columnsPage .tresColumns .columns .columnPic {
-          margin-top: 4%; }
+          margin-top: 4%;
+          width: 100%; }
         body .columnsPage .tresColumns .column .eatColumn, body .columnsPage .tresColumns .columns .eatColumn {
           position: absolute;
           top: 16%; }
+          body .columnsPage .tresColumns .column .eatColumn .eatText, body .columnsPage .tresColumns .columns .eatColumn .eatText {
+            margin-left: 15%;
+            margin-top: -5%; }
         body .columnsPage .tresColumns .column .goColumn, body .columnsPage .tresColumns .columns .goColumn {
           position: absolute;
           top: 18%; }
+          body .columnsPage .tresColumns .column .goColumn .goText, body .columnsPage .tresColumns .columns .goColumn .goText {
+            margin-left: 15%;
+            margin-top: -5%; }
         body .columnsPage .tresColumns .column .eventColumn, body .columnsPage .tresColumns .columns .eventColumn {
           position: absolute;
           top: 10%; }
-        body .columnsPage .tresColumns .column .menu > li > a, body .columnsPage .tresColumns .columns .menu > li > a {
+          body .columnsPage .tresColumns .column .eventColumn .eventText, body .columnsPage .tresColumns .columns .eventColumn .eventText {
+            width: 100%; }
+        body .columnsPage .tresColumns .column .menu li, body .columnsPage .tresColumns .columns .menu li {
+          width: 100%; }
+        body .columnsPage .tresColumns .column .menu li a, body .columnsPage .tresColumns .columns .menu li a {
           transition: 1s;
           color: #3E3E3E;
           font-weight: bold;
-          font-size: 0.9em; }
+          font-size: 0.9em;
+          width: 100%; }
+        body .columnsPage .tresColumns .column .menu li a img, body .columnsPage .tresColumns .columns .menu li a img {
+          width: 60%; }
         body .columnsPage .tresColumns .column .menu > li > a:hover, body .columnsPage .tresColumns .columns .menu > li > a:hover {
           color: red;
           transition: 1s;
@@ -5806,7 +5822,6 @@ body {
     body .featSection .featHeader {
       color: #FF4734;
       font-family: "Ubuntu";
-      margin-right: -1%;
       text-align: center;
       padding-top: 2%; }
     body .featSection .featPara {
@@ -6031,14 +6046,14 @@ body {
       margin-top: 15%; }
     body .tagPage .tagResults .tagResDiv {
       display: inline-block;
-      width: 29%;
-      margin: 2% -2%;
+      width: 27%;
+      margin: 2% -14px;
       overflow: hidden; }
     body .tagPage .tagResults .tagContainer {
       border: 3px solid rgba(255, 255, 255, 0.2);
       border-radius: 5px 30px 5px;
       background: #fff;
-      width: 84%;
+      width: 86%;
       height: 297px; }
       body .tagPage .tagResults .tagContainer img {
         width: 530px;
