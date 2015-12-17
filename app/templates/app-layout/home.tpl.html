@@ -28,11 +28,13 @@
     </form>
 
 <!-- DISPLAYING SEARCH RESULTS AS LINKS AND DIRECTING IT TO SINGLE VIEW -->
-    <ul class="searchResults dropdown menu">
+  <div class='searchResDiv'>
+    <ul class="searchResults dropdown">
       <li class="searchResultList" ng-repeat="result in vm.results | filter: data">
-        <a href="#/singleresult/{{result.name}}">{{ result.name }}</a>
+        <a href="#/singleresult/{{result.name}}">{{result.name}}</a>
       </li>
     </ul>
+  </div>
   </section>
 
 </section>
@@ -61,7 +63,7 @@
 
     <!-- GO TAGS  -->
     <div class='column'>
-      <img ng-src='../media/blurredpier.png' class='columnPic'>
+      <img ng-src='../media/blurredpier.png' ng-class='columnPic'>
       <ul class='eat dropdown menu goColumn' data-dropdown-menu>
         <li>
           <a href="#" title='Go'><img ng-src='../media/goText.png' class='goText'></a>
@@ -79,7 +81,7 @@
       <img ng-src='../media/blurredevent.png' class='columnPic'>
       <ul class='eat dropdown menu eventColumn' data-dropdown-menu>
         <li>
-          <a href="#" title='Events'><img ng-src='../media/eventText.png' class='eventText'></a>
+          <a href="#" title='Events'><img ng-src='../media/see.png' class='eventText'></a>
           <ul class='menu'>
             <li ng-repeat='e in vm.events'>
               <a ng-click = 'vm.getspecData(e)' href="#/tag/{{e}}">{{e}}</a> 
