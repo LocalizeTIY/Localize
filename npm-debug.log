@@ -1,0 +1,127 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/4.1.0/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'motion-ui-transitions',
+1 verbose cli   '--save-dev' ]
+2 info using npm@2.14.4
+3 info using node@v4.1.0
+4 verbose install initial load of /Users/hyona/tiy/Projects/Localize/package.json
+5 warn package.json browserify-example@1.0.0 No repository field.
+6 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/angular/package.json
+7 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/angular-cookies/package.json
+8 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/angular-foundation/package.json
+9 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/angular-ui-router/package.json
+10 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/babelify/package.json
+11 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/browserify/package.json
+12 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/browserify-shim/package.json
+13 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/chai/package.json
+14 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/font-awesome/package.json
+15 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/foundation-sites/package.json
+16 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/gulp/package.json
+17 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/gulp-htmlhint/package.json
+18 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/gulp-jscs/package.json
+19 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/gulp-jshint/package.json
+20 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/gulp-notify/package.json
+21 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/gulp-plumber/package.json
+22 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/gulp-sass/package.json
+23 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/gulp-server-livereload/package.json
+24 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/gulp-sourcemaps/package.json
+25 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/gulp-uglify/package.json
+26 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/gulp-watch/package.json
+27 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/jquery/package.json
+28 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/jshint-jsx/package.json
+29 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/jshint-stylish/package.json
+30 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/mocha/package.json
+31 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/moment/package.json
+32 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/motion-ui/package.json
+33 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/node-bourbon/package.json
+34 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/node-font-awesome/package.json
+35 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/node-neat/package.json
+36 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/normalize.css/package.json
+37 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/sweetalert/package.json
+38 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/uglifyify/package.json
+39 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/underscore/package.json
+40 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/vinyl-buffer/package.json
+41 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/vinyl-source-stream/package.json
+42 verbose installManyTop reading scoped package data from /Users/hyona/tiy/Projects/Localize/node_modules/watchify/package.json
+43 info package.json angular-ui-router@0.2.15 No license field.
+44 info package.json gulp-notify@2.2.0 No license field.
+45 info package.json jquery@2.1.4 No license field.
+46 verbose readDependencies loading dependencies from /Users/hyona/tiy/Projects/Localize/package.json
+47 silly cache add args [ 'motion-ui-transitions', null ]
+48 verbose cache add spec motion-ui-transitions
+49 silly cache add parsed spec Result {
+49 silly cache add   raw: 'motion-ui-transitions',
+49 silly cache add   scope: null,
+49 silly cache add   name: 'motion-ui-transitions',
+49 silly cache add   rawSpec: '',
+49 silly cache add   spec: '*',
+49 silly cache add   type: 'range' }
+50 silly addNamed motion-ui-transitions@*
+51 verbose addNamed "*" is a valid semver range for motion-ui-transitions
+52 silly addNameRange { name: 'motion-ui-transitions', range: '*', hasData: false }
+53 silly mapToRegistry name motion-ui-transitions
+54 silly mapToRegistry using default registry
+55 silly mapToRegistry registry https://registry.npmjs.org/
+56 silly mapToRegistry uri https://registry.npmjs.org/motion-ui-transitions
+57 verbose addNameRange registry:https://registry.npmjs.org/motion-ui-transitions not in flight; fetching
+58 verbose request uri https://registry.npmjs.org/motion-ui-transitions
+59 verbose request no auth needed
+60 info attempt registry request try #1 at 12:34:46 AM
+61 verbose request id 4ac5089a62382ef4
+62 http request GET https://registry.npmjs.org/motion-ui-transitions
+63 http 404 https://registry.npmjs.org/motion-ui-transitions
+64 verbose headers { 'content-type': 'application/json',
+64 verbose headers   'cache-control': 'max-age=0',
+64 verbose headers   'content-length': '2',
+64 verbose headers   'accept-ranges': 'bytes',
+64 verbose headers   date: 'Thu, 17 Dec 2015 05:34:47 GMT',
+64 verbose headers   via: '1.1 varnish',
+64 verbose headers   age: '0',
+64 verbose headers   connection: 'keep-alive',
+64 verbose headers   'x-served-by': 'cache-atl6223-ATL',
+64 verbose headers   'x-cache': 'MISS',
+64 verbose headers   'x-cache-hits': '0',
+64 verbose headers   'x-timer': 'S1450330487.044596,VS0,VE129' }
+65 silly get cb [ 404,
+65 silly get   { 'content-type': 'application/json',
+65 silly get     'cache-control': 'max-age=0',
+65 silly get     'content-length': '2',
+65 silly get     'accept-ranges': 'bytes',
+65 silly get     date: 'Thu, 17 Dec 2015 05:34:47 GMT',
+65 silly get     via: '1.1 varnish',
+65 silly get     age: '0',
+65 silly get     connection: 'keep-alive',
+65 silly get     'x-served-by': 'cache-atl6223-ATL',
+65 silly get     'x-cache': 'MISS',
+65 silly get     'x-cache-hits': '0',
+65 silly get     'x-timer': 'S1450330487.044596,VS0,VE129' } ]
+66 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/motion-ui-transitions
+66 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:263:12)
+66 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:241:14)
+66 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:171:14)
+66 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+66 verbose stack     at emitTwo (events.js:87:13)
+66 verbose stack     at Request.emit (events.js:172:7)
+66 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1073:14)
+66 verbose stack     at emitOne (events.js:82:20)
+66 verbose stack     at Request.emit (events.js:169:7)
+66 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1019:12)
+67 verbose statusCode 404
+68 verbose pkgid motion-ui-transitions
+69 verbose cwd /Users/hyona/tiy/Projects/Localize
+70 error Darwin 15.0.0
+71 error argv "/usr/local/Cellar/node/4.1.0/bin/node" "/usr/local/bin/npm" "install" "motion-ui-transitions" "--save-dev"
+72 error node v4.1.0
+73 error npm  v2.14.4
+74 error code E404
+75 error 404 Registry returned 404 for GET on https://registry.npmjs.org/motion-ui-transitions
+75 error 404
+75 error 404 'motion-ui-transitions' is not in the npm registry.
+75 error 404 You should bug the author to publish it (or use the name yourself!)
+75 error 404 It was specified as a dependency of 'browserify-example'
+75 error 404
+75 error 404 Note that you can also install from a
+75 error 404 tarball, folder, http url, or git url.
+76 verbose exit [ 1, true ]
