@@ -5892,6 +5892,8 @@ body {
           margin-right: 26%;
           font-family: "Ubuntu";
           font-size: 1.2em; }
+        body .featSection .large-up-4 .column .featInfo a, body .featSection .large-up-4 .columns .featInfo a {
+          color: #FF4734; }
   body .logPage {
     height: 100%; }
     body .logPage .loginForm {
