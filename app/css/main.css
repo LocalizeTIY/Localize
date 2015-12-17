@@ -6028,7 +6028,7 @@ body {
         width: 530px;
         height: 260px;
         border: none;
-        border-radius: 3px 29px 0 0; }
+        border-radius: 3px 29px 0 29px; }
       body .singlePage .singleResults .singleContainer a {
         color: #FF4734; }
       body .singlePage .singleResults .singleContainer .singleResText {
@@ -6051,13 +6051,8 @@ body {
       margin-top: 15%; }
     body .tagPage .tagResults .tagResDiv {
       display: inline-block;
-<<<<<<< HEAD
-      width: 25%;
-      margin: 2% 0;
-=======
       width: 29%;
       margin: 2% -2%;
->>>>>>> master
       overflow: hidden; }
     body .tagPage .tagResults .tagContainer {
       border: 3px solid rgba(255, 255, 255, 0.2);
@@ -6082,8 +6077,6 @@ body {
           margin-right: 5%; }
         body .tagPage .tagResults .tagContainer .tagResText small {
           color: #FF4734; }
-<<<<<<< HEAD
-=======
   body .dashPage {
     margin-top: 10%;
     margin-bottom: 10%; }
@@ -6141,7 +6134,6 @@ body {
             padding: 2% 0;
             margin-left: 5%;
             text-align: center; }
->>>>>>> master
   body body.stop-scrolling {
     height: 100%;
     overflow: hidden; }
@@ -6954,22 +6946,12 @@ body {
     display: inline-block;
     list-style: none;
     color: white;
-<<<<<<< HEAD
     width: 100%;
     margin: -3% 0 2% 40%; }
   body li {
     display: inline-block;
     margin: 1%; }
   body .foo {
-    width: 100%;
-=======
-    width: 100%;
-    margin: -3% 0 2% 40%; }
-  body li {
-    display: inline-block;
-    margin: 1%; }
-  body .foo {
->>>>>>> master
     background: #3E3E3E;
     margin: -3% 0;
     padding-top: 4%;
@@ -6990,7 +6972,6 @@ body {
     padding: 1% 0;
     background: black;
     color: white; }
-<<<<<<< HEAD
     body .copy2 #copy {
       width: 100%;
       margin: 3% 32% 0;
@@ -7001,17 +6982,11 @@ body {
       margin: 2% 31% 3%;
       font-size: 0.875em;
       opacity: 0.7; }
-=======
-  body #copy {
-    width: 100%;
-    margin: 3% 32% 0;
-    font-size: 0.875em;
-    opacity: 1.2; }
-  body #by {
-    width: 100%;
-    margin: 2% 31% 3%;
-    font-size: 0.875em;
-    opacity: 0.7; }
->>>>>>> master
+
+#by {
+  width: 100%;
+  margin: 2% 31% 3%;
+  font-size: 0.875em;
+  opacity: 0.7; }
 
 /*# sourceMappingURL=main.css.map */

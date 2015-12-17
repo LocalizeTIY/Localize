@@ -1,5 +1,8 @@
 ## Localize Application
 
+![Localize Logo](https://i.imgur.com/Vq6FzMW.jpg)
+![Inverted Logo](https://i.imgur.com/o0w7MzR.png)
+
 > An application that helps a person get familiarized with a new city or town they have moved to.
 
 The following students participated in this project:
